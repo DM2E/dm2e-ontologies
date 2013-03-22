@@ -1,0 +1,206 @@
+#Processed by Id: cwm.py,v 1.144 2003/09/14 20:20:20 timbl Exp 
+        #    using base file:/tmp/tmphOYC64-rdfconverter
+        
+#  Notation3 generation by
+#       notation3.py,v 1.148 2003/12/04 21:20:17 timbl Exp
+
+#   Base was: file:/tmp/tmphOYC64-rdfconverter
+     @prefix : <http://creativecommons.org/ns#> .
+     @prefix owl: <http://www.w3.org/2002/07/owl#> .
+     @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    
+    :Attribution     a :Requirement;
+         rdfs:comment """credit be given to
+		    copyright holder and/or author"""@en-US;
+         rdfs:label "Attribution"@en-US .
+    
+    :CommercialUse     a :Prohibition;
+         rdfs:comment """exercising rights for
+		    commercial purposes"""@en-US;
+         rdfs:label "Commercial Use"@en-US .
+    
+    :Copyleft     a :Requirement;
+         rdfs:comment """derivative and
+		    combined works must be licensed under specified
+		    terms, similar to those on the original
+		    work"""@en-US;
+         rdfs:label "Copyleft"@en-US .
+    
+    :DerivativeWorks     a :Permission;
+         rdfs:comment """distribution of
+		    derivative works"""@en-US;
+         rdfs:label "Derivative Works"@en-US .
+    
+    :Distribution     a :Permission;
+         rdfs:comment """distribution, public
+		    display, and publicly performance"""@en-US;
+         rdfs:label "Distribution"@en-US .
+    
+    :HighIncomeNationUse     a :Prohibition;
+         rdfs:comment """use in a
+		    non-developing country"""@en-US;
+         rdfs:label "High Income Nation Use"@en-US .
+    
+    :Jurisdiction     a rdfs:Class;
+         rdfs:comment """the legal jurisdiction
+		    of a license"""@en-US;
+         rdfs:label "Jurisdiction"@en-US .
+    
+    :LesserCopyleft     a :Requirement;
+         rdfs:comment """derivative works must
+		    be licensed under specified terms, with at least
+		    the same conditions as the original work;
+		    combinations with the work may be licensed under
+		    different terms"""@en-US;
+         rdfs:label "Lesser Copyleft"@en-US .
+    
+    :License     a rdfs:Class;
+         rdfs:comment """a set of
+		    requests/permissions to users of a Work, e.g. a
+		    copyright license, the public domain, information
+		    for distributors"""@en-US;
+         rdfs:label "License"@en-US;
+         rdfs:subClassOf <http://purl.org/dc/terms/LicenseDocument> .
+    
+    :Notice     a :Requirement;
+         rdfs:comment """copyright and license
+		    notices be kept intact"""@en-US;
+         rdfs:label "Notice"@en-US .
+    
+    :Permission     a rdfs:Class;
+         rdfs:comment """an action that may or
+		    may not be allowed or desired"""@en-US;
+         rdfs:label "Permission"@en-US .
+    
+    :Prohibition     a rdfs:Class;
+         rdfs:comment """something you may be
+		    asked not to do"""@en-US;
+         rdfs:label "Prohibition"@en-US .
+    
+    :Reproduction     a :Permission;
+         rdfs:comment """making multiple
+		    copies"""@en-US;
+         rdfs:label "Reproduction"@en-US .
+    
+    :Requirement     a rdfs:Class;
+         rdfs:comment """an action that may or
+		    may not be requested of you"""@en-US;
+         rdfs:label "Requirement"@en-US .
+    
+    :ShareAlike     a :Requirement;
+         rdfs:comment """derivative works be
+		    licensed under the same terms or compatible terms
+		    as the original work"""@en-US;
+         rdfs:label "Share Alike"@en-US .
+    
+    :Sharing     a :Permission;
+         rdfs:comment """permits commercial
+		    derivatives, but only non-commercial
+		    distribution"""@en-US;
+         rdfs:label "Sharing"@en-US .
+    
+    :SourceCode     a :Requirement;
+         rdfs:comment """source code (the
+		    preferred form for making modifications) must be
+		    provided when exercising some rights granted by
+		    the license."""@en-US;
+         rdfs:label "Source Code"@en-US .
+    
+    :Work     a rdfs:Class;
+         rdfs:comment """a potentially
+		    copyrightable work"""@en-US;
+         rdfs:label "Work"@en-US .
+    
+    :attributionName     a rdf:Property;
+         rdfs:domain :Work;
+         rdfs:range rdfs:Literal .
+    
+    :attributionURL     a rdf:Property;
+         rdfs:domain :Work;
+         rdfs:range rdfs:Resource .
+    
+    :deprecatedOn     a rdf:Property;
+         rdfs:domain :License;
+         rdfs:label "deprecated\n\t\t  on"@en-US;
+         rdfs:range <http://www.w3.org/2001/XMLSchema-datatypes#date> .
+    
+    :jurisdiction     a rdf:Property;
+         rdfs:domain :License;
+         rdfs:label "jurisdiction"@en-US;
+         rdfs:range :Jurisdiction .
+    
+    :legalcode     a rdf:Property;
+         rdfs:domain :License;
+         rdfs:range rdfs:Resource .
+    
+    :license     a rdf:Property;
+         rdfs:domain :Work;
+         rdfs:label "has\n\t\t  license"@en-US;
+         rdfs:range :License;
+         rdfs:subPropertyOf <http://purl.org/dc/terms/license>
+         #= <http://www.w3.org/1999/xhtml/vocab#license> 
+         .
+    
+    :morePermissions     a rdf:Property;
+         rdfs:domain :Work;
+         rdfs:range rdfs:Resource;
+         rdfs:subPropertyOf <http://purl.org/dc/terms/relation> .
+    
+    :permits     a rdf:Property;
+         rdfs:domain :License;
+         rdfs:label "permits"@en-US;
+         rdfs:range :Permission .
+    
+    :prohibits     a rdf:Property;
+         rdfs:domain :License;
+         rdfs:label "prohibits"@en-US;
+         rdfs:range :Prohibition .
+    
+    :requires     a rdf:Property;
+         rdfs:domain :License;
+         rdfs:label "requires"@en-US;
+         rdfs:range :Requirement .
+    
+    :useGuidelines     a rdf:Property;
+         rdfs:domain :Work;
+         rdfs:range rdfs:Resource;
+         rdfs:subPropertyOf <http://purl.org/dc/terms/relation> .
+    
+    <http://web.resource.org/cc/Attribution>     owl:equivalentClass :Attribution .
+    
+    <http://web.resource.org/cc/CommercialUse>     owl:equivalentClass :CommercialUse .
+    
+    <http://web.resource.org/cc/DerivativeWorks>     owl:equivalentClass :DerivativeWorks .
+    
+    <http://web.resource.org/cc/Distribution>     owl:equivalentClass :Distribution .
+    
+    <http://web.resource.org/cc/License>     owl:equivalentClass :License .
+    
+    <http://web.resource.org/cc/Notice>     owl:equivalentClass :Notice .
+    
+    <http://web.resource.org/cc/Permission>     owl:equivalentClass :Permission .
+    
+    <http://web.resource.org/cc/Prohibition>     owl:equivalentClass :Prohibition .
+    
+    <http://web.resource.org/cc/Reproduction>     owl:equivalentClass :Reproduction .
+    
+    <http://web.resource.org/cc/Requirement>     owl:equivalentClass :Requirement .
+    
+    <http://web.resource.org/cc/ShareAlike>     owl:equivalentClass :ShareAlike .
+    
+    <http://web.resource.org/cc/SourceCode>     owl:equivalentClass :SourceCode .
+    
+    <http://web.resource.org/cc/Work>     owl:equivalentClass :Work .
+    
+    <http://web.resource.org/cc/license>     owl:equivalentProperty :license .
+    
+    <http://web.resource.org/cc/permits>     owl:equivalentProperty :permits .
+    
+    <http://web.resource.org/cc/prohibits>     owl:equivalentProperty :prohibits .
+    
+    <http://web.resource.org/cc/requires>     owl:equivalentProperty :requires .
+    
+#ENDS
+
+

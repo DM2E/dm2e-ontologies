@@ -1,0 +1,36 @@
+
+#Processed by Id: cwm.py,v 1.144 2003/09/14 20:20:20 timbl Exp 
+        #    using base file:/tmp/tmpx-Yl12-rdfconverter
+        
+#  Notation3 generation by
+#       notation3.py,v 1.148 2003/12/04 21:20:17 timbl Exp
+
+#   Base was: file:/tmp/tmpx-Yl12-rdfconverter
+     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+     @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+     @prefix rdfg: <http://www.w3.org/2004/03/trix/rdfg-1/> .
+    
+    rdfg:Graph     a rdfs:Class;
+         rdfs:comment """
+An RDF graph (with intensional semantics).
+      """;
+         rdfs:label "Graph" .
+    
+    rdfg:equivalentGraph     a rdf:Property;
+         rdfs:comment """
+The graphs associated with the subject and object are equivalent.
+      """;
+         rdfs:domain rdfg:Graph;
+         rdfs:label "equivalent graph";
+         rdfs:range rdfg:Graph .
+    
+    rdfg:subGraphOf     a rdf:Property;
+         rdfs:comment """
+The graph associated with the subject is a subgraph of a graph equivalent
+to that associated with the object.
+      """;
+         rdfs:domain rdfg:Graph;
+         rdfs:label "subgraph of";
+         rdfs:range rdfg:Graph .
+    
+#ENDS

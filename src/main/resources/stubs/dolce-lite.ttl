@@ -1,0 +1,6 @@
+@prefix DOLCE-Lite: <http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+DOLCE-Lite:space-region a rdfs:Class.
+DOLCE-Lite:time-interval a rdfs:Class.

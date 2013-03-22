@@ -1,0 +1,13 @@
+@prefix frbr_core: <http://purl.org/vocab/frbr/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+
+frbr_core:Event a rdfs: .
+frbr_core:Place a rdfs: .
+frbr_core:Manifestation a rdfs: .
+frbr_core:Expression a rdfs: .
+frbr_core:Work a rdfs: .
+frbr_core:realization a rdfs: .
+frbr_core:embodiment a rdfs: .
+frbr_core:alternate a rdfs: .

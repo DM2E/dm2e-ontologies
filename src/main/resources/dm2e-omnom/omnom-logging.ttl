@@ -1,0 +1,20 @@
+@prefix log:    <http://onto.dm2e.eu/logging#> .
+@prefix dc:<http://purl.org/dc/elements/1.1/> .
+@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:<http://www.w3.org/2001/XMLSchema#> .
+
+log:LogEntry
+	dc:description "An entry in the Log".
+
+log:level
+	dc:description "Log Level" .
+
+log:message
+	dc:description "Log message." ;
+	rdfs:range xsd:string .
+
+log:context
+	dc:description "Context of this log (the concrete run of a job)" .
+
+log:source
+	dc:description "Source of the log (i.e. the URL of the Web Service)" .

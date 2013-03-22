@@ -1,0 +1,32 @@
+@prefix dm2e: <http://onto.dm2e.eu/onto#> .
+@prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:<http://purl.org/dc/elements/1.1/> .
+@prefix xsd:<http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+
+dm2e:WebService	
+	dc:description "A Web Service" .
+
+dm2e:WebServiceConfig
+	dc:description "Configuration of a Web Service.".
+
+dm2e:InputParam
+	dc:description "An Input Parameter.".
+
+dm2e:OutputParam
+	dc:description "An Output Parameter.".
+
+dm2e:requiredParam
+	dc:description "A required parameter for a Web Service config".
+
+dm2e:outputParam
+	dc:description "The URI of the output parameter of this Web Service." .
+
+dm2e:paramName
+	dc:description "The human-readable, URI-terminatable string name of this parameter" ;
+	rdfs:range xsd:string .
+
+dm2e:fileStatus
+	dc:description "The status of this file (deprecated, i guess)" .
+
+	

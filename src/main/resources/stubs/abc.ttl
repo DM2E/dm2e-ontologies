@@ -1,0 +1,9 @@
+@prefix abc: <http://metadata.net/harmony/abc#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+
+
+abc:Temporality a rdfs: .
+abc:Place a rdfs: .
+abc:Time a rdfs: .
