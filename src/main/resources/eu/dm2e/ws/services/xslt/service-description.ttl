@@ -1,0 +1,72 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix : <http://onto.dm2e.eu/> .
+@prefix ogp:     <http://ogp.me/ns#> .
+@prefix edm:     <http://www.europeana.eu/schemas/edm/> .
+@prefix geo:     <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix oo:      <http://purl.org/openorg/> .
+@prefix void:    <http://rdfs.org/ns/void#> .
+@prefix ore:     <http://www.openarchives.org/ore/terms/> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix sioc:    <http://rdfs.org/sioc/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix bibo:    <http://purl.org/ontology/bibo/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix gr:      <http://purl.org/goodrelations/v1#> .
+@prefix sesame:  <http://www.openrdf.org/schema/sesame#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix fn:      <http://www.w3.org/2005/xpath-functions#> .
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix dm2e:        <http://onto.dm2e.eu/onto#> .
+@prefix dm2e_types: <http://onto.dm2e.eu/types/> .
+@prefix xslt_service: <http://omnom.dm2e.eu/service/xslt#> .
+
+[]	rdf:type dm2e:WebService ,
+             owl:Class;
+    # I can't get this to work with Jena unfortunately :(
+    # However 'dm2e:requiredParam' is equivalent to a cardinality restriction of 1
+    rdfs:subClassOf [ rdf:type owl:Restriction ;
+			          owl:onProperty xslt_service:xmlSource ;
+			          owl:cardinality "1"^^xsd:int
+				    ] ;
+	dc:description "XSLT transformation web service" ;
+  	dm2e:requiredParam xslt_service:xmlSource ;
+  	dm2e:requiredParam xslt_service:xsltSource ;
+    dm2e:outputParam xslt_service:output .
+    # the following wasn't necessary if the outputParam was defined as a
+    # subclass of requiredParam and the validator/introspector did inference
+#    dm2e:requiredParam xslt_service:output .
+xslt_service:xmlSource
+	a dm2e:InputParam , owl:ObjectProperty ;
+    dm2e:paramName "xmlSource" ;
+    rdfs:domain dm2e:WebService ;
+    rdfs:range [ a	owl:Class ;
+    				owl:unionOf (
+    					dm2e_types:XML
+   						dm2e_types:RDF_XML
+    				)
+    			] .
+    			
+xslt_service:xsltSource
+	a dm2e:InputParam ;
+    dm2e:paramName "xsltSource" ;
+    rdfs:domain dm2e:WebService ;
+    rdfs:range rdfs:Class ;
+    rdfs:range [ a	owl:Class ;
+    				owl:unionOf (
+    					dm2e_types:XSLT
+    					dm2e_types:XSLT_ZIP
+    				)
+    			] .
+xslt_service:output
+	a dm2e:OutputParam ;
+    dm2e:paramName "output" ;
+    rdfs:domain dm2e:WebService ;
+    rdfs:range  [ a	owl:Class ;
+    				owl:unionOf (
+    					dm2e_types:XML
+    				)
+    			] .
