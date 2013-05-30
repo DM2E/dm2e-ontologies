@@ -20,11 +20,11 @@
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
 @prefix fn:      <http://www.w3.org/2005/xpath-functions#> .
 @prefix cc:      <http://creativecommons.org/ns#> .
-@prefix dm2e:        <http://onto.dm2e.eu/onto#> .
+@prefix dm2e:        <http://onto.dm2e.eu/omnom/> .
 @prefix dm2e_types: <http://onto.dm2e.eu/types/> .
 @prefix xslt_service: <http://omnom.dm2e.eu/service/xslt#> .
 
-[]	rdf:type dm2e:WebService ,
+[]	rdf:type dm2e:Webservice ,
              owl:Class;
     # I can't get this to work with Jena unfortunately :(
     # However 'dm2e:requiredParam' is equivalent to a cardinality restriction of 1
@@ -42,7 +42,7 @@
 xslt_service:xmlSource
 	a dm2e:InputParam , owl:ObjectProperty ;
     dm2e:paramName "xmlSource" ;
-    rdfs:domain dm2e:WebService ;
+    rdfs:domain dm2e:Webservice ;
     rdfs:range [ a	owl:Class ;
     				owl:unionOf (
     					dm2e_types:XML
@@ -53,7 +53,7 @@ xslt_service:xmlSource
 xslt_service:xsltSource
 	a dm2e:InputParam ;
     dm2e:paramName "xsltSource" ;
-    rdfs:domain dm2e:WebService ;
+    rdfs:domain dm2e:Webservice ;
     rdfs:range rdfs:Class ;
     rdfs:range [ a	owl:Class ;
     				owl:unionOf (
@@ -64,7 +64,7 @@ xslt_service:xsltSource
 xslt_service:output
 	a dm2e:OutputParam ;
     dm2e:paramName "output" ;
-    rdfs:domain dm2e:WebService ;
+    rdfs:domain dm2e:Webservice ;
     rdfs:range  [ a	owl:Class ;
     				owl:unionOf (
     					dm2e_types:XML

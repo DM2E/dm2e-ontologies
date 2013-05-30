@@ -1,32 +1,113 @@
-@prefix dm2e: <http://onto.dm2e.eu/onto#> .
+@prefix omnom: <http://onto.dm2e.eu/omnom/> .
 @prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dc:<http://purl.org/dc/elements/1.1/> .
 @prefix xsd:<http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
 
-dm2e:WebService	
+omnom:Webservice	
 	dc:description "A Web Service" .
 
-dm2e:WebServiceConfig
+omnom:File
+	dc:description "A File resource" .
+
+omnom:fileOwner
+	dc:description "Property for specifying the owner of a file." ;
+	rdfs:domain omnom:File .
+
+omnom:resourceType
+	dc:description "Property specifying the Omnom type" .
+
+# MINT
+
+omnom:MintMapping
+	dc:description "A MINT mapping" .
+
+omnom:mintMapping
+	dc:description "Property specifying a mint Mapping" ;
+	rdfs:range omnom:MintMapping .
+
+omnom:mintItemRoot
+	dc:description "XPath of the item root for MINT" .
+
+omnom:mintMappingAsXslt
+	dc:description "XSLT representation of a MINT mapping" .
+
+omnom:mintMappingBasedOn
+	dc:description "XML this MINT mapping is based on" ;
+	rdfs:domain omnom:MintMapping .
+
+omnom:hasVersion
+	dc:description "A concrete version of this mint mapping" .
+
+omnom:hasLatestVersion
+	dc:description "The most current version" ;
+	rdfs:seeAlso omnom:hasVersion .
+
+omnom:hasWebservice
+	dc:description "Property for web services" ;
+	rdfs:range omnom:Webservice .
+
+omnom:webservice
+	dc:description "Property for web services" ;
+	rdfs:range omnom:Webservice .
+
+omnom:WebServiceConfig
 	dc:description "Configuration of a Web Service.".
 
-dm2e:InputParam
+omnom:Parameter
+	dc:description "A parameter" .
+
+omnom:assignment
+	dc:description "Property for parameter assignments" ;
+	rdfs:range omnom:ParameterAssignment.
+
+omnom:ParameterAssignment
+	dc:description "Assignment of a value to a parameter" .
+
+
+omnom:InputParam
 	dc:description "An Input Parameter.".
 
-dm2e:OutputParam
+omnom:inputParam
+	dc:description "Property for input parameters" ;
+	rdfs:range omnom:InputParam.
+
+omnom:isRequired
+	dc:description "Specifies whether an input parameter is required" ;
+	rdfs:range xsd:boolean .
+
+omnom:OutputParam
 	dc:description "An Output Parameter.".
 
-dm2e:requiredParam
+omnom:requiredParam
 	dc:description "A required parameter for a Web Service config".
 
-dm2e:outputParam
+omnom:outputParam
 	dc:description "The URI of the output parameter of this Web Service." .
 
-dm2e:paramName
+omnom:paramName
 	dc:description "The human-readable, URI-terminatable string name of this parameter" ;
 	rdfs:range xsd:string .
 
-dm2e:fileStatus
+omnom:fileStatus
 	dc:description "The status of this file (deprecated, i guess)" .
 
+omnom:forParam
+	dc:description "Property for specifying the Parameter referred to" ;
+	rdfs:range omnom:Parameter .
+
+omnom:parameterValue
+	dc:description "Value for this parameter in this assignment" ; 
+	rdfs:range omnom:ParameterAssignment .
+	
+omnom:LogEntry
+	dc:description "A logging entry" .
+
+omnom:hasLogLevel
+	dc:description "Log level. One of TRACE, DEBUG, INFO, WARN, FATAL" ;
+	rdfs:domain omnom:LogEntry.
+
+omnom:hasLogMessage
+	dc:description "Log message" ;
+	rdfs:domain omnom:LogEntry.
 	
