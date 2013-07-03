@@ -1,0 +1,258 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ruleml: <http://www.w3.org/2003/11/swrl#> .
+
+rdf:nil
+    a ruleml:AtomList .
+
+<http://www.w3.org/2003/11/swrl>
+    a owl:Ontology ;
+    rdfs:comment "OWL definition of the RDF Concrete Syntax for the Semantic Web Rule Language" ;
+    owl:versionInfo "$Id: swrl.owl,v 1.1 2004/05/21 18:46:39 vivien Exp $" .
+
+ruleml:Atom
+    a owl:Class ;
+    rdfs:comment "common superclass" .
+
+ruleml:AtomList
+    a owl:Class ;
+    rdfs:subClassOf rdf:List, [
+        a owl:Restriction ;
+        owl:allValuesFrom ruleml:Atom ;
+        owl:onProperty rdf:first
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty rdf:first
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom ruleml:AtomList ;
+        owl:onProperty rdf:rest
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty rdf:rest
+    ] .
+
+ruleml:Builtin
+    a owl:Class .
+
+ruleml:BuiltinAtom
+    a owl:Class ;
+    rdfs:comment "consists of a builtin and a List of arguments" ;
+    rdfs:subClassOf ruleml:Atom, [
+        a owl:Restriction ;
+        owl:allValuesFrom ruleml:Builtin ;
+        owl:onProperty ruleml:builtin
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:builtin
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom rdf:List ;
+        owl:onProperty ruleml:arguments
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:arguments
+    ] .
+
+ruleml:ClassAtom
+    a owl:Class ;
+    rdfs:comment "consists of a classPredicate and argument1" ;
+    rdfs:subClassOf ruleml:Atom, [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:classPredicate
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom owl:Thing ;
+        owl:onProperty ruleml:argument1
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:argument1
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom rdfs:Class ;
+        owl:onProperty ruleml:classPredicate
+    ] .
+
+ruleml:DataRangeAtom
+    a owl:Class ;
+    rdfs:comment "consists of a dataRange and argument1" ;
+    rdfs:subClassOf ruleml:Atom, [
+        a owl:Restriction ;
+        owl:allValuesFrom owl:DataRange ;
+        owl:onProperty ruleml:dataRange
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:dataRange
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom owl:Thing ;
+        owl:onProperty ruleml:argument1
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:argument1
+    ] .
+
+ruleml:DatavaluedPropertyAtom
+    a owl:Class ;
+    rdfs:comment "consists of a propertyPredicate (owl:DatatypeProperty), argument1 (owl:Thing), and argument2 (rdfs:Literal)" ;
+    rdfs:subClassOf ruleml:Atom, [
+        a owl:Restriction ;
+        owl:allValuesFrom owl:DatatypeProperty ;
+        owl:onProperty ruleml:propertyPredicate
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:propertyPredicate
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom owl:Thing ;
+        owl:onProperty ruleml:argument1
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:argument1
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom rdfs:Literal ;
+        owl:onProperty ruleml:argument2
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:argument2
+    ] .
+
+ruleml:DifferentIndividualsAtom
+    a owl:Class ;
+    rdfs:comment "consists of argument1 (owl:Thing) and argument2 (owl:Thing)" ;
+    rdfs:subClassOf ruleml:Atom, [
+        a owl:Restriction ;
+        owl:allValuesFrom owl:Thing ;
+        owl:onProperty ruleml:argument1
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:argument1
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom owl:Thing ;
+        owl:onProperty ruleml:argument2
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:argument2
+    ] .
+
+ruleml:Imp
+    a owl:Class ;
+    rdfs:comment "implication (rule)" ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:allValuesFrom ruleml:AtomList ;
+        owl:onProperty ruleml:head
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1" ;
+        owl:onProperty ruleml:head
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom ruleml:AtomList ;
+        owl:onProperty ruleml:body
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1" ;
+        owl:onProperty ruleml:body
+    ] .
+
+ruleml:IndividualPropertyAtom
+    a owl:Class ;
+    rdfs:comment "consists of a propertyPredicate (owl:ObjectProperty), argument1 (owl:Thing), and argument2 (owl:Thing)" ;
+    rdfs:subClassOf ruleml:Atom, [
+        a owl:Restriction ;
+        owl:allValuesFrom owl:ObjectProperty ;
+        owl:onProperty ruleml:propertyPredicate
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:propertyPredicate
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom owl:Thing ;
+        owl:onProperty ruleml:argument1
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:argument1
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom owl:Thing ;
+        owl:onProperty ruleml:argument2
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:argument2
+    ] .
+
+ruleml:SameIndividualAtom
+    a owl:Class ;
+    rdfs:comment "consists of argument1 (owl:Thing) and argument2 (owl:Thing)" ;
+    rdfs:subClassOf ruleml:Atom, [
+        a owl:Restriction ;
+        owl:allValuesFrom owl:Thing ;
+        owl:onProperty ruleml:argument1
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:argument1
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom owl:Thing ;
+        owl:onProperty ruleml:argument2
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1" ;
+        owl:onProperty ruleml:argument2
+    ] .
+
+ruleml:Variable
+    a owl:Class ;
+    rdfs:comment "indicate that a URI is being used as a variable" .
+
+ruleml:argument1
+    a owl:ObjectProperty .
+
+ruleml:argument2
+    a rdf:Property ;
+    rdfs:comment "can be a Literal or Resource" .
+
+ruleml:arguments
+    a owl:ObjectProperty .
+
+ruleml:body
+    a owl:ObjectProperty ;
+    rdfs:comment "rule body (antecedent):  List of Atom" .
+
+ruleml:builtin
+    a owl:ObjectProperty .
+
+ruleml:classPredicate
+    a owl:ObjectProperty .
+
+ruleml:dataRange
+    a owl:ObjectProperty .
+
+ruleml:head
+    a owl:ObjectProperty ;
+    rdfs:comment "rule head (consequent):  List of Atom" .
+
+ruleml:propertyPredicate
+    a owl:ObjectProperty .
+

@@ -7,6 +7,36 @@
 omnom:Webservice	
 	dc:description "A Web Service" .
 
+#omnom:forPosition
+#	dc:description "Property for target position." .
+
+omnom:inWorkflow
+	dc:description "Property for specifying the workflow".
+
+omnom:hasPosition
+	dc:description "Property for source position." .
+
+omnom:fromPosition
+	dc:description "Property for source position." .
+
+omnom:toPosition
+	dc:description "Property for target position." .
+
+omnom:toParam
+	dc:description "Property for target parameter." .
+
+omnom:fromParam
+	dc:description "Property for source parameter." .
+
+omnom:fromWorkflow
+	dc:description "Property for source parameter." .
+
+omnom:fileEditURI
+	dc:description "Property for file edit URI parameter." .
+
+omnom:fileRetrievalURI
+	dc:description "Property for file retrieval URI parameter." .
+
 omnom:File
 	dc:description "A File resource" .
 
@@ -51,8 +81,11 @@ omnom:webservice
 	dc:description "Property for web services" ;
 	rdfs:range omnom:Webservice .
 
-omnom:WebServiceConfig
+omnom:WebserviceConfig
 	dc:description "Configuration of a Web Service.".
+
+omnom:webserviceConfig
+	dc:description "Property for configuration of a Web Service.".
 
 omnom:Parameter
 	dc:description "A parameter" .
@@ -110,4 +143,21 @@ omnom:hasLogLevel
 omnom:hasLogMessage
 	dc:description "Log message" ;
 	rdfs:domain omnom:LogEntry.
-	
+
+omnom:Job
+	dc:description "A job" .
+
+omnom:ParameterConnector
+	dc:description "A connector of parameters" .
+
+omnom:parameterConnector
+	dc:description "Property for a connector of parameters" .
+
+omnom:Workflow
+	dc:description "A workflow" .
+
+omnom:WorkflowPosition
+	dc:description "A workflow position" .
+
+omnom:workflow
+	dc:description "Property for a workflow" .
