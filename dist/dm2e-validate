@@ -1,0 +1,4 @@
+#!/bin/bash
+DM2E_ONTOLOGIES_REPO=~konstantin/build/dm2e-ontologies
+java -jar $DM2E_ONTOLOGIES_REPO/target/dm2e-ontologies-1.0-SNAPSHOT-jar-with-dependencies.jar $*
+
