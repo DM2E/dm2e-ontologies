@@ -10,14 +10,15 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.apache.commons.cli.PosixParser;
 import org.apache.commons.io.FileUtils;
+import org.apache.jena.riot.RiotException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -317,44 +318,40 @@ public class Dm2eValidator {
 
 		Options options = new Options();
 		options.addOption(OptionBuilder
-			.isRequired()
-			.hasArgs()
+			.hasArgs(1)
 			.withArgName("RDF/XML|N-TRIPLE|TURTLE")
-			.withDescription("RDF input serialization format")
+			.withDescription("RDF input serialization format [Default: RDF/XML]")
 			.create("format"));
-		options.addOption(OptionBuilder
-			.isRequired()
-			.hasArgs()
-			.withArgName("file")
-			.withDescription("RDF input file")
-			.create("file"));
-		options.addOption("stdout", false, "Whether to write to STDOUT");
+		options.addOption("stdout", false, "Whether to write to STDOUT [default: No]");
 		options.addOption(OptionBuilder
 			.hasArgs()
 			.withArgName("suffix")
-			.withDescription("output file suffix (default: .validation.txt")
+			.withDescription("output file suffix [default: '.validation.txt']")
 			.create("suffix"));
 
 		// create the parser
-		CommandLineParser parser = new PosixParser();
+		CommandLineParser parser = new BasicParser();
 		CommandLine line = null;
 		boolean showHelp = false;
-		String fileVal = null;
+		String format = "RDF/XML";
 		try {
 			// parse the command line arguments
 			line = parser.parse(options, args);
-			fileVal = new File(line.getOptionValue("file")).getAbsolutePath();
-			String formatVal = line.getOptionValue("format");
-			Dm2eValidationReport report = validateWithDm2e(fileVal, formatVal);
-			if (line.hasOption("stdout")) {
-				System.out.println(report.toString());
-			} else {
-				String suffixVal = line.getOptionValue("suffix");
-				if (null == suffixVal)
-					suffixVal = ".validation.txt";
-				File outfile = new File(fileVal + suffixVal);
-				FileUtils.writeStringToFile(outfile, report.toString());
+			String formatArg = line.getOptionValue("format");
+			if (null != formatArg) format = formatArg;
+			for (Object fileArg : line.getArgList()) {
+				String fileName = new File(fileArg.toString()).getAbsolutePath();
+				Dm2eValidationReport report = validateWithDm2e(fileName, format);
+				if (line.hasOption("stdout")) {
+					System.out.println(report.toString());
+				} else {
+					String suffixVal = line.getOptionValue("suffix");
+					if (null == suffixVal)
+						suffixVal = ".validation.txt";
+					File outfile = new File(fileName + suffixVal);
+					FileUtils.writeStringToFile(outfile, report.toString());
 
+				}
 			}
 		} catch (ParseException exp) {
 			// oops, something went wrong
@@ -363,16 +360,15 @@ public class Dm2eValidator {
 		} catch (IllegalArgumentException e) {
 			System.err.println("Error validating: " + e);
 			showHelp = true;
-		} catch (FileNotFoundException e) {
-			System.err.println("File not found: " + fileVal);
-			showHelp = true;
 		} catch (IOException e) {
 			System.err.println("Couldn't write to outfile!");
 			showHelp = true;
+		} catch (RiotException e) {
+			System.err.println("Jena croaked on the input. Are you sure this is " + format + " ?");
 		}
 		if (showHelp) {
 			HelpFormatter formatter = new HelpFormatter();
-			formatter.printHelp("dm2e-validate", options);
+			formatter.printHelp("dm2e-validate [options] <file> [<file>...]", options);
 		}
 
 	}

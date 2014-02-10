@@ -39,7 +39,8 @@ public class Dm2eValidatorTest {
 
 	@Test
 	public void testMain() throws Exception {
-		Dm2eValidator.main(new String[] {"--format", "TURTLE", "--file", "src/test/resources/dingler_example.ttl" });
+		Dm2eValidator.main(new String[] {"--format", "TURTLE", "--stdout", "src/test/resources/dingler_example.ttl" });
+//		Dm2eValidator.main(new String[] { "src/test/resources/dingler_example.ttl" });
 	}
 
 }
