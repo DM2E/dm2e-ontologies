@@ -3,7 +3,10 @@ package eu.dm2e.validation;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.apache.commons.cli.CommandLine;
@@ -24,6 +27,7 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import eu.dm2e.NS;
 
@@ -32,6 +36,9 @@ public class Dm2eValidator {
 	private static final Logger	log				= LoggerFactory.getLogger(Dm2eValidator.class);
 
 	private static final String	modelVersion	= "v1.1_Rev1.2-DRAFT";
+
+	private static Property isa(Model m) { return m.createProperty(NS.RDF.PROP_TYPE); }
+//	private static Resource resource(Model m, String uri) { return m.createResource(uri); }
 
 	private static Set<Property> buildAnnotatableWebResourceAggregationProperties(Model m) {
 		Set<Property> req = new HashSet<>();
@@ -52,6 +59,23 @@ public class Dm2eValidator {
 		req.add(m.createProperty(NS.DC.PROP_SUBJECT));
 		return req;
 	}
+
+	private static Map<Property, Set<Resource>> buildChoSubRanges(Model m) {
+		Map<Property, Set<Resource>> choSubRanges = new HashMap<>();
+		choSubRanges.put(m.createProperty(NS.DC.PROP_SUBJECT), new HashSet<Resource>());
+		choSubRanges.get(m.createProperty(NS.DC.PROP_SUBJECT)).add(m.createResource(NS.SKOS.CLASS_CONCEPT));
+		choSubRanges.get(m.createProperty(NS.DC.PROP_SUBJECT)).add(m.createResource(NS.EDM.CLASS_AGENT));
+		choSubRanges.get(m.createProperty(NS.DC.PROP_SUBJECT)).add(m.createResource(NS.EDM.CLASS_TIMESPAN));
+
+		choSubRanges.put(m.createProperty(NS.EDM.PROP_HAS_MET), new HashSet<Resource>());
+		choSubRanges.get(m.createProperty(NS.EDM.PROP_HAS_MET)).add(m.createResource(NS.SKOS.CLASS_CONCEPT));
+		choSubRanges.get(m.createProperty(NS.EDM.PROP_HAS_MET)).add(m.createResource(NS.EDM.CLASS_EVENT));
+		choSubRanges.get(m.createProperty(NS.EDM.PROP_HAS_MET)).add(m.createResource(NS.EDM.CLASS_PLACE));
+		choSubRanges.get(m.createProperty(NS.EDM.PROP_HAS_MET)).add(m.createResource(NS.EDM.CLASS_AGENT));
+		choSubRanges.get(m.createProperty(NS.EDM.PROP_HAS_MET)).add(m.createResource(NS.EDM.CLASS_TIMESPAN));
+		return choSubRanges;
+	}
+
 
 	private static Set<Property> buildRequiredAggregationProperties(Model m) {
 		Set<Property> req = new HashSet<>();
@@ -118,19 +142,50 @@ public class Dm2eValidator {
 	}
 
 	/**
-	 * @param m
-	 * @param cho
-	 * @param report
+	 * Validate a CHO against the requirements (p.25-42)
+	 * @param m the {@link Model} containing the data
+	 * @param cho the CHO {@link Resource}
+	 * @param report the {@link Dm2eValidationReport} to write to
 	 */
 	private static void validateCHO(Model m, Resource cho, Dm2eValidationReport report) {
 		Set<Property> choProperties = buildRequiredCHOProperties(m);
 
 		for (Property prop : choProperties) {
 			NodeIterator iter = m.listObjectsOfProperty(cho, prop);
-			if (!iter.hasNext()) report.add(cho, "missing required property <" + prop + ">.");
+			if (!iter.hasNext()) {
+				//
+				// Check required properties
+				//
+				report.add(cho, "missing required property <" + prop + ">.");
+			}
+		}
+		
+		//
+		// Range checks
+		//
+		Map<Property, Set<Resource>> choSubRanges = buildChoSubRanges(m);
+		for (Entry<Property, Set<Resource>> entry : choSubRanges.entrySet()) {
+			Property prop = entry.getKey();
+			StmtIterator iter = cho.listProperties(prop);
+			while (iter.hasNext()) {
+				RDFNode obj = iter.next().getObject();
+				if (! obj.isResource()) {
+					report.add(cho, "Object of <" + prop + "> must be a URI resource. ");
+				} else {
+					final Resource objRes = obj.asResource();
+					boolean validRange = false;
+					for (Resource allowedRange : entry.getValue()) {
+						if (objRes.hasProperty(isa(m), allowedRange)) {
+							validRange = true;
+							break;
+						}
+					}
+					if (! validRange)
+						report.add(objRes, " must be of rdf:type ", entry.getValue(), prop);
+				}
+			}
 		}
 	}
-
 	/**
 	 * @param m
 	 * @param agg

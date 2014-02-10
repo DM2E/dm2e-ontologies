@@ -26,6 +26,7 @@ public class Dm2eValidatorTest {
 		log.debug("Size: " + m.size());
 		Dm2eValidator dm2eValidator = new Dm2eValidator();
 		Dm2eValidationReport report = dm2eValidator.validateWithDm2e(m, agg);
+		log.debug("FOO");
 		log.debug(report.toString());
 	}
 	

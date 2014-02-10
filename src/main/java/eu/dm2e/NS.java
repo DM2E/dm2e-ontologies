@@ -5,6 +5,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import com.hp.hpl.jena.rdf.model.AnonId;
+
 
 
 
@@ -449,6 +451,7 @@ public final class NS {
 		public static final String BASE       = "http://www.w3.org/2004/02/skos/core#";
 		public static final String PROP_LABEL = BASE + "label";
 		public static final String PROP_PREF_LABEL = BASE + "prefLabel";
+		public static final String CLASS_CONCEPT	= BASE + "Concept";
 	}
 
 	/**
@@ -557,6 +560,11 @@ public final class NS {
 		public static final String PROP_DATA_PROVIDER = BASE + "dataProvider";
 		public static final String PROP_TYPE = BASE + "type";
 		public static final String PROP_HAS_VIEW = BASE + "hasView";
+		public static final String CLASS_AGENT	= BASE + "Agent";
+		public static final String CLASS_TIMESPAN	= BASE + "TimeSpan";
+		public static final String PROP_HAS_MET = BASE + "hasMet";
+		public static final String CLASS_EVENT	= BASE + "Event";
+		public static final String CLASS_PLACE	= BASE + "Event";
 	}
 	public static final class PRO {
 		public static final String BASE = "http://purl.org/spar/pro/";

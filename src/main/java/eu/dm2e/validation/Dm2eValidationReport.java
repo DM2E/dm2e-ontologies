@@ -2,6 +2,7 @@ package eu.dm2e.validation;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -24,6 +25,25 @@ public class Dm2eValidationReport {
 	}
 	public void add(Resource res, String msg, Property prop) {
 		this.errorList.add(new Dm2eValidationException(res, msg, prop));
+	}
+	public void add(Resource res, String msg, Set<Resource> value, Property prop) {
+		StringBuilder sb = new StringBuilder(" ");
+		Iterator<Resource> valueIter = value.iterator();
+		while (valueIter.hasNext()) {
+			Resource val = valueIter.next();
+			sb.append(val.toString());
+			if (valueIter.hasNext())
+				sb.append(", ");
+		}
+		if (null == prop)
+			add(res, msg + sb.toString());
+		else 
+			add(res, msg + sb.toString(), prop);
+			
+
+	}
+	public void add(Resource res, String msg, Set<Resource> value) {
+		add(res, msg, value, null);
 	}
 	
 	@Override
@@ -64,4 +84,5 @@ public class Dm2eValidationReport {
 		}
 		return retMap;
 	}
+
 }
