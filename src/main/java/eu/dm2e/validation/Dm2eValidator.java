@@ -3,6 +3,7 @@ package eu.dm2e.validation;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -16,6 +17,7 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.cli.PosixParser;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -143,7 +145,7 @@ public class Dm2eValidator {
 	 *            the aggregation to start validation from
 	 * @return A {@link Dm2eValidationReport}
 	 */
-	public Dm2eValidationReport validateWithDm2e(Model m, String aggUri) {
+	public static Dm2eValidationReport validateWithDm2e(Model m, String aggUri) {
 
 		Dm2eValidationReport report = new Dm2eValidationReport(modelVersion);
 		Resource agg = res(m, aggUri);
@@ -326,6 +328,12 @@ public class Dm2eValidator {
 			.withArgName("file")
 			.withDescription("RDF input file")
 			.create("file"));
+		options.addOption("stdout", false, "Whether to write to STDOUT");
+		options.addOption(OptionBuilder
+			.hasArgs()
+			.withArgName("suffix")
+			.withDescription("output file suffix (default: .validation.txt")
+			.create("suffix"));
 
 		// create the parser
 		CommandLineParser parser = new PosixParser();
@@ -336,8 +344,18 @@ public class Dm2eValidator {
 			// parse the command line arguments
 			line = parser.parse(options, args);
 			fileVal = new File(line.getOptionValue("file")).getAbsolutePath();
-			Dm2eValidationReport report = validateWithDm2e(fileVal, line.getOptionValue("format"));
-			System.out.println(report.toString());
+			String formatVal = line.getOptionValue("format");
+			Dm2eValidationReport report = validateWithDm2e(fileVal, formatVal);
+			if (line.hasOption("stdout")) {
+				System.out.println(report.toString());
+			} else {
+				String suffixVal = line.getOptionValue("suffix");
+				if (null == suffixVal)
+					suffixVal = ".validation.txt";
+				File outfile = new File(fileVal + suffixVal);
+				FileUtils.writeStringToFile(outfile, report.toString());
+
+			}
 		} catch (ParseException exp) {
 			// oops, something went wrong
 			System.err.println("Error parsing command line options: " + exp.getMessage());
@@ -347,6 +365,9 @@ public class Dm2eValidator {
 			showHelp = true;
 		} catch (FileNotFoundException e) {
 			System.err.println("File not found: " + fileVal);
+			showHelp = true;
+		} catch (IOException e) {
+			System.err.println("Couldn't write to outfile!");
 			showHelp = true;
 		}
 		if (showHelp) {
