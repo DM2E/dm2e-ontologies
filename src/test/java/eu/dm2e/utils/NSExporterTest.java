@@ -1,12 +1,15 @@
 package eu.dm2e.utils;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import eu.dm2e.NS;
 import eu.dm2e.NS.OMNOM;
-import eu.dm2e.ws.tests.OmnomTestCase;
 
-public class NSExporterTest extends OmnomTestCase {
+public class NSExporterTest {
+	
+	private static final Logger log = LoggerFactory.getLogger(NSExporterTest.class);
 	
 	@Test
 	public void testExportToOwl() throws IllegalArgumentException, IllegalAccessException {
