@@ -349,13 +349,14 @@ public class Dm2eValidator {
 				Dm2eValidationReport report = validateWithDm2e(fileName, format);
 				if (line.hasOption("stdout")) {
 					System.out.println(report.toString());
+					System.err.println("DONE validating " + fileName);
 				} else {
 					String suffixVal = line.getOptionValue("suffix");
 					if (null == suffixVal)
 						suffixVal = ".validation.txt";
 					File outfile = new File(fileName + suffixVal);
 					FileUtils.writeStringToFile(outfile, report.toString());
-
+					System.err.println("DONE validating " + fileName + ". Output written to " + outfile.getPath() + ".");
 				}
 			}
 		} catch (ParseException exp) {
