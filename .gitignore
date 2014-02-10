@@ -1,12 +1,6 @@
-*.class
-target
-.settings
 .classpath
 .project
-
-# Package Files #
-*.jar
-*.war
-*.ear
+.settings
+target
+log-test
 *pyc
-src/main/python/dm2e-oai-conversion/Mappings/

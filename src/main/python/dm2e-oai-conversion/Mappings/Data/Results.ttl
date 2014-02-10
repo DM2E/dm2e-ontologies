@@ -1,0 +1,1221 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dm2e: <http://onto.dm2e.eu/schemas/dm2e/1.1/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix korbo: <http://purl.org/net7/korbo/vocab#> .
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pro: <http://purl.org/spar/pro/> .
+@prefix rdaGr2: <http://RDVocab.info/ElementsGr2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xalan: <http://xml.apache.org/xalan> .
+
+<http://data.dm2e.eu/data/agent/uber/dingler/>
+    a foaf:Organization ;
+    skos:prefLabel "Humboldt-Universität"@ger .
+
+<http://data.dm2e.eu/data/agent/uber/dingler/DM2E>
+    a foaf:Organization ;
+    skos:altLabel "Digitised Manuscripts to Europeana"@eng ;
+    skos:prefLabel "DM2E"@eng, "DM2E"@ger .
+
+<http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>
+    a foaf:Organization ;
+    skos:prefLabel "Deutsche Forschungsgemeinschaft"@ger .
+
+<http://data.dm2e.eu/data/agent/uber/dingler/Dr._Johann_Gottfried_Dingler>
+    a foaf:Person ;
+    skos:prefLabel "Dr. Johann Gottfried Dingler"@ger .
+
+<http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>
+    a foaf:Organization ;
+    skos:prefLabel "Editura GmbH & Co.KG, Berlin"@ger .
+
+<http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität>
+    a foaf:Organization ;
+    skos:prefLabel "Humboldt-Universität"@ger .
+
+<http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>
+    a foaf:Organization ;
+    skos:prefLabel "Humboldt-Universität zu Berlin"@ger .
+
+<http://data.dm2e.eu/data/agent/uber/dingler/J._G._Cotta'sche_Buchhandlung>
+    a foaf:Organization ;
+    skos:prefLabel "J. G. Cotta'sche Buchhandlung"@ger .
+
+<http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig>
+    a foaf:Person ;
+    skos:prefLabel "Marechaux, Peter Ludwig"@ger .
+
+<http://data.dm2e.eu/data/agent/uber/dingler/Marechaux_Peter_Ludwig>
+    a foaf:Person ;
+    skos:prefLabel "Marechaux, Peter Ludwig"@ger .
+
+<http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden>
+    a foaf:Organization ;
+    skos:prefLabel "Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden"@ger .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/article/pj001/ar001001>
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/article/pj001/ar001001> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownAt <http://dingler.culture.hu-berlin.de/article/pj001/ar001001> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/issue/pj001>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001/> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownAt <http://dingler.culture.hu-berlin.de/journal/pj001/> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/journal/32258227Z>
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/journal/32258227Z> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownAt <http://dingler.culture.hu-berlin.de/> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb001>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000017> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb001> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000017> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb002>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000018> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb002> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb003>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000019> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb003> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb004>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000020> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb004> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb005>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000021> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb005> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb006>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000022> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb006> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb007>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000023> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb007> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb008>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000024> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb008> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb009>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000025> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb009> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb010>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000026> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb010> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb011>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000027> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb011> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb012>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000028> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb012> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb013>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000029> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb013> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb014>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000030> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb014> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb015>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000031> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb015> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb016>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000032> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb016> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb017>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000033> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb017> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb018>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000034> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb018> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb019>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000035> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb019> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb020>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000036> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb020> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb021>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000037> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb021> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb022>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000038> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb022> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb023>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000039> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb023> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb024>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000040> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb024> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb025>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000041> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb025> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb026>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000042> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb026> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb027>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000043> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb027> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb028>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000044> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb028> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb029>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000045> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb029> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb030>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000046> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb030> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb031>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000047> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb031> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb032>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000048> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb032> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb033>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000049> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb033> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/aggregation/uber/dingler/page/pj001_pb034>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000050> ;
+    dc:contributor <http://data.dm2e.eu/data/agent/uber/dingler/Deutsche_Forschungsgemeinschaft>, <http://data.dm2e.eu/data/agent/uber/dingler/Editura_GmbH_&_Co.KG,_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität_zu_Berlin>, <http://data.dm2e.eu/data/agent/uber/dingler/Sächsische_Landesbibliothek_–_Staats-_und_Universitätsbibliothek_Dresden> ;
+    dcterms:created "2012" ;
+    dcterms:creator <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb034> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    edm:isShownBy <http://dingler.culture.hu-berlin.de> ;
+    edm:provider <http://data.dm2e.eu/data/agent/uber/dingler/DM2E> ;
+    edm:rights <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/item/uber/dingler/article/pj001/ar001001>
+    dm2e:hasAnnotatableVersionAt <http://dingler.culture.hu-berlin.de/article/pj001/ar001001> ;
+    dm2e:hasPartCHO <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb001>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb002>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb003>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb004>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb005>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb006>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb008>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb009>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb010>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb011>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb012>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb013>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb015>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb017>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb019>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb021>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb022>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb023>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb025>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb027>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb030>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb032>, <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb034> ;
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001>, <http://data.dm2e.eu/data/item/uber/dingler/journal/32258227Z> ;
+    dc:language "ger" ;
+    dc:subject "engineering and natural sciences (19th century)"@eng ;
+    dc:type <http://purl.org/spar/fabio/Article> ;
+    dcterms:tableOfContents """1. Vorzuͤge der hydraulischen Presse.
+2. Hauptzweck dieses Aufsazes.
+3. Hydrostatischer Grundsaz, auf welchem die Presse beruht.
+4. Naͤhere Beziehung dieser Praͤmissen auf die hydraulische Presse.
+5. Uebergang zur hydraulischen Presse.
+6. Wesentliche Bestandtheile einer hydraulischen Presse.
+7. Einfluß der Hoͤhe und der Breite beider Cylinder auf den Effekt dieser Presse.
+8. Einige Folgerungen aus diesen Saͤzen.
+9. Ein Ersaz fuͤr die Hoͤhe des Druckrohrs.
+10. Der Druck eines Druckkolbens läßt sich auf die korrespondirende senkrechte Hoͤhe eines Druckrohrs zuruͤckfuͤhren.
+11. Scheinbare Anomalie zwischen der Wirkung des Druckkolbens und des Druckrohrs.
+12. Methoden, die Wirksamkeit hydraulischer Pressen zu berechnen.
+13. Erste Methode.
+14. Zweite Methode.
+15. Berechnung der Momente, aus welchen sich die Kraft zusammensezt, die den Druckkolben treibt.
+16. Schuzmittel gegen die Wirkungen einer zu großen Druckkraft.
+17. Schaͤzungsmittel fuͤr die jedesmalige Groͤße des Druckes.
+18. Druckmesser, welcher die fortschreitende Wirksamkeit der Presse anzeigt.
+19. Neuer Druckmesser vom Verfasser dieser Schrift.
+20. Verzeichniß seiner verschiedenen Theile.
+21. Nothwendige Bestimmung des Maximums der Wirkung der Presse, zu welcher dieser Druckmesser verfertiget werden soll.
+22. Bestimmung des Maximums der Preßkraft.
+23. Bestimmung des Durchmessers des Kolbenrohrs.
+24. Bestimmung der Laͤnge des Kolbenrohrs.
+25. Bestimmung der Laͤnge des Hebelarms der Kraft.
+26. Einige Bedingungen zur Eintheilung des Quadranten.
+27. Methode, die Grade fuͤr die Eintheilung des Quadranten zu berechnen.
+28. Lage des Cylinders.
+29. Lage des Druckrohrs.
+30. Druck- und Preßkolben.
+31. Material zu den Hauptbestandtheilen der Presse.
+32. Theil der Presse, der die zu pressenden Materien fassen soll.
+33. Presse, die nach unten zu wirkt.
+34. Beschreibung einer Presse, die nach oben zu wirkt.
+"""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "1-34" ;
+    bibo:volume "1" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux_Peter_Ludwig> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/issue/pj001>
+    dm2e:hasPartCHO <http://data.dm2e.eu/data/item/uber/dingler/article/pj001/ar001001> ;
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/journal/32258227Z> ;
+    dm2e:publishedAt <http://data.dm2e.eu/data/place/uber/dingler/Stuttgart> ;
+    dm2e:subtitle "Band 1, Jahrgang 1820"@ger ;
+    dc:identifier "pj001" ;
+    dc:language "ger" ;
+    dc:publisher <http://data.dm2e.eu/data/agent/uber/dingler/J._G._Cotta'sche_Buchhandlung> ;
+    dc:subject "engineering and natural sciences (19th century)"@eng ;
+    dc:type bibo:Issue ;
+    dcterms:issued <http://data.dm2e.eu/data/timespan/uber/dingler/1820> ;
+    dcterms:title "Polytechnisches Journal"@ger ;
+    bibo:editor <http://data.dm2e.eu/data/agent/uber/dingler/Dr._Johann_Gottfried_Dingler> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/journal/32258227Z>
+    dm2e:hasPartCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dm2e:publishedAt <http://data.dm2e.eu/data/place/uber/dingler/Stuttgart> ;
+    dc:identifier "32258227Z" ;
+    dc:language "ger" ;
+    dc:publisher <http://data.dm2e.eu/data/agent/uber/dingler/J._G._Cotta'sche_Buchhandlung> ;
+    dc:subject "engineering and natural sciences (19th century)"@eng ;
+    dc:type bibo:Journal ;
+    dcterms:issued <http://data.dm2e.eu/data/timespan/uber/dingler/1820> ;
+    dcterms:title "Polytechnisches Journal"@ger ;
+    bibo:editor <http://data.dm2e.eu/data/agent/uber/dingler/Dr._Johann_Gottfried_Dingler> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb001>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001>, <http://data.dm2e.eu/data/item/uber/dingler/journal/32258227Z> ;
+    dc:language "ger" ;
+    dc:subject "engineering and natural sciences (19th century)"@eng ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle "1. Vorzuͤge der hydraulischen Presse."@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "1" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb002> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb002>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle ""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "2" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb003> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb003>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """4. Naͤhere Beziehung dieser Praͤmissen auf
+                                    die hydraulische Presse."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "3" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb004> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb004>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle ""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "4" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb005> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb005>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """6. Wesentliche Bestandtheile einer hydraulischen
+                                    Presse."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "5" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb006> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb006>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle ""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "6" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb007> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb007>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle "8. Einige Folgerungen aus diesen Saͤzen."@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "7" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb8> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb008>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle ""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "8" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb009> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb009>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """10. Der Druck eines Druckkolbens läßt sich auf die
+                                    korrespondirende senkrechte Hoͤhe eines Druckrohrs
+                                    zuruͤckfuͤhren."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "9" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb010> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb010>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle ""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "10" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb011> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb011>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle ""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "11" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb012> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb012>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle ""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "12" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb013> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb013>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """11. Scheinbare Anomalie zwischen der Wirkung des
+                                    Druckkolbens und des Druckrohrs."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "13" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb014> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb014>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """12. Methoden, die Wirksamkeit hydraulischer Pressen zu
+                                    berechnen."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "14" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb15> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb015>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle "14. Zweite Methode."@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "15" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb016> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb016>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """15. Berechnung der Momente, aus welchen sich die Kraft
+                                    zusammensezt, die den Druckkolben treibt."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "16" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb17> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb017>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """16. Schuzmittel gegen die Wirkungen einer zu großen
+                                    Druckkraft."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "17" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb018> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb018>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """17. Schaͤzungsmittel fuͤr die jedesmalige
+                                    Groͤße des Druckes."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "18" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb19> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb019>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle ""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "19" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb020> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb020>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """19. Neuer Druckmesser vom Verfasser dieser
+                                    Schrift."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "20" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb21> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb021>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """21. Nothwendige Bestimmung des Maximums der Wirkung der
+                                    Presse, zu welcher dieser Druckmesser verfertiget werden soll."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "21" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb022> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb022>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle "22. Bestimmung des Maximums der Preßkraft."@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "22" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb023> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb023>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle "23. Bestimmung des Durchmessers des Kolbenrohrs."@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "23" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb024> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb024>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle ""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "24" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb25> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb025>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """25. Bestimmung der Laͤnge des Hebelarms der
+                                    Kraft."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "25" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb026> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb026>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle ""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "26" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb27> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb027>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """27. Methode, die Grade fuͤr die Eintheilung des
+                                    Quadranten zu berechnen."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "27" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb028> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb028>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle "29. Lage des Druckrohrs."@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "28" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb29> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb029>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """32. Theil der Presse, der die zu pressenden Materien
+                                    fassen soll."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "29" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb30> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb030>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle "33. Presse, die nach unten zu wirkt."@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "30" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb031> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb031>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """34. Beschreibung einer Presse, die nach oben zu
+                                    wirkt."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "31" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb32> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb032>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle """34. Beschreibung einer Presse, die nach oben zu
+                                    wirkt."""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "32" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb033> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb033>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle ""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "33" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb34> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb034>
+    dm2e:isPartOfCHO <http://data.dm2e.eu/data/item/uber/dingler/issue/pj001> ;
+    dc:language "ger" ;
+    dc:type dm2e:Page ;
+    dcterms:subtitle ""@ger ;
+    dcterms:title "Marechaux über die hydraulische Presse."@ger ;
+    bibo:pages "34" ;
+    pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux,_Peter_Ludwig> ;
+    edm:isNextInSequence <http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb035> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb035>
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb15>
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb17>
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb19>
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb21>
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb25>
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb27>
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb29>
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb30>
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb32>
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb34>
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/item/uber/dingler/page/pj001_pb8>
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/place/uber/dingler/Stuttgart>
+    a edm:Place ;
+    skos:prefLabel "Stuttgart"@ger .
+
+<http://data.dm2e.eu/data/timespan/uber/dingler/1820>
+    edm:begin "1820" ;
+    edm:end "1820" ;
+    a edm:TimeSpan ;
+    skos:prefLabel "1820"@ger .
+
+<http://dingler.culture.hu-berlin.de>
+    dm2e:isDerivativeOfWebResource <http://dingler.culture.hu-berlin.de/> ;
+    dcterms:description "Dingler-Online | Das digitalisierte Polytechnische Journal"@ger ;
+    dcterms:rightsHolder <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/>
+    dcterms:description "Dingler-Online | Das digitalisierte Polytechnische Journal"@ger ;
+    dcterms:rightsHolder <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/article/pj001/ar001001>
+    dm2e:isDerivativeOfWebResource <http://dingler.culture.hu-berlin.de/> ;
+    dc:format "text/plain" ;
+    dcterms:description "Dingler-Online | Das digitalisierte Polytechnische Journal"@ger ;
+    dcterms:rightsHolder <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001/>
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000017>
+    dm2e:isPartOfWebResource <http://dingler.culture.hu-berlin.de/> ;
+    dc:format "image/jpeg", "text/plain" ;
+    dcterms:description "Dingler-Online | Das digitalisierte Polytechnische Journal"@ger ;
+    dcterms:rightsHolder <http://data.dm2e.eu/data/agent/uber/dingler/> ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000018>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000019>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000020>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000021>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000022>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000023>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000024>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000025>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000026>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000027>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000028>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000029>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000030>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000031>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000032>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000033>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000034>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000035>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000036>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000037>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000038>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000039>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000040>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000041>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000042>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000043>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000044>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000045>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000046>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000047>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000048>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000049>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/page/pj001?p=00000050>
+    dc:format "image/jpeg", "text/plain" ;
+    a edm:WebResource .
+
+<http://dingler.culture.hu-berlin.de/journal/pj001/>
+    dm2e:isDerivativeOfWebResource <http://dingler.culture.hu-berlin.de/> ;
+    dcterms:description "Dingler-Online | Das digitalisierte Polytechnische Journal"@ger ;
+    dcterms:rightsHolder <http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universität> ;
+    a edm:WebResource .
+
