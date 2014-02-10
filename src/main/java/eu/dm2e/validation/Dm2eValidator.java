@@ -37,59 +37,70 @@ public class Dm2eValidator {
 
 	private static final String	modelVersion	= "v1.1_Rev1.2-DRAFT";
 
-	private static Property isa(Model m) { return m.createProperty(NS.RDF.PROP_TYPE); }
-//	private static Resource resource(Model m, String uri) { return m.createResource(uri); }
+	private static Resource res(Model m, String uri) { return m.createResource(uri); }
+	private static Property prop(Model m, String uri) { return m.createProperty(uri); }
+	private static Property isa(Model m) { return prop(m, NS.RDF.PROP_TYPE); }
 
 	private static Set<Property> buildAnnotatableWebResourceAggregationProperties(Model m) {
 		Set<Property> req = new HashSet<>();
-		req.add(m.createProperty(NS.EDM.PROP_IS_SHOWN_BY));
-		req.add(m.createProperty(NS.EDM.PROP_IS_SHOWN_AT));
-		req.add(m.createProperty(NS.EDM.PROP_OBJECT));
-		req.add(m.createProperty(NS.DM2E.PROP_HAS_ANNOTABLE_VERSION_AT));
+		req.add(prop(m, NS.EDM.PROP_IS_SHOWN_BY));
+		req.add(prop(m, NS.EDM.PROP_IS_SHOWN_AT));
+		req.add(prop(m, NS.EDM.PROP_OBJECT));
+		req.add(prop(m, NS.DM2E.PROP_HAS_ANNOTABLE_VERSION_AT));
 		return req;
 	}
 
 	private static Set<Property> buildRequiredCHOProperties(Model m) {
 		Set<Property> req = new HashSet<>();
-		req.add(m.createProperty(NS.DM2E.PROP_DISPLAY_LEVEL));
-		req.add(m.createProperty(NS.DC.PROP_TITLE));
-		req.add(m.createProperty(NS.EDM.PROP_TYPE));
-		req.add(m.createProperty(NS.DC.PROP_TYPE));
-		req.add(m.createProperty(NS.DC.PROP_LANGUAGE));
-		req.add(m.createProperty(NS.DC.PROP_SUBJECT));
+		req.add(prop(m, NS.DM2E.PROP_DISPLAY_LEVEL));
+		req.add(prop(m, NS.EDM.PROP_TYPE));
+		req.add(prop(m, NS.DC.PROP_TYPE));
+		req.add(prop(m, NS.DC.PROP_LANGUAGE));
+		req.add(prop(m, NS.DC.PROP_SUBJECT));
 		return req;
 	}
 
+	/**
+	 * @return a map of CHO properties and the allowed ranges of the objects of such statements
+	 * @param m the {@link Model}
+	 */
 	private static Map<Property, Set<Resource>> buildChoSubRanges(Model m) {
 		Map<Property, Set<Resource>> choSubRanges = new HashMap<>();
-		choSubRanges.put(m.createProperty(NS.DC.PROP_SUBJECT), new HashSet<Resource>());
-		choSubRanges.get(m.createProperty(NS.DC.PROP_SUBJECT)).add(m.createResource(NS.SKOS.CLASS_CONCEPT));
-		choSubRanges.get(m.createProperty(NS.DC.PROP_SUBJECT)).add(m.createResource(NS.EDM.CLASS_AGENT));
-		choSubRanges.get(m.createProperty(NS.DC.PROP_SUBJECT)).add(m.createResource(NS.EDM.CLASS_TIMESPAN));
+		choSubRanges.put(prop(m, NS.DC.PROP_SUBJECT), new HashSet<Resource>());
+		choSubRanges.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.SKOS.CLASS_CONCEPT));
+		choSubRanges.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.EDM.CLASS_AGENT));
+		choSubRanges.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.EDM.CLASS_TIMESPAN));
 
-		choSubRanges.put(m.createProperty(NS.EDM.PROP_HAS_MET), new HashSet<Resource>());
-		choSubRanges.get(m.createProperty(NS.EDM.PROP_HAS_MET)).add(m.createResource(NS.SKOS.CLASS_CONCEPT));
-		choSubRanges.get(m.createProperty(NS.EDM.PROP_HAS_MET)).add(m.createResource(NS.EDM.CLASS_EVENT));
-		choSubRanges.get(m.createProperty(NS.EDM.PROP_HAS_MET)).add(m.createResource(NS.EDM.CLASS_PLACE));
-		choSubRanges.get(m.createProperty(NS.EDM.PROP_HAS_MET)).add(m.createResource(NS.EDM.CLASS_AGENT));
-		choSubRanges.get(m.createProperty(NS.EDM.PROP_HAS_MET)).add(m.createResource(NS.EDM.CLASS_TIMESPAN));
+		choSubRanges.put(prop(m, NS.EDM.PROP_HAS_MET), new HashSet<Resource>());
+		choSubRanges.get(prop(m, NS.EDM.PROP_HAS_MET)).add(res(m, NS.SKOS.CLASS_CONCEPT));
+		choSubRanges.get(prop(m, NS.EDM.PROP_HAS_MET)).add(res(m, NS.EDM.CLASS_EVENT));
+		choSubRanges.get(prop(m, NS.EDM.PROP_HAS_MET)).add(res(m, NS.EDM.CLASS_PLACE));
+		choSubRanges.get(prop(m, NS.EDM.PROP_HAS_MET)).add(res(m, NS.EDM.CLASS_AGENT));
+		choSubRanges.get(prop(m, NS.EDM.PROP_HAS_MET)).add(res(m, NS.EDM.CLASS_TIMESPAN));
 		return choSubRanges;
 	}
 
-
+	/**
+	 * @return the required properties of an {@link NS.ORE.AGGREGATION}
+	 * @param m the {@link Model}
+	 */
 	private static Set<Property> buildRequiredAggregationProperties(Model m) {
 		Set<Property> req = new HashSet<>();
-		req.add(m.createProperty(NS.EDM.PROP_AGGREGATED_CHO));
-		req.add(m.createProperty(NS.EDM.PROP_PROVIDER));
-		req.add(m.createProperty(NS.EDM.PROP_DATA_PROVIDER));
-		req.add(m.createProperty(NS.EDM.PROP_RIGHTS));
+		req.add(prop(m, NS.EDM.PROP_AGGREGATED_CHO));
+		req.add(prop(m, NS.EDM.PROP_PROVIDER));
+		req.add(prop(m, NS.EDM.PROP_DATA_PROVIDER));
+		req.add(prop(m, NS.EDM.PROP_RIGHTS));
 		return req;
 	}
 
+	/**
+	 * @return the strongly recommended properties of an {@link NS.ORE.AGGREGATION}
+	 * @param m the {@link Model}
+	 */
 	private static Set<Property> buildRecommendedAggregationProperties(Model m) {
 		Set<Property> req = new HashSet<>();
-		req.add(m.createProperty(NS.EDM.PROP_OBJECT));
-		req.add(m.createProperty(NS.DM2E.PROP_HAS_ANNOTABLE_VERSION_AT));
+		req.add(prop(m, NS.EDM.PROP_OBJECT));
+		req.add(prop(m, NS.DM2E.PROP_HAS_ANNOTABLE_VERSION_AT));
 		return req;
 	}
 
@@ -111,7 +122,7 @@ public class Dm2eValidator {
 	 * @return A {@link Dm2eValidationReport}
 	 */
 	public static Dm2eValidationReport validateWithDm2e(Model m) {
-		ResIterator aggIter = m.listSubjectsWithProperty(m.createProperty(NS.RDF.PROP_TYPE), m
+		ResIterator aggIter = m.listSubjectsWithProperty(prop(m, NS.RDF.PROP_TYPE), m
 			.createProperty(NS.ORE.CLASS_AGGREGATION));
 		Dm2eValidationReport report = new Dm2eValidationReport(modelVersion);
 		while (aggIter.hasNext()) {
@@ -135,7 +146,7 @@ public class Dm2eValidator {
 	public Dm2eValidationReport validateWithDm2e(Model m, String aggUri) {
 
 		Dm2eValidationReport report = new Dm2eValidationReport(modelVersion);
-		Resource agg = m.createResource(aggUri);
+		Resource agg = res(m, aggUri);
 		validateAggregation(m, agg, report);
 		return report;
 
@@ -185,7 +196,17 @@ public class Dm2eValidator {
 				}
 			}
 		}
+		
+		//
+		// dc:title and/or dc:description (p.26/27)
+		//
+		if (! (cho.hasProperty(prop(m, NS.DC.PROP_TITLE)) || cho.hasProperty(prop(m, NS.DC.PROP_DESCRIPTION)))) {
+			report.add(cho, "missing at least one of dc:title and/or dc:description");
+		}
+		
+		
 	}
+
 	/**
 	 * @param m
 	 * @param agg
@@ -263,7 +284,7 @@ public class Dm2eValidator {
 			Resource wr,
 			Property prop,
 			Dm2eValidationReport report) {
-		NodeIterator it = m.listObjectsOfProperty(wr, m.createProperty(NS.DC.PROP_FORMAT));
+		NodeIterator it = m.listObjectsOfProperty(wr, prop(m, NS.DC.PROP_FORMAT));
 		if (!it.hasNext()) {
 			report.add(wr, "missing required property <" + NS.DC.PROP_FORMAT + ">.", prop);
 		} else {

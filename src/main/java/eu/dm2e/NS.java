@@ -468,6 +468,7 @@ public final class NS {
 		public static final String PROP_PUBLISHER = BASE + "publisher";
 		public static final String PROP_LANGUAGE = BASE + "language";
 		public static final String PROP_FORMAT = BASE + "format";
+		public static final String	PROP_DESCRIPTION	= BASE + "description";
 
 	}
 
