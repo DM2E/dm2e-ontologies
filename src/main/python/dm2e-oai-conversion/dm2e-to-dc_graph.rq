@@ -1,0 +1,110 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dm2e: <http://onto.dm2e.eu/schemas/dm2e/1.1/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX oai: <http://www.openarchives.org/OAI/2.0/>
+PREFIX oai_dc: <http://www.openarchives.org/OAI/2.0/oai_dc/>
+PREFIX oai_rights: <http://www.openarchives.org/OAI/2.0/rights/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX edm: <http://www.europeana.eu/schemas/edm/> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dm2e_helper_ns: <urn:x-dm2e:>
+PREFIX fabio: <http://purl.org/spar/fabio/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+CONSTRUCT {
+
+    # this must be named so we can start somewhere
+    oai:GetRecords oai:record ?oai_record .
+
+    ?oai_record oai:header ?oai_record_header .
+    ?oai_record oai:metadata ?oai_record_metadata .
+    ?oai_record oai:about ?oai_record_about .
+
+    # ?oai_record_header rdf:type oai:header .
+    ?oai_record_header oai:datestamp ?now .
+
+    ?oai_record_about oai_rights:rights ?oai_record_about_rights .
+    ?oai_record_about_rights oai_rights:rightsReference ?edm_rights .
+
+    ?oai_record_metadata rdf:type oai_dc:dc .
+    ?oai_record_metadata dm2e_helper_ns:rdf_type ?dc_type .
+    ?oai_record_metadata dc:type ?dc_type_Literal .
+    ?oai_record_metadata dc:date ?dc_date .
+    ?oai_record_metadata dc:type ?edm_type .
+    ?oai_record_metadata dc:title ?dcterms_title .
+    ?oai_record_metadata dc:identifier ?edm_isShownBy_Literal .
+    ?oai_record_metadata bibo:uri ?edm_isShownAt_Literal .
+    ?oai_record_metadata bibo:volume ?bibo_volume .
+    ?oai_record_metadata bibo:pages ?bio_pages .
+    ?oai_record_metadata dc:extent ?bio_pages .
+    ?oai_record_metadata dcterms:subtitle ?dcterms_subtitle .
+    ?oai_record_metadata dc:language ?dc_language .
+    ?oai_record_metadata dc:subject ?dc_subject .
+} WHERE {
+
+    GRAPH ?g {
+        # Aggregation and ProvidedCHO
+        ?agg edm:aggregatedCHO ?cho .
+
+        # The record ID
+        BIND(BNODE() AS ?oai_record)
+        BIND(BNODE() AS ?oai_record_header)
+        BIND(BNODE() AS ?oai_record_metadata)
+        BIND(BNODE() AS ?oai_record_about)
+        BIND(BNODE() AS ?oai_record_about_rights)
+        # BIND(URI(CONCAT("urn:x-dm2e:oai_record:", STR(?agg))) AS ?oai_record)
+        # BIND(URI(CONCAT("urn:x-dm2e:oai_header:", STR(?agg))) AS ?oai_record_header)
+        # BIND(URI(CONCAT("urn:x-dm2e:oai_metadata:", STR(?agg))) AS ?oai_record_metadata)
+        BIND(NOW() AS ?now)
+
+        # edm:provider
+        ?agg edm:provider ?edm_provider .
+        BIND(STR(?edm_provider) AS ?edm_provider_Literal)
+
+        # edm:rights
+        OPTIONAL { ?agg edm:rights ?edm_rights }
+
+
+        # Web Resources
+        OPTIONAL {
+            ?agg edm:isShownBy ?edm_isShownBy .
+            BIND (STRDT(?edm_isShownBy, dm2e_helper_ns:fulltext) AS ?edm_isShownBy_Literal)
+        }
+        OPTIONAL {
+            ?agg edm:isShownAt ?edm_isShownAt .
+            BIND (STRDT(?edm_isShownAt, dm2e_helper_ns:thumbnail) AS ?edm_isShownAt_Literal)
+        }
+        # Type of resource
+        ?cho dc:type ?dc_type .
+        BIND (STR(?dc_type) AS ?dc_type_Literal)
+        # dcterms:title -> dc:title
+        ?cho dcterms:title ?dcterms_title .
+        # edm:type -> dc:type
+        ?cho edm:type ?edm_type .
+        # dc:date -- not available for any CHO (i.e. not for Page)
+        OPTIONAL {
+            { 
+                ?cho dcterms:issued ?timespan .
+                ?timespan skos:prefLabel ?dc_date_raw .
+                # TODO
+                # remove language and datatype from skos:prefLabel since it's generic
+                # ideally we should parse edm:Timestamps here
+                BIND (STR(?dc_date_raw) AS ?dc_date) 
+            } UNION { ?cho dc:date ?dc_date }
+        }
+        # bibo:volume
+        OPTIONAL { ?cho bibo:volume ?bibo_volume }
+        # bibo:pages
+        OPTIONAL { ?cho bibo:pages ?bibo_pages }
+        # dcterms:subtitle
+        OPTIONAL { 
+            ?cho dcterms:subtitle ?dcterms_subtitle
+            FILTER (STR(?dcterms_subtitle) != "")
+        }
+        # dc:language
+        OPTIONAL { ?cho dc:language ?dc_language }
+        # dc:subject
+        OPTIONAL { ?cho dc:subject ?dc_subject }
+    }
+}

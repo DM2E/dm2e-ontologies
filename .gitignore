@@ -8,3 +8,5 @@ target
 *.jar
 *.war
 *.ear
+*pyc
+src/main/python/dm2e-oai-conversion/Mappings/
