@@ -339,6 +339,10 @@ public class Dm2eValidator {
 			line = parser.parse(options, args);
 			String formatArg = line.getOptionValue("format");
 			if (null != formatArg) format = formatArg;
+			if (line.getArgList().size() == 0) {
+				showHelp = true;
+				throw new ParseException("No files given");
+			}
 			for (Object fileArg : line.getArgList()) {
 				String fileName = new File(fileArg.toString()).getAbsolutePath();
 				Dm2eValidationReport report = validateWithDm2e(fileName, format);
