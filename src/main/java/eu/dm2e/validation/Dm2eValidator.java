@@ -300,6 +300,7 @@ public class Dm2eValidator {
 					case "text/html-named-content":
 					case "text/html":
 					case "text/plain":
+					case "image/jpeg":
 					case "image/png":
 					case "image/gif":
 						break;
