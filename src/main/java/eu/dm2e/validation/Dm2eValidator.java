@@ -287,6 +287,10 @@ public class Dm2eValidator {
 		// Validate the CHO
 		//
 		validateCHO(m, cho, report);
+		
+		//
+		// Validate date-like properties
+		validateDateLike(m, agg, report);
 	}
 
 	/**
