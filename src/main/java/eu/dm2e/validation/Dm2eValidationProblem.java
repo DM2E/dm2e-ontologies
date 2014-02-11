@@ -55,6 +55,18 @@ public class Dm2eValidationProblem extends Exception {
 		this.level = level;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder(super.toString());
+		sb.replace(0, Dm2eValidationProblem.class.getCanonicalName().length()+2, "");
+		if (null != context) {
+			sb.append("[ Context: <");
+			sb.append(context.getURI());
+			sb.append(">]");
+		}
+		return sb.toString();
+	}
+
 
 	@Override
 	public int hashCode() {
