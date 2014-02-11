@@ -556,6 +556,7 @@ public final class NS {
 		public static final String BASE         = "http://xmlns.com/foaf/0.1/";
 		public static final String CLASS_PERSON = BASE + "Person";
 		public static final String PROP_NAME    = BASE + "name";
+		public static final String CLASS_ORGANIZATION	= BASE + "Organization";
 	}
 
 	public static final class DM2E {
