@@ -4,11 +4,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-
-
-
-
 //CHECKSTYLE.OFF: JavadocVariable
 
 /**
@@ -25,15 +20,46 @@ import java.lang.annotation.Target;
  */
 public final class NS {
 
+	/**
+	 * Annotation for static fields of static classes to describe their OWL properties.
+	 * 
+	 * @author Konstantin Baierer
+	 */
 	@Target(ElementType.FIELD)
 	@Retention(RetentionPolicy.RUNTIME)
 	public @interface OWLAnnotation {
+		/**
+		 * @return the rdfs:comment of this element
+		 */
 		String description();
-		String owlType() default NS.OWL.CLASS; // can be NS.OWL.DATATYPE_PROPERTY, NS.OWL.OBJECT_PROPERTY, NS.OWL.INSTANCE or NS.OWL.CLASS
+		
+		/**
+		 * @return the type of this ontology element. Can be
+		 *         {@link NS.OWL.DATATYPE_PROPERTY}, 
+		 *         {@link NS.OWL.OBJECT_PROPERTY},
+		 *         {@link NS.OWL.INSTANCE},
+		 *         {@link NS.OWL.CLASS}
+		 */
+		String owlType() default NS.OWL.CLASS; // 
+		/**
+		 * @return the rdf:type of this ontology element. For instances.
+		 */
 		String rdfType() default NS.OWL.THING;
+		/**
+		 * @return the rdfs:domain of this property.
+		 */
 		String domain() default "";
+		/**
+		 * @return the rdfs:range of this property
+		 */
 		String range() default "";
+		/**
+		 * @return an optional rdfs:label for this ontology element
+		 */
 		String label() default "";
+		/**
+		 * @return whether this element is deprecated.
+		 */
 		boolean deprecated() default false;
 	}
 
@@ -484,6 +510,7 @@ public final class NS {
 		public static final String PROP_IS_PART_OF = BASE + "isPartOf";
 		public static final String PROP_TITLE = BASE + "title";
 		public static final String PROP_ISSUED = BASE + "issued";
+		public static final String PROP_TEMPORAL	= BASE + "temporal";
 
 	}
 
@@ -509,6 +536,7 @@ public final class NS {
 		public static final String STRING = BASE + "string";
 		public static final String BOOLEAN = BASE + "boolean";
 		public static final String ANY_URI = BASE + "anyURI";
+		public static final Object DATETIME	= BASE + "dateTime";
 	}
 
 	/**
@@ -564,6 +592,8 @@ public final class NS {
 		public static final String PROP_HAS_MET = BASE + "hasMet";
 		public static final String CLASS_EVENT	= BASE + "Event";
 		public static final String CLASS_PLACE	= BASE + "Event";
+		public static final String PROP_BEGIN	= BASE + "begin";
+		public static final String PROP_END	= BASE + "end";
 	}
 	public static final class PRO {
 		public static final String BASE = "http://purl.org/spar/pro/";
@@ -586,6 +616,8 @@ public final class NS {
 	}
 	public static final class CRM {
 		public static final String BASE = "http://www.cidoc-crm.org/cidoc-crm/";
+		public static final String PROP_P79F_BEGINNING_IS_QUALIFIED_BY= BASE + "P79F.beginning_is_qualified_by";
+		public static final String PROP_P80F_END_IS_QUALIFIED_BY		= BASE + "P80F.end_is_qualified_by";
 	}
 	public static final class OWL {
 		public static final String BASE = "http://www.w3.org/2002/07/owl#";
@@ -603,25 +635,4 @@ public final class NS {
 		
 	}
 
-
-//	public static final String
-////            NS_OMNOM = Config.getString("dm2e.ns.dm2e")
-////			, RDF = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-//			, DM2ELOG = "http://onto.dm2e.eu/logging#"
-//			;
-//	public static final String[] NAMESPACE_MAP;
-//
-//	static {
-//		HashMap<String, String> map = new HashMap<>();
-//		map.put("omnom", OMNOM.BASE);
-//		map.put("skos", SKOS.BASE);
-//		map.put("dc", DC.BASE);
-//		map.put("dcterms", DCTERMS.BASE);
-//		map.put("dct", DCTERMS.BASE);
-//		map.put("prov", PROV.BASE);
-//		map.put("rdf", RDF.BASE);
-//		map.put("rdfs", RDFS.BASE);
-//		map.put("co", CO.BASE);
-//		NAMESPACE_MAP = (String[]) Arrays.asList(map).toArray();
-//	}
 }
