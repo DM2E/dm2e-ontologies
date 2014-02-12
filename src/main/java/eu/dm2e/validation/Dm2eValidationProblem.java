@@ -13,7 +13,7 @@ public class Dm2eValidationProblem extends Exception {
 
 	private static final long		serialVersionUID	= -5230774122416088740L;
 	protected final String			thingUri;
-	protected final Property		context;
+	protected final Object			context;
 	protected final ValidationLevel	level;
 	protected final String			msg;
 
@@ -39,7 +39,7 @@ public class Dm2eValidationProblem extends Exception {
 		this(level, res, msg, cause, null);
 	}
 
-	protected Dm2eValidationProblem(ValidationLevel level, Resource res, String msg, Property context) {
+	protected Dm2eValidationProblem(ValidationLevel level, Resource res, String msg, Object context) {
 		super(msg);
 		this.msg = msg;
 		this.thingUri = res.getURI();
@@ -47,7 +47,7 @@ public class Dm2eValidationProblem extends Exception {
 		this.level = level;
 	}
 
-	protected Dm2eValidationProblem(ValidationLevel level, Resource res, String msg, Throwable cause, Property context) {
+	protected Dm2eValidationProblem(ValidationLevel level, Resource res, String msg, Throwable cause, Object context) {
 		super(msg, cause);
 		this.msg = msg;
 		this.thingUri = res.getURI();
@@ -60,9 +60,9 @@ public class Dm2eValidationProblem extends Exception {
 		StringBuilder sb = new StringBuilder(super.toString());
 		sb.replace(0, Dm2eValidationProblem.class.getCanonicalName().length()+2, "");
 		if (null != context) {
-			sb.append("[ Context: <");
-			sb.append(context.getURI());
-			sb.append(">]");
+			sb.append("[ Context: ");
+			sb.append(context);
+			sb.append("]");
 		}
 		return sb.toString();
 	}

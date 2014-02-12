@@ -10,7 +10,6 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 
 /**
@@ -20,6 +19,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
  */
 public class Dm2eValidationReport {
 	
+	@SuppressWarnings("unused")
 	private static final Logger log = LoggerFactory.getLogger(Dm2eValidationReport.class);
 	
 	private final Set<Dm2eValidationProblem> problemSet;
@@ -30,7 +30,7 @@ public class Dm2eValidationReport {
 		this.problemSet = new HashSet<>();
 	}
 	
-	private void add(ValidationLevel level, Resource res, String msg, Set<Resource> values, Property prop) {
+	private void add(ValidationLevel level, Resource res, String msg, Set<Resource> values, Object context) {
 		StringBuilder sb = new StringBuilder(msg);
 		if (null != values) {
 			sb.append(" ");
@@ -42,49 +42,49 @@ public class Dm2eValidationReport {
 					sb.append(", ");
 			}
 		}
-		this.problemSet.add(new Dm2eValidationProblem(level, res, sb.toString(), prop));
+		this.problemSet.add(new Dm2eValidationProblem(level, res, sb.toString(), context));
 	}
 
 	public void addError(Resource res, String msg) {
 		this.add(ValidationLevel.ERROR, res, msg, null, null);
 	}
-	public void addError(Resource res, String msg, Property prop) {
-		this.add(ValidationLevel.ERROR, res, msg, null, prop);
+	public void addError(Resource res, String msg, Object context) {
+		this.add(ValidationLevel.ERROR, res, msg, null, context);
 	}
 	public void addError(Resource res, String msg, Set<Resource> value) {
 		this.add(ValidationLevel.ERROR, res, msg, value, null);
 	}
-	public void addError(Resource res, String msg, Set<Resource> value, Property prop) {
-		this.add(ValidationLevel.ERROR, res, msg, value, prop);
+	public void addError(Resource res, String msg, Set<Resource> value, Object context) {
+		this.add(ValidationLevel.ERROR, res, msg, value, context);
 	}
 	public void addWarning(Resource res, String msg) {
 		this.add(ValidationLevel.WARNING, res, msg, null, null);
 	}
-	public void addWarning(Resource res, String msg, Property prop) {
-		this.add(ValidationLevel.WARNING, res, msg, null, prop);
+	public void addWarning(Resource res, String msg, Object context) {
+		this.add(ValidationLevel.WARNING, res, msg, null, context);
 	}
 	public void addWarning(Resource res, String msg, Set<Resource> value) {
 		this.add(ValidationLevel.WARNING, res, msg, value, null);
 	}
-	public void addWarning(Resource res, String msg, Set<Resource> value, Property prop) {
-		this.add(ValidationLevel.WARNING, res, msg, value, prop);
+	public void addWarning(Resource res, String msg, Set<Resource> value, Object context) {
+		this.add(ValidationLevel.WARNING, res, msg, value, context);
 	}
 	public void addNotice(Resource res, String msg) {
 		this.add(ValidationLevel.NOTICE, res, msg, null, null);
 	}
-	public void addNotice(Resource res, String msg, Property prop) {
-		this.add(ValidationLevel.NOTICE, res, msg, null, prop);
+	public void addNotice(Resource res, String msg, Object context) {
+		this.add(ValidationLevel.NOTICE, res, msg, null, context);
 	}
 	public void addNotice(Resource res, String msg, Set<Resource> value) {
 		this.add(ValidationLevel.NOTICE, res, msg, value, null);
 	}
-	public void addNotice(Resource res, String msg, Set<Resource> value, Property prop) {
-		this.add(ValidationLevel.NOTICE, res, msg, value, prop);
+	public void addNotice(Resource res, String msg, Set<Resource> value, Object context) {
+		this.add(ValidationLevel.NOTICE, res, msg, value, context);
 	}
 	
 	@Override
 	public String toString() {
-		return exportToString(ValidationLevel.ERROR);
+		return exportToString(ValidationLevel.NOTICE);
 	}
 
 	/**

@@ -492,7 +492,9 @@ public final class NS {
 		public static final String PROP_PUBLISHER = BASE + "publisher";
 		public static final String PROP_LANGUAGE = BASE + "language";
 		public static final String PROP_FORMAT = BASE + "format";
-		public static final String	PROP_DESCRIPTION	= BASE + "description";
+		public static final String PROP_DESCRIPTION	= BASE + "description";
+		public static final String	PROP_CREATOR	= BASE + "creator";
+		public static final String	PROP_CONTRIBUTOR	= BASE + "contributor";
 
 	}
 
@@ -511,6 +513,7 @@ public final class NS {
 		public static final String PROP_TITLE = BASE + "title";
 		public static final String PROP_ISSUED = BASE + "issued";
 		public static final String PROP_TEMPORAL	= BASE + "temporal";
+		public static final String	PROP_ALTERNATIVE	= BASE + "alternative";
 
 	}
 
@@ -560,13 +563,29 @@ public final class NS {
 	}
 
 	public static final class DM2E {
-		public static final String BASE         = "http://onto.dm2e.eu/schemas/dm2e/1.1/";
-		public static final String CLASS_MANUSCRIPT = BASE + "Manuscript";
-		public static final String PROP_HAS_ANNOTABLE_VERSION_AT = BASE + "hasAnnotatableVersionAt";
-		public static final String PROP_PRINTED_AT = BASE + "printedAt";
-		public static final String PROP_SUBTITLE = BASE + "subtitle";
-		public static final String PROP_DISPLAY_LEVEL = BASE + "displayLevel";
+		public static final String	BASE							= "http://onto.dm2e.eu/schemas/dm2e/1.1/";
+		public static final String	CLASS_MANUSCRIPT				= BASE + "Manuscript";
+		public static final String	PROP_HAS_ANNOTABLE_VERSION_AT	= BASE + "hasAnnotatableVersionAt";
+		public static final String	PROP_PRINTED_AT					= BASE + "printedAt";
+		public static final String	PROP_SUBTITLE					= BASE + "subtitle";
+		public static final String	PROP_DISPLAY_LEVEL				= BASE + "displayLevel";
+		public static final String	PROP_WRITER						= BASE + "writer";
+		public static final String	PROP_PAINTER					= BASE + "painter";
+		public static final String	PROP_ARTIST						= BASE + "artist";
 	}
+
+	public static final class DM2E_UNVERSIONED {
+		public static final String	BASE							= "http://onto.dm2e.eu/schemas/dm2e/";
+		public static final String	CLASS_MANUSCRIPT				= BASE + "Manuscript";
+		public static final String	PROP_HAS_ANNOTABLE_VERSION_AT	= BASE + "hasAnnotatableVersionAt";
+		public static final String	PROP_PRINTED_AT					= BASE + "printedAt";
+		public static final String	PROP_SUBTITLE					= BASE + "subtitle";
+		public static final String	PROP_DISPLAY_LEVEL				= BASE + "displayLevel";
+		public static final String	PROP_WRITER						= BASE + "writer";
+		public static final String	PROP_PAINTER					= BASE + "painter";
+		public static final String	PROP_ARTIST						= BASE + "artist";
+	}
+
 	public static final class FABIO {
 		public static final String BASE         = "http://purl.org/spar/fabio/";
 		public static final String CLASS_ARTICLE = BASE + "Article";
@@ -577,28 +596,30 @@ public final class NS {
 		public static final String PROP_EDITOR = BASE + "editor";
 	}
 	public static final class EDM {
-		public static final String BASE = "http://www.europeana.eu/schemas/edm/";
-		public static final String PROP_AGGREGATED_CHO = BASE + "aggregatedCHO";
-		public static final String PROP_IS_SHOWN_BY = BASE + "isShownBy";
-		public static final String PROP_IS_SHOWN_AT = BASE + "isShownAt";
-		public static final String PROP_RIGHTS = BASE + "rights";
-		public static final String PROP_OBJECT = BASE + "object";
-		public static final Object CLASS_PROVIDED_CHO = BASE + "ProvidedCHO";
-		public static final String PROP_PROVIDER = BASE + "provider";
-		public static final String PROP_DATA_PROVIDER = BASE + "dataProvider";
-		public static final String PROP_TYPE = BASE + "type";
-		public static final String PROP_HAS_VIEW = BASE + "hasView";
-		public static final String CLASS_AGENT	= BASE + "Agent";
-		public static final String CLASS_TIMESPAN	= BASE + "TimeSpan";
-		public static final String PROP_HAS_MET = BASE + "hasMet";
-		public static final String CLASS_EVENT	= BASE + "Event";
-		public static final String CLASS_PLACE	= BASE + "Event";
-		public static final String PROP_BEGIN	= BASE + "begin";
-		public static final String PROP_END	= BASE + "end";
+		public static final String	BASE				= "http://www.europeana.eu/schemas/edm/";
+		public static final String	CLASS_PROVIDED_CHO	= BASE + "ProvidedCHO";
+		public static final String	CLASS_AGENT			= BASE + "Agent";
+		public static final String	CLASS_EVENT			= BASE + "Event";
+		public static final String	CLASS_PLACE			= BASE + "Event";
+		public static final String	CLASS_TIMESPAN		= BASE + "TimeSpan";
+		public static final String	CLASS_WEBRESOURCE	= BASE + "WebResource";
+		public static final String	PROP_AGGREGATED_CHO	= BASE + "aggregatedCHO";
+		public static final String	PROP_BEGIN			= BASE + "begin";
+		public static final String	PROP_DATA_PROVIDER	= BASE + "dataProvider";
+		public static final String	PROP_END			= BASE + "end";
+		public static final String	PROP_HAS_MET		= BASE + "hasMet";
+		public static final String	PROP_HAS_VIEW		= BASE + "hasView";
+		public static final String	PROP_IS_SHOWN_AT	= BASE + "isShownAt";
+		public static final String	PROP_IS_SHOWN_BY	= BASE + "isShownBy";
+		public static final String	PROP_OBJECT			= BASE + "object";
+		public static final String	PROP_PROVIDER		= BASE + "provider";
+		public static final String	PROP_RIGHTS			= BASE + "rights";
+		public static final String	PROP_TYPE			= BASE + "type";
 	}
 	public static final class PRO {
 		public static final String BASE = "http://purl.org/spar/pro/";
 		public static final String PROP_AUTHOR = BASE + "author";
+		public static final String	PROP_TRANSLATOR	= BASE + "translator";
 	}
 	public static final class DM2E_UNOFFICIAL {
 		public static final String BASE = "http://onto.dm2e.eu/UNOFFICIAL/";
