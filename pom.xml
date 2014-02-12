@@ -85,7 +85,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>eu.dm2e.validation.Dm2eValidator</mainClass>
+                            <mainClass>eu.dm2e.utils.Dm2eValidationCLI</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
