@@ -82,7 +82,7 @@ public abstract class BaseValidator implements Dm2eValidator {
 	// Generic checkers
 	//
 
-	private void checkFunctionalProperties(Model m,
+	protected void checkFunctionalProperties(Model m,
 			Resource res,
 			final Set<Property> properties,
 			Dm2eValidationReport report) {
@@ -95,7 +95,7 @@ public abstract class BaseValidator implements Dm2eValidator {
 			}
 		}
 	}
-	private void checkMandatoryProperties(Model m,
+	protected void checkMandatoryProperties(Model m,
 			Resource res,
 			Set<Property> properties,
 			Dm2eValidationReport report) {
@@ -105,7 +105,7 @@ public abstract class BaseValidator implements Dm2eValidator {
 				report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISSING_REQUIRED_PROPERTY, res, prop);
 		}
 	}
-	private void checkRecommendedProperties(Model m,
+	protected void checkRecommendedProperties(Model m,
 			Resource res,
 			Set<Property> properties,
 			Dm2eValidationReport report) {
@@ -115,7 +115,7 @@ public abstract class BaseValidator implements Dm2eValidator {
 				report.add(ValidationLevel.WARNING, ValidationProblemCategory.MISSING_RECOMMENDED_PROPERTY, res, prop);
 		}
 	}
-	private void checkLiteralPropertyRanges(Model m, Resource cho,
+	protected void checkLiteralPropertyRanges(Model m, Resource cho,
 				Dm2eValidationReport report,
 				final Map<Property, Set<Resource>> properties) {
 			for (Entry<Property, Set<Resource>> entry : properties.entrySet()) {
@@ -146,7 +146,7 @@ public abstract class BaseValidator implements Dm2eValidator {
 				}
 			}
 		}
-	private void checkObjectPropertyRanges(Model m,
+	protected void checkObjectPropertyRanges(Model m,
 			Resource res,
 			final Map<Property, Set<Resource>> properties,
 			Dm2eValidationReport report) {

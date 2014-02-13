@@ -107,6 +107,19 @@ public class Dm2eValidator_1_1_Rev_1_3Test extends ValidationTest {
 			final ValidationProblemCategory expected = ValidationProblemCategory.MISSING_CONDITIONALLY_REQUIRED_ONE_OF;
 			doesNotContainCategory(report, expected);
 		}
+		{
+			log.info("Using versioned DM2E namespace yields error");
+			final Model m = ModelFactory.createDefaultModel();
+			final Resource testRes = res(m, "http://foo");
+
+			m.addLiteral(testRes, prop(m, NS.DM2E.PROP_DISPLAY_LEVEL), true);
+			m.add(testRes, prop(m, NS.EDM.PROP_OBJECT), res(m, "http://bar"));
+
+			final Dm2eValidationReport report = new Dm2eValidationReport("0");
+			v1_1_rev1_3.validate_ore_Aggregation(m, testRes, report);
+			final ValidationProblemCategory expected = ValidationProblemCategory.FORBIDDEN_PROPERTY;
+			containsCategory(report, expected);
+		}
 	}
 
 }

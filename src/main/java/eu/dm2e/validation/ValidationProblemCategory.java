@@ -20,6 +20,7 @@ public enum ValidationProblemCategory {
 	SHOULD_BE_RESOURCE(" has property <%s> which should be a resource but is a literal."),
 	NON_REPEATABLE(" repeats non-repeatable property <%s>"),
 	MISC(" has specific Problem: %s"),
+	FORBIDDEN_PROPERTY(" has forbidden property <%s>"),
 	;
 	
 	private String msg;

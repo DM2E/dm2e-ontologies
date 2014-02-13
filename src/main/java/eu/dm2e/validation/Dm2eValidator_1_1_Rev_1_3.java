@@ -5,10 +5,14 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import eu.dm2e.NS;
 
@@ -23,12 +27,14 @@ import eu.dm2e.NS;
  */
 public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 
+
 	private static final String	modelVersion	= "1.1_Rev1.3";
 
 	@Override public String getVersion() {
 		return modelVersion;
 	}
 	
+	private static final Logger log = LoggerFactory.getLogger(Dm2eValidator_1_1_Rev_1_3.class);
 	
 	@Override public Set<Property> build_DateLike_Properties(Model m) {
 		Set<Property> ret = new HashSet<>();
@@ -234,4 +240,19 @@ public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 		
 	}
 
+	@Override
+	protected void checkMandatoryProperties(Model m, Resource res, Set<Property> properties, Dm2eValidationReport report) {
+		super.checkMandatoryProperties(m, res, properties, report);
+		
+		//
+		// Check that no DM2E v.1.x properties are used (Doron)
+		// 
+		StmtIterator it = res.listProperties();
+		while (it.hasNext()) {
+			Property prop = it.next().getPredicate();
+			if (prop.getNameSpace().startsWith("http://onto.dm2e.eu/schemas/dm2e/1.")) {
+				report.add(ValidationLevel.ERROR, ValidationProblemCategory.FORBIDDEN_PROPERTY, res, prop);
+			}
+		}
+	}
 }
