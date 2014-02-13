@@ -70,8 +70,7 @@ public class Dm2eValidator_1_1_Rev_1_2 extends BaseValidator {
 		return req;
 	}
 
-	@Override
-	public Set<Property> build_ore_Aggregation_FunctionalProperties(Model m) {
+	@Override public Set<Property> build_ore_Aggregation_FunctionalProperties(Model m) {
 		Set<Property> ret = new HashSet<>();
 		ret.add(prop(m, NS.EDM.PROP_AGGREGATED_CHO));
 		ret.add(prop(m, NS.EDM.PROP_PROVIDER));
@@ -81,6 +80,18 @@ public class Dm2eValidator_1_1_Rev_1_2 extends BaseValidator {
 		ret.add(prop(m, NS.EDM.PROP_IS_SHOWN_AT));
 		ret.add(prop(m, NS.EDM.PROP_OBJECT));
 		ret.add(prop(m, NS.DM2E.PROP_HAS_ANNOTABLE_VERSION_AT));
+		return ret;
+	}
+
+	@Override public Map<Property, Set<Resource>> build_ore_Aggregation_ObjectPropertyRanges(Model m) {
+		Map<Property, Set<Resource>> ret = new HashMap<>();
+		// TODO Auto-generated method stub
+		return ret;
+	}
+
+	@Override public Map<Property, Set<Resource>> build_ore_Aggregation_LiteralPropertyRanges(Model m) {
+		Map<Property, Set<Resource>> ret = new HashMap<>();
+		// TODO Auto-generated method stub
 		return ret;
 	}
 

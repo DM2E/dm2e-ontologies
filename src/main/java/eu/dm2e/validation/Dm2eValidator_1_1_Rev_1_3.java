@@ -72,8 +72,20 @@ public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 		return req;
 	}
 
-	@Override
-	public Set<Property> build_ore_Aggregation_FunctionalProperties(Model m) {
+	@Override public Map<Property, Set<Resource>> build_ore_Aggregation_ObjectPropertyRanges(Model m) {
+		Map<Property, Set<Resource>> ret = new HashMap<>();
+		// TODO Auto-generated method stub
+		return ret;
+	}
+
+	@Override public Map<Property, Set<Resource>> build_ore_Aggregation_LiteralPropertyRanges(Model m) {
+		Map<Property, Set<Resource>> ret = new HashMap<>();
+		ret.put(prop(m, NS.DM2E_UNVERSIONED.PROP_DISPLAY_LEVEL), new HashSet<Resource>());
+		ret.get(prop(m, NS.DM2E_UNVERSIONED.PROP_DISPLAY_LEVEL)).add(res(m, NS.XSD.BOOLEAN));
+		return ret;
+	}
+
+	@Override public Set<Property> build_ore_Aggregation_FunctionalProperties(Model m) {
 		Set<Property> ret = new HashSet<>();
 		ret.add(prop(m, NS.DM2E_UNVERSIONED.PROP_DISPLAY_LEVEL));
 		ret.add(prop(m, NS.EDM.PROP_AGGREGATED_CHO));
@@ -130,7 +142,8 @@ public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 		Map<Property, Set<Resource>> ret = new HashMap<>();
 
 		ret.put(prop(m, NS.BIBO.PROP_NUMBER), new HashSet<Resource>());
-		ret.get(prop(m, NS.BIBO.PROP_NUMBER)).add(res(m, NS.XSD.INTEGER));
+		ret.get(prop(m, NS.BIBO.PROP_NUMBER)).add(res(m, NS.XSD.INT));
+
 		return ret;
 	}
 
@@ -202,18 +215,19 @@ public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 			}
 		}
 		
-		// edm:isShownBy
+		// edm:isShownBy / edm:isObject
 		//
-		// p.21: "mandatory (either edm:isShownBy or edm: isShownAt or if
-		// dm2e:displayLe vel is true) not repeatable"
+		// p.21:
+		// "if dm2e:displayL evel is true edm:isShownB y and/or edm:object must
+		// be provided)"
 		if (null != displayLevelStmt && displayLevelStmt.getObject().isLiteral()) {
 			if ("true".equals(displayLevelStmt.getObject().asLiteral().getLexicalForm().toLowerCase())) {
-				if (! agg.hasProperty(prop(m, NS.EDM.PROP_IS_SHOWN_BY))) {
+				if (! agg.hasProperty(prop(m, NS.EDM.PROP_IS_SHOWN_BY)) && ! agg.hasProperty(prop(m, NS.EDM.PROP_OBJECT))) {
 					report.add(ValidationLevel.ERROR,
-							ValidationProblemCategory.MISSING_CONDITIONALLY_REQUIRED_PROPERTY,
+							ValidationProblemCategory.MISSING_CONDITIONALLY_REQUIRED_ONE_OF,
 							agg,
-							NS.EDM.PROP_IS_SHOWN_BY,
-							"Must set edm:shownBy because the dm2e:displayLevel is 'true'.");
+							NS.EDM.PROP_IS_SHOWN_BY + " and/or " + NS.EDM.PROP_OBJECT,
+							"Must set edm:shownBy and/or edm:object because the dm2e:displayLevel is 'true'.");
 				}
 			}
 		}

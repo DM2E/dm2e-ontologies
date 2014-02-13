@@ -6,6 +6,7 @@ public enum ValidationProblemCategory {
 	MISSING_RECOMMENDED_PROPERTY(" is missing strongly recommended property <%s>"),
 	MISSING_CONDITIONALLY_REQUIRED_PROPERTY(" is missing required property <%s> (Condition: %s)"),
 	MISSING_REQUIRED_ONE_OF(" is missing one of %s"),
+	MISSING_CONDITIONALLY_REQUIRED_ONE_OF(" is missing required property <%s> (Condition: %s)"),
 
 	INVALID_LITERAL(" Invalid literal value for <%s>: '%s' (%s)"),
 	BAD_MIMETYPE(" has unsupported MIME type '%s'."),

@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -77,6 +78,100 @@ public abstract class BaseValidator implements Dm2eValidator {
 		return cho;
 	}
 	
+	//
+	// Generic checkers
+	//
+
+	private void checkFunctionalProperties(Model m,
+			Resource res,
+			final Set<Property> properties,
+			Dm2eValidationReport report) {
+		for (Property prop : properties) {
+			NodeIterator iter = m.listObjectsOfProperty(res, prop);
+			if (iter.hasNext()) {
+				iter.next();
+				if (iter.hasNext())
+					report.add(ValidationLevel.ERROR, ValidationProblemCategory.NON_REPEATABLE, res, prop);
+			}
+		}
+	}
+	private void checkMandatoryProperties(Model m,
+			Resource res,
+			Set<Property> properties,
+			Dm2eValidationReport report) {
+		for (Property prop : properties) {
+			NodeIterator iter = m.listObjectsOfProperty(res, prop);
+			if (!iter.hasNext()) 
+				report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISSING_REQUIRED_PROPERTY, res, prop);
+		}
+	}
+	private void checkRecommendedProperties(Model m,
+			Resource res,
+			Set<Property> properties,
+			Dm2eValidationReport report) {
+		for (Property prop : properties) {
+			NodeIterator iter = m.listObjectsOfProperty(res, prop);
+			if (!iter.hasNext()) 
+				report.add(ValidationLevel.WARNING, ValidationProblemCategory.MISSING_RECOMMENDED_PROPERTY, res, prop);
+		}
+	}
+	private void checkLiteralPropertyRanges(Model m, Resource cho,
+				Dm2eValidationReport report,
+				final Map<Property, Set<Resource>> properties) {
+			for (Entry<Property, Set<Resource>> entry : properties.entrySet()) {
+				Property prop = entry.getKey();
+				StmtIterator iter = cho.listProperties(prop);
+				while (iter.hasNext()) {
+					RDFNode obj = iter.next().getObject();
+					if (obj.isLiteral()) {
+						final Literal objLit = obj.asLiteral();
+						boolean validRange = false;
+						if (null == objLit.getDatatype()) {
+							report.add(ValidationLevel.ERROR, ValidationProblemCategory.ILLEGALLY_UNTYPED_LITERAL, cho, prop, entry.getValue());
+							continue;
+						}
+						for (Resource allowedRange : entry.getValue()) {
+	//						log.debug(objLit.getDatatype().getURI());
+	//						log.debug(allowedRange.getURI());
+							if (objLit.getDatatype().getURI().equals(allowedRange.getURI())) {
+								validRange = true;
+								break;
+							}
+						}
+						if (!validRange)
+							report.add(ValidationLevel.ERROR, ValidationProblemCategory.INVALID_DATA_PROPERTY_RANGE, cho, prop, entry.getValue());
+					} else {
+						report.add(ValidationLevel.ERROR, ValidationProblemCategory.SHOULD_BE_LITERAL, cho, prop);
+					}
+				}
+			}
+		}
+	private void checkObjectPropertyRanges(Model m,
+			Resource res,
+			final Map<Property, Set<Resource>> properties,
+			Dm2eValidationReport report) {
+		for (Entry<Property, Set<Resource>> entry : properties.entrySet()) {
+			Property prop = entry.getKey();
+			StmtIterator iter = res.listProperties(prop);
+			while (iter.hasNext()) {
+				RDFNode obj = iter.next().getObject();
+				if (obj.isLiteral()) {
+					report.add(ValidationLevel.ERROR, ValidationProblemCategory.SHOULD_BE_RESOURCE, res, prop);
+				} else if (obj.isResource()) {
+					final Resource objRes = obj.asResource();
+					boolean validRange = false;
+					for (Resource allowedRange : entry.getValue()) {
+						if (objRes.hasProperty(isa(m), allowedRange)) {
+							validRange = true;
+							break;
+						}
+					}
+					if (!validRange)
+						report.add(ValidationLevel.ERROR, ValidationProblemCategory.INVALID_OBJECT_PROPERTY_RANGE, res, objRes, entry.getValue());
+				}
+			}
+		}
+	}
 
 	//
 	// Validation methods for individual classes
@@ -91,50 +186,43 @@ public abstract class BaseValidator implements Dm2eValidator {
 		//
 		// Check mandatory properties
 		//
-		Set<Property> aggregationProperties = build_ore_Aggregation_Mandatory_Properties(m);
-
-		for (Property prop : aggregationProperties) {
-			NodeIterator iter = m.listObjectsOfProperty(agg, prop);
-			if (!iter.hasNext()) 
-				report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISSING_REQUIRED_PROPERTY, agg, prop);
-		}
+		checkMandatoryProperties(m, agg, build_ore_Aggregation_Mandatory_Properties(m), report);
 
 		//
 		// Check recommended properties
 		//
-		Set<Property> aggregationRecommendedProperties = build_ore_Aggregation_Recommended_Properties(m);
-		for (Property prop : aggregationRecommendedProperties) {
-			NodeIterator iter = m.listObjectsOfProperty(agg, prop);
-			if (!iter.hasNext()) 
-				report.add(ValidationLevel.WARNING, ValidationProblemCategory.MISSING_RECOMMENDED_PROPERTY, agg, prop);
-		}
+		checkRecommendedProperties(m, agg, build_ore_Aggregation_Recommended_Properties(m), report);
 
 		//
 		// Check functional properties (i.e. non-repeatable properties)
 		//
-		for (Property prop : build_ore_Aggregation_FunctionalProperties(m)) {
-			NodeIterator iter = m.listObjectsOfProperty(agg, prop);
-			if (iter.hasNext()) {
-				iter.next();
-				if (iter.hasNext())
-					report.add(ValidationLevel.ERROR, ValidationProblemCategory.NON_REPEATABLE, agg, prop);
-			}
-		}
+		checkFunctionalProperties(m, agg, build_ore_Aggregation_FunctionalProperties(m), report);
+
 
 		//
-		// Find CHO and stop validating this aggregation if none is found
+		// Object properties Range checks
+		//
+		checkObjectPropertyRanges(m, agg, build_ore_Aggregation_ObjectPropertyRanges(m), report);
+
+		//
+		// Literal properties Range checks
+		//
+		checkLiteralPropertyRanges(m, agg, report, build_ore_Aggregation_LiteralPropertyRanges(m));
+
+		//
+		// Find CHO and give stern error if none is found
 		//
 		Resource cho = get_edm_ProvidedCHO_for_ore_Aggregation(m, agg);
 		if (null == cho) {
-			report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISC, agg, "Aggregation has no ProvidedCHO. Will not validate further.");
-			return;
-		}
+			report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISC, agg, "Aggregation has no ProvidedCHO. This is very bad.");
+		} else {
 
-		//
-		// Make sure CHO and Aggregation are different things (was problem with ub-ffm data)
-		//
-		if (cho.getURI().equals(agg.getURI())) {
-			report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISC, agg, "CHO is the same as the Aggregation. This is likely a mapping glitch.");
+			//
+			// Make sure CHO and Aggregation are different things (was problem with ub-ffm data)
+			//
+			if (cho.getURI().equals(agg.getURI())) {
+				report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISC, agg, "CHO is the same as the Aggregation. This is likely a mapping glitch.");
+			}
 		}
 
 		//
@@ -175,89 +263,27 @@ public abstract class BaseValidator implements Dm2eValidator {
 		//
 		// Check required properties
 		//
-		for (Property prop : build_edm_ProvidedCHO_Mandatory_Properties(m)) {
-			NodeIterator iter = m.listObjectsOfProperty(cho, prop);
-			if (!iter.hasNext()) {
-				report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISSING_REQUIRED_PROPERTY, cho, prop);
-			}
-		}
+		checkMandatoryProperties(m, cho, build_edm_ProvidedCHO_Mandatory_Properties(m), report);
 
 		//
 		// Check recommended properties
 		//
-		for (Property prop : build_edm_ProvidedCHO_Recommended_Properties(m)) {
-			NodeIterator iter = m.listObjectsOfProperty(cho, prop);
-			if (!iter.hasNext()) {
-				report.add(ValidationLevel.WARNING, ValidationProblemCategory.MISSING_RECOMMENDED_PROPERTY, cho, prop);
-			}
-		}
+		checkRecommendedProperties(m, cho, build_edm_ProvidedCHO_Recommended_Properties(m), report);
 		
 		//
 		// Check functional properties (i.e. non-repeatable properties)
 		//
-		for (Property prop : build_edm_ProvidedCHO_FunctionalProperties(m)) {
-			NodeIterator iter = m.listObjectsOfProperty(cho, prop);
-			if (iter.hasNext()) {
-				iter.next();
-				if (iter.hasNext())
-					report.add(ValidationLevel.ERROR, ValidationProblemCategory.NON_REPEATABLE, cho, prop);
-			}
-		}
+		checkFunctionalProperties(m, cho, build_edm_ProvidedCHO_FunctionalProperties(m), report);
 
 		//
 		// Object properties Range checks
 		//
-		for (Entry<Property, Set<Resource>> entry : build_edm_ProvidedCHO_ObjectPropertyRanges(m).entrySet()) {
-			Property prop = entry.getKey();
-			StmtIterator iter = cho.listProperties(prop);
-			while (iter.hasNext()) {
-				RDFNode obj = iter.next().getObject();
-				if (obj.isLiteral()) {
-					report.add(ValidationLevel.ERROR, ValidationProblemCategory.SHOULD_BE_RESOURCE, cho, prop);
-				} else if (obj.isResource()) {
-					final Resource objRes = obj.asResource();
-					boolean validRange = false;
-					for (Resource allowedRange : entry.getValue()) {
-						if (objRes.hasProperty(isa(m), allowedRange)) {
-							validRange = true;
-							break;
-						}
-					}
-					if (!validRange)
-						report.add(ValidationLevel.ERROR, ValidationProblemCategory.INVALID_OBJECT_PROPERTY_RANGE, cho, objRes, entry.getValue());
-				}
-			}
-		}
+		checkObjectPropertyRanges(m, cho, build_edm_ProvidedCHO_ObjectPropertyRanges(m), report);
+
 		//
 		// Literal properties Range checks
 		//
-		for (Entry<Property, Set<Resource>> entry : build_edm_ProvidedCHO_LiteralPropertyRanges(m).entrySet()) {
-			Property prop = entry.getKey();
-			StmtIterator iter = cho.listProperties(prop);
-			while (iter.hasNext()) {
-				RDFNode obj = iter.next().getObject();
-				if (obj.isLiteral()) {
-					final Literal objLit = obj.asLiteral();
-					boolean validRange = false;
-					if (null == objLit.getDatatype()) {
-						report.add(ValidationLevel.ERROR, ValidationProblemCategory.ILLEGALLY_UNTYPED_LITERAL, cho, prop, entry.getValue());
-						continue;
-					}
-					for (Resource allowedRange : entry.getValue()) {
-//						log.debug(objLit.getDatatype().getURI());
-//						log.debug(allowedRange.getURI());
-						if (objLit.getDatatype().getURI().equals(allowedRange.getURI())) {
-							validRange = true;
-							break;
-						}
-					}
-					if (!validRange)
-						report.add(ValidationLevel.ERROR, ValidationProblemCategory.INVALID_DATA_PROPERTY_RANGE, cho, prop, entry.getValue());
-				} else {
-					report.add(ValidationLevel.ERROR, ValidationProblemCategory.SHOULD_BE_LITERAL, cho, prop);
-				}
-			}
-		}
+		checkLiteralPropertyRanges(m, cho, report, build_edm_ProvidedCHO_LiteralPropertyRanges(m));
 
 		//
 		// dc:title and/or dc:description (p.26/27)

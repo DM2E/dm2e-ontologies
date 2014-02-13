@@ -1,61 +1,19 @@
 package eu.dm2e.validation;
 
-import static org.fest.assertions.Assertions.*;
-
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 
 import eu.dm2e.NS;
 
 
-public class BaseValidatorTest {
+public class BaseValidatorTest extends ValidationTest {
 	
-	//
-	// Utility
-	//
-
-	protected static Resource res(Model m, String uri) {
-		return m.createResource(uri);
-	}
-
-	protected static Property prop(Model m, String uri) {
-		return m.createProperty(uri);
-	}
-
-	protected static Property isa(Model m) {
-		return prop(m, NS.RDF.PROP_TYPE);
-	}
-
-	protected static boolean isa(Model m, Resource res, String type) {
-		if (m.contains(res, isa(m), res(m, type))) {
-			return true;
-		}
-		return false;
-	}
-
 	private static final Logger log = LoggerFactory.getLogger(BaseValidatorTest.class);
-	
-	private void containsCategory(Dm2eValidationReport report, ValidationProblemCategory expected) {
-		final String exportToString = report.exportToString(ValidationLevel.NOTICE, false, true);
-		assertThat(exportToString).contains(expected.name());
-	}
-	private void containsCategoryNot(Dm2eValidationReport report, ValidationProblemCategory expected) {
-		final String exportToString = report.exportToString(ValidationLevel.NOTICE, false, true);
-		assertThat(exportToString).doesNotContain(expected.name());
-	}
-
-	//
-	// Validators
-	//
-
-	private static Dm2eValidator v1_1_rev1_2 = new Dm2eValidator_1_1_Rev_1_2();
-	private static Dm2eValidator v1_1_rev1_3 = new Dm2eValidator_1_1_Rev_1_3();
 
 	//
 	// Tests
@@ -146,7 +104,7 @@ public class BaseValidatorTest {
 			Dm2eValidationReport report = new Dm2eValidationReport("0");
 			v1_1_rev1_2.validate_edm_ProvidedCHO(m, testRes, report);
 			ValidationProblemCategory expected = ValidationProblemCategory.MISSING_REQUIRED_ONE_OF;
-			containsCategoryNot(report, expected);
+			doesNotContainCategory(report, expected);
 		}
 		{
 			log.info("Bad dm2e:displayLevel");

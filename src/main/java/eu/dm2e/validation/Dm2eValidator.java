@@ -143,6 +143,7 @@ public interface Dm2eValidator {
 	 * @param m the {@link Model}
 	 */
 	public Map<Property, Set<Resource>> build_edm_ProvidedCHO_LiteralPropertyRanges(Model m);
+	
 	//
 	// Aggregation
 	//
@@ -167,6 +168,19 @@ public interface Dm2eValidator {
 	 */
 	public Set<Property> build_ore_Aggregation_AnnotatableWebResource_Properties(Model m);
 
+
+	/**
+	 * @return a map of ore:Aggregation object properties with to their allowed ranges
+	 * @param m the {@link Model}
+	 */
+	public Map<Property, Set<Resource>> build_ore_Aggregation_ObjectPropertyRanges(Model m);
+
+	/**
+	 * @return a map of ore:Aggregation literal properties with to their allowed ranges
+	 * @param m the {@link Model}
+	 */
+	public Map<Property, Set<Resource>> build_ore_Aggregation_LiteralPropertyRanges(Model m);
+	
 	/**
 	 * @return a set of non-repeatable properties of an Aggregation
 	 * @param m the {@link Model}
