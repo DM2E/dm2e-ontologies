@@ -115,7 +115,6 @@ public class Dm2eValidator_1_1_Rev_1_2 extends BaseValidator {
 		ret.add(prop(m, NS.DM2E.PROP_DISPLAY_LEVEL));
 		ret.add(prop(m, NS.DM2E.PROP_LEVEL_OF_GENESIS));
 		ret.add(prop(m, NS.BIBO.PROP_PAGES));
-		ret.add(prop(m, NS.PRISM_3.PROP_STARTING_PAGE));
 		ret.add(prop(m, NS.BIBO.PROP_NUMBER));
 		ret.add(prop(m, NS.BIBO.PROP_NUM_VOLUMES));
 		ret.add(prop(m, NS.BIBO.PROP_VOLUME));

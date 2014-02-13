@@ -21,7 +21,7 @@ import eu.dm2e.NS;
  * 
  * @author Konstantin Baierer
  */
-public class Dm2eValidator_1_1_Rev_1_3 extends Dm2eValidator_1_1_Rev_1_2 {
+public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 
 	private static final String	modelVersion	= "1.1_Rev1.3";
 
@@ -151,11 +151,16 @@ public class Dm2eValidator_1_1_Rev_1_3 extends Dm2eValidator_1_1_Rev_1_2 {
 		ret.get(prop(m, NS.EDM.PROP_HAS_MET)).add(res(m, NS.FOAF.CLASS_PERSON));
 		ret.get(prop(m, NS.EDM.PROP_HAS_MET)).add(res(m, NS.FOAF.CLASS_ORGANIZATION));
 
+		ret.put(prop(m, NS.PRISM_3.PROP_STARTING_PAGE), new HashSet<Resource>());
+		ret.get(prop(m, NS.PRISM_3.PROP_STARTING_PAGE)).add(res(m, NS.EDM.CLASS_PROVIDED_CHO));
+
 		return ret;
 	}
 
 	@Override public Set<Property> build_edm_TimeSpan_Mandatory_Properties(Model m) {
-		return new HashSet<>();
+		Set<Property> ret = new HashSet<>();
+		ret.add(prop(m, NS.SKOS.PROP_PREF_LABEL));
+		return ret;
 	}
 
 	@Override public Set<Property> build_edm_WebResource_Recommended_Properties(Model m) {
