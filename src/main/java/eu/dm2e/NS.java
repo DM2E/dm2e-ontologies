@@ -522,12 +522,15 @@ public final class NS {
 	 */
 	public static final class PROV {
 
-		public static final String BASE                   = "http://www.w3.org/ns/prov#";
-		public static final String PROP_WAS_GENERATED_BY  = BASE + "wasGeneratedBy";
-		public static final String PROP_SPECIALIZATION_OF = BASE + "specializationOf";
-		public static final String PROP_WAS_REVISION_OF   = BASE + "wasRevisionOf";
+		public static final String	BASE						= "http://www.w3.org/ns/prov#";
+		public static final String	CLASS_ACTIVITY				= BASE + "Activity";
+		public static final String	PROP_SPECIALIZATION_OF		= BASE + "specializationOf";
+		public static final String	PROP_USED					= BASE + "used";
+		public static final String	PROP_WAS_ASSOCIATED_WITH	= BASE + "wasAssociatedWith";
+		public static final String	PROP_WAS_GENERATED_BY		= BASE + "wasGeneratedBy";
+		public static final String	PROP_WAS_REVISION_OF		= BASE + "wasRevisionOf";
 
-	}
+    }
 
 	/**
 	 * XML Schema.

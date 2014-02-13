@@ -36,6 +36,16 @@ public class Dm2eValidationReport {
 //		this.problemSet.add(new Dm2eValidationProblem(level, category, res, msg));
 //	}
 
+	public boolean containsErrors() {
+		boolean doesContainErrrors = false;
+		for (Dm2eValidationProblem problem : problemSet) {
+			if (problem.getLevel() == ValidationLevel.ERROR) {
+				doesContainErrrors = true;
+				break;
+			}
+		}
+		return doesContainErrrors;
+	}
 	
 	@Override
 	public String toString() {

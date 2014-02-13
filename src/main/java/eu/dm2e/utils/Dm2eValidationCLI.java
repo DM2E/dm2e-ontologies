@@ -2,9 +2,7 @@ package eu.dm2e.utils;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
@@ -18,23 +16,11 @@ import org.apache.jena.riot.RiotException;
 
 import eu.dm2e.validation.Dm2eValidationReport;
 import eu.dm2e.validation.Dm2eValidator;
-import eu.dm2e.validation.Dm2eValidator_1_1_Rev_1_2;
-import eu.dm2e.validation.Dm2eValidator_1_1_Rev_1_3;
 import eu.dm2e.validation.ValidationLevel;
+import eu.dm2e.validation.validator.Dm2eSpecificationVersion;
 
 public class Dm2eValidationCLI {
 	
-	private static Map<String,Dm2eValidator> validatorVersions = new HashMap<>();
-	static {
-		{
-			Dm2eValidator val = new Dm2eValidator_1_1_Rev_1_2();
-			validatorVersions.put(val.getVersion(), val);
-		}
-		{
-			Dm2eValidator val = new Dm2eValidator_1_1_Rev_1_3();
-			validatorVersions.put(val.getVersion(), val);
-		}
-	}
 
 	/**
 	 * Main method
@@ -85,7 +71,7 @@ public class Dm2eValidationCLI {
 		//
 		// Do the main work
 		//
-		Dm2eValidator validator = validatorVersions.get(version);
+		Dm2eValidator validator = Dm2eSpecificationVersion.forString(version).getValidator();
 		for (Object fileArg : fileList) {
 			String fileName = new File(fileArg.toString()).getAbsolutePath();
 			Dm2eValidationReport report = null;
@@ -145,9 +131,11 @@ public class Dm2eValidationCLI {
 				}
 			}
 			String versionArg = line.getOptionValue("version");
-			if (! validatorVersions.containsKey(versionArg)) {
+			try {
+				Dm2eSpecificationVersion.forString(versionArg);
+			} catch (NoSuchFieldException e) {
 				throw new ParseException("Unrecognized version string '" + versionArg +"'");
-			}
+			} 
 			if (line.getArgList().size() == 0) {
 				throw new ParseException("No files given");
 			}
@@ -179,8 +167,8 @@ public class Dm2eValidationCLI {
 		Options options = new Options();
 		
 		StringBuilder sb = new StringBuilder();
-		for (String validatorVersion : validatorVersions.keySet()) {
-			sb.append(validatorVersion);
+		for (Dm2eSpecificationVersion validatorVersion : Dm2eSpecificationVersion.values()) {
+			sb.append(validatorVersion.getVersionString());
 			sb.append(" | ");
 		}
 		sb.replace(sb.length() - " | ".length(), sb.length(), "");

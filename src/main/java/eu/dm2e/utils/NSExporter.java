@@ -36,6 +36,7 @@ import eu.dm2e.NS.OWLAnnotation;
  */
 public class NSExporter {
 	
+	@SuppressWarnings("unused")
 	private static final Logger log = LoggerFactory.getLogger(NSExporter.class);
 	
 	public static String exportInnerClassConstantsToJSON(Class clazz) {

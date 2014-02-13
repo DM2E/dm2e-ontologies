@@ -1,4 +1,4 @@
-package eu.dm2e.validation;
+package eu.dm2e.validation.validator;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -9,6 +9,9 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 
 import eu.dm2e.NS;
+import eu.dm2e.validation.Dm2eValidationReport;
+import eu.dm2e.validation.ValidationProblemCategory;
+import eu.dm2e.validation.ValidationTest;
 
 
 public class BaseValidatorTest extends ValidationTest {

@@ -1,4 +1,4 @@
-package eu.dm2e.validation;
+package eu.dm2e.validation.validator;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -15,6 +15,9 @@ import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import eu.dm2e.NS;
+import eu.dm2e.validation.Dm2eValidationReport;
+import eu.dm2e.validation.ValidationLevel;
+import eu.dm2e.validation.ValidationProblemCategory;
 
 /**
  * Static methods for validating RDF data against the DM2E Data Model
@@ -34,6 +37,7 @@ public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 		return modelVersion;
 	}
 	
+	@SuppressWarnings("unused")
 	private static final Logger log = LoggerFactory.getLogger(Dm2eValidator_1_1_Rev_1_3.class);
 	
 	@Override public Set<Property> build_DateLike_Properties(Model m) {

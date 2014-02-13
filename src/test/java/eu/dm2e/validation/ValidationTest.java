@@ -6,10 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 
 import eu.dm2e.NS;
+import eu.dm2e.validation.validator.Dm2eValidator_1_1_Rev_1_2;
+import eu.dm2e.validation.validator.Dm2eValidator_1_1_Rev_1_3;
 
 public class ValidationTest {
 	
@@ -25,6 +28,10 @@ public class ValidationTest {
 	//
 	// Utility
 	//
+	
+	protected Model newModel() {
+		return ModelFactory.createDefaultModel();
+	}
 
 	protected static Resource res(Model m, String uri) {
 		return m.createResource(uri);

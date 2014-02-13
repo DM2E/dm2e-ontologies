@@ -1,4 +1,4 @@
-package eu.dm2e.validation;
+package eu.dm2e.validation.validator;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,6 +11,9 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 
 import eu.dm2e.NS;
+import eu.dm2e.validation.Dm2eValidationReport;
+import eu.dm2e.validation.ValidationLevel;
+import eu.dm2e.validation.ValidationProblemCategory;
 
 /**
  * Static methods for validating RDF data against the DM2E Data Model
@@ -178,7 +181,7 @@ public class Dm2eValidator_1_1_Rev_1_2 extends BaseValidator {
 
 	/**
 	 * All the checks that depend on DM2E's versioned namespace must be duplicated across versions argh :(
-	 * @see eu.dm2e.validation.BaseValidator#validate_edm_ProvidedCHO(com.hp.hpl.jena.rdf.model.Model, com.hp.hpl.jena.rdf.model.Resource, java.lang.Object, eu.dm2e.validation.Dm2eValidationReport)
+	 * @see eu.dm2e.validation.validator.BaseValidator#validate_edm_ProvidedCHO(com.hp.hpl.jena.rdf.model.Model, com.hp.hpl.jena.rdf.model.Resource, java.lang.Object, eu.dm2e.validation.Dm2eValidationReport)
 	 */
 	@Override
 	public void validate_edm_ProvidedCHO(Model m, Resource cho, Dm2eValidationReport report) {

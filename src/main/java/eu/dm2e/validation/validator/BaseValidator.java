@@ -1,4 +1,4 @@
-package eu.dm2e.validation;
+package eu.dm2e.validation.validator;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,8 +28,12 @@ import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import eu.dm2e.NS;
+import eu.dm2e.validation.Dm2eValidationReport;
+import eu.dm2e.validation.Dm2eValidator;
+import eu.dm2e.validation.ValidationLevel;
+import eu.dm2e.validation.ValidationProblemCategory;
 
-public abstract class BaseValidator implements Dm2eValidator {
+ abstract class BaseValidator implements Dm2eValidator {
 	
 	private static final Logger log = LoggerFactory.getLogger(BaseValidator.class);
 

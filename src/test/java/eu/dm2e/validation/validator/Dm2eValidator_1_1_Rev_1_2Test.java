@@ -1,4 +1,4 @@
-package eu.dm2e.validation;
+package eu.dm2e.validation.validator;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,6 +9,9 @@ import org.slf4j.LoggerFactory;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+
+import eu.dm2e.validation.Dm2eValidationReport;
+import eu.dm2e.validation.ValidationLevel;
 
 
 public class Dm2eValidator_1_1_Rev_1_2Test {

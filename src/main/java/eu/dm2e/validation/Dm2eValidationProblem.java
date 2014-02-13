@@ -15,6 +15,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 @SuppressWarnings("serial")
 public class Dm2eValidationProblem extends Exception {
 	
+	@SuppressWarnings("unused")
 	private static final Logger log = LoggerFactory.getLogger(Dm2eValidationProblem.class);
 
 	private final String						thingUri;
