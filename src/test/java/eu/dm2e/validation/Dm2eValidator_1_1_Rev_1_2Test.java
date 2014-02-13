@@ -34,7 +34,7 @@ public class Dm2eValidator_1_1_Rev_1_2Test {
 		Model m = ModelFactory.createDefaultModel();
 		m.read(inputStream, "", "TURTLE");
 		Dm2eValidationReport report = val.validateWithDm2e(m);
-		log.debug(report.toString());
+		log.debug(report.exportToString(ValidationLevel.NOTICE, true, true));
 		
 	}
 

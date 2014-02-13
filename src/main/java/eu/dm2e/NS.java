@@ -52,7 +52,7 @@ public final class NS {
 		/**
 		 * @return the rdfs:range of this property
 		 */
-		String range() default "";
+		String[] range() default {};
 		/**
 		 * @return an optional rdfs:label for this ontology element
 		 */
@@ -535,11 +535,12 @@ public final class NS {
 	public static final class XSD {
 
 		public static final String BASE = "http://www.w3.org/2001/XMLSchema#";
-		public static final String INT  = BASE + "int";
-		public static final String STRING = BASE + "string";
-		public static final String BOOLEAN = BASE + "boolean";
-		public static final String ANY_URI = BASE + "anyURI";
-		public static final Object DATETIME	= BASE + "dateTime";
+		public static final Object	DATETIME	= BASE + "dateTime";
+		public static final String	ANY_URI		= BASE + "anyURI";
+		public static final String	BOOLEAN		= BASE + "boolean";
+		public static final String	INT			= BASE + "int";
+		public static final String	INTEGER		= BASE + "integer";
+		public static final String	STRING		= BASE + "string";
 	}
 
 	/**
@@ -557,64 +558,105 @@ public final class NS {
 	public static final class FOAF {
 
 		public static final String BASE         = "http://xmlns.com/foaf/0.1/";
-		public static final String CLASS_PERSON = BASE + "Person";
-		public static final String PROP_NAME    = BASE + "name";
-		public static final String CLASS_ORGANIZATION	= BASE + "Organization";
+		public static final String	CLASS_ORGANIZATION	= BASE + "Organization";
+		public static final String	CLASS_PERSON		= BASE + "Person";
+		public static final String	PROP_NAME			= BASE + "name";
 	}
 
 	public static final class DM2E {
 		public static final String	BASE							= "http://onto.dm2e.eu/schemas/dm2e/1.1/";
 		public static final String	CLASS_MANUSCRIPT				= BASE + "Manuscript";
-		public static final String	PROP_HAS_ANNOTABLE_VERSION_AT	= BASE + "hasAnnotatableVersionAt";
-		public static final String	PROP_PRINTED_AT					= BASE + "printedAt";
-		public static final String	PROP_SUBTITLE					= BASE + "subtitle";
-		public static final String	PROP_DISPLAY_LEVEL				= BASE + "displayLevel";
-		public static final String	PROP_WRITER						= BASE + "writer";
-		public static final String	PROP_PAINTER					= BASE + "painter";
+		public static final String	CLASS_PAGE						= BASE + "Page";
+		public static final String	CLASS_FILE						= BASE + "File";
+		public static final String	CLASS_DOCUMENT						= BASE + "Document";
+		public static final String	CLASS_PHOTO						= BASE + "Photo";
 		public static final String	PROP_ARTIST						= BASE + "artist";
+		public static final String	PROP_CALL_NUMBER				= BASE + "callNumber";
+		public static final String	PROP_CONDITION					= BASE + "condition";
+		public static final String	PROP_DISPLAY_LEVEL				= BASE + "displayLevel";
+		public static final String	PROP_EXPLICIT					= BASE + "explicit";
+		public static final String	PROP_HAS_ANNOTABLE_VERSION_AT	= BASE + "hasAnnotatableVersionAt";
+		public static final String	PROP_INCIPIT					= BASE + "incipit";
+		public static final String	PROP_LEVEL_OF_GENESIS			= BASE + "levelOfGenesis";
+		public static final String	PROP_LEVEL_OF_HIERARCHY			= BASE + "levelOfHierarchy";
+		public static final String	PROP_PAINTER					= BASE + "painter";
+		public static final String	PROP_PRINTED_AT					= BASE + "printedAt";
+		public static final String	PROP_PUBLISHED_AT				= BASE + "publishedAt";
+		public static final String	PROP_SHELFMARK_LOCATION			= BASE + "shelfmarkLocation";
+		public static final String	PROP_SUBTITLE					= BASE + "subtitle";
+		public static final String	PROP_WATERMARK					= BASE + "watermark";
+		public static final String	PROP_WRITER						= BASE + "writer";
+		public static final String	CLASS_WORK						= BASE + "Work";
+		public static final String	CLASS_PARAGRAPH						= BASE + "Paragraph";
+		public static final String	CLASS_PUBLICATION						= BASE + "Publication";
 	}
 
 	public static final class DM2E_UNVERSIONED {
 		public static final String	BASE							= "http://onto.dm2e.eu/schemas/dm2e/";
 		public static final String	CLASS_MANUSCRIPT				= BASE + "Manuscript";
-		public static final String	PROP_HAS_ANNOTABLE_VERSION_AT	= BASE + "hasAnnotatableVersionAt";
-		public static final String	PROP_PRINTED_AT					= BASE + "printedAt";
-		public static final String	PROP_SUBTITLE					= BASE + "subtitle";
-		public static final String	PROP_DISPLAY_LEVEL				= BASE + "displayLevel";
-		public static final String	PROP_WRITER						= BASE + "writer";
-		public static final String	PROP_PAINTER					= BASE + "painter";
+		public static final String	CLASS_PAGE						= BASE + "Page";
+		public static final String	CLASS_FILE						= BASE + "File";
+		public static final String	CLASS_DOCUMENT						= BASE + "Document";
+		public static final String	CLASS_PHOTO						= BASE + "Photo";
 		public static final String	PROP_ARTIST						= BASE + "artist";
+		public static final String	PROP_CALL_NUMBER				= BASE + "callNumber";
+		public static final String	PROP_CONDITION					= BASE + "condition";
+		public static final String	PROP_DISPLAY_LEVEL				= BASE + "displayLevel";
+		public static final String	PROP_EXPLICIT					= BASE + "explicit";
+		public static final String	PROP_HAS_ANNOTABLE_VERSION_AT	= BASE + "hasAnnotatableVersionAt";
+		public static final String	PROP_INCIPIT					= BASE + "incipit";
+		public static final String	PROP_LEVEL_OF_GENESIS			= BASE + "levelOfGenesis";
+		public static final String	PROP_LEVEL_OF_HIERARCHY			= BASE + "levelOfHierarchy";
+		public static final String	PROP_PAINTER					= BASE + "painter";
+		public static final String	PROP_PRINTED_AT					= BASE + "printedAt";
+		public static final String	PROP_PUBLISHED_AT				= BASE + "publishedAt";
+		public static final String	PROP_SHELFMARK_LOCATION			= BASE + "shelfmarkLocation";
+		public static final String	PROP_SUBTITLE					= BASE + "subtitle";
+		public static final String	PROP_WATERMARK					= BASE + "watermark";
+		public static final String	PROP_WRITER						= BASE + "writer";
+		public static final String	CLASS_WORK						= BASE + "Work";
+		public static final String	CLASS_PARAGRAPH						= BASE + "Paragraph";
+		public static final String	CLASS_PUBLICATION						= BASE + "Publication";
 	}
 
 	public static final class FABIO {
 		public static final String BASE         = "http://purl.org/spar/fabio/";
 		public static final String CLASS_ARTICLE = BASE + "Article";
+		public static final String CLASS_CHAPTER = BASE + "Chapter";
 	}
 	public static final class BIBO {
 		public static final String BASE         = "http://purl.org/ontology/bibo/";
-		public static final String CLASS_ISSUE = BASE + "Issue";
-		public static final String PROP_EDITOR = BASE + "editor";
+		public static final String	CLASS_ISSUE	= BASE + "Issue";
+		public static final String	PROP_EDITOR	= BASE + "editor";
+		public static final String	PROP_ISBN	= BASE + "isbn";
+		public static final String	PROP_ISSN	= BASE + "issn";
+		public static final String	PROP_NUMBER	= BASE + "number";
+		public static final String	PROP_PAGES	= BASE + "pages";
+		public static final String	PROP_NUM_VOLUMES	= BASE + "numVolumes";
+		public static final String	PROP_VOLUME	= BASE + "volume";
+		public static final String CLASS_SERIES = "Series";
 	}
 	public static final class EDM {
 		public static final String	BASE				= "http://www.europeana.eu/schemas/edm/";
-		public static final String	CLASS_PROVIDED_CHO	= BASE + "ProvidedCHO";
-		public static final String	CLASS_AGENT			= BASE + "Agent";
-		public static final String	CLASS_EVENT			= BASE + "Event";
-		public static final String	CLASS_PLACE			= BASE + "Event";
-		public static final String	CLASS_TIMESPAN		= BASE + "TimeSpan";
-		public static final String	CLASS_WEBRESOURCE	= BASE + "WebResource";
-		public static final String	PROP_AGGREGATED_CHO	= BASE + "aggregatedCHO";
-		public static final String	PROP_BEGIN			= BASE + "begin";
-		public static final String	PROP_DATA_PROVIDER	= BASE + "dataProvider";
-		public static final String	PROP_END			= BASE + "end";
-		public static final String	PROP_HAS_MET		= BASE + "hasMet";
-		public static final String	PROP_HAS_VIEW		= BASE + "hasView";
-		public static final String	PROP_IS_SHOWN_AT	= BASE + "isShownAt";
-		public static final String	PROP_IS_SHOWN_BY	= BASE + "isShownBy";
-		public static final String	PROP_OBJECT			= BASE + "object";
-		public static final String	PROP_PROVIDER		= BASE + "provider";
-		public static final String	PROP_RIGHTS			= BASE + "rights";
-		public static final String	PROP_TYPE			= BASE + "type";
+		public static final String	CLASS_AGENT				= BASE + "Agent";
+		public static final String	CLASS_EVENT				= BASE + "Event";
+		public static final String	CLASS_PLACE				= BASE + "Event";
+		public static final String	CLASS_PROVIDED_CHO		= BASE + "ProvidedCHO";
+		public static final String	CLASS_TIMESPAN			= BASE + "TimeSpan";
+		public static final String	CLASS_WEBRESOURCE		= BASE + "WebResource";
+		public static final String	PROP_AGGREGATED_CHO		= BASE + "aggregatedCHO";
+		public static final String	PROP_BEGIN				= BASE + "begin";
+		public static final String	PROP_CURRENT_LOCATION	= BASE + "currentLocation";
+		public static final String	PROP_DATA_PROVIDER		= BASE + "dataProvider";
+		public static final String	PROP_END				= BASE + "end";
+		public static final String	PROP_HAS_MET			= BASE + "hasMet";
+		public static final String	PROP_HAS_VIEW			= BASE + "hasView";
+		public static final String	PROP_IS_SHOWN_AT		= BASE + "isShownAt";
+		public static final String	PROP_IS_SHOWN_BY		= BASE + "isShownBy";
+		public static final String	PROP_OBJECT				= BASE + "object";
+		public static final String	PROP_PROVIDER			= BASE + "provider";
+		public static final String	PROP_RIGHTS				= BASE + "rights";
+		public static final String	PROP_TYPE				= BASE + "type";
 	}
 	public static final class PRO {
 		public static final String BASE = "http://purl.org/spar/pro/";
@@ -657,4 +699,8 @@ public final class NS {
 		
 	}
 
+	public static final class PRISM_3 {
+		public static final String BASE = "http://prismstandard.org/namespaces/basic/3.0/";
+		public static final String PROP_STARTING_PAGE = BASE + "startingPage";
+	}
 }

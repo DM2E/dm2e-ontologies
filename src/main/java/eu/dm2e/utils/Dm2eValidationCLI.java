@@ -76,6 +76,9 @@ public class Dm2eValidationCLI {
 		String levelArg = line.getOptionValue("level");
 		if (null != levelArg) level = ValidationLevel.valueOf(levelArg);
 		
+		// Terse
+		boolean terse = line.hasOption("terse");
+
 		// Input files
 		final List fileList = line.getArgList();
 
@@ -96,14 +99,14 @@ public class Dm2eValidationCLI {
 			}
 
 			if (line.hasOption("stdout")) {
-				System.out.println(report.exportToString(level));
+				System.out.println(report.exportToString(level, true, terse));
 				System.err.println("DONE validating " + fileName);
 			} else {
 				String suffixVal = line.getOptionValue("suffix");
 				if (null == suffixVal) suffixVal = ".validation." + version + ".txt";
 				File outfile = new File(fileName + suffixVal);
 				try {
-					FileUtils.writeStringToFile(outfile, report.exportToString(level));
+					FileUtils.writeStringToFile(outfile, report.exportToString(level, true, terse));
 				} catch (IOException e) {
 					dieHelpfully("Error writing file to output file", e);
 				}
@@ -197,7 +200,8 @@ public class Dm2eValidationCLI {
 			.withArgName("RDF/XML | N-TRIPLE | TURTLE")
 			.withDescription("RDF input serialization format [Default: RDF/XML]")
 			.create("format"));
-		options.addOption("stdout", false, "Whether to write to STDOUT [Default: false]");
+		options.addOption("stdout", false, "Write to STDOUT [Default: false]");
+		options.addOption("terse", false, "Output results very terse [Default: false]");
 		options.addOption(OptionBuilder
 			.hasArgs()
 			.withArgName("suffix")

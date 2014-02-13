@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -16,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
@@ -86,7 +86,7 @@ public abstract class BaseValidator implements Dm2eValidator {
 	 * @see eu.dm2e.validation.Dm2eValidator#validateAggregation(com.hp.hpl.jena.rdf.model.Model, com.hp.hpl.jena.rdf.model.Resource, eu.dm2e.validation.Dm2eValidationReport)
 	 */
 	@Override
-	public void validate_ore_Aggregation(Model m, Resource agg, Object context, Dm2eValidationReport report) {
+	public void validate_ore_Aggregation(Model m, Resource agg, Dm2eValidationReport report) {
 
 		//
 		// Check mandatory properties
@@ -95,7 +95,8 @@ public abstract class BaseValidator implements Dm2eValidator {
 
 		for (Property prop : aggregationProperties) {
 			NodeIterator iter = m.listObjectsOfProperty(agg, prop);
-			if (!iter.hasNext()) report.addError(agg, "Missing required property <" + prop + ">.");
+			if (!iter.hasNext()) 
+				report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISSING_REQUIRED_PROPERTY, agg, prop);
 		}
 
 		//
@@ -104,8 +105,20 @@ public abstract class BaseValidator implements Dm2eValidator {
 		Set<Property> aggregationRecommendedProperties = build_ore_Aggregation_Recommended_Properties(m);
 		for (Property prop : aggregationRecommendedProperties) {
 			NodeIterator iter = m.listObjectsOfProperty(agg, prop);
-			if (!iter.hasNext()) report.addWarning(agg,
-					"Aggregation is missing strongly recommended property <" + prop + ">.");
+			if (!iter.hasNext()) 
+				report.add(ValidationLevel.WARNING, ValidationProblemCategory.MISSING_RECOMMENDED_PROPERTY, agg, prop);
+		}
+
+		//
+		// Check functional properties (i.e. non-repeatable properties)
+		//
+		for (Property prop : build_ore_Aggregation_FunctionalProperties(m)) {
+			NodeIterator iter = m.listObjectsOfProperty(agg, prop);
+			if (iter.hasNext()) {
+				iter.next();
+				if (iter.hasNext())
+					report.add(ValidationLevel.ERROR, ValidationProblemCategory.NON_REPEATABLE, agg, prop);
+			}
 		}
 
 		//
@@ -113,7 +126,7 @@ public abstract class BaseValidator implements Dm2eValidator {
 		//
 		Resource cho = get_edm_ProvidedCHO_for_ore_Aggregation(m, agg);
 		if (null == cho) {
-			report.addError(agg, "Aggregation has no ProvidedCHO. Will not validate further.");
+			report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISC, agg, "Aggregation has no ProvidedCHO. Will not validate further.");
 			return;
 		}
 
@@ -121,7 +134,7 @@ public abstract class BaseValidator implements Dm2eValidator {
 		// Make sure CHO and Aggregation are different things (was problem with ub-ffm data)
 		//
 		if (cho.getURI().equals(agg.getURI())) {
-			report.addError(cho, "CHO is the same as the Aggregation. This is likely a mapping glitch.");
+			report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISC, agg, "CHO is the same as the Aggregation. This is likely a mapping glitch.");
 		}
 
 		//
@@ -130,10 +143,11 @@ public abstract class BaseValidator implements Dm2eValidator {
 		{
 			NodeIterator isaIter = m.listObjectsOfProperty(agg, prop(m, NS.EDM.PROP_IS_SHOWN_AT));
 			NodeIterator isbIter = m.listObjectsOfProperty(agg, prop(m, NS.EDM.PROP_IS_SHOWN_BY));
-			if (!isaIter.hasNext() && !isbIter.hasNext()) report.addError(agg,
-					"Aggregation needs either edm:isShownAt or edm:isShownBy.");
-			else if (isaIter.hasNext() && isbIter.hasNext()) report.addNotice(agg,
-					"Aggregation contains both edm:isShownAt and edm:isShownBy.");
+			if (!isaIter.hasNext() && !isbIter.hasNext())
+				report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISC, agg, "Aggregation needs either edm:isShownAt or edm:isShownBy.");
+			else if (isaIter.hasNext() && isbIter.hasNext()) 
+				report.add(ValidationLevel.NOTICE, ValidationProblemCategory.MISC, agg, "Aggregation contains both edm:isShownAt and edm:isShownBy.");
+					
 		}
 
 		//
@@ -143,12 +157,12 @@ public abstract class BaseValidator implements Dm2eValidator {
 		for (Property prop : annotatableWebResources) {
 			NodeIterator iter = m.listObjectsOfProperty(agg, prop);
 			while (iter.hasNext())
-				validate_Annotatable_edm_WebResource(m, iter.next().asResource(), prop, report);
+				validate_Annotatable_edm_WebResource(m, iter.next().asResource(), report);
 		}
 
 		//
 		// Validate date-like properties
-		validate_DateLike(m, agg, null, report);
+		validate_DateLike(m, agg, report);
 
 	}
 
@@ -156,31 +170,51 @@ public abstract class BaseValidator implements Dm2eValidator {
 	 * @see eu.dm2e.validation.Dm2eValidator#validateCHO(com.hp.hpl.jena.rdf.model.Model, com.hp.hpl.jena.rdf.model.Resource, eu.dm2e.validation.Dm2eValidationReport)
 	 */
 	@Override
-	public void validate_edm_ProvidedCHO(Model m, Resource cho, Object context, Dm2eValidationReport report) {
+	public void validate_edm_ProvidedCHO(Model m, Resource cho, Dm2eValidationReport report) {
 
 		//
 		// Check required properties
 		//
-		Set<Property> choProperties = build_edm_ProvidedCHO_Mandatory_Properties(m);
-		for (Property prop : choProperties) {
+		for (Property prop : build_edm_ProvidedCHO_Mandatory_Properties(m)) {
 			NodeIterator iter = m.listObjectsOfProperty(cho, prop);
 			if (!iter.hasNext()) {
-				report.addError(cho, "missing required property <" + prop + ">.");
+				report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISSING_REQUIRED_PROPERTY, cho, prop);
 			}
 		}
 
 		//
-		// Range checks
+		// Check recommended properties
 		//
-		Map<Property, Set<Resource>> choSubRanges = build_edm_ProvidedCHO_PropertyRanges(m);
-		for (Entry<Property, Set<Resource>> entry : choSubRanges.entrySet()) {
+		for (Property prop : build_edm_ProvidedCHO_Recommended_Properties(m)) {
+			NodeIterator iter = m.listObjectsOfProperty(cho, prop);
+			if (!iter.hasNext()) {
+				report.add(ValidationLevel.WARNING, ValidationProblemCategory.MISSING_RECOMMENDED_PROPERTY, cho, prop);
+			}
+		}
+		
+		//
+		// Check functional properties (i.e. non-repeatable properties)
+		//
+		for (Property prop : build_edm_ProvidedCHO_FunctionalProperties(m)) {
+			NodeIterator iter = m.listObjectsOfProperty(cho, prop);
+			if (iter.hasNext()) {
+				iter.next();
+				if (iter.hasNext())
+					report.add(ValidationLevel.ERROR, ValidationProblemCategory.NON_REPEATABLE, cho, prop);
+			}
+		}
+
+		//
+		// Object properties Range checks
+		//
+		for (Entry<Property, Set<Resource>> entry : build_edm_ProvidedCHO_ObjectPropertyRanges(m).entrySet()) {
 			Property prop = entry.getKey();
 			StmtIterator iter = cho.listProperties(prop);
 			while (iter.hasNext()) {
 				RDFNode obj = iter.next().getObject();
-				if (!obj.isResource()) {
-					report.addError(cho, "Object of <" + prop + "> must be a URI resource. ");
-				} else {
+				if (obj.isLiteral()) {
+					report.add(ValidationLevel.ERROR, ValidationProblemCategory.SHOULD_BE_RESOURCE, cho, prop);
+				} else if (obj.isResource()) {
 					final Resource objRes = obj.asResource();
 					boolean validRange = false;
 					for (Resource allowedRange : entry.getValue()) {
@@ -189,25 +223,54 @@ public abstract class BaseValidator implements Dm2eValidator {
 							break;
 						}
 					}
-					if (!validRange) report.addError(objRes, " must be of rdf:type ", entry
-						.getValue(), prop);
+					if (!validRange)
+						report.add(ValidationLevel.ERROR, ValidationProblemCategory.INVALID_OBJECT_PROPERTY_RANGE, cho, objRes, entry.getValue());
+				}
+			}
+		}
+		//
+		// Literal properties Range checks
+		//
+		for (Entry<Property, Set<Resource>> entry : build_edm_ProvidedCHO_LiteralPropertyRanges(m).entrySet()) {
+			Property prop = entry.getKey();
+			StmtIterator iter = cho.listProperties(prop);
+			while (iter.hasNext()) {
+				RDFNode obj = iter.next().getObject();
+				if (obj.isLiteral()) {
+					final Literal objLit = obj.asLiteral();
+					boolean validRange = false;
+					if (null == objLit.getDatatype()) {
+						report.add(ValidationLevel.ERROR, ValidationProblemCategory.ILLEGALLY_UNTYPED_LITERAL, cho, prop, entry.getValue());
+						continue;
+					}
+					for (Resource allowedRange : entry.getValue()) {
+//						log.debug(objLit.getDatatype().getURI());
+//						log.debug(allowedRange.getURI());
+						if (objLit.getDatatype().getURI().equals(allowedRange.getURI())) {
+							validRange = true;
+							break;
+						}
+					}
+					if (!validRange)
+						report.add(ValidationLevel.ERROR, ValidationProblemCategory.INVALID_DATA_PROPERTY_RANGE, cho, prop, entry.getValue());
+				} else {
+					report.add(ValidationLevel.ERROR, ValidationProblemCategory.SHOULD_BE_LITERAL, cho, prop);
 				}
 			}
 		}
 
 		//
-		// TODO VERSION SPECIFIC
 		// dc:title and/or dc:description (p.26/27)
 		//
-		if (!(cho.hasProperty(prop(m, NS.DC.PROP_TITLE)) || cho.hasProperty(prop(m,
-				NS.DC.PROP_DESCRIPTION)))) {
-			report.addError(cho, "missing at least one of dc:title and/or dc:description");
+		if (!(cho.hasProperty(prop(m, NS.DC.PROP_TITLE)) || cho.hasProperty(prop(m, NS.DC.PROP_DESCRIPTION)))) {
+			report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISSING_REQUIRED_ONE_OF, cho, "dc:title and/or dc:description");
 		}
+		
 
 		//
 		// Validate TimeSpans and xsd:dateTime
 		//
-		validate_DateLike(m, cho, null, report);
+		validate_DateLike(m, cho, report);
 
 	}
 
@@ -215,27 +278,23 @@ public abstract class BaseValidator implements Dm2eValidator {
 	 * @see eu.dm2e.validation.Dm2eValidator#validateDateLike(com.hp.hpl.jena.rdf.model.Model, com.hp.hpl.jena.rdf.model.Resource, eu.dm2e.validation.Dm2eValidationReport)
 	 */
 	@Override
-	public void validate_DateLike(Model m, Resource res, Object context, Dm2eValidationReport report) {
+	public void validate_DateLike(Model m, Resource res, Dm2eValidationReport report) {
 		Set<Property> dateProps = build_DateLike_Properties(m);
 		for (Property prop : dateProps) {
 			StmtIterator iter = res.listProperties(prop);
 			while (iter.hasNext()) {
 				RDFNode thing = iter.next().getObject();
 				if (thing.isResource() && isa(m, thing.asResource(), NS.EDM.CLASS_TIMESPAN)) {
-					validate_edm_TimeSpan(m, thing.asResource(), prop, report);
+					validate_edm_TimeSpan(m, thing.asResource(), report);
 				} else if (thing.isLiteral()) {
 					if (thing.asLiteral().getDatatypeURI() == null) {
-						report.addNotice(res, "has untyped literal date field.", prop);
+						report.add(ValidationLevel.NOTICE, ValidationProblemCategory.UNTYPED_LITERAL, res, prop);
 					} else if (thing.asLiteral().getDatatypeURI().equals(NS.XSD.DATETIME)) {
 						try {
 							DateTime.parse(thing.asLiteral().getLexicalForm());
 						} catch (IllegalArgumentException e) {
-							report.addError(res, "Invalid xsd:dateTime '"
-									+ thing.asLiteral().getLexicalForm() + "'. ", prop);
+							report.add(ValidationLevel.ERROR, ValidationProblemCategory.INVALID_XSD_DATETIME, res, prop, thing.asLiteral().getDatatypeURI());
 						}
-					} else {
-						report.addError(res, "has literal with disallowed datatype "
-								+ thing.asLiteral().getDatatypeURI(), prop);
 					}
 				}
 			}
@@ -246,17 +305,17 @@ public abstract class BaseValidator implements Dm2eValidator {
 	 * @see eu.dm2e.validation.Dm2eValidator#validateTimeSpan(com.hp.hpl.jena.rdf.model.Model, com.hp.hpl.jena.rdf.model.Resource, com.hp.hpl.jena.rdf.model.Property, eu.dm2e.validation.Dm2eValidationReport)
 	 */
 	@Override
-	public void validate_edm_TimeSpan(Model m, Resource ts, Object context, Dm2eValidationReport report) {
+	public void validate_edm_TimeSpan(Model m, Resource ts, Dm2eValidationReport report) {
 		for (Property prop : build_edm_TimeSpan_Mandatory_Properties(m)) {
 			if (! ts.hasProperty(prop)) {
-				report.addError(ts, "missing required property " + prop);
+				report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISSING_REQUIRED_PROPERTY, ts, prop);
 			}
 		}
 		if ( ! ts.hasProperty(prop(m, NS.EDM.PROP_BEGIN)) && ! ts.hasProperty(prop(m, NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY))) {
-			report.addWarning(ts, "TimeSpan has no beginning.");
+			report.add(ValidationLevel.WARNING, ValidationProblemCategory.MISSING_REQUIRED_ONE_OF, ts, "edm:begin or crm:P79F.beginning_is_qualified_by");
 		}
 		if ( ! ts.hasProperty(prop(m, NS.EDM.PROP_END)) && ! ts.hasProperty(prop(m, NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY))) {
-			report.addWarning(ts, "TimeSpan has no end.");
+			report.add(ValidationLevel.WARNING, ValidationProblemCategory.MISSING_REQUIRED_ONE_OF, ts, "edm:end or crm:P80F.end_is_qualified_by");
 		}
 	}
 
@@ -264,18 +323,19 @@ public abstract class BaseValidator implements Dm2eValidator {
 	 * @see eu.dm2e.validation.Dm2eValidator#validateWebResource(com.hp.hpl.jena.rdf.model.Model, com.hp.hpl.jena.rdf.model.Resource, com.hp.hpl.jena.rdf.model.Property, eu.dm2e.validation.Dm2eValidationReport)
 	 */
 	@Override
-	public void validate_Annotatable_edm_WebResource(Model m, Resource wr, Object context, Dm2eValidationReport report) {
+	public void validate_Annotatable_edm_WebResource(Model m, Resource wr, Dm2eValidationReport report) {
 		
 		//
 		// dc:format is required for Annotatable Web Resources (p. 45)
 		//
-		NodeIterator it = m.listObjectsOfProperty(wr, prop(m, NS.DC.PROP_FORMAT));
+		final Property prop_dc_format = prop(m, NS.DC.PROP_FORMAT);
+		NodeIterator it = m.listObjectsOfProperty(wr, prop_dc_format);
 		if (!it.hasNext()) {
-			report.addError(wr, "is an annotatable Web Resource but missing required dc:format.", context);
+			report.add(ValidationLevel.ERROR, ValidationProblemCategory.MISSING_CONDITIONALLY_REQUIRED_PROPERTY, wr, prop_dc_format, "Annotatable WebResource");
 		} else {
 			RDFNode dcformat = it.next();
 			if (!dcformat.isLiteral()) {
-				report.addError(wr, "<" + NS.DC.PROP_FORMAT + "> must be a literal.", context);
+				report.add(ValidationLevel.ERROR, ValidationProblemCategory.SHOULD_BE_LITERAL, wr, prop_dc_format);
 			} else {
 				String dcformatString = dcformat.asLiteral().getString();
 				switch (dcformatString) {
@@ -287,7 +347,7 @@ public abstract class BaseValidator implements Dm2eValidator {
 					case "image/gif":
 						break;
 					default:
-						report.addError(wr, "Unsupported MIME type '" + dcformatString + "'.", context);
+						report.add(ValidationLevel.ERROR, ValidationProblemCategory.BAD_MIMETYPE, wr, dcformatString);
 				}
 			}
 		}
@@ -297,13 +357,12 @@ public abstract class BaseValidator implements Dm2eValidator {
 	 * @see eu.dm2e.validation.Dm2eValidator#validate_edm_WebResource(com.hp.hpl.jena.rdf.model.Model, com.hp.hpl.jena.rdf.model.Resource, java.lang.Object, eu.dm2e.validation.Dm2eValidationReport)
 	 */
 	@Override
-	public void validate_edm_WebResource(Model m, Resource wr, Object context, Dm2eValidationReport report) { 
+	public void validate_edm_WebResource(Model m, Resource wr, Dm2eValidationReport report) { 
 		for (Property prop : build_edm_WebResource_Recommended_Properties(m)) {
 			Statement stmt = wr.getProperty(prop);
 			if (null == stmt) {
-				report.addWarning(wr, "missing strongly recommended property " + prop, context);
+				report.add(ValidationLevel.WARNING, ValidationProblemCategory.MISSING_RECOMMENDED_PROPERTY, wr, prop);
 			}
-
 		}
 	}
 
@@ -366,19 +425,19 @@ public abstract class BaseValidator implements Dm2eValidator {
 			switch (currentClassUri) {
 				case NS.ORE.CLASS_AGGREGATION:
 					log.debug("About to validate ore:Aggregation " + res);
-					validate_ore_Aggregation(m, res, null, report);
+					validate_ore_Aggregation(m, res, report);
 					break;
 				case NS.EDM.CLASS_PROVIDED_CHO:
 					log.debug("About to validate edm:ProvidedCHO " + res);
-					validate_edm_ProvidedCHO(m, res, null, report);
+					validate_edm_ProvidedCHO(m, res, report);
 					break;
 				case NS.EDM.CLASS_WEBRESOURCE:
 					log.debug("About to validate edm:WebResource " + res);
-					validate_edm_WebResource(m, res, null, report);
+					validate_edm_WebResource(m, res, report);
 					break;
 				case NS.EDM.CLASS_TIMESPAN:
 					log.debug("About to validate edm:TimeSpan " + res);
-					validate_edm_TimeSpan(m, res, null, report);
+					validate_edm_TimeSpan(m, res, report);
 					break;
 				default:
 //					log.error("Not implemented");

@@ -36,6 +36,8 @@ import eu.dm2e.NS.OWLAnnotation;
  */
 public class NSExporter {
 	
+	private static final Logger log = LoggerFactory.getLogger(NSExporter.class);
+	
 	public static String exportInnerClassConstantsToJSON(Class clazz) {
 		
 		JsonObject nsObj = new JsonObject();
@@ -71,7 +73,6 @@ public class NSExporter {
 	}
 	
 	public static String exportStaticClassToOWL(Class cls) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
-		Logger log = LoggerFactory.getLogger(NSExporter.class);
 		Field baseField;
 		baseField = cls.getField("BASE");
 		String base = (String) baseField.get(null);
@@ -113,14 +114,16 @@ public class NSExporter {
 				res.addComment(owlAnno.description(), "en");
 				if (! "".equals(owlAnno.label())) res.setLabel(owlAnno.label(), "en");
 				if (! "".equals(owlAnno.domain())) res.setDomain(m.createResource(owlAnno.domain()));
-				if (! "".equals(owlAnno.range())) res.setRange(m.createResource(owlAnno.range()));
+				for (String thisRange : owlAnno.range())
+					res.addRange(m.createResource(thisRange));
 //				if (owlAnno.deprecated()) res.setRDFType(com.hp.hpl.jena.vocabulary.OWL.DeprecatedProperty);
 			} else if (owlAnno.owlType().equals(NS.OWL.DATATYPE_PROPERTY)) {
 				DatatypeProperty res = m.createDatatypeProperty(resUri);
 				res.addComment(owlAnno.description(), "en");
 				if (! "".equals(owlAnno.label())) res.setLabel(owlAnno.label(), "en");
 				if (! "".equals(owlAnno.domain())) res.setDomain(m.createResource(owlAnno.domain()));
-				if (! "".equals(owlAnno.range())) res.setRange(m.createResource(owlAnno.range()));
+				for (String thisRange : owlAnno.range())
+					res.addRange(m.createResource(thisRange));
 //				if (owlAnno.deprecated()) res.setRDFType(com.hp.hpl.jena.vocabulary.OWL.DeprecatedProperty);
 			}
 		}

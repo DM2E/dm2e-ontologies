@@ -1,7 +1,10 @@
 package eu.dm2e.validation;
 
-import com.hp.hpl.jena.rdf.model.Property;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.hp.hpl.jena.rdf.model.Resource;
+
 
 /**
  * A problem with validating data against the DM2E data model.
@@ -9,14 +12,21 @@ import com.hp.hpl.jena.rdf.model.Resource;
  * @author Konstantin Baierer
  *
  */
+@SuppressWarnings("serial")
 public class Dm2eValidationProblem extends Exception {
+	
+	private static final Logger log = LoggerFactory.getLogger(Dm2eValidationProblem.class);
 
-	private static final long		serialVersionUID	= -5230774122416088740L;
-	protected final String			thingUri;
-	protected final Object			context;
-	protected final ValidationLevel	level;
-	protected final String			msg;
+	private final String						thingUri;
+	private final String						msg;
+	private final ValidationLevel				level;
+	private final ValidationProblemCategory	category;
+	private final Object[]						things;
 
+	//
+	// Getters
+	//
+	
 	/**
 	 * @return the URI of the thing that has the problem as a String.
 	 */
@@ -30,56 +40,65 @@ public class Dm2eValidationProblem extends Exception {
 	public ValidationLevel getLevel() {
 		return level;
 	}
-
-	protected Dm2eValidationProblem(ValidationLevel level, Resource res, String msg) {
-		this(level, res, msg, (Property) null);
+	
+	/**
+	 * @return the {@link ValidationProblemCategory} of this problem.
+	 */
+	public ValidationProblemCategory getCategory() {
+		return category;
 	}
 
-	protected Dm2eValidationProblem(ValidationLevel level, Resource res, String msg, Throwable cause) {
-		this(level, res, msg, cause, null);
+	public Object[] getThings() {
+		return things;
+	}
+	
+	public Object getFirstThing() {
+		return things.length > 0 ? things[0] : null;
 	}
 
-	protected Dm2eValidationProblem(ValidationLevel level, Resource res, String msg, Object context) {
-		super(msg);
-		this.msg = msg;
-		this.thingUri = res.getURI();
-		this.context = context;
+	//
+	// Constructor
+	//
+
+	protected Dm2eValidationProblem(ValidationLevel level, ValidationProblemCategory category, Resource thing, Object... things) {
+		this.category = category;
+		this.thingUri = thing.toString();
+		this.things = things;
+		this.msg = String.format(category.getMsg(), things);
 		this.level = level;
 	}
 
-	protected Dm2eValidationProblem(ValidationLevel level, Resource res, String msg, Throwable cause, Object context) {
-		super(msg, cause);
-		this.msg = msg;
-		this.thingUri = res.getURI();
-		this.context = context;
-		this.level = level;
-	}
+	//
+	// toString
+	//
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder(super.toString());
-		sb.replace(0, Dm2eValidationProblem.class.getCanonicalName().length()+2, "");
-		if (null != context) {
-			sb.append("[ Context: ");
-			sb.append(context);
-			sb.append("]");
-		}
+		StringBuilder sb = new StringBuilder(msg);
+//		sb.replace(0, Dm2eValidationProblem.class.getCanonicalName().length()+2, "");
+//		if (null != context) {
+//			sb.append("[ Context: ");
+//			sb.append(context);
+//			sb.append("]");
+//		}
 		return sb.toString();
-	}
+	}	
+	
+	//
+	// hashCode and equals
+	//
 
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((context == null) ? 0 : context.hashCode());
+		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((level == null) ? 0 : level.hashCode());
 		result = prime * result + ((msg == null) ? 0 : msg.hashCode());
 		result = prime * result + ((thingUri == null) ? 0 : thingUri.hashCode());
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -87,9 +106,7 @@ public class Dm2eValidationProblem extends Exception {
 		if (obj == null) return false;
 		if (getClass() != obj.getClass()) return false;
 		Dm2eValidationProblem other = (Dm2eValidationProblem) obj;
-		if (context == null) {
-			if (other.context != null) return false;
-		} else if (!context.equals(other.context)) return false;
+		if (category != other.category) return false;
 		if (level != other.level) return false;
 		if (msg == null) {
 			if (other.msg != null) return false;
@@ -99,6 +116,7 @@ public class Dm2eValidationProblem extends Exception {
 		} else if (!thingUri.equals(other.thingUri)) return false;
 		return true;
 	}
+
 
 
 }

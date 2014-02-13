@@ -2,7 +2,6 @@ package eu.dm2e.validation;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -30,69 +29,27 @@ public class Dm2eValidationReport {
 		this.problemSet = new HashSet<>();
 	}
 	
-	private void add(ValidationLevel level, Resource res, String msg, Set<Resource> values, Object context) {
-		StringBuilder sb = new StringBuilder(msg);
-		if (null != values) {
-			sb.append(" ");
-			Iterator<Resource> valueIter = values.iterator();
-			while (valueIter.hasNext()) {
-				Resource val = valueIter.next();
-				sb.append(val.toString());
-				if (valueIter.hasNext())
-					sb.append(", ");
-			}
-		}
-		this.problemSet.add(new Dm2eValidationProblem(level, res, sb.toString(), context));
+	public void add(ValidationLevel level, ValidationProblemCategory category, Resource res, Object... things) {
+		this.problemSet.add(new Dm2eValidationProblem(level, category, res, things));
 	}
+//	public void add(ValidationLevel level, ValidationProblemCategory category, Resource res, String msg) {
+//		this.problemSet.add(new Dm2eValidationProblem(level, category, res, msg));
+//	}
 
-	public void addError(Resource res, String msg) {
-		this.add(ValidationLevel.ERROR, res, msg, null, null);
-	}
-	public void addError(Resource res, String msg, Object context) {
-		this.add(ValidationLevel.ERROR, res, msg, null, context);
-	}
-	public void addError(Resource res, String msg, Set<Resource> value) {
-		this.add(ValidationLevel.ERROR, res, msg, value, null);
-	}
-	public void addError(Resource res, String msg, Set<Resource> value, Object context) {
-		this.add(ValidationLevel.ERROR, res, msg, value, context);
-	}
-	public void addWarning(Resource res, String msg) {
-		this.add(ValidationLevel.WARNING, res, msg, null, null);
-	}
-	public void addWarning(Resource res, String msg, Object context) {
-		this.add(ValidationLevel.WARNING, res, msg, null, context);
-	}
-	public void addWarning(Resource res, String msg, Set<Resource> value) {
-		this.add(ValidationLevel.WARNING, res, msg, value, null);
-	}
-	public void addWarning(Resource res, String msg, Set<Resource> value, Object context) {
-		this.add(ValidationLevel.WARNING, res, msg, value, context);
-	}
-	public void addNotice(Resource res, String msg) {
-		this.add(ValidationLevel.NOTICE, res, msg, null, null);
-	}
-	public void addNotice(Resource res, String msg, Object context) {
-		this.add(ValidationLevel.NOTICE, res, msg, null, context);
-	}
-	public void addNotice(Resource res, String msg, Set<Resource> value) {
-		this.add(ValidationLevel.NOTICE, res, msg, value, null);
-	}
-	public void addNotice(Resource res, String msg, Set<Resource> value, Object context) {
-		this.add(ValidationLevel.NOTICE, res, msg, value, context);
-	}
 	
 	@Override
 	public String toString() {
-		return exportToString(ValidationLevel.NOTICE);
+		return exportToString(ValidationLevel.NOTICE, true, false);
 	}
 
 	/**
 	 * Export the set of {@link Dm2eValidationProblem}s as a String.
 	 * @param minimumLevel the minimum {@link ValidationLevel} problems must have to be included
+	 * @param displayLevel whether to display the {@code ValidationLevel}
+	 * @param terse whether to show a terse description of the problem without the actual message
 	 * @return the string representation of this report
 	 */
-	public String exportToString(ValidationLevel minimumLevel) {
+	public String exportToString(ValidationLevel minimumLevel, boolean displayLevel, boolean terse) {
 		StringBuilder sb = new StringBuilder();
 		StringBuilder sbPerUri = new StringBuilder();
 		sb.append("Validation Report");
@@ -115,10 +72,20 @@ public class Dm2eValidationReport {
 				for (Dm2eValidationProblem exc : entry.getValue()) {
 					if (exc.getLevel().ordinal() >= minimumLevel.ordinal()) {
 						doNotSkip = true;
-						sbPerUri.append("\t[");
-						sbPerUri.append(exc.getLevel().name().toUpperCase());
-						sbPerUri.append("]\t");
-						sbPerUri.append(exc.toString());
+						if (displayLevel) {
+							sbPerUri.append("\t[");
+							sbPerUri.append(exc.getLevel().name().toUpperCase());
+							sbPerUri.append("]");
+						}
+						if (terse) {
+							sbPerUri.append("\t");
+							sbPerUri.append(exc.getCategory());
+							sbPerUri.append("\t");
+							sbPerUri.append(exc.getFirstThing());
+						} else {
+							sbPerUri.append("\t");
+							sbPerUri.append(exc.toString());
+						}
 						sbPerUri.append("\n");
 					}
 				}
@@ -144,5 +111,6 @@ public class Dm2eValidationReport {
 		}
 		return retMap;
 	}
+
 
 }

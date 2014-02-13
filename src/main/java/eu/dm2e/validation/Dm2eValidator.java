@@ -34,7 +34,7 @@ public interface Dm2eValidator {
 	 * @param report
 	 *            the ValidationReport
 	 */
-	public void validate_edm_WebResource(Model m, Resource wr, Object context, Dm2eValidationReport report);
+	public void validate_edm_WebResource(Model m, Resource wr, Dm2eValidationReport report);
 
 	/**
 	 * Validate an Annotable {@link NS.EDM.CLASS_WEBRESOURCE} against the requirements, i.e. it needs a dc:format.
@@ -48,7 +48,7 @@ public interface Dm2eValidator {
 	 * @param report
 	 *            the ValidationReport
 	 */
-	public void validate_Annotatable_edm_WebResource(Model m, Resource wr, Object context, Dm2eValidationReport report);
+	public void validate_Annotatable_edm_WebResource(Model m, Resource wr, Dm2eValidationReport report);
 
 	/**
 	 * Validate an {@link NS.EDM.CLASS_TIMESPAN}
@@ -57,7 +57,7 @@ public interface Dm2eValidator {
 	 * @param prop
 	 * @param report
 	 */
-	public void validate_edm_TimeSpan(Model m, Resource ts, Object context, Dm2eValidationReport report);
+	public void validate_edm_TimeSpan(Model m, Resource ts, Dm2eValidationReport report);
 
 	/**
 	 * Validate that all date-like properties of this resource conform to the model
@@ -65,7 +65,7 @@ public interface Dm2eValidator {
 	 * @param res
 	 * @param report
 	 */
-	public void validate_DateLike(Model m, Resource res, Object context, Dm2eValidationReport report);
+	public void validate_DateLike(Model m, Resource res, Dm2eValidationReport report);
 
 	/**
 	 * Validate a {@link NS.EDM.CLASS_PROVIDED_CHO} against the requirements (p.25-42)
@@ -77,7 +77,7 @@ public interface Dm2eValidator {
 	 * @param report
 	 *            the {@link Dm2eValidationReport} to write to
 	 */
-	public void validate_edm_ProvidedCHO(Model m, Resource cho, Object context, Dm2eValidationReport report);
+	public void validate_edm_ProvidedCHO(Model m, Resource cho, Dm2eValidationReport report);
 
 	/**
 	 * Validate an {@link NS.ORE.CLASS_AGGREGATION} against the requirements (p.16-24)
@@ -89,18 +89,28 @@ public interface Dm2eValidator {
 	 * @param report
 	 *            the {@link Dm2eValidationReport} to write to
 	 */
-	public void validate_ore_Aggregation(Model m, Resource agg, Object context, Dm2eValidationReport report);
+	public void validate_ore_Aggregation(Model m, Resource agg, Dm2eValidationReport report);
 	
 	
+	// ***************************************************
 	//
 	// Sets of Properties and Maps of Properties to Ranges
 	//
+	// ***************************************************
+	
+	//
+	// Generic
+	//
+
+	/**
+	 * @return the properties that can link to a timespan or an xsd:dateTime
+	 *         literal
+	 * @param m
+	 */
+	public Set<Property> build_DateLike_Properties(Model m);
 
 	//
-	// Validation methods for individual classes
-	//
-	//
-	// Validation methods for individual classes
+	// CHO
 	//
 
 	/**
@@ -110,19 +120,32 @@ public interface Dm2eValidator {
 	public Set<Property> build_edm_ProvidedCHO_Mandatory_Properties(Model m);
 
 	/**
-	 * @return a map of CHO properties and the allowed ranges of the objects of
-	 *         such statements
+	 * @return the strongly recommended properties of an {@link NS.EDM.CLASS_PROVIDED_CHO}
 	 * @param m
 	 *            the {@link Model}
 	 */
-	public Map<Property, Set<Resource>> build_edm_ProvidedCHO_PropertyRanges(Model m);
+	public Set<Property> build_edm_ProvidedCHO_Recommended_Properties(Model m);
 
 	/**
-	 * @return the properties that can link to a timespan or an xsd:dateTime
-	 *         literal
-	 * @param m
+	 * @return a set of non-repeatable properties of this ProvidedCHO
+	 * @param m the {@link Model}
 	 */
-	public Set<Property> build_DateLike_Properties(Model m);
+	public Set<Property> build_edm_ProvidedCHO_FunctionalProperties(Model m);
+
+	/**
+	 * @return a map of CHO object properties with to their allowed ranges
+	 * @param m the {@link Model}
+	 */
+	public Map<Property, Set<Resource>> build_edm_ProvidedCHO_ObjectPropertyRanges(Model m);
+
+	/**
+	 * @return a map of CHO literal properties with to their allowed ranges
+	 * @param m the {@link Model}
+	 */
+	public Map<Property, Set<Resource>> build_edm_ProvidedCHO_LiteralPropertyRanges(Model m);
+	//
+	// Aggregation
+	//
 
 	/**
 	 * @return the required properties of an {@link NS.ORE.AGGREGATION}
@@ -145,6 +168,16 @@ public interface Dm2eValidator {
 	public Set<Property> build_ore_Aggregation_AnnotatableWebResource_Properties(Model m);
 
 	/**
+	 * @return a set of non-repeatable properties of an Aggregation
+	 * @param m the {@link Model}
+	 */
+	public Set<Property> build_ore_Aggregation_FunctionalProperties(Model m);
+
+	//
+	// TimeSpan
+	//
+
+	/**
 	 * @return the mandatory properties for an {@link NS.EDM.CLASS_TIMESPAN}
 	 * @param m
 	 */
@@ -155,6 +188,12 @@ public interface Dm2eValidator {
 	 * @param m
 	 */
 	public Set<Property> build_edm_WebResource_Recommended_Properties(Model m);
+	
+	// ****************
+	//
+	// Public Interface
+	//
+	// ****************
 
 	/**
 	 * Validates the RDF data in a file against the DM2E data model
@@ -182,5 +221,6 @@ public interface Dm2eValidator {
 	 * @param report the report
 	 */
 	public void validateWithDm2e(Model m, String currentClassUri, Dm2eValidationReport report);
+
 
 }
