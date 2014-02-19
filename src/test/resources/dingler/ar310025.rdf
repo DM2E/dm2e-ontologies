@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:bibo="http://purl.org/ontology/bibo/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:dm2e="http://onto.dm2e.eu/schemas/dm2e/"
+         xmlns:edm="http://www.europeana.eu/schemas/edm/"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:korbo="http://purl.org/net7/korbo/vocab#"
+         xmlns:ore="http://www.openarchives.org/ore/terms/"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:pro="http://purl.org/spar/pro/"
+         xmlns:rdaGr2="http://RDVocab.info/ElementsGr2/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:void="http://rdfs.org/ns/void#"
+         xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+         xmlns:xalan="http://xml.apache.org/xalan">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/Polytechnisches_Journal">
+      <edm:aggregatedCHO>
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/Polytechnisches_Journal">
+            <edm:type>TEXT</edm:type>
+            <dc:type rdf:resource="http://purl.org/ontology/bibo/Journal"/>
+            <dc:title xml:lang="de">Dinglers Polytechnisches Journal</dc:title>
+            <dc:language>de</dc:language>
+            <dc:subject>
+               <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
+                  <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
+               </skos:Concept>
+            </dc:subject>
+            <dcterms:issued>
+               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1898-01-01T00%2000%2000UG_1898-12-31T23%2059%2059UG">
+                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1898-01-01T00:00:00</edm:begin>
+                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1898-12-31T23:59:59</edm:end>
+               </edm:TimeSpan>
+            </dcterms:issued>
+            <dm2e:publishedAt>
+               <edm:Place rdf:about="http://data.dm2e.eu/data/place/uber/dingler/Stuttgart">
+                  <skos:prefLabel xml:lang="de">Stuttgart</skos:prefLabel>
+               </edm:Place>
+            </dm2e:publishedAt>
+            <dc:publisher>
+               <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/J._G._Cotta'schen_Buchhandlung">
+                  <skos:prefLabel xml:lang="de">J. G. Cotta'schen Buchhandlung</skos:prefLabel>
+               </foaf:Organization>
+            </dc:publisher>
+            <bibo:editor>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/A._Hollenberg">
+                  <skos:prefLabel xml:lang="de">A. Hollenberg</skos:prefLabel>
+               </foaf:Person>
+            </bibo:editor>
+            <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</dm2e:levelOfHierarchy>
+         </edm:ProvidedCHO>
+      </edm:aggregatedCHO>
+      <edm:provider>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/dm2e/DM2E">
+            <skos:prefLabel xml:lang="en">DM2E</skos:prefLabel>
+            <skos:altLabel xml:lang="en">Digitised Manuscripts to Europeana</skos:altLabel>
+         </foaf:Organization>
+      </edm:provider>
+      <edm:dataProvider>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </edm:dataProvider>
+      <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+      <edm:object>
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/"/>
+      </edm:object>
+      <dm2e:hasAnnotatableVersionAt>
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
+         </edm:WebResource>
+      </dm2e:hasAnnotatableVersionAt>
+      <edm:isShownAt>
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
+            <dcterms:rightsHolder>
+               <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+                  <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+               </foaf:Organization>
+            </dcterms:rightsHolder>
+         </edm:WebResource>
+      </edm:isShownAt>
+      <dc:creator>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </dc:creator>
+      <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-29T00:00:00</dcterms:created>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Prof.%20Dr.%20Christian%20Kassung">
+            <skos:prefLabel xml:lang="de">Prof. Dr. Christian Kassung</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marius%20Hug">
+            <skos:prefLabel xml:lang="de">Marius Hug</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deborah%20Zehnder">
+            <skos:prefLabel xml:lang="de">Deborah Zehnder</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Laura%20Luzardo">
+            <skos:prefLabel xml:lang="de">Laura Luzardo</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Una%20Sch%C3%A4fer">
+            <skos:prefLabel xml:lang="de">Una Schäfer</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Antonia%20Bechmann">
+            <skos:prefLabel xml:lang="de">Antonia Bechmann</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Diana%20Daniel">
+            <skos:prefLabel xml:lang="de">Diana Daniel</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Frank%20Wiegand">
+            <skos:prefLabel xml:lang="de">Frank Wiegand</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marc%20Rohrm%C3%BCller">
+            <skos:prefLabel xml:lang="de">Marc Rohrmüller</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/S%C3%A4chsische%20Landesbibliothek%20%E2%80%93%20Staats-%20und%20Universit%C3%A4tsbibliothek%20Dresden">
+            <skos:prefLabel xml:lang="de">Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deutsche%20Forschungsgemeinschaft">
+            <skos:prefLabel xml:lang="de">Deutsche Forschungsgemeinschaft</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Editura%20GmbH%20%26%20Co.%20KG%2C%20Berlin">
+            <skos:prefLabel xml:lang="de">Editura GmbH &amp; Co. KG, Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/CLARIN-D">
+            <skos:prefLabel xml:lang="de">CLARIN-D</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deutsches_Textarchiv">
+            <skos:prefLabel xml:lang="de">Deutsches Textarchiv</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
+   </ore:Aggregation>
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/issue_pj310">
+      <edm:aggregatedCHO>
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj310">
+            <edm:type>TEXT</edm:type>
+            <dc:type rdf:resource="http://purl.org/ontology/bibo/Issue"/>
+            <dc:title xml:lang="de">Dinglers Polytechnisches Journal, Volume 1898, Issue 310</dc:title>
+            <dc:language>de</dc:language>
+            <dc:subject>
+               <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
+                  <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
+               </skos:Concept>
+            </dc:subject>
+            <dcterms:issued>
+               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1898-01-01T00%2000%2000UG_1898-12-31T23%2059%2059UG">
+                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1898-01-01T00:00:00</edm:begin>
+                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1898-12-31T23:59:59</edm:end>
+               </edm:TimeSpan>
+            </dcterms:issued>
+            <dm2e:publishedAt>
+               <edm:Place rdf:about="http://data.dm2e.eu/data/place/uber/dingler/Stuttgart">
+                  <skos:prefLabel xml:lang="de">Stuttgart</skos:prefLabel>
+               </edm:Place>
+            </dm2e:publishedAt>
+            <dc:publisher>
+               <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/J._G._Cotta'schen_Buchhandlung">
+                  <skos:prefLabel xml:lang="de">J. G. Cotta'schen Buchhandlung</skos:prefLabel>
+               </foaf:Organization>
+            </dc:publisher>
+            <bibo:editor>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/A._Hollenberg">
+                  <skos:prefLabel xml:lang="de">A. Hollenberg</skos:prefLabel>
+               </foaf:Person>
+            </bibo:editor>
+            <dcterms:isPartOf>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/Polytechnisches_Journal"/>
+            </dcterms:isPartOf>
+            <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</dm2e:levelOfHierarchy>
+         </edm:ProvidedCHO>
+      </edm:aggregatedCHO>
+      <edm:provider>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/dm2e/DM2E">
+            <skos:prefLabel xml:lang="en">DM2E</skos:prefLabel>
+            <skos:altLabel xml:lang="en">Digitised Manuscripts to Europeana</skos:altLabel>
+         </foaf:Organization>
+      </edm:provider>
+      <edm:dataProvider>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </edm:dataProvider>
+      <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+      <edm:isShownAt>
+         <edm:WebResource rdf:about="">
+            <dcterms:rightsHolder>
+               <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+                  <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+               </foaf:Organization>
+            </dcterms:rightsHolder>
+            <edm:isDerivativeOf>
+               <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/"/>
+            </edm:isDerivativeOf>
+         </edm:WebResource>
+      </edm:isShownAt>
+      <edm:object>
+         <edm:WebResource rdf:about=""/>
+      </edm:object>
+      <dm2e:hasAnnotatableVersionAt>
+         <edm:WebResource rdf:about="">
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
+         </edm:WebResource>
+      </dm2e:hasAnnotatableVersionAt>
+      <dc:creator>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </dc:creator>
+      <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-29T00:00:00</dcterms:created>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Prof.%20Dr.%20Christian%20Kassung">
+            <skos:prefLabel xml:lang="de">Prof. Dr. Christian Kassung</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marius%20Hug">
+            <skos:prefLabel xml:lang="de">Marius Hug</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deborah%20Zehnder">
+            <skos:prefLabel xml:lang="de">Deborah Zehnder</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Laura%20Luzardo">
+            <skos:prefLabel xml:lang="de">Laura Luzardo</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Una%20Sch%C3%A4fer">
+            <skos:prefLabel xml:lang="de">Una Schäfer</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Antonia%20Bechmann">
+            <skos:prefLabel xml:lang="de">Antonia Bechmann</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Diana%20Daniel">
+            <skos:prefLabel xml:lang="de">Diana Daniel</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Frank%20Wiegand">
+            <skos:prefLabel xml:lang="de">Frank Wiegand</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marc%20Rohrm%C3%BCller">
+            <skos:prefLabel xml:lang="de">Marc Rohrmüller</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/S%C3%A4chsische%20Landesbibliothek%20%E2%80%93%20Staats-%20und%20Universit%C3%A4tsbibliothek%20Dresden">
+            <skos:prefLabel xml:lang="de">Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deutsche%20Forschungsgemeinschaft">
+            <skos:prefLabel xml:lang="de">Deutsche Forschungsgemeinschaft</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Editura%20GmbH%20%26%20Co.%20KG%2C%20Berlin">
+            <skos:prefLabel xml:lang="de">Editura GmbH &amp; Co. KG, Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/CLARIN-D">
+            <skos:prefLabel xml:lang="de">CLARIN-D</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deutsches_Textarchiv">
+            <skos:prefLabel xml:lang="de">Deutsches Textarchiv</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
+   </ore:Aggregation>
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/article_pj310_ar310025">
+      <edm:aggregatedCHO>
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj310_ar310025">
+            <edm:type>TEXT</edm:type>
+            <dc:type rdf:resource="http://purl.org/spar/fabio/Article"/>
+            <dc:title xml:lang="de">Kraftmaschinen.Neuerungen an Dampfmaschinen.</dc:title>
+            <dc:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dc:subtitle>
+            <dc:subtitle xml:lang="de">Mit Abbildungen.</dc:subtitle>
+            <dc:language>de</dc:language>
+            <dc:subject>
+               <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
+                  <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
+               </skos:Concept>
+            </dc:subject>
+            <bibo:pages2>S. 81-83</bibo:pages2>
+            <dcterms:tableOfContents xml:lang="de"/>
+            <pro:author>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+            </pro:author>
+            <dcterms:isPartOf>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj310"/>
+            </dcterms:isPartOf>
+            <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</dm2e:levelOfHierarchy>
+         </edm:ProvidedCHO>
+      </edm:aggregatedCHO>
+      <edm:provider>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/dm2e/DM2E">
+            <skos:prefLabel xml:lang="en">DM2E</skos:prefLabel>
+            <skos:altLabel xml:lang="en">Digitised Manuscripts to Europeana</skos:altLabel>
+         </foaf:Organization>
+      </edm:provider>
+      <edm:dataProvider>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </edm:dataProvider>
+      <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+      <edm:isShownAt>
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj310/ar310025">
+            <dcterms:rightsHolder>
+               <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+                  <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+               </foaf:Organization>
+            </dcterms:rightsHolder>
+            <edm:isDerivativeOf>
+               <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
+                  <dcterms:rightsHolder>
+                     <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+                        <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+                     </foaf:Organization>
+                  </dcterms:rightsHolder>
+               </edm:WebResource>
+            </edm:isDerivativeOf>
+         </edm:WebResource>
+      </edm:isShownAt>
+      <edm:object>
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj310/ar310025"/>
+      </edm:object>
+      <dm2e:hasAnnotatableVersionAt>
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj310/ar310025">
+            <dc:format>text/plain</dc:format>
+         </edm:WebResource>
+      </dm2e:hasAnnotatableVersionAt>
+      <dc:creator>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </dc:creator>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Prof.%20Dr.%20Christian%20Kassung">
+            <skos:prefLabel xml:lang="de">Prof. Dr. Christian Kassung</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marius%20Hug">
+            <skos:prefLabel xml:lang="de">Marius Hug</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deborah%20Zehnder">
+            <skos:prefLabel xml:lang="de">Deborah Zehnder</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Laura%20Luzardo">
+            <skos:prefLabel xml:lang="de">Laura Luzardo</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Una%20Sch%C3%A4fer">
+            <skos:prefLabel xml:lang="de">Una Schäfer</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Antonia%20Bechmann">
+            <skos:prefLabel xml:lang="de">Antonia Bechmann</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Diana%20Daniel">
+            <skos:prefLabel xml:lang="de">Diana Daniel</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Frank%20Wiegand">
+            <skos:prefLabel xml:lang="de">Frank Wiegand</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marc%20Rohrm%C3%BCller">
+            <skos:prefLabel xml:lang="de">Marc Rohrmüller</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/S%C3%A4chsische%20Landesbibliothek%20%E2%80%93%20Staats-%20und%20Universit%C3%A4tsbibliothek%20Dresden">
+            <skos:prefLabel xml:lang="de">Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deutsche%20Forschungsgemeinschaft">
+            <skos:prefLabel xml:lang="de">Deutsche Forschungsgemeinschaft</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Editura%20GmbH%20%26%20Co.%20KG%2C%20Berlin">
+            <skos:prefLabel xml:lang="de">Editura GmbH &amp; Co. KG, Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/CLARIN-D">
+            <skos:prefLabel xml:lang="de">CLARIN-D</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deutsches_Textarchiv">
+            <skos:prefLabel xml:lang="de">Deutsches Textarchiv</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</dm2e:displayLevel>
+   </ore:Aggregation>
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/">
+      <edm:aggregatedCHO>
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/">
+            <edm:type>TEXT</edm:type>
+            <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
+            <dc:title xml:lang="de">Kraftmaschinen.Neuerungen an Dampfmaschinen.</dc:title>
+            <dc:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dc:subtitle>
+            <dc:subtitle xml:lang="de">Mit Abbildungen.</dc:subtitle>
+            <dc:language>de</dc:language>
+            <dc:subject>
+               <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
+                  <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
+               </skos:Concept>
+            </dc:subject>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">NaN</bibo:number>
+            <pro:author>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+            </pro:author>
+            <dcterms:isPartOf>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/"/>
+            </dcterms:isPartOf>
+            <dcterms:isPartOf>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/"/>
+            </dcterms:isPartOf>
+            <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</dm2e:levelOfHierarchy>
+         </edm:ProvidedCHO>
+      </edm:aggregatedCHO>
+      <edm:provider>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/dm2e/DM2E">
+            <skos:prefLabel xml:lang="en">DM2E</skos:prefLabel>
+            <skos:altLabel xml:lang="en">Digitised Manuscripts to Europeana</skos:altLabel>
+         </foaf:Organization>
+      </edm:provider>
+      <edm:dataProvider>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </edm:dataProvider>
+      <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+      <edm:object>
+         <edm:WebResource rdf:about=""/>
+      </edm:object>
+      <dm2e:hasAnnotatableVersionAt>
+         <edm:WebResource rdf:about="">
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
+         </edm:WebResource>
+      </dm2e:hasAnnotatableVersionAt>
+      <edm:isShownBy>
+         <edm:WebResource rdf:about="">
+            <dcterms:rightsHolder>
+               <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+                  <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+               </foaf:Organization>
+            </dcterms:rightsHolder>
+            <dcterms:isPartOf>
+               <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/"/>
+            </dcterms:isPartOf>
+         </edm:WebResource>
+      </edm:isShownBy>
+      <dc:creator>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </dc:creator>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Prof.%20Dr.%20Christian%20Kassung">
+            <skos:prefLabel xml:lang="de">Prof. Dr. Christian Kassung</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marius%20Hug">
+            <skos:prefLabel xml:lang="de">Marius Hug</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deborah%20Zehnder">
+            <skos:prefLabel xml:lang="de">Deborah Zehnder</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Laura%20Luzardo">
+            <skos:prefLabel xml:lang="de">Laura Luzardo</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Una%20Sch%C3%A4fer">
+            <skos:prefLabel xml:lang="de">Una Schäfer</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Antonia%20Bechmann">
+            <skos:prefLabel xml:lang="de">Antonia Bechmann</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Diana%20Daniel">
+            <skos:prefLabel xml:lang="de">Diana Daniel</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Frank%20Wiegand">
+            <skos:prefLabel xml:lang="de">Frank Wiegand</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marc%20Rohrm%C3%BCller">
+            <skos:prefLabel xml:lang="de">Marc Rohrmüller</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/S%C3%A4chsische%20Landesbibliothek%20%E2%80%93%20Staats-%20und%20Universit%C3%A4tsbibliothek%20Dresden">
+            <skos:prefLabel xml:lang="de">Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deutsche%20Forschungsgemeinschaft">
+            <skos:prefLabel xml:lang="de">Deutsche Forschungsgemeinschaft</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Editura%20GmbH%20%26%20Co.%20KG%2C%20Berlin">
+            <skos:prefLabel xml:lang="de">Editura GmbH &amp; Co. KG, Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/CLARIN-D">
+            <skos:prefLabel xml:lang="de">CLARIN-D</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deutsches_Textarchiv">
+            <skos:prefLabel xml:lang="de">Deutsches Textarchiv</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
+   </ore:Aggregation>
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj310_pb083">
+      <edm:aggregatedCHO>
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj310_pb083">
+            <edm:type>TEXT</edm:type>
+            <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
+            <dc:title xml:lang="de">Kraftmaschinen.Neuerungen an Dampfmaschinen.</dc:title>
+            <dc:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dc:subtitle>
+            <dc:subtitle xml:lang="de">Mit Abbildungen.</dc:subtitle>
+            <dcterms:subtitle xml:lang="de"/>
+            <dc:language>de</dc:language>
+            <dc:subject>
+               <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
+                  <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
+               </skos:Concept>
+            </dc:subject>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">83</bibo:number>
+            <pro:author>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+            </pro:author>
+            <dcterms:isPartOf>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj310"/>
+            </dcterms:isPartOf>
+            <edm:isNextInSequence>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj310_pb082"/>
+            </edm:isNextInSequence>
+            <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</dm2e:levelOfHierarchy>
+         </edm:ProvidedCHO>
+      </edm:aggregatedCHO>
+      <edm:object>
+         <edm:WebResource rdf:about=""/>
+      </edm:object>
+      <dm2e:hasAnnotatableVersionAt>
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj310?p=00000391">
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
+         </edm:WebResource>
+      </dm2e:hasAnnotatableVersionAt>
+      <edm:provider>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DM2E">
+            <skos:prefLabel xml:lang="de">DM2E</skos:prefLabel>
+         </foaf:Organization>
+      </edm:provider>
+      <edm:dataProvider>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/&#xA;        Deutsches Textarchiv&#xA;        wiegand@bbaw.de&#xA;      ">
+            <skos:prefLabel xml:lang="de">
+        Deutsches Textarchiv
+        wiegand@bbaw.de
+      </skos:prefLabel>
+         </foaf:Organization>
+      </edm:dataProvider>
+      <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+      <edm:isShownBy>
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de">
+            <dcterms:rightsHolder>
+               <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+                  <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+               </foaf:Organization>
+            </dcterms:rightsHolder>
+            <edm:isDerivativeOf>
+               <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
+                  <dcterms:rightsHolder>
+                     <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+                        <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+                     </foaf:Organization>
+                  </dcterms:rightsHolder>
+               </edm:WebResource>
+            </edm:isDerivativeOf>
+         </edm:WebResource>
+      </edm:isShownBy>
+      <dc:creator>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </dc:creator>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Prof.%20Dr.%20Christian%20Kassung">
+            <skos:prefLabel xml:lang="de">Prof. Dr. Christian Kassung</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marius%20Hug">
+            <skos:prefLabel xml:lang="de">Marius Hug</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deborah%20Zehnder">
+            <skos:prefLabel xml:lang="de">Deborah Zehnder</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Laura%20Luzardo">
+            <skos:prefLabel xml:lang="de">Laura Luzardo</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Una%20Sch%C3%A4fer">
+            <skos:prefLabel xml:lang="de">Una Schäfer</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Antonia%20Bechmann">
+            <skos:prefLabel xml:lang="de">Antonia Bechmann</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Diana%20Daniel">
+            <skos:prefLabel xml:lang="de">Diana Daniel</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Frank%20Wiegand">
+            <skos:prefLabel xml:lang="de">Frank Wiegand</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marc%20Rohrm%C3%BCller">
+            <skos:prefLabel xml:lang="de">Marc Rohrmüller</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/S%C3%A4chsische%20Landesbibliothek%20%E2%80%93%20Staats-%20und%20Universit%C3%A4tsbibliothek%20Dresden">
+            <skos:prefLabel xml:lang="de">Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deutsche%20Forschungsgemeinschaft">
+            <skos:prefLabel xml:lang="de">Deutsche Forschungsgemeinschaft</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Editura%20GmbH%20%26%20Co.%20KG%2C%20Berlin">
+            <skos:prefLabel xml:lang="de">Editura GmbH &amp; Co. KG, Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/CLARIN-D">
+            <skos:prefLabel xml:lang="de">CLARIN-D</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deutsches_Textarchiv">
+            <skos:prefLabel xml:lang="de">Deutsches Textarchiv</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
+   </ore:Aggregation>
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj310_pb082">
+      <edm:aggregatedCHO>
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj310_pb082">
+            <edm:type>TEXT</edm:type>
+            <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
+            <dc:title xml:lang="de">Kraftmaschinen.Neuerungen an Dampfmaschinen.</dc:title>
+            <dc:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dc:subtitle>
+            <dc:subtitle xml:lang="de">Mit Abbildungen.</dc:subtitle>
+            <dcterms:subtitle4 xml:lang="de"/>
+            <dc:language>de</dc:language>
+            <dc:subject>
+               <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
+                  <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
+               </skos:Concept>
+            </dc:subject>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">82</bibo:number>
+            <pro:author>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+            </pro:author>
+            <dcterms:isPartOf>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj310"/>
+            </dcterms:isPartOf>
+            <edm:isNextInSequence>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj310_pb081"/>
+            </edm:isNextInSequence>
+            <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</dm2e:levelOfHierarchy>
+         </edm:ProvidedCHO>
+      </edm:aggregatedCHO>
+      <edm:object>
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj310?p=00000390"/>
+      </edm:object>
+      <dm2e:hasAnnotatableVersionAt>
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj310?p=00000390">
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
+         </edm:WebResource>
+      </dm2e:hasAnnotatableVersionAt>
+      <edm:provider>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DM2E">
+            <skos:prefLabel xml:lang="de">DM2E</skos:prefLabel>
+         </foaf:Organization>
+      </edm:provider>
+      <edm:dataProvider>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/&#xA;        Deutsches Textarchiv&#xA;        wiegand@bbaw.de&#xA;      ">
+            <skos:prefLabel xml:lang="de">
+        Deutsches Textarchiv
+        wiegand@bbaw.de
+      </skos:prefLabel>
+         </foaf:Organization>
+      </edm:dataProvider>
+      <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+      <edm:isShownBy>
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de">
+            <dcterms:rightsHolder>
+               <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+                  <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+               </foaf:Organization>
+            </dcterms:rightsHolder>
+            <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+         </edm:WebResource>
+      </edm:isShownBy>
+      <dc:creator>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </dc:creator>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4t%20zu%20Berlin">
+            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Prof.%20Dr.%20Christian%20Kassung">
+            <skos:prefLabel xml:lang="de">Prof. Dr. Christian Kassung</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marius%20Hug">
+            <skos:prefLabel xml:lang="de">Marius Hug</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deborah%20Zehnder">
+            <skos:prefLabel xml:lang="de">Deborah Zehnder</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Laura%20Luzardo">
+            <skos:prefLabel xml:lang="de">Laura Luzardo</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Una%20Sch%C3%A4fer">
+            <skos:prefLabel xml:lang="de">Una Schäfer</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Antonia%20Bechmann">
+            <skos:prefLabel xml:lang="de">Antonia Bechmann</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Diana%20Daniel">
+            <skos:prefLabel xml:lang="de">Diana Daniel</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Frank%20Wiegand">
+            <skos:prefLabel xml:lang="de">Frank Wiegand</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marc%20Rohrm%C3%BCller">
+            <skos:prefLabel xml:lang="de">Marc Rohrmüller</skos:prefLabel>
+         </foaf:Person>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/S%C3%A4chsische%20Landesbibliothek%20%E2%80%93%20Staats-%20und%20Universit%C3%A4tsbibliothek%20Dresden">
+            <skos:prefLabel xml:lang="de">Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deutsche%20Forschungsgemeinschaft">
+            <skos:prefLabel xml:lang="de">Deutsche Forschungsgemeinschaft</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Editura%20GmbH%20%26%20Co.%20KG%2C%20Berlin">
+            <skos:prefLabel xml:lang="de">Editura GmbH &amp; Co. KG, Berlin</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/CLARIN-D">
+            <skos:prefLabel xml:lang="de">CLARIN-D</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dc:contributor>
+         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Deutsches_Textarchiv">
+            <skos:prefLabel xml:lang="de">Deutsches Textarchiv</skos:prefLabel>
+         </foaf:Organization>
+      </dc:contributor>
+      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
+   </ore:Aggregation>
+</rdf:RDF>
