@@ -242,6 +242,17 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
+    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/genre -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/genre">
+        <rdfs:label xml:lang="en">genre</rdfs:label>
+        <scopeNote xml:lang="en">Genre of the CHO, in German “Formschlagworte”. Examples: schoolbook, letter collection.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;type"/>
+        <rdfs:domain rdf:resource="&skos;Concept"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/hasAnnotatableVersionAt -->
 
     <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/hasAnnotatableVersionAt">
@@ -1150,6 +1161,15 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
+    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/displayLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/displayLevel">
+        <rdfs:label xml:lang="en">displayLevel</rdfs:label>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/explicit -->
 
     <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/explicit">
@@ -1521,6 +1541,15 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
+    <!-- http://purl.org/ontology/bibo/number -->
+
+    <owl:DatatypeProperty rdf:about="&bibo;number">
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://purl.org/ontology/bibo/pages -->
 
     <owl:DatatypeProperty rdf:about="&bibo;pages">
@@ -1865,6 +1894,16 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:DatatypeProperty rdf:about="&skos;prefLabel">
         <scopeNote xml:lang="eng">The preferred name of the agent, preferably in a normalized form. Only one preferred label per language tag is allowed!</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;Agent"/>
+                    <rdf:Description rdf:about="&edm;Event"/>
+                    <rdf:Description rdf:about="&edm;TimeSpan"/>
+                    <rdf:Description rdf:about="&skos;Concept"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
