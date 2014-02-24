@@ -21,6 +21,7 @@
     <!ENTITY vivo "http://vivoweb.org/ontology/core#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY korbo "http://purl.org/net7/korbo/vocab#" >
+    <!ENTITY crm "http://www.cidoc-crm.org/cidoc-crm/" >
     <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
     <!ENTITY edm "http://www.europeana.eu/schemas/edm/" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
@@ -32,7 +33,6 @@
     <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
     <!ENTITY swrla "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#" >
     <!ENTITY sqwrl "http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#" >
-    <!ENTITY crm "http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.2_english_label.rdfs#" >
 ]>
 
 
@@ -49,7 +49,7 @@
      xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-     xmlns:crm="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.2_english_label.rdfs#"
+     xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:vivo="http://vivoweb.org/ontology/core#"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -1561,6 +1561,24 @@ http://www.dm2e.eu</foaf:homepage>
         <scopeNote xml:lang="eng">The profession or occupation in which the person works or has worked.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cidoc-crm.org/cidoc-crm/P79F.beginning_is_qualified_by -->
+
+    <owl:DatatypeProperty rdf:about="&crm;P79F.beginning_is_qualified_by">
+        <rdfs:domain rdf:resource="&edm;TimeSpan"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cidoc-crm.org/cidoc-crm/P80F.end_is_qualified_by -->
+
+    <owl:DatatypeProperty rdf:about="&crm;P80F.end_is_qualified_by">
+        <rdfs:label xml:lang="en">http://www.europeana.eu/schemas/edm/P80F.end_is_qualified_by</rdfs:label>
+        <rdfs:domain rdf:resource="&edm;TimeSpan"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
     </owl:DatatypeProperty>
     
 
