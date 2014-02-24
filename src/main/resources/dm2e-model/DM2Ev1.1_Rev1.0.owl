@@ -300,7 +300,7 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/painter">
         <rdfs:label xml:lang="en">painter</rdfs:label>
         <rdfs:comment xml:lang="eng">A painter. In the manuscript context especially used in works of the 16th and 17th century (rare books).</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
+        <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
@@ -312,7 +312,7 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/patron">
         <rdfs:label xml:lang="en">patron</rdfs:label>
         <rdfs:comment xml:lang="eng">A person who is honored within the text.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/1.1/contributor"/>
+        <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
@@ -1578,7 +1578,6 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:DatatypeProperty rdf:about="&crm;P80F.end_is_qualified_by">
         <rdfs:label xml:lang="en">http://www.europeana.eu/schemas/edm/P80F.end_is_qualified_by</rdfs:label>
         <rdfs:domain rdf:resource="&edm;TimeSpan"/>
-        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
     </owl:DatatypeProperty>
     
 
