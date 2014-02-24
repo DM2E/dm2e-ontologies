@@ -21,15 +21,14 @@
     <!ENTITY vivo "http://vivoweb.org/ontology/core#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY korbo "http://purl.org/net7/korbo/vocab#" >
-    <!ENTITY dm2e "http://onto.dm2e.eu/schemas/dm2e/" >
     <!ENTITY crm "http://www.cidoc-crm.org/cidoc-crm/" >
     <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
     <!ENTITY edm "http://www.europeana.eu/schemas/edm/" >
-    <!ENTITY dm2e2 "http://onto.dm2e.eu/schemas/dm2e/1.1/" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY ore "http://www.openarchives.org/ore/terms/" >
     <!ENTITY wgs84_pos "http://www.w3.org/2003/01/geo/wgs84_pos#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY prism "http://prismstandard.org/namespaces/basic/3.0/" >
     <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
     <!ENTITY DOLCE-Lite "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#" >
     <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
@@ -38,13 +37,12 @@
 ]>
 
 
-<rdf:RDF xmlns="&dm2e;"
-     xml:base="&dm2e;"
+<rdf:RDF xmlns="http://onto.dm2e.eu/schemas/dm2e/"
+     xml:base="http://onto.dm2e.eu/schemas/dm2e/"
      xmlns:radion="http://www.w3.org/ns/radion#"
      xmlns:edm="http://www.europeana.eu/schemas/edm/"
      xmlns:DOLCE-Lite="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#"
      xmlns:rdaGr2="http://rdvocab.info/ElementsGr2/"
-     xmlns:dm2e="http://onto.dm2e.eu/schemas/dm2e/"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:ore="http://www.openarchives.org/ore/terms/"
      xmlns:dcterms="http://purl.org/dc/terms/"
@@ -55,6 +53,7 @@
      xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:vivo="http://vivoweb.org/ontology/core#"
+     xmlns:prism="http://prismstandard.org/namespaces/basic/3.0/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:korbo="http://purl.org/net7/korbo/vocab#"
      xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
@@ -71,9 +70,8 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-     xmlns:dm2e2="&dm2e;"
      xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#">
-    <owl:Ontology rdf:about="&dm2e;">
+    <owl:Ontology rdf:about="http://onto.dm2e.eu/schemas/dm2e/">
         <vann:changes xml:lang="en">
 ***********************************
 Changes between ontology file DM2Ev1.1_Rev0.8.owl and DM2Ev1.1_Rev0.9.owl
@@ -117,9 +115,18 @@ Changes betwen ontology file DM2Ev1.1_Rev1.1.owl and DM2Ev1.1_Rev1.2.owl
 - Changed range to dm2e:genre into skos:Concept
 - Added dc:type as super property to dm2e:genre
 </vann:changes>
+        <rdfs:comment xml:lang="en">
+***********************************
+Changes betwen ontology file DM2Ev1.1_Rev1.2.owl and DM2Ev1.1_Rev1.3.owl
+***********************************
+
+- Changed DM2E namespace to unversioned
+- Moved dm2e:displayLevel to Aggregation
+- Added prism:startingPage (rdfs:range edm:ProvidedCHO)
+</rdfs:comment>
         <owl:versionInfo xml:lang="en">1.1 Revision 0.9</owl:versionInfo>
-        <dc:modified xml:lang="en">2013-11-25</dc:modified>
         <dcterms:issued xml:lang="en">2013-11-25</dcterms:issued>
+        <dc:modified xml:lang="en">2013-11-25</dc:modified>
         <dc:title xml:lang="en">Digitised Manuscripts to Europeana (DM2E) vocabulary</dc:title>
         <dc:creator xml:lang="en">Evelyn Dröge</dc:creator>
         <dc:creator xml:lang="en">Julia Iwanowa</dc:creator>
@@ -145,24 +152,21 @@ http://www.dm2e.eu</foaf:homepage>
     <rdf:Description rdf:about="&dc;creator">
         <scopeNote xml:lang="eng">The property dcterms:creator holds the name or identifier of the agent (a person or organisation) who created the aggregation, i.e. the original source metadata record.</scopeNote>
     </rdf:Description>
-    <owl:AnnotationProperty rdf:about="&dm2e;scopeNote">
-        <rdfs:comment xml:lang="eng">This property describes the dm2e-specific usage of the resource.</rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&edm;isRelatedTo"/>
     <owl:AnnotationProperty rdf:about="&dcterms;alternative">
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
         <scopeNote xml:lang="eng">An alternative name for the resource. Should not be used for subtitles in DM2E. Can be used if title and subtitle are in one field. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&edm;isRelatedTo"/>
+    <owl:AnnotationProperty rdf:about="&vann;preferredNamespaceUri"/>
     <owl:AnnotationProperty rdf:about="&skos;prefLabel">
         <scopeNote xml:lang="eng">The preferred name of the agent, preferably in a normalized form. Only one preferred label per language tag is allowed!</scopeNote>
-        <rdfs:domain rdf:resource="&dm2e;#genid85"/>
+        <rdfs:domain rdf:resource="http://onto.dm2e.eu/schemas/dm2e/#genid85"/>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&vann;preferredNamespaceUri"/>
+    <owl:AnnotationProperty rdf:about="&foaf;homepage"/>
     <owl:AnnotationProperty rdf:about="&dc;subject">
         <rdfs:subPropertyOf rdf:resource="&edm;isRelatedTo"/>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&foaf;homepage"/>
     <owl:AnnotationProperty rdf:about="&adms;relatedWebPage"/>
     <owl:AnnotationProperty rdf:about="&skos;hiddenLabel">
         <scopeNote xml:lang="eng">Non-standard forms of the name, e.g. misspellings.</scopeNote>
@@ -179,6 +183,9 @@ http://www.dm2e.eu</foaf:homepage>
         <scopeNote xml:lang="eng">Date of publication (of the described CHO, usually the original one).</scopeNote>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&skos;definition"/>
+    <owl:AnnotationProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/scopeNote">
+        <rdfs:comment xml:lang="eng">This property describes the dm2e-specific usage of the resource.</rdfs:comment>
+    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&skos;altLabel">
         <scopeNote xml:lang="eng">An alternative name, e.g. a former name or the name in another form.</scopeNote>
     </owl:AnnotationProperty>
@@ -218,9 +225,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/artist -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/artist -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;artist">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/artist">
         <rdfs:label xml:lang="en">artist</rdfs:label>
         <rdfs:comment xml:lang="eng">An artist that has created (e.g. painted) the CHO.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
@@ -229,9 +236,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/composer -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/composer -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;composer">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/composer">
         <rdfs:label xml:lang="en">composer</rdfs:label>
         <rdfs:comment xml:lang="eng">The person that has composed a CHO (e.g. a letter). Can be the same as the person who wrote the letter, but can also be a different person, e.g. someone who has dictated but not wrote the letter.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
@@ -241,9 +248,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/contributor -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/contributor -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;contributor">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/contributor">
         <rdfs:label xml:lang="en">contributor</rdfs:label>
         <rdfs:comment xml:lang="eng">A person that is responsible for making contributions to the resource.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
@@ -253,9 +260,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/copyist -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/copyist -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;copyist">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/copyist">
         <rdfs:label xml:lang="en">copyist</rdfs:label>
         <rdfs:comment xml:lang="eng">Someone who copied a CHO.</rdfs:comment>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
@@ -265,9 +272,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/genre -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/genre -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;genre">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/genre">
         <rdfs:label xml:lang="en">genre</rdfs:label>
         <scopeNote xml:lang="en">Genre of the CHO, in German “Formschlagworte”. Examples: schoolbook, letter collection.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;type"/>
@@ -276,9 +283,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/hasAnnotatableVersionAt -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/hasAnnotatableVersionAt -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;hasAnnotatableVersionAt">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/hasAnnotatableVersionAt">
         <rdfs:comment xml:lang="eng">The property dm2e:hasAnnotatableVersionAt holds an URL which leads to an HTML representation or to an image of the content, i.e. of the CHO aggregated by the current Aggregation. The URL of the HTML content or image file must be stable. The type of the WebResource must be further specified as “text/html-named-content”, “text/plain”, “image/gif”, “image/jpeg” or “image/png”.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;WebResource"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasView"/>
@@ -287,9 +294,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/honoree -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/honoree -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;honoree">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/honoree">
         <rdfs:label xml:lang="en">honoree</rdfs:label>
         <rdfs:comment xml:lang="eng">An honoured person, for whom the CHO is published or created.</rdfs:comment>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
@@ -298,20 +305,20 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/influencedBy -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/influencedBy -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;influencedBy">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/influencedBy">
         <rdfs:label xml:lang="en">influenced by</rdfs:label>
         <rdfs:comment xml:lang="eng">Another person by which the person was influenced.</rdfs:comment>
-        <rdfs:domain rdf:resource="&foaf;Person"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/mentioned -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/mentioned -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;mentioned">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/mentioned">
         <rdfs:label xml:lang="en">mentioned</rdfs:label>
         <rdfs:comment xml:lang="eng">A person or institution that is explicitly mentioned in the (textual) CHO.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
@@ -320,9 +327,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/misattributed -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/misattributed -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;misattributed">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/misattributed">
         <rdfs:label xml:lang="en">misattributed</rdfs:label>
         <rdfs:comment xml:lang="eng">A person or institution that is mentioned as the creator of the CHO although he or it is not the creator.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
@@ -331,9 +338,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/owner -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/owner -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;owner">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/owner">
         <rdfs:label xml:lang="en">owner</rdfs:label>
         <rdfs:comment xml:lang="eng">Indicates the ownership of a CHO.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
@@ -343,9 +350,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/painter -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/painter -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;painter">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/painter">
         <rdfs:label xml:lang="en">painter</rdfs:label>
         <rdfs:comment xml:lang="eng">A painter. In the manuscript context especially used in works of the 16th and 17th century (rare books).</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
@@ -355,9 +362,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/patron -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/patron -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;patron">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/patron">
         <rdfs:label xml:lang="en">patron</rdfs:label>
         <rdfs:comment xml:lang="eng">A person who is honored within the text.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
@@ -367,21 +374,21 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/portrayed -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/portrayed -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;portrayed">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/portrayed">
         <rdfs:label xml:lang="en">portrayed</rdfs:label>
         <rdfs:comment xml:lang="eng">A person that is portrayed in the (textual or painted) CHO by its creator.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&dm2e;mentioned"/>
+        <rdfs:subPropertyOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/mentioned"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/previousOwner -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/previousOwner -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;previousOwner">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/previousOwner">
         <rdfs:label xml:lang="en">previous owner</rdfs:label>
         <rdfs:comment xml:lang="eng">A person or an institution that has owned the CHO before.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
@@ -391,9 +398,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/principal -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/principal -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;principal">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/principal">
         <rdfs:label xml:lang="en">principal</rdfs:label>
         <rdfs:comment xml:lang="eng">A person or an institution that gave the order to create the CHO.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
@@ -403,9 +410,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/printedAt -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/printedAt -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;printedAt">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/printedAt">
         <rdfs:label xml:lang="en">printed at</rdfs:label>
         <rdfs:comment xml:lang="eng">Indicates the place where the CHO was printed.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dcterms;spatial"/>
@@ -414,9 +421,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/publishedAt -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/publishedAt -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;publishedAt">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/publishedAt">
         <rdfs:label xml:lang="en">published at</rdfs:label>
         <rdfs:comment xml:lang="eng">The place of a physical publication or the web resource of a web publication.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dcterms;coverage"/>
@@ -433,9 +440,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/refersTo -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/refersTo -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;refersTo">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/refersTo">
         <rdfs:label xml:lang="en">refers to</rdfs:label>
         <rdfs:comment xml:lang="eng">A person or CHO that is explicitly or implicitly menioned in the (textual) CHO.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dcterms;references"/>
@@ -452,9 +459,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/shelfmarkLocation -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;shelfmarkLocation">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation">
         <rdfs:label xml:lang="en">shelfmark location</rdfs:label>
         <rdfs:comment xml:lang="eng">Shelfmark location from the CHO.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&edm;currentLocation"/>
@@ -462,9 +469,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/sponsor -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/sponsor -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;sponsor">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/sponsor">
         <rdfs:label xml:lang="en">sponsor</rdfs:label>
         <rdfs:comment xml:lang="eng">A person or an institution who has sponsored (parts) of the CHOs creation.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
@@ -474,9 +481,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/studentOf -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/studentOf -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;studentOf">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/studentOf">
         <rdfs:label xml:lang="en">student of</rdfs:label>
         <rdfs:comment xml:lang="eng">A teacher of the person.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
@@ -486,9 +493,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/wasStudiedBy -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/wasStudiedBy -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;wasStudiedBy">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/wasStudiedBy">
         <rdfs:label xml:lang="en">was studied by</rdfs:label>
         <rdfs:comment xml:lang="eng">The CHO was studied by an Agent.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
@@ -498,9 +505,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/wasTaughtBy -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/wasTaughtBy -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;wasTaughtBy">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/wasTaughtBy">
         <rdfs:label xml:lang="en">was taught by</rdfs:label>
         <rdfs:comment xml:lang="eng">The CHO was taught by an Agent.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
@@ -510,14 +517,24 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/writer -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/writer -->
 
-    <owl:ObjectProperty rdf:about="&dm2e;writer">
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/writer">
         <rdfs:label xml:lang="en">writer</rdfs:label>
         <rdfs:comment xml:lang="eng">A person who has written a CHO, e.g. a letter.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://prismstandard.org/namespaces/basic/3.0/startingPage -->
+
+    <owl:ObjectProperty rdf:about="&prism;startingPage">
+        <vann:changes xml:lang="en">Used to indicate the starting page of a document, e.g. a book or an article. Please point to the resource of the first page of the CHO.</vann:changes>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&edm;ProvidedCHO"/>
     </owl:ObjectProperty>
     
 
@@ -591,19 +608,14 @@ http://www.dm2e.eu</foaf:homepage>
 
     <owl:ObjectProperty rdf:about="&dc;subject">
         <rdfs:range>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dc;subject"/>
-                <owl:allValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="&edm;Agent"/>
-                            <rdf:Description rdf:about="&edm;Place"/>
-                            <rdf:Description rdf:about="&edm;TimeSpan"/>
-                            <rdf:Description rdf:about="&skos;Concept"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:allValuesFrom>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;Agent"/>
+                    <rdf:Description rdf:about="&edm;Place"/>
+                    <rdf:Description rdf:about="&edm;TimeSpan"/>
+                    <rdf:Description rdf:about="&skos;Concept"/>
+                </owl:unionOf>
+            </owl:Class>
         </rdfs:range>
     </owl:ObjectProperty>
     
@@ -762,7 +774,7 @@ http://www.dm2e.eu</foaf:homepage>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&dm2e;Work"/>
+                    <rdf:Description rdf:about="http://onto.dm2e.eu/schemas/dm2e/Work"/>
                     <rdf:Description rdf:about="&edm;ProvidedCHO"/>
                 </owl:unionOf>
             </owl:Class>
@@ -884,7 +896,7 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:ObjectProperty rdf:about="&void;inDataset">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <scopeNote xml:lang="eng">The dataset that contains the RDF statements provided via this data resource.</scopeNote>
-        <rdfs:domain rdf:resource="&dm2e;DataResource"/>
+        <rdfs:domain rdf:resource="http://onto.dm2e.eu/schemas/dm2e/DataResource"/>
         <rdfs:range rdf:resource="&void;Dataset"/>
     </owl:ObjectProperty>
     
@@ -990,14 +1002,6 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:ObjectProperty rdf:about="&edm;isDerivativeOf">
         <scopeNote xml:lang="eng">Original version (in case of CHOs) or a related resource (in case of Webresources) from which this object has been derived in whole or in part.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&edm;isSimilarTo"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
-                    <rdf:Description rdf:about="&edm;WebResource"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1006,6 +1010,14 @@ http://www.dm2e.eu</foaf:homepage>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -1156,9 +1168,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/callNumber -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/callNumber -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;callNumber">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/callNumber">
         <rdfs:comment xml:lang="eng">The call number for some archival item.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;identifier"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
@@ -1167,35 +1179,35 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/condition -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/condition -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;condition">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/condition">
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/cover -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/cover -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;cover">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/cover">
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/displayLevel -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/displayLevel -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;displayLevel">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/displayLevel">
         <rdfs:label xml:lang="en">displayLevel</rdfs:label>
-        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:domain rdf:resource="&ore;Aggregation"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/explicit -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/explicit -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;explicit">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/explicit">
         <rdfs:label xml:lang="en">explicit</rdfs:label>
         <rdfs:comment xml:lang="eng">Final words of a manuscript. A language tag in ISO 639-2 should be added to the Literal.</rdfs:comment>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
@@ -1204,9 +1216,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/illustration -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/illustration -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;illustration">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/illustration">
         <rdfs:comment xml:lang="en">illustration</rdfs:comment>
         <rdfs:comment xml:lang="eng">Generic description of illustrations in the CHO.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
@@ -1214,9 +1226,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/incipit -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/incipit -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;incipit">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/incipit">
         <rdfs:label xml:lang="en">incipit</rdfs:label>
         <rdfs:comment xml:lang="eng">Opening words of a manuscript. A language tag in ISO 639-2 should be added to the Literal.</rdfs:comment>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
@@ -1225,17 +1237,17 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/levelOfGenesis -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/levelOfGenesis -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;levelOfGenesis">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/levelOfGenesis">
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/levelOfHierarchy -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/levelOfHierarchy -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;levelOfHierarchy">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/levelOfHierarchy">
         <rdfs:label xml:lang="en">levelOfHierarchy</rdfs:label>
         <rdfs:comment xml:lang="en">The Top-Level-CHO must contain the number “1” as value of the dm2e:levelOfHierarchy property. All bottom hierarchy levels must be mark by incremental adding +1. For example Second-Level-CHO “2” and so on</rdfs:comment>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
@@ -1243,9 +1255,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/modeOfAcquisition -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/modeOfAcquisition -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;modeOfAcquisition">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/modeOfAcquisition">
         <rdfs:label xml:lang="en">modeOfAcquisition</rdfs:label>
         <scopeNote xml:lang="en">holds meta data about the acquisition of the CHO (analogue to MAB field 664ba1).</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dcterms;provenance"/>
@@ -1254,9 +1266,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/origin -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/origin -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;origin">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/origin">
         <rdfs:label xml:lang="en">origin</rdfs:label>
         <scopeNote xml:lang="en">Provenance information about the origin of the physical CHO (analogue MAB field 664aa1).</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dcterms;provenance"/>
@@ -1265,9 +1277,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/pageDimension -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/pageDimension -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;pageDimension">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/pageDimension">
         <rdfs:label xml:lang="en">page dimension</rdfs:label>
         <rdfs:comment xml:lang="eng">Page size. Please do also note the unit that was used.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dcterms;extent"/>
@@ -1277,27 +1289,27 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/restoration -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/restoration -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;restoration">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/restoration">
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/scopeNote -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/scopeNote -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;scopeNote">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/scopeNote">
         <rdfs:comment xml:lang="eng">This property describes the dm2e-specific usage of the resource.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&skos;note"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/shelfmarkLocation -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;shelfmarkLocation">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation">
         <rdfs:label xml:lang="en">shelfmark location</rdfs:label>
         <rdfs:comment xml:lang="eng">Shelfmark location from the CHO.</rdfs:comment>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
@@ -1305,35 +1317,35 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/subtitle -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/subtitle -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;subtitle">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/subtitle">
         <rdfs:subPropertyOf rdf:resource="&dc;title"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/support -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/support -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;support">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/support">
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/watermark -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/watermark -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;watermark">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/watermark">
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/writtenAreaDimension -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/writtenAreaDimension -->
 
-    <owl:DatatypeProperty rdf:about="&dm2e;writtenAreaDimension">
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/writtenAreaDimension">
         <rdfs:label xml:lang="en">written area dimension</rdfs:label>
         <rdfs:comment xml:lang="eng">Size of writing or the part of the page where something is actually written. Please do also note the unit that was used.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dcterms;extent"/>
@@ -1606,7 +1618,7 @@ http://www.dm2e.eu</foaf:homepage>
     <!-- http://purl.org/spar/fabio/hasCreator -->
 
     <owl:DatatypeProperty rdf:about="&fabio;hasCreator">
-        <rdfs:domain rdf:resource="&dm2e;Work"/>
+        <rdfs:domain rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Work"/>
     </owl:DatatypeProperty>
     
 
@@ -1614,7 +1626,7 @@ http://www.dm2e.eu</foaf:homepage>
     <!-- http://purl.org/spar/fabio/hasSequenceIdentifier -->
 
     <owl:DatatypeProperty rdf:about="&fabio;hasSequenceIdentifier">
-        <rdfs:domain rdf:resource="&dm2e;Work"/>
+        <rdfs:domain rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Work"/>
     </owl:DatatypeProperty>
     
 
@@ -1623,7 +1635,7 @@ http://www.dm2e.eu</foaf:homepage>
 
     <owl:DatatypeProperty rdf:about="&fabio;hasSubtitle">
         <rdfs:label xml:lang="en">http://purl.org/spar/fabio#hasSubtitle</rdfs:label>
-        <rdfs:domain rdf:resource="&dm2e;Work"/>
+        <rdfs:domain rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Work"/>
     </owl:DatatypeProperty>
     
 
@@ -1932,9 +1944,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/Archive -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Archive -->
 
-    <owl:Class rdf:about="&dm2e;Archive">
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Archive">
         <rdfs:label xml:lang="en">Archive</rdfs:label>
         <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
         <rdfs:comment xml:lang="eng">Subclass of foaf:Organization. Archives are places where public records and other historical documents are preserved.</rdfs:comment>
@@ -1942,9 +1954,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/Collection -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Collection -->
 
-    <owl:Class rdf:about="&dm2e;Collection">
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Collection">
         <rdfs:label xml:lang="en">Collection</rdfs:label>
         <rdfs:subClassOf rdf:resource="&edm;NonInformationResource"/>
         <rdfs:comment xml:lang="eng">The collection of CHOs as provided by a data provider.</rdfs:comment>
@@ -1952,9 +1964,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/DataResource -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/DataResource -->
 
-    <owl:Class rdf:about="&dm2e;DataResource">
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/DataResource">
         <rdfs:subClassOf rdf:resource="&foaf;Document"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1967,9 +1979,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/Document -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Document -->
 
-    <owl:Class rdf:about="&dm2e;Document">
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Document">
         <rdfs:label xml:lang="en">Document</rdfs:label>
         <rdfs:subClassOf rdf:resource="&bibo;Document"/>
         <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
@@ -1980,9 +1992,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/File -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/File -->
 
-    <owl:Class rdf:about="&dm2e;File">
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/File">
         <rdfs:label xml:lang="en">File</rdfs:label>
         <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
         <rdfs:comment xml:lang="eng">Archival Item.</rdfs:comment>
@@ -1990,20 +2002,20 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/Manuscript -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Manuscript -->
 
-    <owl:Class rdf:about="&dm2e;Manuscript">
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Manuscript">
         <rdfs:label xml:lang="en">Manuscript</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&dm2e;Document"/>
+        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
         <owl:disjointWith rdf:resource="&bibo;Manuscript"/>
         <rdfs:comment xml:lang="eng">ProvidedCHO of type manuscript, e.g. Wittgensteins brown book. Not equivalent to bibo:Manuscript.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/Page -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Page -->
 
-    <owl:Class rdf:about="&dm2e;Page">
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Page">
         <rdfs:label xml:lang="en">Page</rdfs:label>
         <rdfs:subClassOf rdf:resource="&fabio;Expression"/>
         <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
@@ -2012,18 +2024,18 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/Paragraph -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Paragraph -->
 
-    <owl:Class rdf:about="&dm2e;Paragraph">
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Paragraph">
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:comment xml:lang="eng">ProvidedCHO of type paragraph. Can be part of another (textual) CHO, e.g. dm2e:Manuscript.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/Photo -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Photo -->
 
-    <owl:Class rdf:about="&dm2e;Photo">
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Photo">
         <rdfs:label xml:lang="en">Photo</rdfs:label>
         <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
         <rdfs:subClassOf rdf:resource="&foaf;Image"/>
@@ -2032,18 +2044,18 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/Publication -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Publication -->
 
-    <owl:Class rdf:about="&dm2e;Publication">
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Publication">
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:comment xml:lang="eng">ProvidedCHO of type publication.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/Work -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Work -->
 
-    <owl:Class rdf:about="&dm2e;Work">
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Work">
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:comment xml:lang="eng">A non-physical piece of work of an agent, e.g. the theoretical concept of a manuscript.</rdfs:comment>
     </owl:Class>
@@ -2059,7 +2071,7 @@ http://www.dm2e.eu</foaf:homepage>
     <!-- http://purl.org/ontology/bibo/Book -->
 
     <owl:Class rdf:about="&bibo;Book">
-        <rdfs:subClassOf rdf:resource="&dm2e;Document"/>
+        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
         <rdfs:subClassOf rdf:resource="&fabio;Book"/>
     </owl:Class>
     
@@ -2081,7 +2093,7 @@ http://www.dm2e.eu</foaf:homepage>
 
     <owl:Class rdf:about="&bibo;Journal">
         <owl:equivalentClass rdf:resource="&fabio;Journal"/>
-        <rdfs:subClassOf rdf:resource="&dm2e;Document"/>
+        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
         <rdfs:subClassOf rdf:resource="&bibo;Periodical"/>
     </owl:Class>
     
@@ -2090,7 +2102,7 @@ http://www.dm2e.eu</foaf:homepage>
     <!-- http://purl.org/ontology/bibo/Letter -->
 
     <owl:Class rdf:about="&bibo;Letter">
-        <rdfs:subClassOf rdf:resource="&dm2e;Document"/>
+        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
         <rdfs:subClassOf rdf:resource="&bibo;PersonalCommunicationDocument"/>
     </owl:Class>
     
@@ -2324,15 +2336,15 @@ http://www.dm2e.eu</foaf:homepage>
                         <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&dm2e;printedAt"/>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/printedAt"/>
                         <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&dm2e;publishedAt"/>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/publishedAt"/>
                         <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&dm2e;shelfmarkLocation"/>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation"/>
                         <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
@@ -2348,27 +2360,27 @@ http://www.dm2e.eu</foaf:homepage>
                         <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&dm2e;callNumber"/>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/callNumber"/>
                         <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&dm2e;condition"/>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/condition"/>
                         <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&dm2e;explicit"/>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/explicit"/>
                         <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&dm2e;incipit"/>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/incipit"/>
                         <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&dm2e;levelOfGenesis"/>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/levelOfGenesis"/>
                         <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&dm2e;watermark"/>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/watermark"/>
                         <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
@@ -2500,7 +2512,7 @@ http://www.dm2e.eu</foaf:homepage>
                         <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&dm2e;hasAnnotatableVersionAt"/>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/hasAnnotatableVersionAt"/>
                         <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
@@ -2530,7 +2542,7 @@ http://www.dm2e.eu</foaf:homepage>
     <!-- http://www.openarchives.org/ore/terms/ResourceMap -->
 
     <owl:Class rdf:about="&ore;ResourceMap">
-        <rdfs:subClassOf rdf:resource="&dm2e;DataResource"/>
+        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/DataResource"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ore;describes"/>
@@ -2591,9 +2603,9 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/ -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/ -->
 
-    <owl:NamedIndividual rdf:about="&dm2e;">
+    <owl:NamedIndividual rdf:about="http://onto.dm2e.eu/schemas/dm2e/">
         <dc:description xml:lang="en">This is the DM2E Model v1.1. It is built on the first operational version DM2E v1.0 and is the current specialization of the Europeana Data Model (EDM) for the domain of handwritten manuscripts made by the Digitised Manuscripts to Europeana project. The DM2E Model reuses as many existing properties and classes from other ontologies as possible.
 
 Authors: 
@@ -2604,19 +2616,19 @@ With contributions from others working in the DM2E project and at Europeana.</dc
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/testAgent -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/testAgent -->
 
-    <owl:NamedIndividual rdf:about="&dm2e;testAgent">
+    <owl:NamedIndividual rdf:about="http://onto.dm2e.eu/schemas/dm2e/testAgent">
         <rdf:type rdf:resource="&edm;Agent"/>
         <rdfs:label xml:lang="en">testAgent</rdfs:label>
-        <edm:hasMet rdf:resource="&dm2e;testConcept"/>
+        <edm:hasMet rdf:resource="http://onto.dm2e.eu/schemas/dm2e/testConcept"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/testConcept -->
+    <!-- http://onto.dm2e.eu/schemas/dm2e/testConcept -->
 
-    <skos:Concept rdf:about="&dm2e;testConcept">
+    <skos:Concept rdf:about="http://onto.dm2e.eu/schemas/dm2e/testConcept">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label xml:lang="en">testConcept</rdfs:label>
     </skos:Concept>
