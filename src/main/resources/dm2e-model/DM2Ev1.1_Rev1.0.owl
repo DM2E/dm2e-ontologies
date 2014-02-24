@@ -121,10 +121,10 @@ http://www.dm2e.eu</foaf:homepage>
         <scopeNote xml:lang="eng">An alternative name for the resource. Should not be used for subtitles in DM2E. Can be used if title and subtitle are in one field. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&vann;preferredNamespaceUri"/>
     <owl:AnnotationProperty rdf:about="&skos;prefLabel">
         <scopeNote xml:lang="eng">The preferred name of the agent, preferably in a normalized form. Only one preferred label per language tag is allowed!</scopeNote>
     </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&vann;preferredNamespaceUri"/>
     <owl:AnnotationProperty rdf:about="&foaf;homepage"/>
     <owl:AnnotationProperty rdf:about="&adms;relatedWebPage"/>
     <owl:AnnotationProperty rdf:about="&skos;hiddenLabel">
@@ -585,16 +585,6 @@ http://www.dm2e.eu</foaf:homepage>
 
     <owl:ObjectProperty rdf:about="&dcterms;hasPart">
         <scopeNote xml:lang="eng">dcterms:hasPart can be used to indicate that a class is part of the current class. It can only be used for the same type of objects, e.g. edm:ProvidedCHO dcterms:hasPart edm:ProvidedCHO.</scopeNote>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&edm;Place"/>
-                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
-                    <rdf:Description rdf:about="&edm;TimeSpan"/>
-                    <rdf:Description rdf:about="&edm;WebResource"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -605,6 +595,16 @@ http://www.dm2e.eu</foaf:homepage>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;Place"/>
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;TimeSpan"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -1484,12 +1484,47 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
+    <!-- http://purl.org/ontology/bibo/suffixName -->
+
+    <owl:DatatypeProperty rdf:about="&bibo;suffixName">
+        <rdfs:label xml:lang="en">http://purl.org/ontology/bibo/suffixName</rdfs:label>
+        <scopeNote xml:lang="en">Persons names or notations about organisations including counting, for example Johannes Paul, I.</scopeNote>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://purl.org/ontology/bibo/volume -->
 
     <owl:DatatypeProperty rdf:about="&bibo;volume">
         <scopeNote xml:lang="eng">A volume number.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;identifier"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/spar/fabio/hasCreator -->
+
+    <owl:DatatypeProperty rdf:about="&fabio;hasCreator">
+        <rdfs:domain rdf:resource="http://onto.dm2e.eu/schemas/dm2e/1.1/Work"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/spar/fabio/hasSequenceIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="&fabio;hasSequenceIdentifier">
+        <rdfs:domain rdf:resource="http://onto.dm2e.eu/schemas/dm2e/1.1/Work"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/spar/fabio/hasSubtitle -->
+
+    <owl:DatatypeProperty rdf:about="&fabio;hasSubtitle">
+        <rdfs:label xml:lang="en">http://purl.org/spar/fabio#hasSubtitle</rdfs:label>
+        <rdfs:domain rdf:resource="http://onto.dm2e.eu/schemas/dm2e/1.1/Work"/>
     </owl:DatatypeProperty>
     
 
@@ -1550,6 +1585,16 @@ http://www.dm2e.eu</foaf:homepage>
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <scopeNote xml:lang="eng">The gender of the person.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rdvocab.info/ElementsGr2/otherDesignationAssociatedWithThePerson -->
+
+    <owl:DatatypeProperty rdf:about="&rdaGr2;otherDesignationAssociatedWithThePerson">
+        <rdfs:label xml:lang="en">http://rdvocab.info/ElementsGr2/otherDesignationAssociatedWithThePerson</rdfs:label>
+        <scopeNote xml:lang="en">A term other than a title that is associated with a person’s name.</scopeNote>
         <rdfs:domain rdf:resource="&foaf;Person"/>
     </owl:DatatypeProperty>
     
