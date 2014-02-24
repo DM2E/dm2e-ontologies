@@ -94,12 +94,6 @@ writtenAreaDimension
         <dc:creator xml:lang="en">Kai Eckert</dc:creator>
         <dc:creator xml:lang="en">Konstantin Baierer</dc:creator>
         <dc:creator xml:lang="en">Steffen Hennicke</dc:creator>
-        <dc:description xml:lang="en">This is the DM2E Model v1.1. It is built on the first operational version DM2E v1.0 and is the current specialization of the Europeana Data Model (EDM) for the domain of handwritten manuscripts made by the Digitised Manuscripts to Europeana project. The DM2E Model reuses as many existing properties and classes from other ontologies as possible.
-
-Authors: 
- Julia Iwanowa, Evelyn Dröge, Steffen Hennicke, Kai Eckert.
-
-With contributions from others working in the DM2E project and at Europeana.</dc:description>
         <vann:preferredNamespacePrefix xml:lang="en">dm2e</vann:preferredNamespacePrefix>
         <foaf:homepage xml:lang="en">http://onto.dm2e.eu
 http://www.dm2e.eu</foaf:homepage>
@@ -116,13 +110,21 @@ http://www.dm2e.eu</foaf:homepage>
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <rdf:Description rdf:about="&dc;creator">
+        <scopeNote xml:lang="eng">The property dcterms:creator holds the name or identifier of the agent (a person or organisation) who created the aggregation, i.e. the original source metadata record.</scopeNote>
+    </rdf:Description>
     <owl:AnnotationProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/scopeNote">
         <rdfs:comment xml:lang="eng">This property describes the dm2e-specific usage of the resource.</rdfs:comment>
     </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&dcterms;alternative">
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+        <scopeNote xml:lang="eng">An alternative name for the resource. Should not be used for subtitles in DM2E. Can be used if title and subtitle are in one field. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&vann;preferredNamespaceUri"/>
     <owl:AnnotationProperty rdf:about="&skos;prefLabel">
         <scopeNote xml:lang="eng">The preferred name of the agent, preferably in a normalized form. Only one preferred label per language tag is allowed!</scopeNote>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&vann;preferredNamespaceUri"/>
     <owl:AnnotationProperty rdf:about="&foaf;homepage"/>
     <owl:AnnotationProperty rdf:about="&adms;relatedWebPage"/>
     <owl:AnnotationProperty rdf:about="&skos;hiddenLabel">
@@ -143,7 +145,11 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:AnnotationProperty rdf:about="&skos;altLabel">
         <scopeNote xml:lang="eng">An alternative name, e.g. a former name or the name in another form.</scopeNote>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    <owl:AnnotationProperty rdf:about="&dc;title">
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+        <scopeNote xml:lang="eng">The property dc:titles gives the main title of the CHO. It is mandatory to provide either a dc:title or a dc:description for the CHO. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:AnnotationProperty>
     
 
 
@@ -155,6 +161,12 @@ http://www.dm2e.eu</foaf:homepage>
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
     
 
 
@@ -466,6 +478,7 @@ http://www.dm2e.eu</foaf:homepage>
 
     <owl:ObjectProperty rdf:about="&dc;contributor">
         <scopeNote xml:lang="eng">The property dc:contributor holds the name or identifier of the agent (a person or organisation) who contributed to the creation of the aggregation, i.e. the original source metadata record.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
         <rdfs:domain>
@@ -489,7 +502,18 @@ http://www.dm2e.eu</foaf:homepage>
     <!-- http://purl.org/dc/elements/1.1/creator -->
 
     <owl:ObjectProperty rdf:about="&dc;creator">
+        <scopeNote xml:lang="eng">The property dcterms:creator holds the name or identifier of the agent (a person or organisation) who created the aggregation, i.e. the original source metadata record.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
+        <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&ore;Aggregation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -532,14 +556,6 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
-    <!-- http://purl.org/dc/terms/contributor -->
-
-    <owl:ObjectProperty rdf:about="&dc;contributor">
-        <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.org/dc/terms/coverage -->
 
     <owl:ObjectProperty rdf:about="&dcterms;coverage">
@@ -557,24 +573,6 @@ http://www.dm2e.eu</foaf:homepage>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&edm;WebResource"/>
-                    <rdf:Description rdf:about="&ore;Aggregation"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/dc/terms/creator -->
-
-    <owl:ObjectProperty rdf:about="&dc;creator">
-        <scopeNote xml:lang="eng">The property dcterms:creator holds the name or identifier of the agent (a person or organisation) who created the aggregation, i.e. the original source metadata record.</scopeNote>
-        <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
-        <rdfs:range rdf:resource="&edm;Agent"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
                     <rdf:Description rdf:about="&ore;Aggregation"/>
                 </owl:unionOf>
             </owl:Class>
@@ -912,14 +910,6 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:ObjectProperty rdf:about="&edm;isDerivativeOf">
         <scopeNote xml:lang="eng">Original version (in case of CHOs) or a related resource (in case of Webresources) from which this object has been derived in whole or in part.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&edm;isSimilarTo"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
-                    <rdf:Description rdf:about="&edm;WebResource"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -928,6 +918,14 @@ http://www.dm2e.eu</foaf:homepage>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -1146,6 +1144,28 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
+    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/modeOfAcquisition -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/modeOfAcquisition">
+        <rdfs:label xml:lang="en">modeOfAcquisition</rdfs:label>
+        <scopeNote xml:lang="en">holds meta data about the acquisition of the CHO (analogue to MAB field 664ba1).</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;provenance"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/origin -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/origin">
+        <rdfs:label xml:lang="en">origin</rdfs:label>
+        <scopeNote xml:lang="en">Provenance information about the origin of the physical CHO (analogue MAB field 664aa1).</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;provenance"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/pageDimension -->
 
     <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/pageDimension">
@@ -1232,6 +1252,24 @@ http://www.dm2e.eu</foaf:homepage>
     </owl:DatatypeProperty>
     
 
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:DatatypeProperty rdf:about="&dc;description">
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+        <scopeNote xml:lang="eng">A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://purl.org/dc/elements/1.1/format -->
 
     <owl:DatatypeProperty rdf:about="&dc;format">
@@ -1294,13 +1332,21 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:DatatypeProperty rdf:about="&dc;title">
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+        <scopeNote xml:lang="eng">The property dc:titles gives the main title of the CHO. It is mandatory to provide either a dc:title or a dc:description for the CHO. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://purl.org/dc/terms/alternative -->
 
     <owl:DatatypeProperty rdf:about="&dcterms;alternative">
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
         <scopeNote xml:lang="eng">An alternative name for the resource. Should not be used for subtitles in DM2E. Can be used if title and subtitle are in one field. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;title"/>
-        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -1311,23 +1357,6 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:DatatypeProperty rdf:about="&dcterms;created">
         <scopeNote xml:lang="eng">The property dcterms:created holds the creation date and time of the aggregation or of the webresource i.e. the original source metadata record.</scopeNote>
         <rdfs:range rdf:resource="&xsd;date"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.org/dc/terms/description -->
-
-    <owl:DatatypeProperty rdf:about="&dc;description">
-        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
-                    <rdf:Description rdf:about="&edm;WebResource"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -1383,16 +1412,6 @@ http://www.dm2e.eu</foaf:homepage>
         <scopeNote xml:lang="eng">Any kind of table of contents for the CHO.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.org/dc/terms/title -->
-
-    <owl:DatatypeProperty rdf:about="&dc;title">
-        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">The property dc:titles gives the main title of the CHO. It is mandatory to provide either a dc:title or a dc:description for the CHO. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
-        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:DatatypeProperty>
     
 
@@ -2396,6 +2415,30 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:Class rdf:about="&foaf;Person">
         <rdfs:subClassOf rdf:resource="&edm;Agent"/>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/ -->
+
+    <owl:NamedIndividual rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/">
+        <dc:description xml:lang="en">This is the DM2E Model v1.1. It is built on the first operational version DM2E v1.0 and is the current specialization of the Europeana Data Model (EDM) for the domain of handwritten manuscripts made by the Digitised Manuscripts to Europeana project. The DM2E Model reuses as many existing properties and classes from other ontologies as possible.
+
+Authors: 
+ Julia Iwanowa, Evelyn Dröge, Steffen Hennicke, Kai Eckert.
+
+With contributions from others working in the DM2E project and at Europeana.</dc:description>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 
