@@ -1298,6 +1298,8 @@ http://www.dm2e.eu</foaf:homepage>
     <!-- http://purl.org/dc/elements/1.1/language -->
 
     <owl:DatatypeProperty rdf:about="&dc;language">
+        <scopeNote xml:lang="en">The property dc:language holds the most prominent language of the CHO. If an edm:type property with the value “TEXT” has been given, it is mandatory to provide at least one language of the CHO.  If several languages are present in the CHO then repeat dc:language for each language. Regarding the RFC 3306 recommendations, the ISO 639-1 2-character code should be used for this property. When a language has no 2-character code, and there are two different ISO-2 3-character codes, the ISO 639- 2/T (Terminology) code should be added.
+</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&edm;hasType"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
