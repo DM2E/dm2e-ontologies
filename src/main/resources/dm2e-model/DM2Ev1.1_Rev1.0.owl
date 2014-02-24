@@ -1170,6 +1170,16 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
+    <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/levelOfHierarchy -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/levelOfHierarchy">
+        <rdfs:label xml:lang="en">levelOfHierarchy</rdfs:label>
+        <rdfs:comment xml:lang="en">The Top-Level-CHO must contain the number “1” as value of the dm2e:levelOfHierarchy property. All bottom hierarchy levels must be mark by incremental adding +1. For example Second-Level-CHO “2” and so on</rdfs:comment>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/modeOfAcquisition -->
 
     <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/modeOfAcquisition">
