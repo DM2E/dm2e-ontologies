@@ -80,6 +80,19 @@ Changes between ontology file DM2Ev1.1_Rev0.9.owl and DM2Ev1.1_Rev1.0.owl
 - Changed xsd:dateTime to xsd:date
 - Added dm2e:levelOfHierarchy property to edm:ProvidedCHO
 </vann:changes>
+        <vann:changes xml:lang="en">
+***********************************
+Changes between ontology file DM2Ev1.1_Rev1.0.owl and DM2Ev1.1_Rev1.1.owl
+***********************************
+
+- Added edm:Place, edm:Timespan and skos:Concept as ranges to edm:hasMet
+- Removed rdf:Literal and xsd:dateTime from the range restriction on dc:date with the domain edm:Agent
+- Removed bibo:suffixName from foaf:Person and foaf:Organization and added it as generic properties to edm:Agent
+- Removed properties from dm2e:Work (fabio:has*)
+- Added property dm2e:genre (domain edm:ProvidedCHO)
+- Added property bibo:number (domain edm:ProvidedCHO)
+- Added dm2e:displayLevel to edm:ProvidedCHO
+</vann:changes>
         <vann:changes xml:lang="en">***********************************
 Changes between ontology file DM2Ev1.1_Rev0.8.owl and DM2Ev1.1_Rev0.9.owl
 ***********************************
@@ -247,8 +260,7 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/1.1/genre">
         <rdfs:label xml:lang="en">genre</rdfs:label>
         <scopeNote xml:lang="en">Genre of the CHO, in German “Formschlagworte”. Examples: schoolbook, letter collection.</scopeNote>
-        <rdfs:subPropertyOf rdf:resource="&dc;type"/>
-        <rdfs:domain rdf:resource="&skos;Concept"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
     
 
