@@ -1536,7 +1536,7 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:DatatypeProperty rdf:about="&bibo;suffixName">
         <rdfs:label xml:lang="en">http://purl.org/ontology/bibo/suffixName</rdfs:label>
         <scopeNote xml:lang="en">Persons names or notations about organisations including counting, for example Johannes Paul, I.</scopeNote>
-        <rdfs:domain rdf:resource="&foaf;Person"/>
+        <rdfs:domain rdf:resource="&edm;Agent"/>
     </owl:DatatypeProperty>
     
 
