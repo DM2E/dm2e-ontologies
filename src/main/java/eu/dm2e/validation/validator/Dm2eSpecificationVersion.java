@@ -10,6 +10,7 @@ public enum Dm2eSpecificationVersion {
 
 	V_1_1_REV_1_2(Dm2eValidator_1_1_Rev_1_2.class, "1.1_Rev1.2"),
 	V_1_1_REV_1_3(Dm2eValidator_1_1_Rev_1_3.class, "1.1_Rev1.3"),
+	V_1_1_REV_1_4(Dm2eValidator_1_1_Rev_1_4.class, "1.1_Rev1.4"),
 	;
 	
 	public static Dm2eSpecificationVersion forString(String versionStr) throws NoSuchFieldException 

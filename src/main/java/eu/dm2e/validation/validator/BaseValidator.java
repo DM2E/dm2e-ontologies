@@ -275,6 +275,11 @@ abstract public class BaseValidator implements Dm2eValidator {
 	@Override
 	public void validate_ore_Aggregation(Model m, Resource agg, Dm2eValidationReport report) {
 
+		if (!agg.hasProperty(prop(m, NS.EDM.PROP_AGGREGATED_CHO))) {
+			// This is bad enough to warrant a FATAL error since the graph is not connected
+			report.add(ValidationLevel.FATAL, ValidationProblemCategory.MISSING_REQUIRED_PROPERTY, agg, NS.EDM.PROP_AGGREGATED_CHO);
+		}
+
 		//
 		// Check mandatory properties
 		//
@@ -469,18 +474,11 @@ abstract public class BaseValidator implements Dm2eValidator {
 			}
 		}
 		if (!ts.hasProperty(prop(m, NS.EDM.PROP_BEGIN))
-				&& !ts.hasProperty(prop(m, NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY))) {
+				&& !ts.hasProperty(prop(m, NS.EDM.PROP_END))) {
 			report.add(ValidationLevel.WARNING,
 					ValidationProblemCategory.MISSING_REQUIRED_ONE_OF,
 					ts,
-					"edm:begin or crm:P79F.beginning_is_qualified_by");
-		}
-		if (!ts.hasProperty(prop(m, NS.EDM.PROP_END))
-				&& !ts.hasProperty(prop(m, NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY))) {
-			report.add(ValidationLevel.WARNING,
-					ValidationProblemCategory.MISSING_REQUIRED_ONE_OF,
-					ts,
-					"edm:end or crm:P80F.end_is_qualified_by");
+					"edm:begin or edm:end");
 		}
 	}
 
@@ -504,7 +502,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 		final Property prop_dc_format = prop(m, NS.DC.PROP_FORMAT);
 		NodeIterator it = m.listObjectsOfProperty(wr, prop_dc_format);
 		if (!it.hasNext()) {
-			report.add(ValidationLevel.ERROR,
+			report.add(ValidationLevel.FATAL,
 					ValidationProblemCategory.MISSING_CONDITIONALLY_REQUIRED_PROPERTY,
 					wr,
 					prop_dc_format,

@@ -19,6 +19,10 @@ public enum ValidationLevel {
 	 * An error: Missing mandatory properties, wrong ranges
 	 */
 	ERROR,
+	/**
+	 * A severe error that prevents data consumers from making sense of the data
+	 */
+	FATAL,
 	;
 
 }

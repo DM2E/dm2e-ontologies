@@ -51,6 +51,10 @@ public class Dm2eValidationReport {
 	public String toString() {
 		return exportToString(ValidationLevel.NOTICE, true, false);
 	}
+	
+	public String exportToString(boolean terse) {
+		return exportToString(ValidationLevel.NOTICE, true, terse);
+	}
 
 	/**
 	 * Export the set of {@link Dm2eValidationProblem}s as a String.

@@ -36,7 +36,7 @@ public class BaseValidatorTest extends ValidationTest {
 	@Test
 	public void testEdmTimeSpan() throws Exception {
 			Model m = ModelFactory.createDefaultModel();
-			m.read(getClass().getResource("/edm_timespan.ttl").openStream(), "", "TURTLE");
+			m.read(getClass().getResourceAsStream("/edm_timespan.ttl"), "", "TURTLE");
 			{
 				Dm2eValidationReport report = new Dm2eValidationReport(v1_1_rev1_3.getVersion());
 				v1_1_rev1_3.validate_edm_TimeSpan(m, m.createResource("foo"), report);
@@ -127,6 +127,26 @@ public class BaseValidatorTest extends ValidationTest {
 			Dm2eValidationReport report = new Dm2eValidationReport("0");
 			v1_1_rev1_2.validate_ore_Aggregation(m, testRes, report);
 			ValidationProblemCategory expected = ValidationProblemCategory.INVALID_LITERAL;
+			containsCategory(report, expected);
+		}
+		{
+			log.info("Test FATAL (missign aggregatedCHO)");
+			Model m = ModelFactory.createDefaultModel();
+			final Resource testRes = res(m, "http://foo");
+			Dm2eValidationReport report = new Dm2eValidationReport("0");
+			v1_1_rev1_2.validate_ore_Aggregation(m, testRes, report);
+			ValidationProblemCategory expected = ValidationProblemCategory.MISSING_REQUIRED_PROPERTY;
+			assertThat(report.exportToString(true)).contains("FATAL");
+			containsCategory(report, expected);
+		}
+		{
+			log.info("Test FATAL (WebResource w/o dc:format)");
+			Model m = ModelFactory.createDefaultModel();
+			final Resource testRes = res(m, "http://foo");
+			Dm2eValidationReport report = new Dm2eValidationReport("0");
+			v1_1_rev1_2.validate_Annotatable_edm_WebResource(m, testRes, report);
+			ValidationProblemCategory expected = ValidationProblemCategory.MISSING_CONDITIONALLY_REQUIRED_PROPERTY;
+			assertThat(report.exportToString(true)).contains("FATAL");
 			containsCategory(report, expected);
 		}
 	}
