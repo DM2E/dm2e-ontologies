@@ -1,5 +1,14 @@
 package eu.dm2e.validation.validator;
 
+import static org.fest.assertions.Assertions.*;
+
+import java.util.Set;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
