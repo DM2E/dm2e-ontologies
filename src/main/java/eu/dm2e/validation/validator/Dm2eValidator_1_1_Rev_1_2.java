@@ -1,6 +1,6 @@
 package eu.dm2e.validation.validator;
 
-import java.io.File;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -28,6 +28,11 @@ import eu.dm2e.validation.ValidationProblemCategory;
 public class Dm2eValidator_1_1_Rev_1_2 extends BaseValidator {
 
 	private static final String	modelVersion	= "1.1_Rev1.2";
+
+	@Override
+	public InputStream getOwlInputStream() {
+		return getClass().getResourceAsStream("/dm2e-model/DM2Ev1.1_Rev1.2.owl");
+	}
 
 	@Override public String getVersion() {
 		return modelVersion;
@@ -211,11 +216,6 @@ public class Dm2eValidator_1_1_Rev_1_2 extends BaseValidator {
 				report.add(ValidationLevel.ERROR, ValidationProblemCategory.INVALID_LITERAL, agg, NS.DM2E.PROP_DISPLAY_LEVEL, trueFalse, "dm2e:displayLevel must be 'true' or 'false'");
 			}
 		}
-	}
-
-	@Override
-	public File getOwlFile() {
-		return new File(getClass().getResource("/dm2e-model/DM2Ev1.1_Rev1.2.owl").getFile());
 	}
 
 }
