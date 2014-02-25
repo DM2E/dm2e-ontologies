@@ -54,6 +54,7 @@ public class Dm2eValidationCLI {
 		String formatArg = line.getOptionValue("format");
 		if (null != formatArg) format = formatArg;
 		
+		
 		// Model version
 		String version = line.getOptionValue("version");
 
@@ -157,6 +158,7 @@ public class Dm2eValidationCLI {
 		System.err.println(e.getMessage());
 		if (showUsage) {
 			HelpFormatter formatter = new HelpFormatter();
+			formatter.setWidth(100);
 			formatter.printHelp("dm2e-validate [options] <file> [<file>...]", getOptions());
 		}
 		throw new RuntimeException();
@@ -166,21 +168,27 @@ public class Dm2eValidationCLI {
 	private static Options getOptions() {
 		Options options = new Options();
 		
-		StringBuilder sb = new StringBuilder();
+		StringBuilder versionSB = new StringBuilder();
 		for (Dm2eSpecificationVersion validatorVersion : Dm2eSpecificationVersion.values()) {
-			sb.append(validatorVersion.getVersionString());
-			sb.append(" | ");
+			versionSB.append(validatorVersion.getVersionString());
+			if (validatorVersion.ordinal() < Dm2eSpecificationVersion.values().length -1)
+				versionSB.append(" | ");
 		}
-		sb.replace(sb.length() - " | ".length(), sb.length(), "");
+		StringBuilder levelSB = new StringBuilder();
+		for (ValidationLevel thisLevel : ValidationLevel.values()) {
+			levelSB.append(thisLevel.name());
+			if (thisLevel.ordinal() < ValidationLevel.values().length -1)
+				levelSB.append(" | ");
+		}
 		options.addOption(OptionBuilder
 			.hasArgs(1)
-			.withArgName(sb.toString())
+			.withArgName(versionSB.toString())
 			.withDescription("DM2E Data Model version [REQUIRED]")
 			.isRequired()
 			.create("version"));
 		options.addOption(OptionBuilder
 			.hasArgs(1)
-			.withArgName("NOTICE | WARNING | ERROR")
+			.withArgName(levelSB.toString())
 			.withDescription("Minimum Validation level [Default: NOTICE]")
 			.create("level"));
 		options.addOption(OptionBuilder
