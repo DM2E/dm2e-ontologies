@@ -660,6 +660,7 @@ public final class NS {
 		public static final String	PROP_PROVIDER			= BASE + "provider";
 		public static final String	PROP_RIGHTS				= BASE + "rights";
 		public static final String	PROP_TYPE				= BASE + "type";
+		public static final String	PROP_IS_NEXT_IN_SEQUENCE	= BASE + "isNextInSequence";
 	}
 	public static final class PRO {
 		public static final String BASE = "http://purl.org/spar/pro/";

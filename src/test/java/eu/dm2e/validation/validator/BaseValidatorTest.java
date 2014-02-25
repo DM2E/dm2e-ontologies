@@ -1,5 +1,9 @@
 package eu.dm2e.validation.validator;
 
+import static org.fest.assertions.Assertions.*;
+
+import java.util.Set;
+
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +26,12 @@ public class BaseValidatorTest extends ValidationTest {
 	// Tests
 	//
 	
+	@Test
+	public void testPropertyWhiteList() {
+		Set<String> wl = ((BaseValidator) v1_1_rev1_3).getPropertyWhitelist();
+		assertThat(wl.size()).isEqualTo(148);
+		assertThat(wl).contains(NS.EDM.PROP_IS_NEXT_IN_SEQUENCE);
+	}
 	
 	@Test
 	public void testEdmTimeSpan() throws Exception {

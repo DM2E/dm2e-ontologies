@@ -38,6 +38,8 @@ abstract public class BaseValidator implements Dm2eValidator {
 
 	public abstract InputStream getOwlInputStream();
 	
+	private Set<String> propertyWhiteList = new HashSet<>();
+	
 	public BaseValidator() {
 		InputStream owlInputStream = getOwlInputStream();
 		Model ontModel = ModelFactory.createDefaultModel();
@@ -45,24 +47,23 @@ abstract public class BaseValidator implements Dm2eValidator {
 		// Standards
 		{
 			propertyWhiteList.add(NS.RDF.PROP_TYPE);
+			propertyWhiteList.add(NS.EDM.PROP_IS_NEXT_IN_SEQUENCE);
 		}
 		{
-			StmtIterator iter = ontModel.listStatements(null, ontModel
-				.createProperty(NS.RDF.PROP_TYPE), ontModel
-				.createProperty(NS.OWL.DATATYPE_PROPERTY));
+			StmtIterator iter = ontModel.listStatements(null, 
+					ontModel.createProperty(NS.RDF.PROP_TYPE), 
+					ontModel.createProperty(NS.OWL.DATATYPE_PROPERTY));
 			while (iter.hasNext())
 				propertyWhiteList.add(iter.next().getSubject().asResource().getURI());
 		}
 		{
-			StmtIterator iter = ontModel.listStatements(null, ontModel
-				.createProperty(NS.RDF.PROP_TYPE), ontModel
-				.createProperty(NS.OWL.OBJECT_PROPERTY));
+			StmtIterator iter = ontModel.listStatements(null, 
+					ontModel.createProperty(NS.RDF.PROP_TYPE),
+					ontModel.createProperty(NS.OWL.OBJECT_PROPERTY));
 			while (iter.hasNext())
 				propertyWhiteList.add(iter.next().getSubject().asResource().getURI());
 		}
 	}
-	
-	private Set<String> propertyWhiteList = new HashSet<>();
 	
 	public Set<String> getPropertyWhitelist() {
 		return propertyWhiteList;
