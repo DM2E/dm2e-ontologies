@@ -42,6 +42,10 @@ abstract public class BaseValidator implements Dm2eValidator {
 		InputStream owlInputStream = getOwlInputStream();
 		Model ontModel = ModelFactory.createDefaultModel();
 		ontModel.read(owlInputStream, "RDF-XML");
+		// Standards
+		{
+			propertyWhiteList.add(NS.RDF.PROP_TYPE);
+		}
 		{
 			StmtIterator iter = ontModel.listStatements(null, ontModel
 				.createProperty(NS.RDF.PROP_TYPE), ontModel
