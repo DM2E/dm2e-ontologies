@@ -83,28 +83,28 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:AnnotationProperty rdf:about="&dc;relation"/>
     <owl:AnnotationProperty rdf:about="&edm;happenedAt">
-        <scopeNote xml:lang="eng">Connects an event to the place where this event happened at. An event may 
+        <scopeNote xml:lang="en">Connects an event to the place where this event happened at. An event may 
     only happen at one place whereas a place may be involved in many different 
     events.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;relation"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&skos;prefLabel">
-        <scopeNote xml:lang="eng">The preferred name of the agent, preferably in a normalized form. Only one preferred label per language tag is allowed!</scopeNote>
+        <scopeNote xml:lang="en">The preferred name of the agent, preferably in a normalized form. Only one preferred label per language tag is allowed!</scopeNote>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&edm;dataProvider">
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">The property edm:dataProvider holds the name or identifier of the organisation (foaf:Organization) that provided and owns the source metadata record for this aggregation. Note that this organisation is not necessarily owning the physical object which is described in the metadata record.</scopeNote>
+        <scopeNote xml:lang="en">The property edm:dataProvider holds the name or identifier of the organisation (foaf:Organization) that provided and owns the source metadata record for this aggregation. Note that this organisation is not necessarily owning the physical object which is described in the metadata record.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dcterms;provenance"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&dcterms;hasPart">
-        <scopeNote xml:lang="eng">dcterms:hasPart can be used to indicate that a class is part of the current class. It can only be used for the same type of objects, e.g. edm:ProvidedCHO dcterms:hasPart edm:ProvidedCHO.</scopeNote>
+        <scopeNote xml:lang="en">dcterms:hasPart can be used to indicate that a class is part of the current class. It can only be used for the same type of objects, e.g. edm:ProvidedCHO dcterms:hasPart edm:ProvidedCHO.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;relation"/>
     </owl:AnnotationProperty>
     <rdf:Description rdf:about="&dcterms;provenance">
-        <scopeNote xml:lang="eng">Is used for mixed provenance data that cannot be mapped to another property.</scopeNote>
+        <scopeNote xml:lang="en">Is used for mixed provenance data that cannot be mapped to another property.</scopeNote>
     </rdf:Description>
     <owl:AnnotationProperty rdf:about="&dm2e;mentioned">
-        <rdfs:comment xml:lang="eng">A person that is portrayed in the (textual or painted) CHO by its creator.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person that is portrayed in the (textual or painted) CHO by its creator.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&edm;isRelatedTo"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&dcterms;isPartOf">
@@ -112,64 +112,64 @@ With contributions from others working in the DM2E project and at Europeana.</rd
         <rdfs:subPropertyOf rdf:resource="&dc;relation"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&dc;type">
-        <scopeNote xml:lang="eng">The property dc:type provides a specific type that applies to the CHO. By type we mean either a physical form (e.g. book) or logical form (e.g. paragraph) as they are specified as subclasses of edm:PhysicalThing and skos:Concept respectively. At least one dc:type must be provided.</scopeNote>
+        <scopeNote xml:lang="en">The property dc:type provides a specific type that applies to the CHO. By type we mean either a physical form (e.g. book) or logical form (e.g. paragraph) as they are specified as subclasses of edm:PhysicalThing and skos:Concept respectively. At least one dc:type must be provided.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&edm;hasType"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&dcterms;spatial">
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">This property can be used for not further specified places. If the place of publication or printing should be indicated, use dm2e:publishedAt or dme2e:printedAt instead.</scopeNote>
+        <scopeNote xml:lang="en">This property can be used for not further specified places. If the place of publication or printing should be indicated, use dm2e:publishedAt or dme2e:printedAt instead.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;coverage"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&edm;hasType"/>
     <owl:AnnotationProperty rdf:about="&dc;creator"/>
     <owl:AnnotationProperty rdf:about="&dcterms;creator">
-        <scopeNote xml:lang="eng">Creator of the CHO, possibly its author. Subproperties of dcterms:creator may be used to specialise the relationship.</scopeNote>
+        <scopeNote xml:lang="en">Creator of the CHO, possibly its author. Subproperties of dcterms:creator may be used to specialise the relationship.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&dm2e;scopeNote">
-        <rdfs:comment xml:lang="eng">This property describes the dm2e-specific usage of the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property describes the dm2e-specific usage of the resource.</rdfs:comment>
     </owl:AnnotationProperty>
     <rdf:Description rdf:about="&edm;isRelatedTo">
-        <rdfs:comment xml:lang="eng">Any other related resource.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Any other related resource.</rdfs:comment>
     </rdf:Description>
     <owl:AnnotationProperty rdf:about="&edm;hasMet">
-        <scopeNote xml:lang="eng">Unites properties with the range edm:Agent like dcterms:creator or dc:contributor.</scopeNote>
+        <scopeNote xml:lang="en">Unites properties with the range edm:Agent like dcterms:creator or dc:contributor.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;relation"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&dm2e;honoree">
-        <rdfs:comment xml:lang="eng">An honored person, for whom the CHO is published or created.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An honored person, for whom the CHO is published or created.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&edm;isRelatedTo"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&dc;subject">
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">Subject of the CHO. Can be taken from another vocabulary. May also relate to a person that is the subject of a CHO.</scopeNote>
+        <scopeNote xml:lang="en">Subject of the CHO. Can be taken from another vocabulary. May also relate to a person that is the subject of a CHO.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&edm;isRelatedTo"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&skos;hiddenLabel">
-        <scopeNote xml:lang="eng">Non-standard forms of the name, e.g. misspellings.</scopeNote>
+        <scopeNote xml:lang="en">Non-standard forms of the name, e.g. misspellings.</scopeNote>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&dcterms;references">
-        <scopeNote xml:lang="eng">Another CHO referenced in the content of this CHO.</scopeNote>
+        <scopeNote xml:lang="en">Another CHO referenced in the content of this CHO.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;relation"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&dc;coverage"/>
     <owl:AnnotationProperty rdf:about="&skos;note">
-        <scopeNote xml:lang="eng">Information related to the resource that cannot be modelled with other properties of the class.</scopeNote>
+        <scopeNote xml:lang="en">Information related to the resource that cannot be modelled with other properties of the class.</scopeNote>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&dm2e;misattributed">
-        <rdfs:comment xml:lang="eng">A person or institution that is mentioned as the creator of the CHO although he is not the creator.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person or institution that is mentioned as the creator of the CHO although he is not the creator.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&edm;isRelatedTo"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&edm;occurredAt">
-        <scopeNote xml:lang="eng">Connects an event to a time span which overlaps with the occurrence of that event. The occurrence in time of an event may overlap with 0 to many disjoint time spans, and a time span may have 0 to many events whose occurrences overlap with it.</scopeNote>
+        <scopeNote xml:lang="en">Connects an event to a time span which overlaps with the occurrence of that event. The occurrence in time of an event may overlap with 0 to many disjoint time spans, and a time span may have 0 to many events whose occurrences overlap with it.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;relation"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&dm2e;publishedAt">
-        <rdfs:comment xml:lang="eng">The place of a physical publication or the Web resource of a Web publication.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The place of a physical publication or the Web resource of a Web publication.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;coverage"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&skos;altLabel">
-        <scopeNote xml:lang="eng">An alternative name, e.g. a former name or the name in another form.</scopeNote>
+        <scopeNote xml:lang="en">An alternative name, e.g. a former name or the name in another form.</scopeNote>
     </owl:AnnotationProperty>
     
 
@@ -199,7 +199,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/artist -->
 
     <owl:ObjectProperty rdf:about="&dm2e;artist">
-        <rdfs:comment xml:lang="eng">An artist that has created (e.g. painted) the CHO.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An artist that has created (e.g. painted) the CHO.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dcterms;creator"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
@@ -209,7 +209,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/composer -->
 
     <owl:ObjectProperty rdf:about="&dm2e;composer">
-        <rdfs:comment xml:lang="eng">The person that has composed a CHO (e.g. a letter). Can be the same as the person who wrote the letter, but can also be a different person, e.g. someone who has dictated but not wrote the letter.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The person that has composed a CHO (e.g. a letter). Can be the same as the person who wrote the letter, but can also be a different person, e.g. someone who has dictated but not wrote the letter.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dcterms;creator"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
@@ -220,7 +220,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/contributor -->
 
     <owl:ObjectProperty rdf:about="&dm2e;contributor">
-        <rdfs:comment xml:lang="eng">A person that is responsible for making contributions to the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person that is responsible for making contributions to the resource.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
@@ -231,7 +231,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/copyist -->
 
     <owl:ObjectProperty rdf:about="&dm2e;copyist">
-        <rdfs:comment xml:lang="eng">Someone who copied a CHO.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Someone who copied a CHO.</rdfs:comment>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
@@ -253,7 +253,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/honoree -->
 
     <owl:ObjectProperty rdf:about="&dm2e;honoree">
-        <rdfs:comment xml:lang="eng">An honored person, for whom the CHO is published or created.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An honored person, for whom the CHO is published or created.</rdfs:comment>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
@@ -263,7 +263,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/influencedBy -->
 
     <owl:ObjectProperty rdf:about="&dm2e;influencedBy">
-        <rdfs:comment xml:lang="eng">Another person by which the person was influenced.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Another person by which the person was influenced.</rdfs:comment>
         <rdfs:domain rdf:resource="&foaf;Person"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
@@ -273,7 +273,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/mentioned -->
 
     <owl:ObjectProperty rdf:about="&dm2e;mentioned">
-        <rdfs:comment xml:lang="eng">A person that is portrayed in the (textual or painted) CHO by its creator.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person that is portrayed in the (textual or painted) CHO by its creator.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:ObjectProperty>
@@ -283,7 +283,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/misattributed -->
 
     <owl:ObjectProperty rdf:about="&dm2e;misattributed">
-        <rdfs:comment xml:lang="eng">A person or institution that is mentioned as the creator of the CHO although he is not the creator.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person or institution that is mentioned as the creator of the CHO although he is not the creator.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:ObjectProperty>
@@ -293,7 +293,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/owner -->
 
     <owl:ObjectProperty rdf:about="&dm2e;owner">
-        <rdfs:comment xml:lang="eng">Indicates the ownership of a CHO.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Indicates the ownership of a CHO.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
@@ -304,7 +304,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/painter -->
 
     <owl:ObjectProperty rdf:about="&dm2e;painter">
-        <rdfs:comment xml:lang="eng">A painter. In the manuscript context especially used in works of the 16th and 17th century (rare books).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A painter. In the manuscript context especially used in works of the 16th and 17th century (rare books).</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dcterms;creator"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
@@ -315,7 +315,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/patron -->
 
     <owl:ObjectProperty rdf:about="&dm2e;patron">
-        <rdfs:comment xml:lang="eng">A person who is honored within the text.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person who is honored within the text.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dm2e;contributor"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
@@ -326,7 +326,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/portrayed -->
 
     <owl:ObjectProperty rdf:about="&dm2e;portrayed">
-        <rdfs:comment xml:lang="eng">A person that is portrayed in the (textual or painted) CHO by its creator.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person that is portrayed in the (textual or painted) CHO by its creator.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dm2e;mentioned"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
@@ -337,7 +337,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/previousOwner -->
 
     <owl:ObjectProperty rdf:about="&dm2e;previousOwner">
-        <rdfs:comment xml:lang="eng">A person or an institution that has owned the CHO before.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person or an institution that has owned the CHO before.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
@@ -348,7 +348,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/principal -->
 
     <owl:ObjectProperty rdf:about="&dm2e;principal">
-        <rdfs:comment xml:lang="eng">A person or an institution that gave the order to create the CHO.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person or an institution that gave the order to create the CHO.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
@@ -359,7 +359,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/printedAt -->
 
     <owl:ObjectProperty rdf:about="&dm2e;printedAt">
-        <rdfs:comment xml:lang="eng">Indicates the place where the CHO was printed.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Indicates the place where the CHO was printed.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dcterms;spatial"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:ObjectProperty>
@@ -369,7 +369,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/publishedAt -->
 
     <owl:ObjectProperty rdf:about="&dm2e;publishedAt">
-        <rdfs:comment xml:lang="eng">The place of a physical publication or the Web resource of a Web publication.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The place of a physical publication or the Web resource of a Web publication.</rdfs:comment>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range>
             <owl:Class>
@@ -386,7 +386,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/refersTo -->
 
     <owl:ObjectProperty rdf:about="&dm2e;refersTo">
-        <rdfs:comment xml:lang="eng">A person or CHO that is explicitly or implicitly menioned in the (textual) CHO.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person or CHO that is explicitly or implicitly menioned in the (textual) CHO.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dcterms;references"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range>
@@ -404,7 +404,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/shelfmarkLocation -->
 
     <owl:ObjectProperty rdf:about="&dm2e;shelfmarkLocation">
-        <rdfs:comment xml:lang="eng">Shelfmark location from the CHO.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Shelfmark location from the CHO.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&edm;currentLocation"/>
     </owl:ObjectProperty>
     
@@ -413,7 +413,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/sponsor -->
 
     <owl:ObjectProperty rdf:about="&dm2e;sponsor">
-        <rdfs:comment xml:lang="eng">A person or an institution who has sponsored (parts) of the CHOs creation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person or an institution who has sponsored (parts) of the CHOs creation.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
@@ -424,7 +424,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/studentOf -->
 
     <owl:ObjectProperty rdf:about="&dm2e;studentOf">
-        <rdfs:comment xml:lang="eng">A teacher of the person.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A teacher of the person.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
         <rdfs:domain rdf:resource="&foaf;Person"/>
@@ -435,7 +435,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/wasStudiedBy -->
 
     <owl:ObjectProperty rdf:about="&dm2e;wasStudiedBy">
-        <rdfs:comment xml:lang="eng">The CHO was studied by an Agent.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The CHO was studied by an Agent.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
@@ -446,7 +446,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/wasTaughtBy -->
 
     <owl:ObjectProperty rdf:about="&dm2e;wasTaughtBy">
-        <rdfs:comment xml:lang="eng">The CHO was taught by an Agent.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The CHO was taught by an Agent.</rdfs:comment>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
@@ -457,7 +457,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/writer -->
 
     <owl:ObjectProperty rdf:about="&dm2e;writer">
-        <rdfs:comment xml:lang="eng">A person who has written a CHO, e.g. a letter.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person who has written a CHO, e.g. a letter.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dcterms;creator"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
@@ -468,7 +468,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/elements/1.1/contributor -->
 
     <owl:ObjectProperty rdf:about="&dc;contributor">
-        <scopeNote xml:lang="eng">The property dcterms:contributor holds the name or identifier of the agent (a person or organisation) who contributed to the creation of the aggregation, i.e. the original source metadata record.</scopeNote>
+        <scopeNote xml:lang="en">The property dcterms:contributor holds the name or identifier of the agent (a person or organisation) who contributed to the creation of the aggregation, i.e. the original source metadata record.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
         <rdfs:domain>
@@ -486,7 +486,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/elements/1.1/date -->
 
     <owl:ObjectProperty rdf:about="&dc;date">
-        <scopeNote xml:lang="eng">A significant date associated with this agent. The date should be described with edm:Event.</scopeNote>
+        <scopeNote xml:lang="en">A significant date associated with this agent. The date should be described with edm:Event.</scopeNote>
         <rdfs:domain rdf:resource="&edm;Agent"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
     </owl:ObjectProperty>
@@ -496,7 +496,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/elements/1.1/publisher -->
 
     <owl:ObjectProperty rdf:about="&dc;publisher">
-        <scopeNote xml:lang="eng">Publisher of the CHO. Can be a person or an institution.</scopeNote>
+        <scopeNote xml:lang="en">Publisher of the CHO. Can be a person or an institution.</scopeNote>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
@@ -508,7 +508,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:ObjectProperty rdf:about="&dc;subject">
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">Subject of the CHO. Can be taken from another vocabulary. May also relate to a person that is the subject of a CHO.</scopeNote>
+        <scopeNote xml:lang="en">Subject of the CHO. Can be taken from another vocabulary. May also relate to a person that is the subject of a CHO.</scopeNote>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Resource"/>
     </owl:ObjectProperty>
@@ -518,7 +518,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/elements/1.1/type -->
 
     <owl:ObjectProperty rdf:about="&dc;type">
-        <scopeNote xml:lang="eng">The property dc:type provides a specific type that applies to the CHO. By type we mean either a physical form (e.g. book) or logical form (e.g. paragraph) as they are specified as subclasses of edm:PhysicalThing and skos:Concept respectively. At least one dc:type must be provided.</scopeNote>
+        <scopeNote xml:lang="en">The property dc:type provides a specific type that applies to the CHO. By type we mean either a physical form (e.g. book) or logical form (e.g. paragraph) as they are specified as subclasses of edm:PhysicalThing and skos:Concept respectively. At least one dc:type must be provided.</scopeNote>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range>
             <owl:Class>
@@ -543,7 +543,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/created -->
 
     <owl:ObjectProperty rdf:about="&dcterms;created">
-        <scopeNote xml:lang="eng">The property dcterms:created holds the creation date and time of the aggregation or of the webresource i.e. the original source metadata record.</scopeNote>
+        <scopeNote xml:lang="en">The property dcterms:created holds the creation date and time of the aggregation or of the webresource i.e. the original source metadata record.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;date"/>
         <rdfs:domain>
             <owl:Class>
@@ -560,7 +560,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/creator -->
 
     <owl:ObjectProperty rdf:about="&dcterms;creator">
-        <scopeNote xml:lang="eng">Creator of the CHO, possibly its author. Subproperties of dcterms:creator may be used to specialise the relationship.</scopeNote>
+        <scopeNote xml:lang="en">Creator of the CHO, possibly its author. Subproperties of dcterms:creator may be used to specialise the relationship.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dcterms;contributor"/>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain>
@@ -578,7 +578,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/hasPart -->
 
     <owl:ObjectProperty rdf:about="&dcterms;hasPart">
-        <scopeNote xml:lang="eng">dcterms:hasPart can be used to indicate that a class is part of the current class. It can only be used for the same type of objects, e.g. edm:ProvidedCHO dcterms:hasPart edm:ProvidedCHO.</scopeNote>
+        <scopeNote xml:lang="en">dcterms:hasPart can be used to indicate that a class is part of the current class. It can only be used for the same type of objects, e.g. edm:ProvidedCHO dcterms:hasPart edm:ProvidedCHO.</scopeNote>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -653,7 +653,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/issued -->
 
     <owl:ObjectProperty rdf:about="&dcterms;issued">
-        <scopeNote xml:lang="eng">Date of publication (of the described CHO, usually the original one).</scopeNote>
+        <scopeNote xml:lang="en">Date of publication (of the described CHO, usually the original one).</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;date"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:ObjectProperty>
@@ -663,7 +663,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/modified -->
 
     <owl:ObjectProperty rdf:about="&dcterms;modified">
-        <scopeNote xml:lang="eng">The property dcterms:created holds the modification date and time of the aggregation, i.e. the original source metadata record.</scopeNote>
+        <scopeNote xml:lang="en">The property dcterms:created holds the modification date and time of the aggregation, i.e. the original source metadata record.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;date"/>
         <rdfs:domain rdf:resource="&ore;Aggregation"/>
     </owl:ObjectProperty>
@@ -673,7 +673,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/references -->
 
     <owl:ObjectProperty rdf:about="&dcterms;references">
-        <scopeNote xml:lang="eng">Another CHO referenced in the content of this CHO.</scopeNote>
+        <scopeNote xml:lang="en">Another CHO referenced in the content of this CHO.</scopeNote>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&edm;ProvidedCHO"/>
     </owl:ObjectProperty>
@@ -683,7 +683,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/rightsHolder -->
 
     <owl:ObjectProperty rdf:about="&dcterms;rightsHolder">
-        <scopeNote xml:lang="eng">The property dcterms:rightsHolder holds the name or identifier of the agent (a person or organisation) who owns or manages the rights of the physical object (the CHO) which is described in the source metadata record.</scopeNote>
+        <scopeNote xml:lang="en">The property dcterms:rightsHolder holds the name or identifier of the agent (a person or organisation) who owns or manages the rights of the physical object (the CHO) which is described in the source metadata record.</scopeNote>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain>
             <owl:Class>
@@ -702,7 +702,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:ObjectProperty rdf:about="&dcterms;spatial">
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">This property can be used for not further specified places. If the place of publication or printing should be indicated, use dm2e:publishedAt or dme2e:printedAt instead.</scopeNote>
+        <scopeNote xml:lang="en">This property can be used for not further specified places. If the place of publication or printing should be indicated, use dm2e:publishedAt or dme2e:printedAt instead.</scopeNote>
         <rdfs:range rdf:resource="&edm;Place"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:ObjectProperty>
@@ -712,7 +712,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/tableOfContents -->
 
     <owl:ObjectProperty rdf:about="&dcterms;tableOfContents">
-        <scopeNote xml:lang="eng">Any kind of table of contents for the CHO.</scopeNote>
+        <scopeNote xml:lang="en">Any kind of table of contents for the CHO.</scopeNote>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasView"/>
     </owl:ObjectProperty>
@@ -748,7 +748,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/spar/pro/author -->
 
     <owl:ObjectProperty rdf:about="&pro;author">
-        <scopeNote xml:lang="eng">The author of the CHO.</scopeNote>
+        <scopeNote xml:lang="en">The author of the CHO.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dcterms;creator"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
@@ -759,7 +759,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/spar/pro/illustrator -->
 
     <owl:ObjectProperty rdf:about="&pro;illustrator">
-        <scopeNote xml:lang="eng">Someone who has made the illustrations of a CHO.</scopeNote>
+        <scopeNote xml:lang="en">Someone who has made the illustrations of a CHO.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dcterms;creator"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:ObjectProperty>
@@ -769,7 +769,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/spar/pro/printer -->
 
     <owl:ObjectProperty rdf:about="&pro;printer">
-        <scopeNote xml:lang="eng">A person or institution who printed the CHO. In the manuscript context especially used in works of the 16th and 17th century (rare books).</scopeNote>
+        <scopeNote xml:lang="en">A person or institution who printed the CHO. In the manuscript context especially used in works of the 16th and 17th century (rare books).</scopeNote>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
@@ -780,7 +780,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/spar/pro/translator -->
 
     <owl:ObjectProperty rdf:about="&pro;translator">
-        <scopeNote xml:lang="eng">A person or institution that translated the CHO.</scopeNote>
+        <scopeNote xml:lang="en">A person or institution that translated the CHO.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dcterms;contributor"/>
         <rdfs:range rdf:resource="&edm;Agent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
@@ -801,7 +801,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://rdvocab.info/ElementsGr2/dateOfEstablishment -->
 
     <owl:ObjectProperty rdf:about="&rdaGr2;dateOfEstablishment">
-        <scopeNote xml:lang="eng">The date the institution was established.</scopeNote>
+        <scopeNote xml:lang="en">The date the institution was established.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;date"/>
         <rdfs:domain rdf:resource="&foaf;Organization"/>
     </owl:ObjectProperty>
@@ -811,7 +811,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://rdvocab.info/ElementsGr2/dateOfTermination -->
 
     <owl:ObjectProperty rdf:about="&rdaGr2;dateOfTermination">
-        <scopeNote xml:lang="eng">The date the institution was terminated.</scopeNote>
+        <scopeNote xml:lang="en">The date the institution was terminated.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;date"/>
         <rdfs:domain rdf:resource="&foaf;Organization"/>
     </owl:ObjectProperty>
@@ -822,7 +822,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:ObjectProperty rdf:about="&edm;aggregatedCHO">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <scopeNote xml:lang="eng">The property edm:aggregatedCHO connects the ore:Aggregation with exactly one edm:ProvidedCHO. The property expresses what the Aggregation is about.</scopeNote>
+        <scopeNote xml:lang="en">The property edm:aggregatedCHO connects the ore:Aggregation with exactly one edm:ProvidedCHO. The property expresses what the Aggregation is about.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;subject"/>
         <rdfs:range rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:domain rdf:resource="&ore;Aggregation"/>
@@ -834,7 +834,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.europeana.eu/schemas/edm/currentLocation -->
 
     <owl:ObjectProperty rdf:about="&edm;currentLocation">
-        <scopeNote xml:lang="eng">Current location of physical CHO, possibly a library building. If possible, use a resource here.</scopeNote>
+        <scopeNote xml:lang="en">Current location of physical CHO, possibly a library building. If possible, use a resource here.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dcterms;spatial"/>
         <rdfs:range rdf:resource="&edm;Place"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
@@ -847,7 +847,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <owl:ObjectProperty rdf:about="&edm;dataProvider">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">The property edm:dataProvider holds the name or identifier of the organisation (foaf:Organization) that provided and owns the source metadata record for this aggregation. Note that this organisation is not necessarily owning the physical object which is described in the metadata record.</scopeNote>
+        <scopeNote xml:lang="en">The property edm:dataProvider holds the name or identifier of the organisation (foaf:Organization) that provided and owns the source metadata record for this aggregation. Note that this organisation is not necessarily owning the physical object which is described in the metadata record.</scopeNote>
         <rdfs:domain rdf:resource="&ore;Aggregation"/>
         <rdfs:range rdf:resource="&foaf;Organization"/>
     </owl:ObjectProperty>
@@ -857,7 +857,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.europeana.eu/schemas/edm/happenedAt -->
 
     <owl:ObjectProperty rdf:about="&edm;happenedAt">
-        <scopeNote xml:lang="eng">Connects an event to the place where this event happened at. An event may 
+        <scopeNote xml:lang="en">Connects an event to the place where this event happened at. An event may 
     only happen at one place whereas a place may be involved in many different 
     events.</scopeNote>
         <rdfs:domain rdf:resource="&edm;Event"/>
@@ -869,7 +869,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.europeana.eu/schemas/edm/hasMet -->
 
     <owl:ObjectProperty rdf:about="&edm;hasMet">
-        <scopeNote xml:lang="eng">Unites properties with the range edm:Agent like dcterms:creator or dc:contributor.</scopeNote>
+        <scopeNote xml:lang="en">Unites properties with the range edm:Agent like dcterms:creator or dc:contributor.</scopeNote>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -885,7 +885,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.europeana.eu/schemas/edm/hasView -->
 
     <owl:ObjectProperty rdf:about="&edm;hasView">
-        <scopeNote xml:lang="eng">The property edm:hasView holds the URL of a edm:WebResource which shows, 
+        <scopeNote xml:lang="en">The property edm:hasView holds the URL of a edm:WebResource which shows, 
     depicts or otherwise contains any kind of view of the ProvidedCHO.</scopeNote>
         <rdfs:range rdf:resource="&edm;WebResource"/>
         <rdfs:domain rdf:resource="&ore;Aggregation"/>
@@ -897,7 +897,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.europeana.eu/schemas/edm/isDerivativeOf -->
 
     <owl:ObjectProperty rdf:about="&edm;isDerivativeOf">
-        <scopeNote xml:lang="eng">Original version (in case of CHOs) or a related resource (in case of Webresources) from which this object has been derived in whole or in part.</scopeNote>
+        <scopeNote xml:lang="en">Original version (in case of CHOs) or a related resource (in case of Webresources) from which this object has been derived in whole or in part.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&edm;isSimilarTo"/>
         <rdfs:range>
             <owl:Class>
@@ -946,7 +946,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:ObjectProperty rdf:about="&edm;isShownAt">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <scopeNote xml:lang="eng">The property edm:isShownAt holds the URL of a edm:WebResource which leads to a view of the digital object on the provider&apos;s web site in its full information context (e.g. in a viewer application). Either edm:isShownBy or edm:isShownAt must be provided.</scopeNote>
+        <scopeNote xml:lang="en">The property edm:isShownAt holds the URL of a edm:WebResource which leads to a view of the digital object on the provider&apos;s web site in its full information context (e.g. in a viewer application). Either edm:isShownBy or edm:isShownAt must be provided.</scopeNote>
         <rdfs:range rdf:resource="&edm;WebResource"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasView"/>
         <rdfs:domain rdf:resource="&ore;Aggregation"/>
@@ -958,7 +958,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:ObjectProperty rdf:about="&edm;isShownBy">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <scopeNote xml:lang="eng">The property edm:isShownBy holds the URL of a edm:WebResource which leads to a &quot;plain&quot; image with any kind of view of the edm:ProvidedCHO. &quot;Plain&quot; image means that the image must be without any information context, for example, the URL points to a plain JPG-image. Either edm:isShownBy or edm:isShownAt must be provided.</scopeNote>
+        <scopeNote xml:lang="en">The property edm:isShownBy holds the URL of a edm:WebResource which leads to a &quot;plain&quot; image with any kind of view of the edm:ProvidedCHO. &quot;Plain&quot; image means that the image must be without any information context, for example, the URL points to a plain JPG-image. Either edm:isShownBy or edm:isShownAt must be provided.</scopeNote>
         <rdfs:range rdf:resource="&edm;WebResource"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasView"/>
         <rdfs:domain rdf:resource="&ore;Aggregation"/>
@@ -985,7 +985,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.europeana.eu/schemas/edm/object -->
 
     <owl:ObjectProperty rdf:about="&edm;object">
-        <scopeNote xml:lang="eng">The property edm:object holds the URL of a edm:WebResource which leads to a thumbnail representing the digital object or, if there is no such thumbnail, the URL of the digital object in the best resolution available on the web site of the data provider from which a thumbnail could be generated. This will often be the same URL as given in edm:isShownBy.</scopeNote>
+        <scopeNote xml:lang="en">The property edm:object holds the URL of a edm:WebResource which leads to a thumbnail representing the digital object or, if there is no such thumbnail, the URL of the digital object in the best resolution available on the web site of the data provider from which a thumbnail could be generated. This will often be the same URL as given in edm:isShownBy.</scopeNote>
         <rdfs:range rdf:resource="&edm;WebResource"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasView"/>
         <rdfs:domain rdf:resource="&ore;Aggregation"/>
@@ -996,7 +996,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.europeana.eu/schemas/edm/occurredAt -->
 
     <owl:ObjectProperty rdf:about="&edm;occurredAt">
-        <scopeNote xml:lang="eng">Connects an event to a time span which overlaps with the occurrence of that event. The occurrence in time of an event may overlap with 0 to many disjoint time spans, and a time span may have 0 to many events whose occurrences overlap with it.</scopeNote>
+        <scopeNote xml:lang="en">Connects an event to a time span which overlaps with the occurrence of that event. The occurrence in time of an event may overlap with 0 to many disjoint time spans, and a time span may have 0 to many events whose occurrences overlap with it.</scopeNote>
         <rdfs:domain rdf:resource="&edm;Event"/>
         <rdfs:range rdf:resource="&edm;TimeSpan"/>
     </owl:ObjectProperty>
@@ -1008,7 +1008,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <owl:ObjectProperty rdf:about="&edm;provider">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">The property edm:provider holds the name or identifier of the organisation  (foaf:Organization, see below) that provided the data, i.e. the aggregation, to Europeana. Note that this organisation is not necessarily owning the original or digitized object. Typically, edm:provider is an aggregator. The owner of the metadata record is recorded in edm:dataProvider. The values in edm:provider and edm:dataProvider can be the same. Note: In the context of DM2E the value for edm:provider is always &quot;DM2E&quot;.</scopeNote>
+        <scopeNote xml:lang="en">The property edm:provider holds the name or identifier of the organisation  (foaf:Organization, see below) that provided the data, i.e. the aggregation, to Europeana. Note that this organisation is not necessarily owning the original or digitized object. Typically, edm:provider is an aggregator. The owner of the metadata record is recorded in edm:dataProvider. The values in edm:provider and edm:dataProvider can be the same. Note: In the context of DM2E the value for edm:provider is always &quot;DM2E&quot;.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
         <rdfs:domain rdf:resource="&ore;Aggregation"/>
         <rdfs:range rdf:resource="&foaf;Organization"/>
@@ -1019,7 +1019,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.europeana.eu/schemas/edm/wasPresentAt -->
 
     <owl:ObjectProperty rdf:about="&edm;wasPresentAt">
-        <scopeNote xml:lang="eng">An event where the agent was present at.</scopeNote>
+        <scopeNote xml:lang="en">An event where the agent was present at.</scopeNote>
         <rdfs:domain rdf:resource="&edm;Agent"/>
         <rdfs:range rdf:resource="&edm;Event"/>
     </owl:ObjectProperty>
@@ -1050,7 +1050,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
 
     <owl:ObjectProperty rdf:about="&skos;inScheme">
-        <scopeNote xml:lang="eng">The URI of a concept scheme.</scopeNote>
+        <scopeNote xml:lang="en">The URI of a concept scheme.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Resource"/>
         <rdfs:domain rdf:resource="&skos;Concept"/>
     </owl:ObjectProperty>
@@ -1071,7 +1071,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/callNumber -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;callNumber">
-        <rdfs:comment xml:lang="eng">The call number for some archival item.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The call number for some archival item.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;identifier"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
@@ -1082,7 +1082,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/condition -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;condition">
-        <rdfs:comment xml:lang="eng">Contains a description of the CHOs condition.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Contains a description of the CHOs condition.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
@@ -1093,7 +1093,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/cover -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;cover">
-        <rdfs:comment xml:lang="eng">Description of the cover of the CHO, e.g. the cover’s type of material.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Description of the cover of the CHO, e.g. the cover’s type of material.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:DatatypeProperty>
@@ -1103,7 +1103,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/explicit -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;explicit">
-        <rdfs:comment xml:lang="eng">Final words of a manuscript. A language tag in ISO 639-2 should be added to the Literal.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Final words of a manuscript. A language tag in ISO 639-2 should be added to the Literal.</rdfs:comment>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
@@ -1113,7 +1113,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/illustration -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;illustration">
-        <rdfs:comment xml:lang="eng">Generic description of illustrations in the CHO.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Generic description of illustrations in the CHO.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
     </owl:DatatypeProperty>
     
@@ -1122,7 +1122,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/incipit -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;incipit">
-        <rdfs:comment xml:lang="eng">Opening words of a manuscript. A language tag in ISO 639-2 should be added to the Literal.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Opening words of a manuscript. A language tag in ISO 639-2 should be added to the Literal.</rdfs:comment>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
@@ -1132,7 +1132,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/levelOfGenesis -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;levelOfGenesis">
-        <rdfs:comment xml:lang="eng">The property holds additional information about the genesis of the CHO. Sometimes there are unfinished works or there are only drafts. This could be described more in detail here.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property holds additional information about the genesis of the CHO. Sometimes there are unfinished works or there are only drafts. This could be described more in detail here.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:DatatypeProperty>
@@ -1142,7 +1142,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/pageDimension -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;pageDimension">
-        <rdfs:comment xml:lang="eng">Page size. Please do also note the unit that was used.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Page size. Please do also note the unit that was used.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dcterms;extent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
@@ -1153,7 +1153,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/restoration -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;restoration">
-        <rdfs:comment xml:lang="eng">Contains a information about the restoration status of the CHO.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Contains a information about the restoration status of the CHO.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
@@ -1164,7 +1164,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/scopeNote -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;scopeNote">
-        <rdfs:comment xml:lang="eng">This property describes the dm2e-specific usage of the resource.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property describes the dm2e-specific usage of the resource.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&skos;note"/>
     </owl:DatatypeProperty>
     
@@ -1173,7 +1173,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/shelfmarkLocation -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;shelfmarkLocation">
-        <rdfs:comment xml:lang="eng">Shelfmark location from the CHO.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Shelfmark location from the CHO.</rdfs:comment>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -1182,7 +1182,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/subtitle -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;subtitle">
-        <rdfs:comment xml:lang="eng">Any form of subtitle. A language tag in ISO 639-2 should be added to the Literal.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Any form of subtitle. A language tag in ISO 639-2 should be added to the Literal.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;title"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
@@ -1193,7 +1193,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/support -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;support">
-        <rdfs:comment xml:lang="eng">Description of the type of material of the physical CHO.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Description of the type of material of the physical CHO.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:DatatypeProperty>
@@ -1203,7 +1203,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/watermark -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;watermark">
-        <rdfs:comment xml:lang="eng">Contains a description of a watermark which the CHO carries.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Contains a description of a watermark which the CHO carries.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
@@ -1214,7 +1214,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://onto.dm2e.eu/schemas/dm2e/1.1/writtenAreaDimension -->
 
     <owl:DatatypeProperty rdf:about="&dm2e;writtenAreaDimension">
-        <rdfs:comment xml:lang="eng">Size of writing or the part of the page where something is actually written. Please do also note the unit that was used.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Size of writing or the part of the page where something is actually written. Please do also note the unit that was used.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dcterms;extent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
@@ -1237,7 +1237,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/elements/1.1/date -->
 
     <owl:DatatypeProperty rdf:about="&dc;date">
-        <scopeNote xml:lang="eng">A significant date associated with this agent. The date should be described with edm:Event.</scopeNote>
+        <scopeNote xml:lang="en">A significant date associated with this agent. The date should be described with edm:Event.</scopeNote>
         <rdfs:range rdf:resource="&xsd;dateTime"/>
     </owl:DatatypeProperty>
     
@@ -1255,7 +1255,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/elements/1.1/format -->
 
     <owl:DatatypeProperty rdf:about="&dc;format">
-        <scopeNote xml:lang="eng">Format of the Web resource, e.g. PDF, HTML or JPG. If annotatable content is described, please use one of the following specifications: “text/html-named-content” for HTML content as specified by Pundit, “text/plain” for plain text content or “image/gif”, “image/jpeg” resp. “image/png” for Image files. See the technical specification “DM2E Annotatable Content” for further information.</scopeNote>
+        <scopeNote xml:lang="en">Format of the Web resource, e.g. PDF, HTML or JPG. If annotatable content is described, please use one of the following specifications: “text/html-named-content” for HTML content as specified by Pundit, “text/plain” for plain text content or “image/gif”, “image/jpeg” resp. “image/png” for Image files. See the technical specification “DM2E Annotatable Content” for further information.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&edm;hasType"/>
         <rdfs:domain>
             <owl:Class>
@@ -1272,7 +1272,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/elements/1.1/identifier -->
 
     <owl:DatatypeProperty rdf:about="&dc;identifier">
-        <scopeNote xml:lang="eng">Identifier of the resource.</scopeNote>
+        <scopeNote xml:lang="en">Identifier of the resource.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:domain>
             <owl:Class>
@@ -1289,7 +1289,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/elements/1.1/language -->
 
     <owl:DatatypeProperty rdf:about="&dc;language">
-        <scopeNote xml:lang="eng">The property dc:language holds the most prominent language of the CHO. If an edm:type property with the value TEXT has been given, only then it is mandatory to provide at least one language. If several languages are present in the CHO then repeat dc:language for each language. ISO 639-2 should be used for this property.</scopeNote>
+        <scopeNote xml:lang="en">The property dc:language holds the most prominent language of the CHO. If an edm:type property with the value TEXT has been given, only then it is mandatory to provide at least one language. If several languages are present in the CHO then repeat dc:language for each language. ISO 639-2 should be used for this property.</scopeNote>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:subPropertyOf rdf:resource="&edm;hasType"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
@@ -1309,7 +1309,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:DatatypeProperty rdf:about="&dc;rights">
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">URL of a resource describing licensing rights of the CHO.</scopeNote>
+        <scopeNote xml:lang="en">URL of a resource describing licensing rights of the CHO.</scopeNote>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
@@ -1328,7 +1328,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:DatatypeProperty rdf:about="&dcterms;alternative">
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">An alternative name for the resource. Should not be used for subtitles in DM2E. Can be used if title and subtitle are in one field. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
+        <scopeNote xml:lang="en">An alternative name for the resource. Should not be used for subtitles in DM2E. Can be used if title and subtitle are in one field. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;title"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
@@ -1339,7 +1339,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/created -->
 
     <owl:DatatypeProperty rdf:about="&dcterms;created">
-        <scopeNote xml:lang="eng">The property dcterms:created holds the creation date and time of the aggregation or of the webresource i.e. the original source metadata record.</scopeNote>
+        <scopeNote xml:lang="en">The property dcterms:created holds the creation date and time of the aggregation or of the webresource i.e. the original source metadata record.</scopeNote>
         <rdfs:range rdf:resource="&xsd;dateTime"/>
     </owl:DatatypeProperty>
     
@@ -1349,7 +1349,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:DatatypeProperty rdf:about="&dcterms;description">
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
+        <scopeNote xml:lang="en">A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
         <rdfs:domain>
             <owl:Class>
@@ -1366,7 +1366,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/extent -->
 
     <owl:DatatypeProperty rdf:about="&dcterms;extent">
-        <scopeNote xml:lang="eng">The size or duration of the resource.</scopeNote>
+        <scopeNote xml:lang="en">The size or duration of the resource.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;format"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
@@ -1377,7 +1377,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/issued -->
 
     <owl:DatatypeProperty rdf:about="&dcterms;issued">
-        <scopeNote xml:lang="eng">Date of publication (of the described CHO, usually the original one).</scopeNote>
+        <scopeNote xml:lang="en">Date of publication (of the described CHO, usually the original one).</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -1394,7 +1394,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/modified -->
 
     <owl:DatatypeProperty rdf:about="&dcterms;modified">
-        <scopeNote xml:lang="eng">The property dcterms:created holds the modification date and time of the aggregation, i.e. the original source metadata record.</scopeNote>
+        <scopeNote xml:lang="en">The property dcterms:created holds the modification date and time of the aggregation, i.e. the original source metadata record.</scopeNote>
         <rdfs:range rdf:resource="&xsd;dateTime"/>
     </owl:DatatypeProperty>
     
@@ -1403,7 +1403,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/provenance -->
 
     <owl:DatatypeProperty rdf:about="&dcterms;provenance">
-        <scopeNote xml:lang="eng">Is used for mixed provenance data that cannot be mapped to another property.</scopeNote>
+        <scopeNote xml:lang="en">Is used for mixed provenance data that cannot be mapped to another property.</scopeNote>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
@@ -1413,7 +1413,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/dc/terms/tableOfContents -->
 
     <owl:DatatypeProperty rdf:about="&dcterms;tableOfContents">
-        <scopeNote xml:lang="eng">Any kind of table of contents for the CHO.</scopeNote>
+        <scopeNote xml:lang="en">Any kind of table of contents for the CHO.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;description"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
@@ -1424,7 +1424,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:DatatypeProperty rdf:about="&dcterms;title">
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">The property dcterms:titles gives the main title of the CHO. It is mandatory to provide either a dcterms:title or a dcterms:description for the CHO. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
+        <scopeNote xml:lang="en">The property dcterms:titles gives the main title of the CHO. It is mandatory to provide either a dcterms:title or a dcterms:description for the CHO. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;title"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:DatatypeProperty>
@@ -1443,7 +1443,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:DatatypeProperty rdf:about="&bibo;isbn">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <scopeNote xml:lang="eng">The ISBN number for the CHO of type book.</scopeNote>
+        <scopeNote xml:lang="en">The ISBN number for the CHO of type book.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;identifier"/>
         <rdfs:subPropertyOf rdf:resource="&bibo;identifier"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
@@ -1456,7 +1456,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:DatatypeProperty rdf:about="&bibo;issn">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <scopeNote xml:lang="eng">The ISSN number for the CHO of type journal.</scopeNote>
+        <scopeNote xml:lang="en">The ISSN number for the CHO of type journal.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;identifier"/>
         <rdfs:subPropertyOf rdf:resource="&bibo;identifier"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
@@ -1467,7 +1467,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/ontology/bibo/numPages -->
 
     <owl:DatatypeProperty rdf:about="&bibo;numPages">
-        <scopeNote xml:lang="eng">A string of non-contiguous page spans that locate a Document within a Collection. Example: 23-25, 34, 54-56.</scopeNote>
+        <scopeNote xml:lang="en">A string of non-contiguous page spans that locate a Document within a Collection. Example: 23-25, 34, 54-56.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dcterms;extent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
@@ -1479,7 +1479,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:DatatypeProperty rdf:about="&bibo;numVolumes">
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">The number of volumes contained in a collection of documents (usually a series, periodical, etc.).</scopeNote>
+        <scopeNote xml:lang="en">The number of volumes contained in a collection of documents (usually a series, periodical, etc.).</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dcterms;extent"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
@@ -1500,7 +1500,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://purl.org/ontology/bibo/volume -->
 
     <owl:DatatypeProperty rdf:about="&bibo;volume">
-        <scopeNote xml:lang="eng">A volume number.</scopeNote>
+        <scopeNote xml:lang="en">A volume number.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;identifier"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
@@ -1510,7 +1510,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://rdvocab.info/ElementsGr2/biographicalInformation -->
 
     <owl:DatatypeProperty rdf:about="&rdaGr2;biographicalInformation">
-        <scopeNote xml:lang="eng">Information related to the biography of the agent.</scopeNote>
+        <scopeNote xml:lang="en">Information related to the biography of the agent.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:domain rdf:resource="&foaf;Person"/>
     </owl:DatatypeProperty>
@@ -1521,7 +1521,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:DatatypeProperty rdf:about="&rdaGr2;dateOfBirth">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <scopeNote xml:lang="eng">The date the person was born.</scopeNote>
+        <scopeNote xml:lang="en">The date the person was born.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:domain rdf:resource="&foaf;Person"/>
     </owl:DatatypeProperty>
@@ -1532,7 +1532,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:DatatypeProperty rdf:about="&rdaGr2;dateOfDeath">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <scopeNote xml:lang="eng">The date the person died.</scopeNote>
+        <scopeNote xml:lang="en">The date the person died.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:domain rdf:resource="&foaf;Person"/>
     </owl:DatatypeProperty>
@@ -1542,7 +1542,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://rdvocab.info/ElementsGr2/dateOfEstablishment -->
 
     <owl:DatatypeProperty rdf:about="&rdaGr2;dateOfEstablishment">
-        <scopeNote xml:lang="eng">The date the institution was established.</scopeNote>
+        <scopeNote xml:lang="en">The date the institution was established.</scopeNote>
     </owl:DatatypeProperty>
     
 
@@ -1550,7 +1550,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://rdvocab.info/ElementsGr2/dateOfTermination -->
 
     <owl:DatatypeProperty rdf:about="&rdaGr2;dateOfTermination">
-        <scopeNote xml:lang="eng">The date the institution was terminated.</scopeNote>
+        <scopeNote xml:lang="en">The date the institution was terminated.</scopeNote>
     </owl:DatatypeProperty>
     
 
@@ -1559,7 +1559,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:DatatypeProperty rdf:about="&rdaGr2;gender">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <scopeNote xml:lang="eng">The gender of the person.</scopeNote>
+        <scopeNote xml:lang="en">The gender of the person.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:domain rdf:resource="&foaf;Person"/>
     </owl:DatatypeProperty>
@@ -1569,7 +1569,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://rdvocab.info/ElementsGr2/professionOrOccupation -->
 
     <owl:DatatypeProperty rdf:about="&rdaGr2;professionOrOccupation">
-        <scopeNote xml:lang="eng">The profession or occupation in which the person works or has worked.</scopeNote>
+        <scopeNote xml:lang="en">The profession or occupation in which the person works or has worked.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:domain rdf:resource="&foaf;Person"/>
     </owl:DatatypeProperty>
@@ -1579,7 +1579,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.europeana.eu/schemas/edm/begin -->
 
     <owl:DatatypeProperty rdf:about="&edm;begin">
-        <scopeNote xml:lang="eng">The beginning of a timespan.</scopeNote>
+        <scopeNote xml:lang="en">The beginning of a timespan.</scopeNote>
         <rdfs:domain rdf:resource="&edm;TimeSpan"/>
         <rdfs:range rdf:resource="&xsd;dateTime"/>
     </owl:DatatypeProperty>
@@ -1589,7 +1589,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.europeana.eu/schemas/edm/end -->
 
     <owl:DatatypeProperty rdf:about="&edm;end">
-        <scopeNote xml:lang="eng">The end of a timespan.</scopeNote>
+        <scopeNote xml:lang="en">The end of a timespan.</scopeNote>
         <rdfs:domain rdf:resource="&edm;TimeSpan"/>
         <rdfs:range rdf:resource="&xsd;dateTime"/>
     </owl:DatatypeProperty>
@@ -1607,7 +1607,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.europeana.eu/schemas/edm/isRelatedTo -->
 
     <owl:DatatypeProperty rdf:about="&edm;isRelatedTo">
-        <rdfs:comment xml:lang="eng">Any other related resource.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Any other related resource.</rdfs:comment>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -1617,7 +1617,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:DatatypeProperty rdf:about="&edm;rights">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <scopeNote xml:lang="eng">The property edm:rights holds copyright information pertaining to all digital objects (edm:WebResource) given by edm:hasView or one of its sub-properties. If a digital object (edm:WebResource) holds an additional copyright information given by dc:rights then this more specific copyright information has priority. Otherwise the value given in edm:rights at the Aggregation is the default value for digital object attached to this Aggregation. The URL points to a resource describing licensing rights according to the Guidelines for the Rights in Objects submitted to Europeana (2012). Recommended is the use of a CC license.</scopeNote>
+        <scopeNote xml:lang="en">The property edm:rights holds copyright information pertaining to all digital objects (edm:WebResource) given by edm:hasView or one of its sub-properties. If a digital object (edm:WebResource) holds an additional copyright information given by dc:rights then this more specific copyright information has priority. Otherwise the value given in edm:rights at the Aggregation is the default value for digital object attached to this Aggregation. The URL points to a resource describing licensing rights according to the Guidelines for the Rights in Objects submitted to Europeana (2012). Recommended is the use of a CC license.</scopeNote>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
         <rdfs:domain>
             <owl:Class>
@@ -1635,7 +1635,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:DatatypeProperty rdf:about="&edm;type">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <scopeNote xml:lang="eng">The property edm:aggregatedCHO connects the ore:Aggregation with exactly one edm:ProvidedCHO. The property expresses what the Aggregation is about.</scopeNote>
+        <scopeNote xml:lang="en">The property edm:aggregatedCHO connects the ore:Aggregation with exactly one edm:ProvidedCHO. The property expresses what the Aggregation is about.</scopeNote>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range>
             <rdfs:Datatype>
@@ -1679,7 +1679,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.w3.org/2003/01/geo/wgs84_pos#alt -->
 
     <owl:DatatypeProperty rdf:about="&wgs84_pos;alt">
-        <scopeNote xml:lang="eng">The altitude of a place (decimal metres above the reference).</scopeNote>
+        <scopeNote xml:lang="en">The altitude of a place (decimal metres above the reference).</scopeNote>
         <rdfs:domain rdf:resource="&edm;Place"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
@@ -1689,7 +1689,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.w3.org/2003/01/geo/wgs84_pos#lat -->
 
     <owl:DatatypeProperty rdf:about="&wgs84_pos;lat">
-        <scopeNote xml:lang="eng">The latitude of a place (decimal degree).</scopeNote>
+        <scopeNote xml:lang="en">The latitude of a place (decimal degree).</scopeNote>
         <rdfs:domain rdf:resource="&edm;Place"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
@@ -1699,7 +1699,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.w3.org/2003/01/geo/wgs84_pos#long -->
 
     <owl:DatatypeProperty rdf:about="&wgs84_pos;long">
-        <scopeNote xml:lang="eng">The longitude of a place (decimal degree).</scopeNote>
+        <scopeNote xml:lang="en">The longitude of a place (decimal degree).</scopeNote>
         <rdfs:domain rdf:resource="&edm;Place"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
@@ -1709,7 +1709,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
 
     <owl:DatatypeProperty rdf:about="&skos;altLabel">
-        <scopeNote xml:lang="eng">An alternative name, e.g. a former name or the name in another form.</scopeNote>
+        <scopeNote xml:lang="en">An alternative name, e.g. a former name or the name in another form.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -1718,7 +1718,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.w3.org/2004/02/skos/core#broader -->
 
     <owl:DatatypeProperty rdf:about="&skos;broader">
-        <scopeNote xml:lang="eng">ID of the broader concept.</scopeNote>
+        <scopeNote xml:lang="en">ID of the broader concept.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:domain rdf:resource="&skos;Concept"/>
     </owl:DatatypeProperty>
@@ -1728,7 +1728,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.w3.org/2004/02/skos/core#hiddenLabel -->
 
     <owl:DatatypeProperty rdf:about="&skos;hiddenLabel">
-        <scopeNote xml:lang="eng">Non-standard forms of the name, e.g. misspellings.</scopeNote>
+        <scopeNote xml:lang="en">Non-standard forms of the name, e.g. misspellings.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -1737,7 +1737,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.w3.org/2004/02/skos/core#narrower -->
 
     <owl:DatatypeProperty rdf:about="&skos;narrower">
-        <scopeNote xml:lang="eng">ID of the narrower concept.</scopeNote>
+        <scopeNote xml:lang="en">ID of the narrower concept.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:domain rdf:resource="&skos;Concept"/>
     </owl:DatatypeProperty>
@@ -1747,7 +1747,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.w3.org/2004/02/skos/core#notation -->
 
     <owl:DatatypeProperty rdf:about="&skos;notation">
-        <scopeNote xml:lang="eng">If available: A notation of the concept.</scopeNote>
+        <scopeNote xml:lang="en">If available: A notation of the concept.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:domain rdf:resource="&skos;Concept"/>
     </owl:DatatypeProperty>
@@ -1757,7 +1757,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.w3.org/2004/02/skos/core#note -->
 
     <owl:DatatypeProperty rdf:about="&skos;note">
-        <scopeNote xml:lang="eng">Information related to the resource that cannot be modelled with other properties of the class.</scopeNote>
+        <scopeNote xml:lang="en">Information related to the resource that cannot be modelled with other properties of the class.</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -1766,7 +1766,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
 
     <owl:DatatypeProperty rdf:about="&skos;prefLabel">
-        <scopeNote xml:lang="eng">The preferred name of the agent, preferably in a normalized form. Only one preferred label per language tag is allowed!</scopeNote>
+        <scopeNote xml:lang="en">The preferred name of the agent, preferably in a normalized form. Only one preferred label per language tag is allowed!</scopeNote>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -1787,7 +1787,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:Class rdf:about="&dm2e;Archive">
         <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
-        <rdfs:comment xml:lang="eng">Subclass of foaf:Organization. Archives are places where public records and other historical documents are preserved.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of foaf:Organization. Archives are places where public records and other historical documents are preserved.</rdfs:comment>
     </owl:Class>
     
 
@@ -1796,7 +1796,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:Class rdf:about="&dm2e;Collection">
         <rdfs:subClassOf rdf:resource="&edm;NonInformationResource"/>
-        <rdfs:comment xml:lang="eng">The collection of CHOs as provided by a data provider.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The collection of CHOs as provided by a data provider.</rdfs:comment>
     </owl:Class>
     
 
@@ -1811,7 +1811,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="eng">The dataset that contains the RDF statements provided in via this data resource.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The dataset that contains the RDF statements provided in via this data resource.</rdfs:comment>
     </owl:Class>
     
 
@@ -1822,7 +1822,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
         <rdfs:subClassOf rdf:resource="&bibo;Document"/>
         <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
         <rdfs:subClassOf rdf:resource="&foaf;Document"/>
-        <rdfs:comment xml:lang="eng">ProvidedCHO of type document. Unlike foaf:Document, dm2e:Document refers to a physical document.</rdfs:comment>
+        <rdfs:comment xml:lang="en">ProvidedCHO of type document. Unlike foaf:Document, dm2e:Document refers to a physical document.</rdfs:comment>
     </owl:Class>
     
 
@@ -1831,7 +1831,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:Class rdf:about="&dm2e;File">
         <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
-        <rdfs:comment xml:lang="eng">Archival Item.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Archival Item.</rdfs:comment>
     </owl:Class>
     
 
@@ -1845,7 +1845,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&dm2e;Document"/>
-        <rdfs:comment xml:lang="eng">ProvidedCHO of type manuscript, e.g. Wittgensteins brown book. Not equivalent to bibo:Manuscript.</rdfs:comment>
+        <rdfs:comment xml:lang="en">ProvidedCHO of type manuscript, e.g. Wittgensteins brown book. Not equivalent to bibo:Manuscript.</rdfs:comment>
     </owl:Class>
     
 
@@ -1855,7 +1855,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <owl:Class rdf:about="&dm2e;Page">
         <rdfs:subClassOf rdf:resource="&fabio;Expression"/>
         <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
-        <rdfs:comment xml:lang="eng">A sheet of paper. Can be part of another CHO, e.g. dm2e:Manuscript.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A sheet of paper. Can be part of another CHO, e.g. dm2e:Manuscript.</rdfs:comment>
     </owl:Class>
     
 
@@ -1864,7 +1864,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:Class rdf:about="&dm2e;Paragraph">
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-        <rdfs:comment xml:lang="eng">ProvidedCHO of type paragraph. Can be part of another (textual) CHO, e.g. dm2e:Manuscript.</rdfs:comment>
+        <rdfs:comment xml:lang="en">ProvidedCHO of type paragraph. Can be part of another (textual) CHO, e.g. dm2e:Manuscript.</rdfs:comment>
     </owl:Class>
     
 
@@ -1874,7 +1874,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <owl:Class rdf:about="&dm2e;Photo">
         <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
         <rdfs:subClassOf rdf:resource="&foaf;Image"/>
-        <rdfs:comment xml:lang="eng">ProvidedCHO of type photo.</rdfs:comment>
+        <rdfs:comment xml:lang="en">ProvidedCHO of type photo.</rdfs:comment>
     </owl:Class>
     
 
@@ -1883,7 +1883,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:Class rdf:about="&dm2e;Publication">
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-        <rdfs:comment xml:lang="eng">ProvidedCHO of type publication.</rdfs:comment>
+        <rdfs:comment xml:lang="en">ProvidedCHO of type publication.</rdfs:comment>
     </owl:Class>
     
 
@@ -1892,7 +1892,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:Class rdf:about="&dm2e;Work">
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-        <rdfs:comment xml:lang="eng">A non-physical piece of work of an agent, e.g. the theoretical concept of a manuscript.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A non-physical piece of work of an agent, e.g. the theoretical concept of a manuscript.</rdfs:comment>
     </owl:Class>
     
 
@@ -1978,7 +1978,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <owl:Class rdf:about="&bibo;Series">
         <rdfs:subClassOf rdf:resource="&bibo;Collection"/>
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-        <scopeNote xml:lang="eng">A collection of documents, based on some shared aspects, like a topic or provenance etc.</scopeNote>
+        <scopeNote xml:lang="en">A collection of documents, based on some shared aspects, like a topic or provenance etc.</scopeNote>
     </owl:Class>
     
 
@@ -2013,7 +2013,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:Class rdf:about="&fabio;Cover">
         <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
-        <scopeNote xml:lang="eng">Can be part of another CHO, e.g. a book.</scopeNote>
+        <scopeNote xml:lang="en">Can be part of another CHO, e.g. a book.</scopeNote>
     </owl:Class>
     
 
@@ -2039,7 +2039,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
     <owl:Class rdf:about="&void;Dataset">
         <rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
-        <scopeNote xml:lang="eng">A void:Dataset represents a stable version of an RDF graph that contains descriptions of ore:Aggregations and edm:providedCHOs of one data provider.</scopeNote>
+        <scopeNote xml:lang="en">A void:Dataset represents a stable version of an RDF graph that contains descriptions of ore:Aggregations and edm:providedCHOs of one data provider.</scopeNote>
     </owl:Class>
     
 
@@ -2465,7 +2465,7 @@ With contributions from others working in the DM2E project and at Europeana.</rd
 
     <owl:Class rdf:about="&foaf;Organization">
         <rdfs:subClassOf rdf:resource="&edm;Agent"/>
-        <scopeNote xml:lang="eng">Subclass of edm:Agent within the DM2E ontology.</scopeNote>
+        <scopeNote xml:lang="en">Subclass of edm:Agent within the DM2E ontology.</scopeNote>
     </owl:Class>
     
 
