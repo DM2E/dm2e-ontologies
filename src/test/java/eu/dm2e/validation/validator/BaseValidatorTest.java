@@ -4,6 +4,7 @@ import static org.fest.assertions.Assertions.*;
 
 import java.util.Set;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,7 @@ public class BaseValidatorTest extends ValidationTest {
 	//
 	
 	@Test
+	@Ignore
 	public void testPropertyWhiteList() {
 		Set<String> wl = ((BaseValidator) v1_1_rev1_3).getPropertyWhitelist();
 		assertThat(wl.size()).isEqualTo(148);

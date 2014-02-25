@@ -338,10 +338,11 @@ abstract public class BaseValidator implements Dm2eValidator {
 					ValidationProblemCategory.MISC,
 					agg,
 					"Aggregation needs either edm:isShownAt or edm:isShownBy.");
-			else if (isaIter.hasNext() && isbIter.hasNext()) report.add(ValidationLevel.NOTICE,
-					ValidationProblemCategory.MISC,
-					agg,
-					"Aggregation contains both edm:isShownAt and edm:isShownBy.");
+//	Misleading people https://github.com/DM2E/dm2e-mappings/issues/18#issuecomment-36033484
+//			else if (isaIter.hasNext() && isbIter.hasNext()) report.add(ValidationLevel.NOTICE,
+//					ValidationProblemCategory.MISC,
+//					agg,
+//					"Aggregation contains both edm:isShownAt and edm:isShownBy.");
 
 		}
 
