@@ -1,0 +1,11 @@
+SELECT ?thumbnail WHERE {
+   { ?agg edm:object ?thumbnail .}
+   UNION
+   { ?agg dm2e:hasAnnotatableVersionAt ?thumbnail .}
+   UNION
+   { ?agg dm2e11:hasAnnotatableVersionAt ?thumbnail .}
+   UNION
+   { ?agg edm:isShownBy ?thumbnail .}
+   ?thumbnail dc:format ?mime_type .
+   FILTER STRSTARTS(STR(?mime_type), "image")
+} LIMIT 1

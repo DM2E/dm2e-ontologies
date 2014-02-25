@@ -1,0 +1,12 @@
+SELECT * {
+  GRAPH ?g {
+    ?agg edm:aggregatedCHO ?cho .
+    { ?agg dm2e:displayLevel ?displayLevel . }
+    UNION
+    { ?agg dm2e11:displayLevel ?displayLevel .}
+    FILTER(REGEX(STR(?displayLevel), "true", "i"))
+    FILTER NOT EXISTS {
+      ?cho dc:title ?title .
+    }
+  }
+} LIMIT 1
