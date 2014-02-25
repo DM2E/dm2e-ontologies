@@ -253,7 +253,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 
 	protected void checkProperty(final Resource res, final Property prop, Dm2eValidationReport report) {
 		if (! propertyWhiteList.contains(prop.getURI())) {
-			report.add(ValidationLevel.WARNING,
+			report.add(ValidationLevel.ERROR,
 					ValidationProblemCategory.UNKNOWN_PROPERTY,
 					res,
 					prop);
