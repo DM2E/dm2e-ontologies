@@ -1,6 +1,8 @@
 package eu.dm2e.validation;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Map;
 import java.util.Set;
 
@@ -208,6 +210,7 @@ public interface Dm2eValidator {
 	// Public Interface
 	//
 	// ****************
+	
 
 	/**
 	 * Validates the RDF data in a file against the DM2E data model
@@ -218,6 +221,17 @@ public interface Dm2eValidator {
 	 */
 	public Dm2eValidationReport validateWithDm2e(String fileName, String rdfLang) throws FileNotFoundException;
 
+	/**
+	 * @param rdfData
+	 * @param rdfLang
+	 * @return
+	 * @throws FileNotFoundException
+	 */
+	public Dm2eValidationReport validateWithDm2e(File rdfData, String rdfLang) throws FileNotFoundException;
+
+//	public Dm2eValidationReport validateWithDm2e(InputStream filePart, String rdfLang) {
+//		
+//	}
 	/**
 	 * Validates all resources within a Jena Model against the DM2E data
 	 * model
@@ -235,6 +249,9 @@ public interface Dm2eValidator {
 	 * @param report the report
 	 */
 	public void validateWithDm2e(Model m, String currentClassUri, Dm2eValidationReport report);
+
+	public void validateUnknownProperties(Model m, Dm2eValidationReport report);
+
 
 
 }

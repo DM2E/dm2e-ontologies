@@ -1,5 +1,6 @@
 package eu.dm2e.validation.validator;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -12,7 +13,6 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import eu.dm2e.NS;
 import eu.dm2e.validation.Dm2eValidationReport;
@@ -30,8 +30,12 @@ import eu.dm2e.validation.ValidationProblemCategory;
  */
 public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 
-
 	private static final String	modelVersion	= "1.1_Rev1.3";
+
+	@Override
+	public File getOwlFile() {
+		return new File(getClass().getResource("/dm2e-model/DM2Ev1.1_Rev1.3.owl").getFile());
+	}
 
 	@Override public String getVersion() {
 		return modelVersion;
@@ -245,18 +249,14 @@ public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 	}
 
 	@Override
-	protected void checkMandatoryProperties(Model m, Resource res, Set<Property> properties, Dm2eValidationReport report) {
-		super.checkMandatoryProperties(m, res, properties, report);
+	protected void checkProperty(Resource res, Property prop, Dm2eValidationReport report) {
+		super.checkProperty(res, prop, report);
 		
 		//
 		// Check that no DM2E v.1.x properties are used (Doron)
 		// 
-		StmtIterator it = res.listProperties();
-		while (it.hasNext()) {
-			Property prop = it.next().getPredicate();
-			if (prop.getNameSpace().startsWith("http://onto.dm2e.eu/schemas/dm2e/1.")) {
-				report.add(ValidationLevel.ERROR, ValidationProblemCategory.FORBIDDEN_PROPERTY, res, prop);
-			}
+		if (prop.getNameSpace().startsWith("http://onto.dm2e.eu/schemas/dm2e/1.")) {
+			report.add(ValidationLevel.ERROR, ValidationProblemCategory.FORBIDDEN_PROPERTY, res, prop);
 		}
 	}
 }
