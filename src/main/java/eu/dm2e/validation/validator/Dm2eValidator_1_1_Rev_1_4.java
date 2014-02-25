@@ -1,6 +1,5 @@
 package eu.dm2e.validation.validator;
 
-import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -52,8 +51,9 @@ public class Dm2eValidator_1_1_Rev_1_4 extends BaseValidator {
 		ret.add(prop(m, NS.DCTERMS.PROP_MODIFIED));
 		ret.add(prop(m, NS.DCTERMS.PROP_ISSUED));
 		ret.add(prop(m, NS.DCTERMS.PROP_TEMPORAL));
-		ret.add(prop(m, NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY));
-		ret.add(prop(m, NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY));
+// These aren't date-like properties (https://github.com/DM2E/dm2e-mappings/issues/22)
+//		ret.add(prop(m, NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY));
+//		ret.add(prop(m, NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY));
 		ret.add(prop(m, NS.EDM.PROP_BEGIN));
 		ret.add(prop(m, NS.EDM.PROP_END));
 		ret.add(prop(m, NS.DC.PROP_SUBJECT));
