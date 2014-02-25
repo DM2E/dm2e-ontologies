@@ -1,5 +1,6 @@
 package eu.dm2e.validation.validator;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -12,7 +13,6 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import eu.dm2e.NS;
 import eu.dm2e.validation.Dm2eValidationReport;
@@ -28,17 +28,22 @@ import eu.dm2e.validation.ValidationProblemCategory;
  * 
  * @author Konstantin Baierer
  */
-public class Dm2eValidator_1_1_Rev_1_4_DRAFT extends BaseValidator {
+public class Dm2eValidator_1_1_Rev_1_4 extends BaseValidator {
 
 
 	private static final String	modelVersion	= "1.1_Rev1.4-DRAFT";
+
+	@Override
+	public File getOwlFile() {
+		return new File(getClass().getResource("/dm2e-model/DM2Ev1.1_Rev1.4.owl").getFile());
+	}
 	
 	@Override public String getVersion() {
 		return modelVersion;
 	}
 	
 	@SuppressWarnings("unused")
-	private static final Logger log = LoggerFactory.getLogger(Dm2eValidator_1_1_Rev_1_4_DRAFT.class);
+	private static final Logger log = LoggerFactory.getLogger(Dm2eValidator_1_1_Rev_1_4.class);
 	
 	@Override public Set<Property> build_DateLike_Properties(Model m) {
 		Set<Property> ret = new HashSet<>();
@@ -226,46 +231,23 @@ public class Dm2eValidator_1_1_Rev_1_4_DRAFT extends BaseValidator {
 			}
 		}
 		
-		// edm:isShownBy / edm:isObject
-		//
-		// p.21:
-		// "if dm2e:displayL evel is true edm:isShownB y and/or edm:object must
-		// be provided)"
-// Dropped
-//		if (null != displayLevelStmt && displayLevelStmt.getObject().isLiteral()) {
-//			if ("true".equals(displayLevelStmt.getObject().asLiteral().getLexicalForm().toLowerCase())) {
-//				if (! agg.hasProperty(prop(m, NS.EDM.PROP_IS_SHOWN_BY)) && ! agg.hasProperty(prop(m, NS.EDM.PROP_OBJECT))) {
-//					report.add(ValidationLevel.ERROR,
-//							ValidationProblemCategory.MISSING_CONDITIONALLY_REQUIRED_ONE_OF,
-//							agg,
-//							NS.EDM.PROP_IS_SHOWN_BY + " and/or " + NS.EDM.PROP_OBJECT,
-//							"Must set edm:shownBy and/or edm:object because the dm2e:displayLevel is 'true'.");
-//				}
-//			}
-//		}
-		
 	}
 
 	@Override
-	protected void checkMandatoryProperties(Model m, Resource res, Set<Property> properties, Dm2eValidationReport report) {
-		super.checkMandatoryProperties(m, res, properties, report);
-		
-		StmtIterator it = res.listProperties();
-		while (it.hasNext()) {
-			Property prop = it.next().getPredicate();
-			//
-			// Check that no DM2E v.1.x properties are used (Doron)
-			// 
-			if (prop.getNameSpace().startsWith("http://onto.dm2e.eu/schemas/dm2e/1.")) {
-				report.add(ValidationLevel.ERROR, ValidationProblemCategory.FORBIDDEN_PROPERTY, res, prop);
-			}
-			//
-			// Check that prism:startingPage is no longer used
-			//
-			if (prop.getURI().equals(NS.PRISM_3.PROP_STARTING_PAGE)) {
-				report.add(ValidationLevel.ERROR, ValidationProblemCategory.FORBIDDEN_PROPERTY, res, prop);
-			}
+	protected void checkProperty(Resource res, Property prop, Dm2eValidationReport report) {
+		super.checkProperty(res, prop, report);
+
+		//
+		// Check that no DM2E v.1.x properties are used (Doron)
+		// 
+		if (prop.getNameSpace().startsWith("http://onto.dm2e.eu/schemas/dm2e/1.")) {
+			report.add(ValidationLevel.ERROR, ValidationProblemCategory.FORBIDDEN_PROPERTY, res, prop);
 		}
-		
+		//
+		// Check that prism:startingPage is no longer used
+		//
+		if (prop.getURI().equals(NS.PRISM_3.PROP_STARTING_PAGE)) {
+			report.add(ValidationLevel.ERROR, ValidationProblemCategory.FORBIDDEN_PROPERTY, res, prop);
+		}
 	}
 }
