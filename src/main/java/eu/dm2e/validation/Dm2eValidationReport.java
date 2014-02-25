@@ -37,15 +37,19 @@ public class Dm2eValidationReport {
 //	}
 
 	public boolean containsErrors() {
-		boolean doesContainErrrors = false;
-		for (Dm2eValidationProblem problem : problemSet) {
-			if (problem.getLevel() == ValidationLevel.ERROR) {
-				doesContainErrrors = true;
-				break;
-			}
-		}
-		return doesContainErrrors;
+		return containsErrors(ValidationLevel.ERROR);
 	}
+
+    public boolean containsErrors(ValidationLevel level) {
+        boolean doesContainErrrors = false;
+        for (Dm2eValidationProblem problem : problemSet) {
+            if (problem.getLevel() == level) {
+                doesContainErrrors = true;
+                break;
+            }
+        }
+        return doesContainErrrors;
+    }
 	
 	@Override
 	public String toString() {
