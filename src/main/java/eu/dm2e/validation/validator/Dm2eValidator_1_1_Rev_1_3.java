@@ -1,6 +1,6 @@
 package eu.dm2e.validation.validator;
 
-import java.io.File;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -33,8 +33,8 @@ public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 	private static final String	modelVersion	= "1.1_Rev1.3";
 
 	@Override
-	public File getOwlFile() {
-		return new File(getClass().getResource("/dm2e-model/DM2Ev1.1_Rev1.3.owl").getFile());
+	public InputStream getOwlInputStream() {
+		return getClass().getResourceAsStream("/dm2e-model/DM2Ev1.1_Rev1.3.owl");
 	}
 
 	@Override public String getVersion() {

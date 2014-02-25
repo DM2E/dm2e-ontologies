@@ -3,6 +3,7 @@ package eu.dm2e.validation.validator;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -35,18 +36,12 @@ import eu.dm2e.validation.ValidationProblemCategory;
 
 abstract public class BaseValidator implements Dm2eValidator {
 
-	public abstract File getOwlFile();
+	public abstract InputStream getOwlInputStream();
 	
 	public BaseValidator() {
-		File owlFile = getOwlFile();
+		InputStream owlInputStream = getOwlInputStream();
 		Model ontModel = ModelFactory.createDefaultModel();
-		try {
-			ontModel.read(new FileInputStream(owlFile), "RDF-XML");
-		} catch (FileNotFoundException e) {
-			log.error("Could not open Owl File " + owlFile);
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
+		ontModel.read(owlInputStream, "RDF-XML");
 		{
 			StmtIterator iter = ontModel.listStatements(null, ontModel
 				.createProperty(NS.RDF.PROP_TYPE), ontModel
