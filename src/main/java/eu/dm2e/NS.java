@@ -695,6 +695,7 @@ public final class NS {
 		public static final String DATATYPE_PROPERTY = BASE + "DatatypeProperty";
 		public static final String OBJECT_PROPERTY = BASE + "ObjectProperty";
 		public static final String DEPRECATED = BASE + "deprecated";
+		public static final String SAME_AS	= BASE + "sameAs";
 	}
 	
 	public static final class ORE {

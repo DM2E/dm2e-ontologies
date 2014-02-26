@@ -47,6 +47,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 		// Standards
 		{
 			propertyWhiteList.add(NS.RDF.PROP_TYPE);
+			propertyWhiteList.add(NS.OWL.SAME_AS);
 			propertyWhiteList.add(NS.EDM.PROP_IS_NEXT_IN_SEQUENCE);
 		}
 		{
@@ -310,7 +311,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 		//
 		Resource cho = get_edm_ProvidedCHO_for_ore_Aggregation(m, agg);
 		if (null == cho) {
-			report.add(ValidationLevel.ERROR,
+			report.add(ValidationLevel.FATAL,
 					ValidationProblemCategory.MISC,
 					agg,
 					"Aggregation has no ProvidedCHO. This is very bad.");
@@ -321,7 +322,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 			// with ub-ffm data)
 			//
 			if (cho.getURI().equals(agg.getURI())) {
-				report.add(ValidationLevel.ERROR,
+				report.add(ValidationLevel.FATAL,
 						ValidationProblemCategory.MISC,
 						agg,
 						"CHO is the same as the Aggregation. This is likely a mapping glitch.");
