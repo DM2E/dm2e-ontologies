@@ -528,7 +528,10 @@ public final class NS {
 		public static final String	PROP_USED					= BASE + "used";
 		public static final String	PROP_WAS_ASSOCIATED_WITH	= BASE + "wasAssociatedWith";
 		public static final String	PROP_WAS_GENERATED_BY		= BASE + "wasGeneratedBy";
-		public static final String	PROP_WAS_REVISION_OF		= BASE + "wasRevisionOf";
+        public static final String	PROP_WAS_REVISION_OF		= BASE + "wasRevisionOf";
+        public static final String	PROP_WAS_STARTED_AT		= BASE + "wasStartedAt";
+        public static final String	PROP_WAS_ENDED_AT		= BASE + "wasEndedAt";
+
 
     }
 
@@ -671,8 +674,11 @@ public final class NS {
 		public static final String BASE = "http://onto.dm2e.eu/UNOFFICIAL/";
 		public static final String PROP_HAS_COLLECTION = BASE + "hasCollection";
 		public static final String PROP_HAS_VERSION    = BASE + "hasVersion";
-		public static final String PROP_CONTAINS_CHO = BASE + "containsCHO";
-	}
+        public static final String PROP_CONTAINS_CHO = BASE + "containsCHO";
+        public static final String PROP_STABILITY = BASE + "stability";
+        public static final String PROP_DM2E_VERSION = BASE + "dm2eVersion";
+        public static final String PROP_VALIDATED_AT_LEVEL = BASE + "validatedAtLevel";
+    }
 	public static final class OAI {
 		public static final String BASE = "http://www.openarchives.org/OAI/2.0/";
 	}

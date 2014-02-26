@@ -12,11 +12,18 @@ import org.slf4j.LoggerFactory;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
-
 import eu.dm2e.NS;
 import eu.dm2e.validation.Dm2eValidationReport;
 import eu.dm2e.validation.ValidationProblemCategory;
 import eu.dm2e.validation.ValidationTest;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Set;
+
+import static org.fest.assertions.Assertions.assertThat;
 
 
 public class BaseValidatorTest extends ValidationTest {
@@ -28,7 +35,7 @@ public class BaseValidatorTest extends ValidationTest {
 	//
 	
 	@Test
-	@Ignore
+    @Ignore
 	public void testPropertyWhiteList() {
 		Set<String> wl = ((BaseValidator) v1_1_rev1_3).getPropertyWhitelist();
 		assertThat(wl.size()).isEqualTo(148);
