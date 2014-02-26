@@ -276,11 +276,6 @@ abstract public class BaseValidator implements Dm2eValidator {
 	@Override
 	public void validate_ore_Aggregation(Model m, Resource agg, Dm2eValidationReport report) {
 
-		if (!agg.hasProperty(prop(m, NS.EDM.PROP_AGGREGATED_CHO))) {
-			// This is bad enough to warrant a FATAL error since the graph is not connected
-			report.add(ValidationLevel.FATAL, ValidationProblemCategory.MISSING_REQUIRED_PROPERTY, agg, NS.EDM.PROP_AGGREGATED_CHO);
-		}
-
 		//
 		// Check mandatory properties
 		//
@@ -311,6 +306,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 		//
 		Resource cho = get_edm_ProvidedCHO_for_ore_Aggregation(m, agg);
 		if (null == cho) {
+			// This is bad enough to warrant a FATAL error since the graph is not connected
 			report.add(ValidationLevel.FATAL,
 					ValidationProblemCategory.MISC,
 					agg,
@@ -335,15 +331,11 @@ abstract public class BaseValidator implements Dm2eValidator {
 		{
 			NodeIterator isaIter = m.listObjectsOfProperty(agg, prop(m, NS.EDM.PROP_IS_SHOWN_AT));
 			NodeIterator isbIter = m.listObjectsOfProperty(agg, prop(m, NS.EDM.PROP_IS_SHOWN_BY));
-			if (!isaIter.hasNext() && !isbIter.hasNext()) report.add(ValidationLevel.ERROR,
+			if (!isaIter.hasNext() && !isbIter.hasNext())
+				report.add(ValidationLevel.ERROR,
 					ValidationProblemCategory.MISC,
 					agg,
 					"Aggregation needs either edm:isShownAt or edm:isShownBy.");
-//	Misleading people https://github.com/DM2E/dm2e-mappings/issues/18#issuecomment-36033484
-//			else if (isaIter.hasNext() && isbIter.hasNext()) report.add(ValidationLevel.NOTICE,
-//					ValidationProblemCategory.MISC,
-//					agg,
-//					"Aggregation contains both edm:isShownAt and edm:isShownBy.");
 
 		}
 
@@ -583,6 +575,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 				|| rdfLang.equals("TURTLE"), "Invalid RDF serialization format '" + rdfLang + "'.");
 		FileInputStream fis = new FileInputStream(rdfData);
 		Model m = ModelFactory.createDefaultModel();
+		// TODO capture Jena warnings here -- somehow. Don't want to dive into Log4j thank you very much
 		m.read(fis, "", rdfLang);
 		return validateWithDm2e(m);
 	}
@@ -598,6 +591,8 @@ abstract public class BaseValidator implements Dm2eValidator {
 	public Dm2eValidationReport validateWithDm2e(Model m) {
 
 		Dm2eValidationReport report = new Dm2eValidationReport(getVersion());
+		
+
 
 		// * check unknown elements
 		validateUnknownProperties(m, report);
@@ -617,6 +612,8 @@ abstract public class BaseValidator implements Dm2eValidator {
 		for (String currentClassUri : validationOrder) {
 			validateWithDm2e(m, currentClassUri, report);
 		}
+		
+		
 		return report;
 
 	}
