@@ -27,32 +27,36 @@
     <xsl:param name="theTEIHeader" as="node()"/>
   
   
-   <!-- Frontpage -->
+   <!-- Frontpage with tei:pb-->
     
+    <!-- <xsl:if test="exists(tei:TEI/tei:text/tei:front/tei:pb)"> -->
+    <!-- <xsl:for-each select="$theTEIHeader"> -->
+      <xsl:choose>
+        <xsl:when test="exists(tei:TEI/tei:text/tei:front/tei:pb)">
+      
       <ore:Aggregation>
+        
         <xsl:attribute name="rdf:about">
           <xsl:value-of select="$aggregation"/>
-            <xsl:for-each select="tei:TEI/tei:text/tei:front/tei:pb">
-              <xsl:choose >
-                <xsl:when test="position()=1">
+          <xsl:for-each select="tei:TEI/tei:text/tei:front/tei:pb">
+                <xsl:if test="position()=1">
                   <xsl:value-of select="concat('page_',@xml:id)"/>
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:variable name="withoutID">
-                    <xsl:value-of select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:seriesStmt/tei:biblScope/@pages"/>
-                  </xsl:variable> 
-                  <xsl:value-of select="concat('page_', substring-after(substring-before($withoutID, ''),'-'))"/>
-                </xsl:otherwise>
-              </xsl:choose>
-              
-              
-            </xsl:for-each>
+                </xsl:if>
+          </xsl:for-each> 
+            
+          <!-- <xsl:if test="exists(.)=false">
+              <xsl:variable name="withoutID">
+                <xsl:value-of select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:seriesStmt/tei:biblScope/@pages"/>
+              </xsl:variable> 
+              <xsl:value-of select="concat('page_', substring-after(substring-before($withoutID, ''),'-'))"/> 
+            </xsl:if> -->
+            
         </xsl:attribute>
         
         <edm:aggregatedCHO>
           
           
-          <!-- Begin CHO (Frontpage) -->
+          <!-- Begin CHO (Frontpage with tei:pb) -->
  
           <edm:ProvidedCHO>
               <xsl:attribute name="rdf:about">
@@ -120,9 +124,13 @@
               </skos:Concept>
             </dc:subject>
             
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">
-              <xsl:value-of select="number(@n)"/>
-            </bibo:number>
+            <xsl:for-each select="tei:TEI/tei:text/tei:front/tei:pb">
+              <xsl:if test="position() = 1">
+              <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">
+                <xsl:value-of select="number(@n)"/>
+              </bibo:number>
+              </xsl:if>
+            </xsl:for-each>
                         
             <pro:author>
               <foaf:Person> 
@@ -147,9 +155,9 @@
               </foaf:Person>
             </pro:author>
             
-            <!-- Related CHOs (Frontpage) -->
+            <!-- Related CHOs (Frontpage with tei:pb) -->
             
-            <dcterms:isPartOf>
+           <!-- <dcterms:isPartOf>
               <edm:ProvidedCHO>
                 <xsl:attribute name="rdf:about">
                   <xsl:value-of select="$cho"/>
@@ -160,7 +168,7 @@
                   </xsl:for-each>
                 </xsl:attribute>
               </edm:ProvidedCHO>
-            </dcterms:isPartOf>    
+            </dcterms:isPartOf> -->
             
             <dcterms:isPartOf>
               <edm:ProvidedCHO>
@@ -200,10 +208,10 @@
           </edm:ProvidedCHO> 
         </edm:aggregatedCHO>
         
-        <!-- End of CHO (Frontpage) -->
+        <!-- End of CHO (Frontpage with tei:pb) -->
 
 
-        <!-- Aggregation (Frontpage) -->
+        <!-- Aggregation (Frontpage with tei:pb) -->
         
         <edm:provider>
           <foaf:Organization>
@@ -332,18 +340,28 @@
                   </foaf:Organization>
                 </dcterms:rightsHolder>
                 <dcterms:isPartOf>
-                  <edm:WebResource>
+                  <edm:ProvidedCHO>
                     <xsl:if test=".">
                       <xsl:attribute name="rdf:about">
+                        <xsl:value-of select="$cho"/>
                         <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">
                           <xsl:if test="position() = 1">
-                            <xsl:value-of select="substring-before(.,'article')"/>
+                            <!-- <xsl:value-of select="substring-before(.,'article')"/> -->
+                            <xsl:value-of select="replace(substring-after(.,'.de/'),'/','_')"/>
                           </xsl:if>
                         </xsl:for-each>
                       </xsl:attribute>
                     </xsl:if>
-                  </edm:WebResource>
+                  </edm:ProvidedCHO>
                 </dcterms:isPartOf>
+                
+                <dc:format>
+                  <xsl:text>text/plain</xsl:text>
+                </dc:format>
+                <dc:format>
+                  <xsl:text>image/jpeg</xsl:text>
+                </dc:format>
+                
               </edm:WebResource>
             </xsl:for-each>
           </edm:isShownBy>
@@ -457,8 +475,476 @@
         </dm2e:displayLevel>
         
       </ore:Aggregation>
+   
+        </xsl:when>
+        
+        <xsl:otherwise>
+  
+  <!-- End of Frontpage with tei:pb -->
     
-  <!-- End of Frontpage -->
+    <!-- Frontpage without tei:pb -->
+    
+        <xsl:if test="exists($theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:seriesStmt/tei:biblScope)">
+        <!-- <xsl:for-each select="tei:TEI/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:seriesStmt/tei:biblScope"> -->
+                <ore:Aggregation>
+                    <xsl:attribute name="rdf:about">
+                      <xsl:value-of select="$aggregation"/>
+                      <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:seriesStmt/tei:biblScope">
+                        <xsl:if test="position() = 3">    
+                          <xsl:variable name="stringback">
+                            <xsl:value-of select="string(substring-before(substring-after(. , 'S. '),'-'))"/>
+                          </xsl:variable>
+                          <xsl:value-of select="if(string-length($stringback)=1)
+                            then concat('page_', $DEF_ARTICLE_NAME , '_','pb00', $stringback)
+                            else if (string-length($stringback) = 2 )
+                            then concat('page_', $DEF_ARTICLE_NAME , '_','pb0', $stringback)
+                            else concat('page_', $DEF_ARTICLE_NAME , '_','pb', $stringback)"/>
+                        </xsl:if>
+                      </xsl:for-each> 
+                    </xsl:attribute>
+            
+                 <edm:aggregatedCHO>
+              
+              
+              <!-- Begin CHO (Frontpage without tei:pb) -->
+     
+              <edm:ProvidedCHO>
+                  <xsl:attribute name="rdf:about">
+                    <xsl:value-of select="$cho"/>
+                    <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:seriesStmt/tei:biblScope">
+                      <xsl:if test="position() = 3">    
+                        <xsl:variable name="stringback">
+                          <xsl:value-of select="string(substring-before(substring-after(. , 'S. '),'-'))"/>
+                        </xsl:variable>
+                        <xsl:value-of select="if(string-length($stringback)=1)
+                          then concat('page_', $DEF_ARTICLE_NAME , '_','pb00', $stringback)
+                          else if (string-length($stringback) = 2 )
+                          then concat('page_', $DEF_ARTICLE_NAME , '_','pb0', $stringback)
+                          else concat('page_', $DEF_ARTICLE_NAME , '_','pb', $stringback)"/>
+                      </xsl:if>
+                    </xsl:for-each> 
+                  </xsl:attribute>
+                
+                <edm:type>
+                  <xsl:text>TEXT</xsl:text>
+                </edm:type>
+                
+                <dc:type>
+                  <xsl:attribute name="rdf:resource">
+                    <xsl:text>http://onto.dm2e.eu/schemas/dm2e/Page</xsl:text>
+                  </xsl:attribute>
+                </dc:type>
+                
+                <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:titleStmt/tei:title">
+                  <xsl:if test="position() = 1">
+                    <dc:title>
+                      <xsl:attribute name="xml:lang">
+                        <xsl:text>de</xsl:text>
+                      </xsl:attribute> 
+                      <xsl:value-of select="."/>
+                    </dc:title>
+                  </xsl:if>
+                  <xsl:if test="position() > 1">
+                    <dc:subtitle>
+                      <xsl:attribute name="xml:lang">
+                        <xsl:text>de</xsl:text>
+                      </xsl:attribute> 
+                      <xsl:value-of select="."/>
+                    </dc:subtitle>
+                  </xsl:if>
+                </xsl:for-each>
+                
+                  <xsl:for-each select="tei:TEI/tei:text/tei:body/tei:div/tei:head">
+                   <xsl:if test="position()=1">
+                    <dcterms:subtitle>
+                    <xsl:attribute name="xml:lang">
+                      <xsl:text>de</xsl:text>
+                    </xsl:attribute>
+                    <xsl:value-of select="."/> 
+                   </dcterms:subtitle>
+                 </xsl:if>
+                  </xsl:for-each> 
+         
+                <dc:language>
+                  <xsl:text>de</xsl:text>
+                </dc:language>
+                
+                <dc:subject>
+                  <skos:Concept>
+                    <xsl:attribute name="rdf:about">
+                      <xsl:value-of select="$subject"/>
+                    </xsl:attribute>
+                    <skos:prefLabel>
+                      <xsl:attribute name="xml:lang">
+                        <xsl:text>en</xsl:text>
+                      </xsl:attribute>
+                      <xsl:value-of select="$DEF_SUBJECT"/>
+                    </skos:prefLabel>
+                  </skos:Concept>
+                </dc:subject>
+                
+                <xsl:for-each select="tei:TEI/tei:text/tei:front/tei:pb">
+                  <xsl:if test="position() = 1">
+                  <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">
+                    <xsl:value-of select="number(@n)"/>
+                  </bibo:number>
+                  </xsl:if>
+                </xsl:for-each>
+                
+                
+                <xsl:if test="exists($theTEIHeader/tei:text/tei:front/tei:titlePart/tei:persName)">
+                <pro:author>
+                  <foaf:Person> 
+                    <xsl:attribute name="rdf:about">
+                      <xsl:value-of select="$agent"/>
+                      <xsl:value-of select="encode-for-uri(replace($AUTHOR, ' ', '_'))"/>
+                      <!-- <xsl:for-each select="$theTEIHeader/tei:text/tei:front/tei:titlePart/tei:persName">
+                        <xsl:if test="position() = 1">
+                          <xsl:value-of select="encode-for-uri(replace(., ' ', '_'))"/>
+                        </xsl:if>
+                      </xsl:for-each> -->
+                    </xsl:attribute>
+                    <!--<xsl:for-each select="$theTEIHeader/tei:text/tei:front/tei:titlePart/tei:persName">
+                      <xsl:if test="position() = 1"> -->
+                        <skos:prefLabel>
+                          <xsl:attribute name="xml:lang">
+                            <xsl:text>de</xsl:text>
+                          </xsl:attribute>
+                          <xsl:value-of select="$AUTHOR"/>
+                        </skos:prefLabel>
+                      <!--</xsl:if>-->
+                    <!--</xsl:for-each>-->
+                  </foaf:Person>
+                </pro:author>
+                </xsl:if>
+                
+                <!-- Related CHOs (Frontpage without tei:pb) -->
+                
+               <!-- <dcterms:isPartOf>
+                  <edm:ProvidedCHO>
+                    <xsl:attribute name="rdf:about">
+                      <xsl:value-of select="$cho"/>
+                      <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblStruct/tei:monogr/tei:idno">
+                        <xsl:if test="position() = 1">
+                          <xsl:value-of select="replace($DEF_DATAPROVIDER, ' ', '_')"/>
+                        </xsl:if>
+                      </xsl:for-each>
+                    </xsl:attribute>
+                  </edm:ProvidedCHO>
+                </dcterms:isPartOf> -->
+                
+                <dcterms:isPartOf>
+                  <edm:ProvidedCHO>
+                    <xsl:attribute name="rdf:about">
+                      <xsl:value-of select="$cho"/>
+                      <!-- <xsl:for-each select="$theTEIHeader/tei:text/tei:front/tei:pb">  
+                        <xsl:if test="position() = 1"> -->
+                          <xsl:value-of select="concat('issue_', $DEF_ARTICLE_NAME)"/>
+                        <!-- </xsl:if> 
+                      </xsl:for-each> -->
+                    </xsl:attribute>
+                  </edm:ProvidedCHO>
+                </dcterms:isPartOf>
+                
+                <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">
+                  <xsl:text>4</xsl:text>
+                </dm2e:levelOfHierarchy>
+                
+                <!-- <edm:isNextInSequence>
+                  <edm:ProvidedCHO>
+                    <xsl:attribute name="rdf:about">
+                      <xsl:value-of select="$cho"/>
+                      <xsl:for-each select="tei:TEI/tei:text/tei:front/tei:pb">
+                        <xsl:value-of select="concat('page_',(substring-before(@xml:id, '_')),'_pb00',(string(number(substring-after(@xml:id, '_pb'))-1)))"/>
+                      </xsl:for-each>
+                    </xsl:attribute>
+                  </edm:ProvidedCHO>
+                </edm:isNextInSequence> 
+              </edm:ProvidedCHO>
+              
+              <dm2e:FrontPages>
+                Kommt von front pages
+              </dm2e:FrontPages> -->
+                
+                
+                  
+              </edm:ProvidedCHO> 
+            </edm:aggregatedCHO>
+            
+            <!-- End of CHO (Frontpage without tei:pb) -->
+    
+    
+            <!-- Aggregation (Frontpage without tei:pb) -->
+            
+            <edm:provider>
+              <foaf:Organization>
+                <xsl:attribute name="rdf:about">
+                  <xsl:value-of select="$dm2e_agent"/>
+                  <xsl:text>DM2E</xsl:text>
+                </xsl:attribute>
+                <skos:prefLabel>
+                  <xsl:attribute name="xml:lang">
+                    <xsl:text>en</xsl:text>
+                  </xsl:attribute>
+                  <xsl:text>DM2E</xsl:text>
+                </skos:prefLabel>
+                <skos:altLabel>
+                  <xsl:attribute name="xml:lang">
+                    <xsl:text>en</xsl:text>
+                  </xsl:attribute>
+                  <xsl:text>Digitised Manuscripts to Europeana</xsl:text>           
+                </skos:altLabel>
+              </foaf:Organization>
+            </edm:provider>
+            
+            <edm:dataProvider>
+              <foaf:Organization>
+                <xsl:attribute name="rdf:about">
+                  <xsl:value-of select="$agent"/>
+                  <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:persName">
+                    <xsl:if test="position() = 1">
+                      <xsl:value-of select="encode-for-uri(.)"/>
+                    </xsl:if>
+                  </xsl:for-each>
+                </xsl:attribute>
+                <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:persName">
+                  <xsl:if test="position() = 1">
+                    <skos:prefLabel>
+                      <xsl:attribute name="xml:lang">
+                        <xsl:text>de</xsl:text>
+                      </xsl:attribute>
+                      <xsl:value-of select="."/>
+                    </skos:prefLabel>
+                  </xsl:if>
+                </xsl:for-each>
+              </foaf:Organization>
+            </edm:dataProvider>
+     
+            <edm:rights>
+              <xsl:attribute name="rdf:resource">
+                <xsl:value-of select="$RIGHTS_RESOURCE"/>
+              </xsl:attribute>
+            </edm:rights>
+     
+            <edm:object>
+              <edm:WebResource>
+                <xsl:attribute name="rdf:about">
+                  <xsl:for-each select="tei:TEI/tei:text/tei:front/tei:pb">
+                    <xsl:if test="position() = 1">
+                      <xsl:value-of select= "concat('http://dingler.culture.hu-berlin.de/journal/page/',
+                        substring-before(@xml:id,'_'),'?p=',substring-after(@facs,'/'))"/>
+                    </xsl:if>
+                  </xsl:for-each>
+                </xsl:attribute>     
+              </edm:WebResource>
+            </edm:object>
+            
+            
+            <dm2e:hasAnnotatableVersionAt>
+              <edm:WebResource>
+                <xsl:attribute name="rdf:about">
+                  <xsl:for-each select="tei:TEI/tei:text/tei:front/tei:pb">
+                    <xsl:if test="position() = 1">
+                      <xsl:value-of select= "concat('http://dingler.culture.hu-berlin.de/journal/page/',
+                        substring-before(@xml:id,'_'),'?p=',substring-after(@facs,'/'))"/>
+                    </xsl:if>
+                  </xsl:for-each>
+                </xsl:attribute>     
+                    <dc:format>
+                      <xsl:text>text/plain</xsl:text>
+                    </dc:format>
+                    <dc:format>
+                      <xsl:text>image/jpeg</xsl:text>
+                    </dc:format>
+              </edm:WebResource>
+            </dm2e:hasAnnotatableVersionAt> 
+            
+               <edm:isShownBy>
+                <xsl:for-each select=".">
+                  <edm:WebResource>
+                    <xsl:if test=".">
+                      <xsl:attribute name="rdf:about">
+                        <xsl:for-each select="tei:TEI/tei:text/tei:front/tei:pb">
+                          <xsl:if test="position() = 1">
+                            <xsl:value-of select="concat('http://dingler.culture.hu-berlin.de/journal/page/',
+                              substring-before(@xml:id,'_'),'?p=',substring-after(@facs,'/'))"/>
+                          </xsl:if>
+                        </xsl:for-each>
+                      </xsl:attribute>
+                    </xsl:if>
+                    <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:seriesStmt/tei:title">
+                      <dc:description>
+                        <xsl:attribute name="xml:lang">
+                          <xsl:text>de</xsl:text>
+                        </xsl:attribute>
+                        <xsl:value-of select="."/>
+                      </dc:description>
+                    </xsl:for-each>
+                    <dcterms:rightsHolder>
+                      <foaf:Organization>
+                        <xsl:attribute name="rdf:about">
+                          <xsl:value-of select="$agent"/>
+                          <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:persName">
+                            <xsl:if test="position() = 1">
+                              <xsl:value-of select="encode-for-uri(.)"/>
+                            </xsl:if>
+                          </xsl:for-each>
+                        </xsl:attribute>
+                        <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:persName">
+                          <xsl:if test="position() = 1">
+                            <skos:prefLabel>
+                              <xsl:attribute name="xml:lang">
+                                <xsl:text>de</xsl:text>
+                              </xsl:attribute>
+                              <xsl:value-of select="."/>
+                            </skos:prefLabel>
+                          </xsl:if>
+                        </xsl:for-each>
+                      </foaf:Organization>
+                    </dcterms:rightsHolder>
+                    <dcterms:isPartOf>
+                      <edm:ProvidedCHO>
+                        <xsl:if test=".">
+                          <xsl:attribute name="rdf:about">
+                            <xsl:value-of select="$cho"/>
+                            <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">
+                              <xsl:if test="position() = 1">
+                                <!-- <xsl:value-of select="substring-before(.,'article')"/> -->
+                                <xsl:value-of select="replace(substring-after(.,'.de/'),'/','_')"/>
+                              </xsl:if>
+                            </xsl:for-each>
+                          </xsl:attribute>
+                        </xsl:if>
+                      </edm:ProvidedCHO>
+                    </dcterms:isPartOf>
+                    
+                    <dc:format>
+                      <xsl:text>text/plain</xsl:text>
+                    </dc:format>
+                    <dc:format>
+                      <xsl:text>image/jpeg</xsl:text>
+                    </dc:format>
+                    
+                  </edm:WebResource>
+                </xsl:for-each>
+              </edm:isShownBy>
+            
+            <dc:creator>
+              <foaf:Organization>
+                <xsl:attribute name="rdf:about">
+                  <xsl:value-of select="$agent"/>
+                  <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:persName">
+                    <xsl:if test="position() = 1">
+                      <xsl:value-of select="encode-for-uri(.)"/>
+                    </xsl:if>
+                  </xsl:for-each>
+                </xsl:attribute>
+                <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:persName">
+                  <xsl:if test="position() = 1">
+                    <skos:prefLabel>
+                      <xsl:attribute name="xml:lang">
+                        <xsl:text>de</xsl:text>
+                      </xsl:attribute>
+                      <xsl:value-of select="."/>
+                    </skos:prefLabel>
+                  </xsl:if>
+                </xsl:for-each>
+              </foaf:Organization>
+            </dc:creator>
+            
+            <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:date/@when">
+              <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">
+                    <xsl:if test="position() = 1">
+                      <xsl:value-of select="dateTime(xs:date(.),$start)"/>
+                    </xsl:if>
+              </dcterms:created>
+            </xsl:for-each>
+            
+            <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:persName">
+              <dc:contributor>
+                <foaf:Person>
+                  <xsl:attribute name="rdf:about">
+                    <xsl:value-of select="$agent"/>
+                    <xsl:for-each select=".">
+                      <xsl:if test="position() = 1">
+                        <xsl:value-of select="encode-for-uri(.)"/>
+                      </xsl:if>
+                    </xsl:for-each>
+                  </xsl:attribute>
+                  <xsl:for-each select=".">
+                    <xsl:if test="position() = 1">
+                      <skos:prefLabel>
+                        <xsl:attribute name="xml:lang">
+                          <xsl:text>de</xsl:text>
+                        </xsl:attribute>
+                        <xsl:value-of select="."/>
+                      </skos:prefLabel>
+                    </xsl:if>
+                  </xsl:for-each>
+                </foaf:Person>
+              </dc:contributor>
+            </xsl:for-each>
+            
+            <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:orgName">
+              <dc:contributor>
+                <foaf:Organization>
+                  <xsl:attribute name="rdf:about">
+                    <xsl:value-of select="$agent"/>
+                    <xsl:for-each select=".">
+                      <xsl:if test="position() = 1">
+                        <xsl:value-of select="encode-for-uri(.)"/>
+                      </xsl:if>
+                    </xsl:for-each>
+                  </xsl:attribute>
+                  <xsl:for-each select=".">
+                    <xsl:if test="position() = 1">
+                      <skos:prefLabel>
+                        <xsl:attribute name="xml:lang">
+                          <xsl:text>de</xsl:text>
+                        </xsl:attribute>
+                        <xsl:value-of select="."/>
+                      </skos:prefLabel>
+                    </xsl:if>
+                  </xsl:for-each>
+                </foaf:Organization>
+              </dc:contributor>
+            </xsl:for-each>
+            
+            <dc:contributor>
+              <foaf:Organization>
+                <xsl:attribute name="rdf:about">
+                  <xsl:value-of select="$agent"/>
+                  <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:publisher/tei:orgName">
+                    <xsl:if test="position() = 1">
+                      <xsl:value-of select="replace(., ' ', '_')"/>
+                    </xsl:if>
+                  </xsl:for-each>
+                </xsl:attribute>
+                <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:publisher/tei:orgName">
+                  <xsl:if test="position() = 1">
+                    <skos:prefLabel>
+                      <xsl:attribute name="xml:lang">
+                        <xsl:text>de</xsl:text>
+                      </xsl:attribute>
+                      <xsl:value-of select="."/> 
+                    </skos:prefLabel>
+                  </xsl:if>
+                </xsl:for-each>
+              </foaf:Organization>
+            </dc:contributor>
+            
+            <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">
+              <xsl:text>false</xsl:text>
+            </dm2e:displayLevel>
+            
+          </ore:Aggregation>
+       
+              <!-- </xsl:for-each>  -->
+        </xsl:if>
+        </xsl:otherwise>
+      </xsl:choose>
+    <!-- </xsl:for-each> -->
+  <!-- End of Frontpage without tei:pb -->
   
   
   <!-- Remaining pages --> 
@@ -574,33 +1060,33 @@
               </skos:Concept>
             </dc:subject>
             
-            
-             
-             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">
                <xsl:value-of select="number(@n)"/>
-             </bibo:number>
-             
+            </bibo:number>
              
              <pro:author>
                <foaf:Person> 
-                 <xsl:attribute name="rdf:about">
-                   <xsl:value-of select="$agent"/>
-                   <xsl:for-each select="tei:TEI/tei:text/tei:front/tei:titlePart/tei:persName">
-                     <xsl:if test="position() = 1">
-                       <xsl:value-of select="encode-for-uri(replace(., ' ', '_'))"/>
-                     </xsl:if>
-                   </xsl:for-each>
-                 </xsl:attribute>
-                 <xsl:for-each select="tei:TEI/tei:text/tei:front/tei:titlePart/tei:persName">
-                   <xsl:if test="position() = 1">
+                   <foaf:Person> 
+                     <xsl:attribute name="rdf:about">
+                       <xsl:value-of select="$agent"/>
+                       <xsl:value-of select="encode-for-uri(replace($AUTHOR, ' ', '_'))"/>
+                       <!-- <xsl:for-each select="$theTEIHeader/tei:text/tei:front/tei:titlePart/tei:persName">
+                        <xsl:if test="position() = 1">
+                          <xsl:value-of select="encode-for-uri(replace(., ' ', '_'))"/>
+                        </xsl:if>
+                      </xsl:for-each> -->
+                     </xsl:attribute>
+                     <!--<xsl:for-each select="$theTEIHeader/tei:text/tei:front/tei:titlePart/tei:persName">
+                      <xsl:if test="position() = 1"> -->
                      <skos:prefLabel>
                        <xsl:attribute name="xml:lang">
                          <xsl:text>de</xsl:text>
                        </xsl:attribute>
-                       <xsl:value-of select="."/>
+                       <xsl:value-of select="$AUTHOR"/>
                      </skos:prefLabel>
-                   </xsl:if>
-                 </xsl:for-each>
+                     <!--</xsl:if>-->
+                     <!--</xsl:for-each>-->
+                   </foaf:Person>
                </foaf:Person>
              </pro:author>
      
@@ -809,6 +1295,14 @@
                     </dcterms:rightsHolder>
                   </edm:WebResource>
                 </edm:isDerivativeOf>
+                
+                <dc:format>
+                  <xsl:text>text/plain</xsl:text>
+                </dc:format>
+                <dc:format>
+                  <xsl:text>image/jpeg</xsl:text>
+                </dc:format>
+                
               </edm:WebResource>
             </xsl:for-each>
           </edm:isShownBy>
@@ -925,6 +1419,7 @@
       </ore:Aggregation>
     </xsl:for-each>
     
+  
      <!-- Remaining pages under div:p:pb--> 
     
     <xsl:for-each select="tei:TEI/tei:text/tei:body/tei:div/tei:p/tei:pb">
@@ -1040,10 +1535,9 @@
                </skos:Concept>
              </dc:subject>
             
-             
              <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">
-               <xsl:value-of select="@n"/>
-            </bibo:number>
+                <xsl:value-of select="number(@n)"/>
+             </bibo:number>
              
       <!-- To do: Hier klappt pro:author nicht -->
       
@@ -1051,22 +1545,23 @@
                <foaf:Person> 
                  <xsl:attribute name="rdf:about">
                    <xsl:value-of select="$agent"/>
-                   <xsl:for-each select="tei:TEI/tei:text/tei:front/tei:titlePart/tei:persName">
-                     <xsl:if test="position() = 1">
-                       <xsl:value-of select="encode-for-uri(replace(., ' ', '_'))"/>
-                     </xsl:if>
-                   </xsl:for-each>
+                   <xsl:value-of select="encode-for-uri(replace($AUTHOR, ' ', '_'))"/>
+                   <!-- <xsl:for-each select="$theTEIHeader/tei:text/tei:front/tei:titlePart/tei:persName">
+                        <xsl:if test="position() = 1">
+                          <xsl:value-of select="encode-for-uri(replace(., ' ', '_'))"/>
+                        </xsl:if>
+                      </xsl:for-each> -->
                  </xsl:attribute>
-                 <xsl:for-each select="tei:TEI/tei:text/tei:front/tei:titlePart/tei:persName">
-                   <xsl:if test="position() = 1">
-                     <skos:prefLabel>
-                       <xsl:attribute name="xml:lang">
-                         <xsl:text>de</xsl:text>
-                       </xsl:attribute>
-                       <xsl:value-of select="."/>
-                     </skos:prefLabel>
-                   </xsl:if>
-                 </xsl:for-each>
+                 <!--<xsl:for-each select="$theTEIHeader/tei:text/tei:front/tei:titlePart/tei:persName">
+                      <xsl:if test="position() = 1"> -->
+                 <skos:prefLabel>
+                   <xsl:attribute name="xml:lang">
+                     <xsl:text>de</xsl:text>
+                   </xsl:attribute>
+                   <xsl:value-of select="$AUTHOR"/>
+                 </skos:prefLabel>
+                 <!--</xsl:if>-->
+                 <!--</xsl:for-each>-->
                </foaf:Person>
              </pro:author>
      
@@ -1247,6 +1742,14 @@
                     </xsl:attribute>
                   </xsl:if>
                 </edm:isDerivativeOf>
+                
+                <dc:format>
+                  <xsl:text>text/plain</xsl:text>
+                </dc:format>
+                <dc:format>
+                  <xsl:text>image/jpeg</xsl:text>
+                </dc:format>
+                
               </edm:WebResource>
             </xsl:for-each>
           </edm:isShownBy>

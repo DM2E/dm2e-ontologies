@@ -30,6 +30,7 @@
             </dc:subject>
             <dcterms:issued>
                <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1820-01-01T00%2000%2000UG_1820-12-31T23%2059%2059UG">
+                  <skos:prefLabel>1820</skos:prefLabel>
                   <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1820-01-01T00:00:00</edm:begin>
                   <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1820-12-31T23:59:59</edm:end>
                </edm:TimeSpan>
@@ -179,6 +180,7 @@
             </dc:subject>
             <dcterms:issued>
                <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1820-01-01T00%2000%2000UG_1820-12-31T23%2059%2059UG">
+                  <skos:prefLabel>1820</skos:prefLabel>
                   <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1820-01-01T00:00:00</edm:begin>
                   <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1820-12-31T23:59:59</edm:end>
                </edm:TimeSpan>
@@ -227,6 +229,8 @@
             <edm:isDerivativeOf>
                <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/"/>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownAt>
       <edm:object>
@@ -335,7 +339,7 @@
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:pages2>S. 1-34</bibo:pages2>
+            <bibo:pages>1-34</bibo:pages>
             <dcterms:tableOfContents xml:lang="de">1. Vorzuͤge der hydraulischen Presse.
 2. Hauptzweck dieses Aufsazes.
 3. Hydrostatischer Grundsaz, auf welchem die Presse beruht.
@@ -517,15 +521,12 @@
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">NaN</bibo:number>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</bibo:number>
             <pro:author>
                <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
                   <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
-            <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/"/>
-            </dcterms:isPartOf>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
             </dcterms:isPartOf>
@@ -561,8 +562,10 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <dcterms:isPartOf>
-               <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj001_ar001001"/>
             </dcterms:isPartOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -664,7 +667,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -714,6 +721,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -815,7 +824,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -865,6 +878,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -966,7 +981,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -1016,6 +1035,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -1117,7 +1138,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -1167,6 +1192,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -1268,7 +1295,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -1318,6 +1349,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -1419,7 +1452,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -1469,6 +1506,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -1570,7 +1609,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -1620,6 +1663,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -1721,7 +1766,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -1771,6 +1820,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -1872,7 +1923,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -1922,6 +1977,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -2023,7 +2080,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -2073,6 +2134,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -2174,7 +2237,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">13</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -2224,6 +2291,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -2325,7 +2394,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">15</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -2375,6 +2448,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -2476,7 +2551,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">17</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -2526,6 +2605,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -2627,7 +2708,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">19</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -2677,6 +2762,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -2778,7 +2865,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">21</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -2828,6 +2919,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -2929,7 +3022,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">22</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -2979,6 +3076,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -3080,7 +3179,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">23</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -3130,6 +3233,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -3231,7 +3336,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">25</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -3281,6 +3390,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -3382,7 +3493,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">27</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -3432,6 +3547,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -3533,7 +3650,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">30</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -3583,6 +3704,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -3684,7 +3807,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">32</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -3734,6 +3861,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -3835,7 +3964,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">34</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -3885,6 +4018,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -3986,7 +4121,9 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -4028,6 +4165,8 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -4129,7 +4268,9 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">14</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -4171,6 +4312,8 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -4272,7 +4415,9 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">16</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -4314,6 +4459,8 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -4415,7 +4562,9 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">18</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -4457,6 +4606,8 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -4558,7 +4709,9 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">20</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -4600,6 +4753,8 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -4701,7 +4856,9 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">24</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -4743,6 +4900,8 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -4844,7 +5003,9 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">26</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -4886,6 +5047,8 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -4987,7 +5150,9 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">28</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -5029,6 +5194,8 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -5130,7 +5297,9 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">29</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -5172,6 +5341,8 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -5273,7 +5444,9 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">31</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -5315,6 +5488,8 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -5416,7 +5591,9 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj001"/>
@@ -5458,6 +5635,8 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>

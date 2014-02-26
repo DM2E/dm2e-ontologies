@@ -30,6 +30,7 @@
             </dc:subject>
             <dcterms:issued>
                <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1898-01-01T00%2000%2000UG_1898-12-31T23%2059%2059UG">
+                  <skos:prefLabel>1898</skos:prefLabel>
                   <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1898-01-01T00:00:00</edm:begin>
                   <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1898-12-31T23:59:59</edm:end>
                </edm:TimeSpan>
@@ -179,6 +180,7 @@
             </dc:subject>
             <dcterms:issued>
                <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1898-01-01T00%2000%2000UG_1898-12-31T23%2059%2059UG">
+                  <skos:prefLabel>1898</skos:prefLabel>
                   <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1898-01-01T00:00:00</edm:begin>
                   <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1898-12-31T23:59:59</edm:end>
                </edm:TimeSpan>
@@ -226,6 +228,8 @@
             <edm:isDerivativeOf>
                <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/"/>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownAt>
       <edm:object>
@@ -334,7 +338,7 @@
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:pages2>S. 81-83</bibo:pages2>
+            <bibo:pages>81-83</bibo:pages>
             <dcterms:tableOfContents xml:lang="de"/>
             <pro:author>
                <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
@@ -465,9 +469,9 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj310_pb081">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj310_pb081">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Kraftmaschinen.Neuerungen an Dampfmaschinen.</dc:title>
@@ -479,15 +483,8 @@
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">NaN</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
-            </pro:author>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/"/>
-            </dcterms:isPartOf>
-            <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj310"/>
             </dcterms:isPartOf>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -521,8 +518,10 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <dcterms:isPartOf>
-               <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj310_ar310025"/>
             </dcterms:isPartOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -624,7 +623,11 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">83</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person>
+                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/">
+                     <skos:prefLabel xml:lang="de"/>
+                  </foaf:Person>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj310"/>
@@ -674,6 +677,8 @@
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -775,7 +780,9 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">82</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/">
+                  <skos:prefLabel xml:lang="de"/>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj310"/>
@@ -817,6 +824,8 @@
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>

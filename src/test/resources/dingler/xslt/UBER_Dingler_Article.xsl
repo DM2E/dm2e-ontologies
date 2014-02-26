@@ -97,23 +97,14 @@
               </skos:Concept>
             </dc:subject>
             
-            <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:seriesStmt/tei:idno">
-              <xsl:if test="position() = 2">
-                <bibo:pages>
-                  <xsl:value-of select="."/>
-                </bibo:pages>
-              </xsl:if>
-            </xsl:for-each>
-            
-          
-              <bibo:pages2>
 
+            <bibo:pages>
                 <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:seriesStmt/tei:biblScope">
                   <xsl:if test="position() = 3">
-                                    <xsl:value-of select="."/>
+                    <xsl:value-of select="substring-after(.,'S. ')"/>
                   </xsl:if>
                 </xsl:for-each>  
-              </bibo:pages2>
+              </bibo:pages>
             
             
             <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblStruct/tei:monogr/tei:imprint/tei:biblScope">

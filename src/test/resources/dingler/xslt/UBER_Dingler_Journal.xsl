@@ -101,10 +101,16 @@
                     <xsl:if test="position() = 1">
                       <xsl:call-template name="dateTimePeriod"/>
                     </xsl:if>
-                  </xsl:for-each>
+                  </xsl:for-each>        
                 </xsl:attribute>
                 
+                
+                
                 <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:publicationStmt/tei:date">
+                  
+                  <skos:prefLabel>
+                    <xsl:value-of select="."/> 
+                  </skos:prefLabel>
                                              
                   <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">
                     <xsl:if test="position() = 1">
@@ -114,6 +120,7 @@
                   </edm:begin>
                   
                 </xsl:for-each>
+                
                 <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:publicationStmt/tei:date">
                   
                   <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">
@@ -122,7 +129,7 @@
                     <xsl:value-of select="dateTime($date,$end)"/>
                     </xsl:if>
                   </edm:end>
-                  
+       
                 </xsl:for-each>
               </edm:TimeSpan>
             </dcterms:issued>

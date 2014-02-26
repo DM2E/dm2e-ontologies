@@ -116,6 +116,11 @@
                             </xsl:attribute>
                             
                             <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:publicationStmt/tei:date">
+                                
+                                <skos:prefLabel>
+                                    <xsl:value-of select="."/> 
+                                </skos:prefLabel>
+                                
                                 <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">
                                     <xsl:if test="position() = 1">
                                         <xsl:variable name="date" select="xs:date((concat(.,'-01-01')))"/>
@@ -123,6 +128,7 @@
                                     </xsl:if>
                                 </edm:begin>
                             </xsl:for-each>
+                            
                             <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:publicationStmt/tei:date">
                                 <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">
                                     <xsl:if test="position() = 1">
@@ -131,6 +137,7 @@
                                     </xsl:if>
                                 </edm:end>
                             </xsl:for-each>
+                            
                         </edm:TimeSpan>
                     </dcterms:issued>
                     
@@ -383,6 +390,13 @@
                                     </xsl:if>
                                 </edm:WebResource>
                             </edm:isDerivativeOf>
+                            
+                            <dc:format>
+                                <xsl:text>text/plain</xsl:text>
+                            </dc:format>
+                            <dc:format>
+                                <xsl:text>image/jpeg</xsl:text>
+                            </dc:format>
                         </edm:WebResource>
                     </xsl:for-each>
                 </edm:isShownAt>

@@ -25,14 +25,23 @@
   <!--
 	Mappings: Polytechnisches Journal (Dingler) to DM2E Version 1.1 Revision 1.3
 	
-	Version:	1.10
-	Date:		  2014-02-19
+	Version:	1.12
+	Date:		  2014-02-25
 	Authors:	Evelyn Dröge     evelyn.droege@ibi.hu-berlin.de
 	          Julia Iwanowa    julia.iwanowa@ibi.hu-berlin.de
 	          	
 	         
 	         
 	LOG:
+	
+	Version:  1.12
+	          - bibo:number works (no more NaN error)
+	          - Added Aggregation and CHOs for Frontpages without tei:pb
+	          - Added dc:format to all Webresources (todos: check the double dc:format??)
+	          
+	Version:  1.11
+	          - Added bibo:pages for articles
+	
 	
 	Version:  1.10
 	          - Updated page, issue, article URIs to page_, issue_, article_
@@ -135,7 +144,16 @@
   <!-- Default subject -->
   <xsl:param name="DEF_SUBJECT">19th century engineering and natural sciences</xsl:param>
   <xsl:variable name="DEF_SUBJECT_URI" select="replace($DEF_SUBJECT, ' ', '_')"/>
-
+  <!-- Default article ID -->
+  <xsl:param name="XML_ID" select="tei:TEI/tei:text/tei:body/tei:div/tei:pb/@xml:id"/>
+  <xsl:variable name="DEF_ARTICLE_NAME" select="substring-before($XML_ID, '_')"/>
+  <!--<xsl:param name="XML_ID" select="tei:TEI/tei:fileDesc/tei:publicationStmt/tei:idno"/>
+  <xsl:variable name="DEF_ARTICLE_NAME" select="substring-after(substring-before($XML_ID,'http://dingler.culture.hu-berlin.de/article/'), '/')"/>-->
+  
+  <!-- Default author name -->
+  <xsl:variable name="AUTHOR" select="tei:TEI/tei:text/tei:front/tei:titlePart/tei:persName"/>
+  
+  
   <!-- DM2E URIs -->
   <!-- aggregation -->
   <xsl:variable name="aggregation" select="concat($baseURI, 'aggregation', $PROV_REP)"/>
