@@ -72,9 +72,6 @@ public class Dm2eValidator_1_1_Rev_1_2 extends BaseValidator {
 
 	@Override public Set<Property> build_ore_Aggregation_AnnotatableWebResource_Properties(Model m) {
 		Set<Property> req = new HashSet<>();
-		req.add(prop(m, NS.EDM.PROP_IS_SHOWN_BY));
-		req.add(prop(m, NS.EDM.PROP_IS_SHOWN_AT));
-		req.add(prop(m, NS.EDM.PROP_OBJECT));
 		req.add(prop(m, NS.DM2E.PROP_HAS_ANNOTABLE_VERSION_AT));
 		return req;
 	}
