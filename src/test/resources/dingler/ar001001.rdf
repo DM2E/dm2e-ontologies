@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF xmlns:bibo="http://purl.org/ontology/bibo/"
+<rdf:RDF xmlns:base="http://onto.dm2e.eu/schemas/dm2e/"
+         xmlns:bibo="http://purl.org/ontology/bibo/"
          xmlns:dc="http://purl.org/dc/elements/1.1/"
          xmlns:dcterms="http://purl.org/dc/terms/"
          xmlns:dm2e="http://onto.dm2e.eu/schemas/dm2e/"
@@ -667,10 +668,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -824,10 +823,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -981,10 +978,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -1138,10 +1133,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -1295,10 +1288,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -1452,10 +1443,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -1609,10 +1598,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -1766,10 +1753,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -1923,10 +1908,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -2080,10 +2063,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -2237,10 +2218,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">13</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -2394,10 +2373,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">15</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -2551,10 +2528,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">17</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -2708,10 +2683,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">19</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -2865,10 +2838,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">21</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -3022,10 +2993,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">22</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -3179,10 +3148,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">23</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -3336,10 +3303,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">25</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -3493,10 +3458,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">27</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -3650,10 +3613,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">30</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -3807,10 +3768,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">32</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
@@ -3964,10 +3923,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">34</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
-                     <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Marechaux">
+                  <skos:prefLabel xml:lang="de">Marechaux</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>

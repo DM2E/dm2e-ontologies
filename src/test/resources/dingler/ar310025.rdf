@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF xmlns:bibo="http://purl.org/ontology/bibo/"
+<rdf:RDF xmlns:base="http://onto.dm2e.eu/schemas/dm2e/"
+         xmlns:bibo="http://purl.org/ontology/bibo/"
          xmlns:dc="http://purl.org/dc/elements/1.1/"
          xmlns:dcterms="http://purl.org/dc/terms/"
          xmlns:dm2e="http://onto.dm2e.eu/schemas/dm2e/"
@@ -623,10 +624,8 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">83</bibo:number>
             <pro:author>
-               <foaf:Person>
-                  <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/">
-                     <skos:prefLabel xml:lang="de"/>
-                  </foaf:Person>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/">
+                  <skos:prefLabel xml:lang="de"/>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
