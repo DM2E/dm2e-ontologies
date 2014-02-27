@@ -36,7 +36,7 @@ import eu.dm2e.validation.ValidationProblemCategory;
 
 abstract public class BaseValidator implements Dm2eValidator {
 
-	public static final String	RELATIVE_URL_BASE	= "http://RELATIVE_URL/";
+	public static final String	RELATIVE_URL_BASE	= "http://example.com/relative/";
 
 	public abstract InputStream getOwlInputStream();
 	
