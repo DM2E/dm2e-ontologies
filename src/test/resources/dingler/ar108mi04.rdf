@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF xmlns:bibo="http://purl.org/ontology/bibo/"
+<rdf:RDF xmlns:base="http://onto.dm2e.eu/schemas/dm2e/"
+         xmlns:bibo="http://purl.org/ontology/bibo/"
          xmlns:dc="http://purl.org/dc/elements/1.1/"
          xmlns:dcterms="http://purl.org/dc/terms/"
          xmlns:dm2e="http://onto.dm2e.eu/schemas/dm2e/"
@@ -30,6 +31,7 @@
             </dc:subject>
             <dcterms:issued>
                <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1848-01-01T00%2000%2000UG_1848-12-31T23%2059%2059UG">
+                  <skos:prefLabel>1848</skos:prefLabel>
                   <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1848-01-01T00:00:00</edm:begin>
                   <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1848-12-31T23:59:59</edm:end>
                </edm:TimeSpan>
@@ -179,6 +181,7 @@
             </dc:subject>
             <dcterms:issued>
                <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1848-01-01T00%2000%2000UG_1848-12-31T23%2059%2059UG">
+                  <skos:prefLabel>1848</skos:prefLabel>
                   <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1848-01-01T00:00:00</edm:begin>
                   <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1848-12-31T23:59:59</edm:end>
                </edm:TimeSpan>
@@ -226,6 +229,8 @@
             <edm:isDerivativeOf>
                <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/"/>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownAt>
       <edm:object>
@@ -332,7 +337,7 @@
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:pages2>S. 315-320</bibo:pages2>
+            <bibo:pages>315-320</bibo:pages>
             <dcterms:tableOfContents xml:lang="de">Ueber Ventilatorgebläse.
 Ueber die Färbung des mit Gaskalk bereiteten Mörtels; von J.     Girardin.
 Ueber durchscheinende und undurchsichtige arsenige Säure, von     Bussy.
@@ -490,28 +495,21 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj108_pb315">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj108_pb315">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Miscellen.</dc:title>
-            <dcterms:subtitle xml:lang="de">Ueber Ventilatorgebläse.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">Ueber Ventilatorgebläse.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">NaN</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
-            </pro:author>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/"/>
-            </dcterms:isPartOf>
-            <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj108"/>
             </dcterms:isPartOf>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -545,8 +543,10 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
                </foaf:Organization>
             </dcterms:rightsHolder>
             <dcterms:isPartOf>
-               <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj108_ar108mi04"/>
             </dcterms:isPartOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -637,7 +637,7 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Miscellen.</dc:title>
-            <dcterms:subtitle xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -646,7 +646,9 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">316</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/">
+                  <skos:prefLabel xml:lang="de"/>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj108"/>
@@ -696,6 +698,8 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -786,8 +790,8 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Miscellen.</dc:title>
-            <dcterms:subtitle xml:lang="de">Ueber die Färbung des mit Gaskalk bereiteten Mörtels; von J.
-                                        Girardin.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">Ueber die Färbung des mit Gaskalk bereiteten Mörtels; von J.
+                                        Girardin.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -796,7 +800,9 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">317</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/">
+                  <skos:prefLabel xml:lang="de"/>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj108"/>
@@ -846,6 +852,8 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -936,7 +944,7 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Miscellen.</dc:title>
-            <dcterms:subtitle xml:lang="de">Die Zuckerproduction der englischen Colonien.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">Die Zuckerproduction der englischen Colonien.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -945,7 +953,9 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">319</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/">
+                  <skos:prefLabel xml:lang="de"/>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj108"/>
@@ -995,6 +1005,8 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
                   </dcterms:rightsHolder>
                </edm:WebResource>
             </edm:isDerivativeOf>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -1085,8 +1097,8 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Miscellen.</dc:title>
-            <dcterms:subtitle5 xml:lang="de">Ueber durchscheinende und undurchsichtige arsenige Säure, von
-                                        Bussy.</dcterms:subtitle5>
+            <dm2e:subtitle xml:lang="de">Ueber durchscheinende und undurchsichtige arsenige Säure, von
+                                        Bussy.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -1095,7 +1107,9 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">318</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/">
+                  <skos:prefLabel xml:lang="de"/>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj108"/>
@@ -1137,6 +1151,8 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>
@@ -1227,7 +1243,7 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Miscellen.</dc:title>
-            <dcterms:subtitle4 xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -1236,7 +1252,9 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">320</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/"/>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/">
+                  <skos:prefLabel xml:lang="de"/>
+               </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
                <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj108"/>
@@ -1278,6 +1296,8 @@ Das Trockenlegen der Felder und Ländereien mittelst irdener Röhren, in England
                </foaf:Organization>
             </dcterms:rightsHolder>
             <edm:isDerivativeOf rdf:resource="http://dingler.culture.hu-berlin.de/"/>
+            <dc:format>text/plain</dc:format>
+            <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:isShownBy>
       <dc:creator>

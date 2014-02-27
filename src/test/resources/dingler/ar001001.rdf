@@ -332,8 +332,8 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://purl.org/spar/fabio/Article"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -513,9 +513,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">1. Vorzuͤge der hydraulischen Presse.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">1. Vorzuͤge der hydraulischen Presse.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -657,9 +657,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -812,9 +812,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">4. Naͤhere Beziehung dieser Praͤmissen auf die hydraulische Presse.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">4. Naͤhere Beziehung dieser Praͤmissen auf die hydraulische Presse.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -967,9 +967,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -1122,9 +1122,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">6. Wesentliche Bestandtheile einer hydraulischen Presse.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">6. Wesentliche Bestandtheile einer hydraulischen Presse.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -1277,9 +1277,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -1432,9 +1432,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -1587,9 +1587,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">10. Der Druck eines Druckkolbens läßt sich auf die korrespondirende senkrechte Hoͤhe eines Druckrohrs zuruͤckfuͤhren.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">10. Der Druck eines Druckkolbens läßt sich auf die korrespondirende senkrechte Hoͤhe eines Druckrohrs zuruͤckfuͤhren.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -1742,9 +1742,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -1897,9 +1897,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -2052,9 +2052,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -2207,9 +2207,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">11. Scheinbare Anomalie zwischen der Wirkung des Druckkolbens und des Druckrohrs.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">11. Scheinbare Anomalie zwischen der Wirkung des Druckkolbens und des Druckrohrs.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -2362,9 +2362,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">14. Zweite Methode.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">14. Zweite Methode.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -2517,9 +2517,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">16. Schuzmittel gegen die Wirkungen einer zu großen Druckkraft.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">16. Schuzmittel gegen die Wirkungen einer zu großen Druckkraft.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -2672,9 +2672,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -2827,9 +2827,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">21. Nothwendige Bestimmung des Maximums der Wirkung der Presse, zu welcher dieser Druckmesser verfertiget werden soll.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">21. Nothwendige Bestimmung des Maximums der Wirkung der Presse, zu welcher dieser Druckmesser verfertiget werden soll.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -2982,9 +2982,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">22. Bestimmung des Maximums der Preßkraft.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">22. Bestimmung des Maximums der Preßkraft.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -3137,9 +3137,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">23. Bestimmung des Durchmessers des Kolbenrohrs.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">23. Bestimmung des Durchmessers des Kolbenrohrs.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -3292,9 +3292,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">25. Bestimmung der Laͤnge des Hebelarms der Kraft.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">25. Bestimmung der Laͤnge des Hebelarms der Kraft.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -3447,9 +3447,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">27. Methode, die Grade fuͤr die Eintheilung des Quadranten zu berechnen.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">27. Methode, die Grade fuͤr die Eintheilung des Quadranten zu berechnen.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -3602,9 +3602,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">33. Presse, die nach unten zu wirkt.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">33. Presse, die nach unten zu wirkt.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -3757,9 +3757,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de">34. Beschreibung einer Presse, die nach oben zu wirkt.</dcterms:subtitle>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">34. Beschreibung einer Presse, die nach oben zu wirkt.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -3912,9 +3912,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -4067,9 +4067,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle5 xml:lang="de">8. Einige Folgerungen aus diesen Saͤzen.</dcterms:subtitle5>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">8. Einige Folgerungen aus diesen Saͤzen.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -4214,9 +4214,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle5 xml:lang="de">12. Methoden, die Wirksamkeit hydraulischer Pressen zu berechnen.</dcterms:subtitle5>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">12. Methoden, die Wirksamkeit hydraulischer Pressen zu berechnen.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -4361,9 +4361,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle5 xml:lang="de">15. Berechnung der Momente, aus welchen sich die Kraft zusammensezt, die den Druckkolben treibt.</dcterms:subtitle5>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">15. Berechnung der Momente, aus welchen sich die Kraft zusammensezt, die den Druckkolben treibt.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -4508,9 +4508,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle5 xml:lang="de">17. Schaͤzungsmittel fuͤr die jedesmalige Groͤße des Druckes.</dcterms:subtitle5>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">17. Schaͤzungsmittel fuͤr die jedesmalige Groͤße des Druckes.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -4655,9 +4655,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle5 xml:lang="de">19. Neuer Druckmesser vom Verfasser dieser Schrift.</dcterms:subtitle5>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">19. Neuer Druckmesser vom Verfasser dieser Schrift.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -4802,9 +4802,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle4 xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -4949,9 +4949,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle4 xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -5096,9 +5096,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle5 xml:lang="de">29. Lage des Druckrohrs.</dcterms:subtitle5>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">29. Lage des Druckrohrs.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -5243,9 +5243,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle5 xml:lang="de">32. Theil der Presse, der die zu pressenden Materien fassen soll.</dcterms:subtitle5>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">32. Theil der Presse, der die zu pressenden Materien fassen soll.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -5390,9 +5390,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle5 xml:lang="de">34. Beschreibung einer Presse, die nach oben zu wirkt.</dcterms:subtitle5>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">34. Beschreibung einer Presse, die nach oben zu wirkt.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -5537,9 +5537,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Ueber die hydraulische Presse.</dc:title>
-            <dc:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dc:subtitle>
-            <dcterms:subtitle4 xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Mit Abbildungen. Tab. I.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Vom Prof. Marechaux in Muͤnchen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">

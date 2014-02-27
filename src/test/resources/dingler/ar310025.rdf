@@ -331,8 +331,8 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://purl.org/spar/fabio/Article"/>
             <dc:title xml:lang="de">Kraftmaschinen.Neuerungen an Dampfmaschinen.</dc:title>
-            <dc:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Mit Abbildungen.</dc:subtitle>
+            <dm2e:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Mit Abbildungen.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -476,8 +476,8 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Kraftmaschinen.Neuerungen an Dampfmaschinen.</dc:title>
-            <dc:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Mit Abbildungen.</dc:subtitle>
+            <dm2e:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Mit Abbildungen.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -613,9 +613,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Kraftmaschinen.Neuerungen an Dampfmaschinen.</dc:title>
-            <dc:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Mit Abbildungen.</dc:subtitle>
-            <dcterms:subtitle xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Mit Abbildungen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -768,9 +768,9 @@
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
             <dc:title xml:lang="de">Kraftmaschinen.Neuerungen an Dampfmaschinen.</dc:title>
-            <dc:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dc:subtitle>
-            <dc:subtitle xml:lang="de">Mit Abbildungen.</dc:subtitle>
-            <dcterms:subtitle4 xml:lang="de"/>
+            <dm2e:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Mit Abbildungen.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
