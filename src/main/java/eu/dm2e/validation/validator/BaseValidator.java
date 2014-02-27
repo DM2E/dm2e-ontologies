@@ -399,6 +399,29 @@ abstract public class BaseValidator implements Dm2eValidator {
 		//
 		checkLiteralPropertyRanges(m, cho, report, build_edm_ProvidedCHO_LiteralPropertyRanges(m));
 
+		
+		//
+		// dc:type range check
+		{
+			StmtIterator iter = m.listStatements(cho, prop(m, NS.DC.PROP_TYPE), (Resource)null);
+			while(iter.hasNext()) {
+				Statement stmt = iter.next();
+				if (! stmt.getObject().isURIResource()){
+					report.add(ValidationLevel.FATAL,
+							ValidationProblemCategory.SHOULD_BE_RESOURCE,
+							cho,
+							stmt.getPredicate());
+				} else {
+					if (! build_edm_ProvidedcHO_AllowedDcTypes(m).contains(stmt.getObject().asResource())) {
+						report.add(ValidationLevel.FATAL,
+								ValidationProblemCategory.INVALID_DC_TYPE,
+								cho,
+								stmt.getObject().asResource());
+					}
+				}
+			}
+		}
+		
 		//
 		// dc:title and/or dc:description (p.26/27)
 		//

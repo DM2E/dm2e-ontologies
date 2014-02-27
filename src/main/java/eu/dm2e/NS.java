@@ -629,18 +629,22 @@ public final class NS {
 		public static final String BASE         = "http://purl.org/spar/fabio/";
 		public static final String CLASS_ARTICLE = BASE + "Article";
 		public static final String CLASS_CHAPTER = BASE + "Chapter";
+		public static final String CLASS_COVER	= BASE + "Cover";
 	}
 	public static final class BIBO {
 		public static final String BASE         = "http://purl.org/ontology/bibo/";
-		public static final String	CLASS_ISSUE	= BASE + "Issue";
-		public static final String	PROP_EDITOR	= BASE + "editor";
-		public static final String	PROP_ISBN	= BASE + "isbn";
-		public static final String	PROP_ISSN	= BASE + "issn";
-		public static final String	PROP_NUMBER	= BASE + "number";
-		public static final String	PROP_PAGES	= BASE + "pages";
+		public static final String	CLASS_ISSUE			= BASE + "Issue";
+		public static final String	PROP_EDITOR			= BASE + "editor";
+		public static final String	PROP_ISBN			= BASE + "isbn";
+		public static final String	PROP_ISSN			= BASE + "issn";
+		public static final String	PROP_NUMBER			= BASE + "number";
+		public static final String	PROP_PAGES			= BASE + "pages";
 		public static final String	PROP_NUM_VOLUMES	= BASE + "numVolumes";
-		public static final String	PROP_VOLUME	= BASE + "volume";
-		public static final String CLASS_SERIES = "Series";
+		public static final String	PROP_VOLUME			= BASE + "volume";
+		public static final String	CLASS_SERIES		= BASE + "Series";
+		public static final String	CLASS_BOOK			= BASE + "Book";
+		public static final String	CLASS_JOURNAL		= BASE + "Journal";
+		public static final String	CLASS_LETTER	= BASE + "Letter";
 	}
 	public static final class EDM {
 		public static final String	BASE				= "http://www.europeana.eu/schemas/edm/";

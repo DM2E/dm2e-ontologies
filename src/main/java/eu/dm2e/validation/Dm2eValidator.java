@@ -146,6 +146,11 @@ public interface Dm2eValidator {
 	 */
 	public Map<Property, Set<Resource>> build_edm_ProvidedCHO_LiteralPropertyRanges(Model m);
 	
+	/**
+	 * @return a set of allowed resources to be used for dc:type of a CHO
+	 * @param m
+	 */
+	public Set<Resource> build_edm_ProvidedcHO_AllowedDcTypes(Model m);
 	//
 	// Aggregation
 	//

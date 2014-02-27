@@ -23,6 +23,7 @@ public enum ValidationProblemCategory {
 	FORBIDDEN_PROPERTY(" has forbidden property <%s>"),
 	UNKNOWN_PROPERTY(" has unknown property <%s>"),
 	RELATIVE_URL(" is a relative URL used with property <%s>"),
+	INVALID_DC_TYPE(" uses an unknown dc:type <%s>"),
 	;
 	
 	private String msg;
