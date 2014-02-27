@@ -36,6 +36,8 @@ import eu.dm2e.validation.ValidationProblemCategory;
 
 abstract public class BaseValidator implements Dm2eValidator {
 
+	public static final String	RELATIVE_URL_BASE	= "http://RELATIVE_URL/";
+
 	public abstract InputStream getOwlInputStream();
 	
 	private Set<String> propertyWhiteList = new HashSet<>();
@@ -251,8 +253,14 @@ abstract public class BaseValidator implements Dm2eValidator {
 		}
 		
 	}
-
+	
 	protected void checkProperty(final Resource res, final Property prop, Dm2eValidationReport report) {
+		if (res.getURI().startsWith(RELATIVE_URL_BASE)) {
+			report.add(ValidationLevel.FATAL,
+					ValidationProblemCategory.RELATIVE_URL,
+					res,
+					prop);
+		}
 		if (! propertyWhiteList.contains(prop.getURI())) {
 			report.add(ValidationLevel.ERROR,
 					ValidationProblemCategory.UNKNOWN_PROPERTY,
@@ -576,7 +584,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 		FileInputStream fis = new FileInputStream(rdfData);
 		Model m = ModelFactory.createDefaultModel();
 		// TODO capture Jena warnings here -- somehow. Don't want to dive into Log4j thank you very much
-		m.read(fis, "", rdfLang);
+		m.read(fis, RELATIVE_URL_BASE, rdfLang);
 		return validateWithDm2e(m);
 	}
 

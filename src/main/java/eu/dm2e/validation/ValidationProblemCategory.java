@@ -22,6 +22,7 @@ public enum ValidationProblemCategory {
 	MISC(" has specific Problem: %s"),
 	FORBIDDEN_PROPERTY(" has forbidden property <%s>"),
 	UNKNOWN_PROPERTY(" has unknown property <%s>"),
+	RELATIVE_URL(" is a relative URL used with property <%s>"),
 	;
 	
 	private String msg;

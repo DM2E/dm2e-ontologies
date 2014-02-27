@@ -67,6 +67,15 @@ public class BaseValidatorTest extends ValidationTest {
 	}
 	
 	@Test
+	public void testRelativeUrlInFile() throws Exception {
+		String fileName = getClass().getResource("/relative_url.ttl").getFile();
+		Dm2eValidationReport report = v1_1_rev1_2.validateWithDm2e(fileName, "TURTLE");
+		containsCategory(report, ValidationProblemCategory.RELATIVE_URL);
+		assertThat(report.toString()).contains("FATAL");
+		log.debug(report.toString());
+	}
+	
+	@Test
 	public void testByCategory() throws Exception {
 		{
 			log.info("Wrongly typed literal");
