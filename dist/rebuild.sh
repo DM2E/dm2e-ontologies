@@ -1,6 +1,6 @@
 #!/bin/bash
 
-"Pull from git"
+echo "Pull from git"
 git pull
 
 echo "set build date"
