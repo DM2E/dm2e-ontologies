@@ -547,6 +547,7 @@ public final class NS {
 		public static final String	INT			= BASE + "int";
 		public static final String	INTEGER		= BASE + "integer";
 		public static final String	STRING		= BASE + "string";
+		public static final String	UNSIGNED_INT= BASE + "unsignedInt";
 	}
 
 	/**
@@ -630,6 +631,7 @@ public final class NS {
 		public static final String CLASS_ARTICLE = BASE + "Article";
 		public static final String CLASS_CHAPTER = BASE + "Chapter";
 		public static final String CLASS_COVER	= BASE + "Cover";
+		public static final String PROP_HAS_PAGE_COUNT = BASE + "hasPageCount";
 	}
 	public static final class BIBO {
 		public static final String BASE         = "http://purl.org/ontology/bibo/";
