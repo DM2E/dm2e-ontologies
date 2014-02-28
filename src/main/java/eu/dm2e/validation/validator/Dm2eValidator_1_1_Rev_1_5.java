@@ -258,7 +258,7 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 		ret.add(res(m, NS.BIBO.CLASS_BOOK));
 		ret.add(res(m, NS.FABIO.CLASS_COVER));
 		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_DOCUMENT));
-//		ret.add(res(m, NS.BIBO.CLASS_ISSUE));
+		ret.add(res(m, NS.BIBO.CLASS_ISSUE));
 		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_FILE));
 		ret.add(res(m, NS.BIBO.CLASS_JOURNAL));
 		ret.add(res(m, NS.BIBO.CLASS_LETTER));
