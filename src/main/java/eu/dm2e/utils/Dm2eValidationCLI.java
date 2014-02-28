@@ -181,7 +181,11 @@ public class Dm2eValidationCLI {
 		if (showUsage) {
 			HelpFormatter formatter = new HelpFormatter();
 			formatter.setWidth(100);
-			formatter.printHelp("java -jar dm2e-validate.jar [options] <file> [<file>...]", getOptions());
+			formatter.printHelp("java -jar dm2e-validate.jar [options] <file> [<file>...]",
+					"DM2E Validation Tool, Build Date: 'Fri Feb 28 23:41:10 CET 2014'",
+					getOptions(),
+					""
+					);
 		}
 		throw new RuntimeException();
 	}
