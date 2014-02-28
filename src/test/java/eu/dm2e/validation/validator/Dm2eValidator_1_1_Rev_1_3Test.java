@@ -119,7 +119,7 @@ public class Dm2eValidator_1_1_Rev_1_3Test extends ValidationTest {
 			m.add(testRes, prop(m, NS.EDM.PROP_OBJECT), res(m, "http://bar"));
 
 			final Dm2eValidationReport report = new Dm2eValidationReport("0");
-			v1_1_rev1_3.validateUnknownProperties(m, report);
+			v1_1_rev1_3.validateByStatement(m, report);
 			final ValidationProblemCategory expected = ValidationProblemCategory.FORBIDDEN_PROPERTY;
 			containsCategory(report, expected);
 		}

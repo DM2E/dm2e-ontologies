@@ -28,13 +28,18 @@ public class Dm2eValidationReport {
 		this.modelVersion = modelVersion;
 		this.problemSet = new HashSet<>();
 	}
+	private ValidationLevel highestLevel = ValidationLevel.NOTICE;
 	
 	public void add(ValidationLevel level, ValidationProblemCategory category, Resource res, Object... things) {
 		this.problemSet.add(new Dm2eValidationProblem(level, category, res, things));
+		if (highestLevel != ValidationLevel.FATAL && level.ordinal() > highestLevel.ordinal()) {
+			highestLevel = level;
+		}
 	}
-//	public void add(ValidationLevel level, ValidationProblemCategory category, Resource res, String msg) {
-//		this.problemSet.add(new Dm2eValidationProblem(level, category, res, msg));
-//	}
+	
+	public ValidationLevel getHighestLevel() {
+		return highestLevel;
+	}
 
 	public boolean containsErrors() {
 		return containsErrors(ValidationLevel.ERROR);
