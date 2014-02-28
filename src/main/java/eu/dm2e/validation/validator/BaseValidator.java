@@ -36,11 +36,28 @@ import eu.dm2e.validation.ValidationProblemCategory;
 
 abstract public class BaseValidator implements Dm2eValidator {
 
+	private static final Logger	log					= LoggerFactory.getLogger(BaseValidator.class);
+
 	public static final String	RELATIVE_URL_BASE	= "http://example.com/relative/";
+
+	private Set<String> propertyWhiteList = new HashSet<>();
+
+	//
+	// Store resources already validated so we don't validate twice
+	//
+
+	private Set<Resource>		alreadyValidated	= new HashSet<>();
+
+	private boolean isAlreadyValidated(Resource res) {
+		return alreadyValidated.contains(res);
+	}
+
+	private void setValidated(Resource res) {
+		alreadyValidated.add(res);
+	}
 
 	public abstract InputStream getOwlInputStream();
 	
-	private Set<String> propertyWhiteList = new HashSet<>();
 	
 	public BaseValidator() {
 		InputStream owlInputStream = getOwlInputStream();
@@ -72,21 +89,8 @@ abstract public class BaseValidator implements Dm2eValidator {
 		return propertyWhiteList;
 	}
 
-	private static final Logger	log					= LoggerFactory.getLogger(BaseValidator.class);
 
-	//
-	// Store resources already validated so we don't validate twice
-	//
 
-	private Set<Resource>		alreadyValidated	= new HashSet<>();
-
-	private boolean isAlreadyValidated(Resource res) {
-		return alreadyValidated.contains(res);
-	}
-
-	private void setValidated(Resource res) {
-		alreadyValidated.add(res);
-	}
 
 	//
 	// Utility
@@ -249,12 +253,12 @@ abstract public class BaseValidator implements Dm2eValidator {
 			Statement stmt = stmtIter.next();
 			final Property prop = stmt.getPredicate();
 			final Resource res = stmt.getSubject();
-			checkProperty(res, prop, report);
+			checkStatement(res, prop, report);
 		}
 		
 	}
 	
-	protected void checkProperty(final Resource res, final Property prop, Dm2eValidationReport report) {
+	protected void checkStatement(final Resource res, final Property prop, Dm2eValidationReport report) {
 		if (res.getURI().startsWith(RELATIVE_URL_BASE)) {
 			report.add(ValidationLevel.FATAL,
 					ValidationProblemCategory.RELATIVE_URL,

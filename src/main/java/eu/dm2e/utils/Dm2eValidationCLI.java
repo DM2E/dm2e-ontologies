@@ -54,7 +54,6 @@ public class Dm2eValidationCLI {
 		String formatArg = line.getOptionValue("format");
 		if (null != formatArg) format = formatArg;
 		
-		
 		// Model version
 		String version = line.getOptionValue("version");
 
@@ -68,6 +67,13 @@ public class Dm2eValidationCLI {
 
 		// Input files
 		final List fileList = line.getArgList();
+		
+		// Whether to write to stdout
+		final boolean writeToStdout = line.hasOption("stdout");
+
+		// Output file suffix
+		final String outputFileSuffix = line.getOptionValue("suffix");
+		if (null == outputFileSuffix) outputFileSuffix = ".validation." + version + ".txt";
 
 		//
 		// Do the main work
@@ -85,19 +91,17 @@ public class Dm2eValidationCLI {
 				throw e;
 			}
 
-			if (line.hasOption("stdout")) {
+			if (writeToStdout) {
 				System.out.println(report.exportToString(level, true, terse));
 				System.err.println("DONE validating " + fileName);
 			} else {
-				String suffixVal = line.getOptionValue("suffix");
-				if (null == suffixVal) suffixVal = ".validation." + version + ".txt";
-				File outfile = new File(fileName + suffixVal);
+				File outfile = new File(fileName + outputFileSuffix);
 				try {
 					FileUtils.writeStringToFile(outfile, report.exportToString(level, true, terse));
 				} catch (IOException e) {
 					dieHelpfully("Error writing file to output file", e);
 				}
-				System.err.println("DONE validating " + fileName + ". Output written to " + outfile.getPath() + ".");
+				System.err.println("DONE validating " + fileName + ".\n Output written to '" + outfile.getPath() + "'.");
 			}
 		}
 	}
@@ -159,7 +163,7 @@ public class Dm2eValidationCLI {
 		if (showUsage) {
 			HelpFormatter formatter = new HelpFormatter();
 			formatter.setWidth(100);
-			formatter.printHelp("dm2e-validate [options] <file> [<file>...]", getOptions());
+			formatter.printHelp("java -jar dm2e-validate.jar [options] <file> [<file>...]", getOptions());
 		}
 		throw new RuntimeException();
 	}

@@ -246,8 +246,8 @@ public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 	}
 
 	@Override
-	protected void checkProperty(Resource res, Property prop, Dm2eValidationReport report) {
-		super.checkProperty(res, prop, report);
+	protected void checkStatement(Resource res, Property prop, Dm2eValidationReport report) {
+		super.checkStatement(res, prop, report);
 		
 		//
 		// Check that no DM2E v.1.x properties are used (Doron)
