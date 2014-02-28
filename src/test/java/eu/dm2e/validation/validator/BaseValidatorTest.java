@@ -12,18 +12,11 @@ import org.slf4j.LoggerFactory;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
+
 import eu.dm2e.NS;
 import eu.dm2e.validation.Dm2eValidationReport;
 import eu.dm2e.validation.ValidationProblemCategory;
 import eu.dm2e.validation.ValidationTest;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.Set;
-
-import static org.fest.assertions.Assertions.assertThat;
 
 
 public class BaseValidatorTest extends ValidationTest {
@@ -166,6 +159,18 @@ public class BaseValidatorTest extends ValidationTest {
 			ValidationProblemCategory expected = ValidationProblemCategory.MISSING_CONDITIONALLY_REQUIRED_PROPERTY;
 			assertThat(report.exportToString(true)).contains("FATAL");
 			containsCategory(report, expected);
+		}
+		{
+			log.info("Pass dc:type Test (Valid dc:type)");
+			Model m = ModelFactory.createDefaultModel();
+			final Resource testRes = res(m, "http://foo");
+			final Resource testType = res(m, NS.BIBO.CLASS_BOOK);
+			testRes.addProperty(prop(m, NS.DC.PROP_TYPE), testType);
+
+			Dm2eValidationReport report = new Dm2eValidationReport("0");
+			v1_1_rev1_2.validate_edm_ProvidedCHO(m, testRes, report);
+			ValidationProblemCategory expected = ValidationProblemCategory.INVALID_DC_TYPE;
+			doesNotContainCategory(report, expected);
 		}
 	}
 
