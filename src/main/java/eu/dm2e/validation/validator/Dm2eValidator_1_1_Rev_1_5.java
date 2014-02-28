@@ -126,8 +126,6 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 	@Override public Set<Property> build_edm_ProvidedCHO_FunctionalProperties(Model m) {
 		Set<Property> ret = new HashSet<>();
 		ret.add(prop(m, NS.EDM.PROP_TYPE));
-		ret.add(prop(m, NS.DM2E_UNVERSIONED.PROP_INCIPIT));
-		ret.add(prop(m, NS.DM2E_UNVERSIONED.PROP_EXPLICIT));
 		ret.add(prop(m, NS.DM2E_UNVERSIONED.PROP_PUBLISHED_AT));
 		ret.add(prop(m, NS.DM2E_UNVERSIONED.PROP_PRINTED_AT));
 		ret.add(prop(m, NS.BIBO.PROP_ISBN));
