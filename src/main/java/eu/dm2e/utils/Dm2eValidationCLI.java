@@ -17,7 +17,7 @@ import org.apache.jena.riot.RiotException;
 import eu.dm2e.validation.Dm2eValidationReport;
 import eu.dm2e.validation.Dm2eValidator;
 import eu.dm2e.validation.ValidationLevel;
-import eu.dm2e.validation.validator.Dm2eSpecificationVersion;
+import eu.dm2e.validation.validator.Dm2eValidatorVersion;
 
 public class Dm2eValidationCLI {
 	
@@ -82,7 +82,7 @@ public class Dm2eValidationCLI {
 		//
 		// Do the main work
 		//
-		Dm2eValidator validator = Dm2eSpecificationVersion.forString(version).getValidator();
+		Dm2eValidator validator = Dm2eValidatorVersion.forString(version).getValidator();
 		int numberOfFiles = fileList.size();
 		int currentFile = 0;
 		for (Object fileArg : fileList) {
@@ -155,7 +155,7 @@ public class Dm2eValidationCLI {
 			}
 			String versionArg = line.getOptionValue("version");
 			try {
-				Dm2eSpecificationVersion.forString(versionArg);
+				Dm2eValidatorVersion.forString(versionArg);
 			} catch (NoSuchFieldException e) {
 				throw new ParseException("Unrecognized version string '" + versionArg +"'");
 			} 
@@ -191,9 +191,9 @@ public class Dm2eValidationCLI {
 		Options options = new Options();
 		
 		StringBuilder versionSB = new StringBuilder();
-		for (Dm2eSpecificationVersion validatorVersion : Dm2eSpecificationVersion.values()) {
+		for (Dm2eValidatorVersion validatorVersion : Dm2eValidatorVersion.values()) {
 			versionSB.append(validatorVersion.getVersionString());
-			if (validatorVersion.ordinal() < Dm2eSpecificationVersion.values().length -1)
+			if (validatorVersion.ordinal() < Dm2eValidatorVersion.values().length -1)
 				versionSB.append(" | ");
 		}
 		StringBuilder levelSB = new StringBuilder();
