@@ -265,6 +265,7 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 	@Override
 	public Set<Resource> build_edm_ProvidedcHO_AllowedDcTypes(Model m) {
 		Set<Resource> ret = new HashSet<>();
+		// ret.add(res(m, NS.BIBO.CLASS_ISSUE));
 		ret.add(res(m, NS.BIBO.CLASS_BOOK));
 		ret.add(res(m, NS.FABIO.CLASS_COVER));
 		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_DOCUMENT));
@@ -275,6 +276,13 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_MANUSCRIPT));
 		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_PAGE));
 		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_PHOTO));
+		// skos:Concept
+		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_WORK));
+		ret.add(res(m, NS.FABIO.CLASS_ARTICLE));
+		ret.add(res(m, NS.FABIO.CLASS_CHAPTER));
+		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_PARAGRAPH));
+		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_PUBLICATION));
+		ret.add(res(m, NS.BIBO.CLASS_SERIES));
 		return ret;
 	}
 
