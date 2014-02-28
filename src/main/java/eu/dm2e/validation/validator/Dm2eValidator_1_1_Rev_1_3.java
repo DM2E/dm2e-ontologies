@@ -262,14 +262,14 @@ public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 		Set<Resource> ret = new HashSet<>();
 		ret.add(res(m, NS.BIBO.CLASS_BOOK));
 		ret.add(res(m, NS.FABIO.CLASS_COVER));
-		ret.add(res(m, NS.DM2E.CLASS_DOCUMENT));
+		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_DOCUMENT));
 //		ret.add(res(m, NS.BIBO.CLASS_ISSUE));
-		ret.add(res(m, NS.DM2E.CLASS_FILE));
+		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_FILE));
 		ret.add(res(m, NS.BIBO.CLASS_JOURNAL));
 		ret.add(res(m, NS.BIBO.CLASS_LETTER));
-		ret.add(res(m, NS.DM2E.CLASS_MANUSCRIPT));
-		ret.add(res(m, NS.DM2E.CLASS_PAGE));
-		ret.add(res(m, NS.DM2E.CLASS_PHOTO));
+		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_MANUSCRIPT));
+		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_PAGE));
+		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_PHOTO));
 		return ret;
 	}
 
