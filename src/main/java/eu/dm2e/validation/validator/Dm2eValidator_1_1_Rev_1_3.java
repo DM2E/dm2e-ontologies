@@ -246,14 +246,14 @@ public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 	}
 
 	@Override
-	protected void checkProperty(Resource res, Property prop, Dm2eValidationReport report) {
-		super.checkProperty(res, prop, report);
+	protected void checkStatement(Statement stmt, Dm2eValidationReport report) {
+		super.checkStatement(stmt, report);
 		
 		//
 		// Check that no DM2E v.1.x properties are used (Doron)
 		// 
-		if (prop.getNameSpace().startsWith("http://onto.dm2e.eu/schemas/dm2e/1.")) {
-			report.add(ValidationLevel.ERROR, ValidationProblemCategory.FORBIDDEN_PROPERTY, res, prop);
+		if (stmt.getPredicate().getNameSpace().startsWith("http://onto.dm2e.eu/schemas/dm2e/1.")) {
+			report.add(ValidationLevel.ERROR, ValidationProblemCategory.FORBIDDEN_PROPERTY, stmt.getSubject(), stmt.getPredicate());
 		}
 	}
 }

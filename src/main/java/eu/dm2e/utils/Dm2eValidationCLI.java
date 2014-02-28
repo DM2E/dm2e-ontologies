@@ -22,6 +22,9 @@ import eu.dm2e.validation.validator.Dm2eSpecificationVersion;
 public class Dm2eValidationCLI {
 	
 
+	private static final ValidationLevel	DEFAULT_LEVEL	= ValidationLevel.NOTICE;
+	private static final String	DEFAULT_FORMAT	= "RDF/XML";
+
 	/**
 	 * Main method
 	 * <p>
@@ -49,23 +52,30 @@ public class Dm2eValidationCLI {
 		// Parse options
 		CommandLine line = parseOptions(args);
 
-		// Input format
-		String format = "RDF/XML";
-		String formatArg = line.getOptionValue("format");
-		if (null != formatArg) format = formatArg;
-		
-		
 		// Model version
-		String version = line.getOptionValue("version");
+		final String version = line.getOptionValue("version");
 
+		// Input format
+		String format = (null == line.getOptionValue("format"))
+				? DEFAULT_FORMAT
+				: line.getOptionValue("format");
+		
 		// Minimum level
-		ValidationLevel level = ValidationLevel.NOTICE;
-		String levelArg = line.getOptionValue("level");
-		if (null != levelArg) level = ValidationLevel.valueOf(levelArg);
+		final ValidationLevel level = (null == line.getOptionValue("level"))
+				? DEFAULT_LEVEL
+				: ValidationLevel.valueOf(line.getOptionValue("level"));
+
+		// Output file suffix
+		final String outputFileSuffix = (null == line.getOptionValue("suffix"))
+				? ".validation." + version + ".txt"
+                : line.getOptionValue("suffix") ;
 		
 		// Terse
 		boolean terse = line.hasOption("terse");
 
+		// Whether to write to stdout
+		final boolean writeToStdout = line.hasOption("stdout");
+		
 		// Input files
 		final List fileList = line.getArgList();
 
@@ -73,6 +83,8 @@ public class Dm2eValidationCLI {
 		// Do the main work
 		//
 		Dm2eValidator validator = Dm2eSpecificationVersion.forString(version).getValidator();
+		int numberOfFiles = fileList.size();
+		int currentFile = 0;
 		for (Object fileArg : fileList) {
 			String fileName = new File(fileArg.toString()).getAbsolutePath();
 			Dm2eValidationReport report = null;
@@ -85,19 +97,29 @@ public class Dm2eValidationCLI {
 				throw e;
 			}
 
-			if (line.hasOption("stdout")) {
+			if (writeToStdout) {
 				System.out.println(report.exportToString(level, true, terse));
 				System.err.println("DONE validating " + fileName);
 			} else {
-				String suffixVal = line.getOptionValue("suffix");
-				if (null == suffixVal) suffixVal = ".validation." + version + ".txt";
-				File outfile = new File(fileName + suffixVal);
+				final String outputFileName = fileName + outputFileSuffix;
+				File outfile = new File(outputFileName);
 				try {
 					FileUtils.writeStringToFile(outfile, report.exportToString(level, true, terse));
 				} catch (IOException e) {
 					dieHelpfully("Error writing file to output file", e);
 				}
-				System.err.println("DONE validating " + fileName + ". Output written to " + outfile.getPath() + ".");
+				StringBuilder sb = new StringBuilder();
+				sb.append("DONE [");
+				sb.append(++currentFile);
+				sb.append("/");
+				sb.append(numberOfFiles);
+				sb.append("]");
+				sb.append("[");
+				sb.append(report.getHighestLevel().name());
+				sb.append("] See '");
+				sb.append(outputFileName);
+				sb.append("'.");
+				System.err.println(sb.toString());
 			}
 		}
 	}
@@ -115,7 +137,7 @@ public class Dm2eValidationCLI {
 			String formatArg = line.getOptionValue("format");
 			if (null != formatArg) {
 				switch(formatArg) {
-					case "RDF/XML":
+					case DEFAULT_FORMAT:
 					case "TURTLE":
 					case "N-TRIPLE":
 						break;
@@ -159,7 +181,7 @@ public class Dm2eValidationCLI {
 		if (showUsage) {
 			HelpFormatter formatter = new HelpFormatter();
 			formatter.setWidth(100);
-			formatter.printHelp("dm2e-validate [options] <file> [<file>...]", getOptions());
+			formatter.printHelp("java -jar dm2e-validate.jar [options] <file> [<file>...]", getOptions());
 		}
 		throw new RuntimeException();
 	}

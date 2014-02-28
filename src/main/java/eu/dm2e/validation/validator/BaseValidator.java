@@ -2,7 +2,7 @@ package eu.dm2e.validation.validator;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -36,17 +36,24 @@ import eu.dm2e.validation.ValidationProblemCategory;
 
 abstract public class BaseValidator implements Dm2eValidator {
 
-	public static final String	RELATIVE_URL_BASE	= "http://RELATIVE_URL/";
+	private static final Logger	log					= LoggerFactory.getLogger(BaseValidator.class);
 
-	public abstract InputStream getOwlInputStream();
-	
+	// RELATIVE_URL_BASE is set as base URI when parsing from a file so we can
+	// detect relative URLs (which are forbidden!)
+	public static final String	RELATIVE_URL_BASE	= "http://example.com/relative/";
+
+	// Whitelist of allowed properties
 	private Set<String> propertyWhiteList = new HashSet<>();
-	
+
+	// Store resources already validated so we don't validate twice
+	private Set<Resource>		alreadyValidated	= new HashSet<>();
+
 	public BaseValidator() {
+
+		// Allowed properties
 		InputStream owlInputStream = getOwlInputStream();
 		Model ontModel = ModelFactory.createDefaultModel();
 		ontModel.read(owlInputStream, "RDF-XML");
-		// Standards
 		{
 			propertyWhiteList.add(NS.RDF.PROP_TYPE);
 			propertyWhiteList.add(NS.OWL.SAME_AS);
@@ -67,29 +74,9 @@ abstract public class BaseValidator implements Dm2eValidator {
 				propertyWhiteList.add(iter.next().getSubject().asResource().getURI());
 		}
 	}
-	
-	public Set<String> getPropertyWhitelist() {
-		return propertyWhiteList;
-	}
-
-	private static final Logger	log					= LoggerFactory.getLogger(BaseValidator.class);
 
 	//
-	// Store resources already validated so we don't validate twice
-	//
-
-	private Set<Resource>		alreadyValidated	= new HashSet<>();
-
-	private boolean isAlreadyValidated(Resource res) {
-		return alreadyValidated.contains(res);
-	}
-
-	private void setValidated(Resource res) {
-		alreadyValidated.add(res);
-	}
-
-	//
-	// Utility
+	// Utility methods
 	//
 
 	protected static Resource res(Model m, String uri) {
@@ -119,6 +106,29 @@ abstract public class BaseValidator implements Dm2eValidator {
 			cho = choIter.next().asResource();
 		}
 		return cho;
+	}
+
+	//
+	// Already visited/validated resources
+
+	private boolean isAlreadyValidated(Resource res) {
+		return alreadyValidated.contains(res);
+	}
+
+	private void setValidated(Resource res) {
+		alreadyValidated.add(res);
+	}
+
+	/**
+	 * @return the OWL file this validator is based on
+	 */
+	public abstract InputStream getOwlInputStream();
+	
+	/**
+	 * @return the list of allowed properties
+	 */
+	public Set<String> getPropertyWhitelist() {
+		return propertyWhiteList;
 	}
 
 	//
@@ -243,18 +253,31 @@ abstract public class BaseValidator implements Dm2eValidator {
 		}
 	}
 
-	public void validateUnknownProperties(Model m, Dm2eValidationReport report) {
+	public void validateByStatement(Model m, Dm2eValidationReport report) {
 		StmtIterator stmtIter = m.listStatements();
 		while (stmtIter.hasNext()) {
-			Statement stmt = stmtIter.next();
-			final Property prop = stmt.getPredicate();
-			final Resource res = stmt.getSubject();
-			checkProperty(res, prop, report);
+			checkStatement(stmtIter.next(), report);
 		}
 		
 	}
 	
-	protected void checkProperty(final Resource res, final Property prop, Dm2eValidationReport report) {
+	/**
+	 * Validate a single statement for general traits.
+	 * 
+	 * <p> Currently:
+	 * <ul>
+	 * <li>Whether this is a relative URL</li>
+	 * <li>Whether the property is knonw</li>
+	 * </ul>
+	 * </p>
+	 * 
+	 * @param res
+	 * @param prop
+	 * @param report
+	 */
+	protected void checkStatement(final Statement stmt, Dm2eValidationReport report) {
+		final Property prop = stmt.getPredicate();
+		final Resource res = stmt.getSubject();
 		if (res.getURI().startsWith(RELATIVE_URL_BASE)) {
 			report.add(ValidationLevel.FATAL,
 					ValidationProblemCategory.RELATIVE_URL,
@@ -592,22 +615,27 @@ abstract public class BaseValidator implements Dm2eValidator {
 	 */
 	@Override
 	public Dm2eValidationReport validateWithDm2e(String fileName, String rdfLang)
-			throws FileNotFoundException, RiotNotFoundException {
+			throws RiotNotFoundException, IOException {
 		final File file = new File(fileName);
 		Preconditions.checkArgument(file.exists(), "File does not exist: " + fileName);
 		return validateWithDm2e(file, rdfLang);
 	}
 
+	/* (non-Javadoc)
+	 * @see eu.dm2e.validation.Dm2eValidator#validateWithDm2e(java.io.File, java.lang.String)
+	 */
 	@Override
-	public Dm2eValidationReport validateWithDm2e(File rdfData, String rdfLang)
-			throws FileNotFoundException {
+	public Dm2eValidationReport validateWithDm2e(File rdfData, String rdfLang) throws IOException {
 		Preconditions.checkNotNull(rdfLang);
-		Preconditions.checkArgument(rdfLang.equals("RDF/XML") || rdfLang.equals("N-TRIPLE")
-				|| rdfLang.equals("TURTLE"), "Invalid RDF serialization format '" + rdfLang + "'.");
+		Preconditions.checkArgument(rdfLang.equals("RDF/XML") 
+                                        || rdfLang.equals("N-TRIPLE")
+                                        || rdfLang.equals("TURTLE"),
+				"Invalid RDF serialization format '" + rdfLang + "'.");
 		FileInputStream fis = new FileInputStream(rdfData);
 		Model m = ModelFactory.createDefaultModel();
 		// TODO capture Jena warnings here -- somehow. Don't want to dive into Log4j thank you very much
 		m.read(fis, RELATIVE_URL_BASE, rdfLang);
+		fis.close();
 		return validateWithDm2e(m);
 	}
 
@@ -622,11 +650,9 @@ abstract public class BaseValidator implements Dm2eValidator {
 	public Dm2eValidationReport validateWithDm2e(Model m) {
 
 		Dm2eValidationReport report = new Dm2eValidationReport(getVersion());
-		
-
 
 		// * check unknown elements
-		validateUnknownProperties(m, report);
+		validateByStatement(m, report);
 
 		// Validation order:
 		// * ore:Aggregation
@@ -644,7 +670,8 @@ abstract public class BaseValidator implements Dm2eValidator {
 			validateWithDm2e(m, currentClassUri, report);
 		}
 		
-		
+		// NOTE: Close the model *now* don't rely on finalize!
+		m.close();
 		return report;
 
 	}
@@ -684,7 +711,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 					validate_edm_TimeSpan(m, res, report);
 					break;
 				default:
-					// log.error("Not implemented");
+					log.error("Validation of " + currentClassUri + " not implemented");
 					break;
 			}
 			setValidated(res);

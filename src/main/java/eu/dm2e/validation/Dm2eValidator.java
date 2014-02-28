@@ -2,7 +2,7 @@ package eu.dm2e.validation;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 
@@ -224,7 +224,7 @@ public interface Dm2eValidator {
 	 * @return
 	 * @throws FileNotFoundException
 	 */
-	public Dm2eValidationReport validateWithDm2e(String fileName, String rdfLang) throws FileNotFoundException;
+	public Dm2eValidationReport validateWithDm2e(String fileName, String rdfLang) throws IOException;
 
 	/**
 	 * @param rdfData
@@ -232,7 +232,7 @@ public interface Dm2eValidator {
 	 * @return
 	 * @throws FileNotFoundException
 	 */
-	public Dm2eValidationReport validateWithDm2e(File rdfData, String rdfLang) throws FileNotFoundException;
+	public Dm2eValidationReport validateWithDm2e(File rdfData, String rdfLang) throws IOException;
 
 //	public Dm2eValidationReport validateWithDm2e(InputStream filePart, String rdfLang) {
 //		
@@ -255,7 +255,7 @@ public interface Dm2eValidator {
 	 */
 	public void validateWithDm2e(Model m, String currentClassUri, Dm2eValidationReport report);
 
-	public void validateUnknownProperties(Model m, Dm2eValidationReport report);
+	public void validateByStatement(Model m, Dm2eValidationReport report);
 
 
 
