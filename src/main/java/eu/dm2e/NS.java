@@ -439,6 +439,7 @@ public final class NS {
 		public static final String BASE = "http://www.w3.org/2000/01/rdf-schema#";
 		public static final String PROP_LABEL = BASE + "label";
 		public static final String PROP_COMMENT = BASE + "comment";
+		public static final String	PROP_SUB_PROPERTY_OF	= BASE + "subPropertyOf";
 	}
 
 	/**
@@ -596,6 +597,7 @@ public final class NS {
 		public static final String	CLASS_WORK						= BASE + "Work";
 		public static final String	CLASS_PARAGRAPH						= BASE + "Paragraph";
 		public static final String	CLASS_PUBLICATION						= BASE + "Publication";
+		public static final String	CLASS_ARCHIVE	= BASE + "Archive";
 	}
 
 	public static final class DM2E_UNVERSIONED {
@@ -624,6 +626,7 @@ public final class NS {
 		public static final String	CLASS_WORK						= BASE + "Work";
 		public static final String	CLASS_PARAGRAPH						= BASE + "Paragraph";
 		public static final String	CLASS_PUBLICATION						= BASE + "Publication";
+		public static final String	CLASS_ARCHIVE	= BASE + "Archive";
 	}
 
 	public static final class FABIO {
@@ -714,6 +717,14 @@ public final class NS {
 		public static final String BASE = "http://www.openarchives.org/ore/terms/";
 		public static final String CLASS_AGGREGATION = BASE + "Aggregation";
 		
+	}
+
+	public static final class VIVO {
+		
+		public static final String BASE = "http://vivoweb.org/ontology/core#";
+		public static final String CLASS_LIBRARY = BASE + "Library";
+		public static final String CLASS_MUSEUM = BASE + "Museum";
+		public static final String CLASS_UNIVERSITY = BASE + "University";
 	}
 
 	public static final class PRISM_3 {

@@ -153,7 +153,19 @@ public class Dm2eValidator_1_1_Rev_1_2 extends BaseValidator {
 		Map<Property, Set<Resource>> ret = new HashMap<>();
 		ret.put(prop(m, NS.DC.PROP_SUBJECT), new HashSet<Resource>());
 		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.SKOS.CLASS_CONCEPT));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.DM2E.CLASS_WORK));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.FABIO.CLASS_ARTICLE));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.FABIO.CLASS_CHAPTER));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.DM2E.CLASS_PARAGRAPH));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.DM2E.CLASS_PUBLICATION));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.BIBO.CLASS_SERIES));
 		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.EDM.CLASS_AGENT));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.FOAF.CLASS_PERSON));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.FOAF.CLASS_ORGANIZATION));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.DM2E.CLASS_ARCHIVE));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.VIVO.CLASS_LIBRARY));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.VIVO.CLASS_MUSEUM));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.VIVO.CLASS_UNIVERSITY));
 		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.EDM.CLASS_TIMESPAN));
 
 		ret.put(prop(m, NS.EDM.PROP_HAS_MET), new HashSet<Resource>());

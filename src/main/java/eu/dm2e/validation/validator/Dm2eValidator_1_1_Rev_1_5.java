@@ -23,7 +23,7 @@ import eu.dm2e.validation.ValidationProblemCategory;
  * Static methods for validating RDF data against the DM2E Data Model
  * 
  * <p>
- * Based on the upcoming 1.1_Rev1.4
+ * Based on the upcoming 1.1_Rev1.5
  * </p>
  * 
  * @author Konstantin Baierer
@@ -31,7 +31,7 @@ import eu.dm2e.validation.ValidationProblemCategory;
 public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 
 
-	private static final String	modelVersion	= "1.1_Rev1.4-DRAFT";
+	private static final String	modelVersion	= "1.1_Rev1.5-DRAFT";
 
 	@Override
 	public InputStream getOwlInputStream() {
@@ -159,7 +159,19 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 		Map<Property, Set<Resource>> ret = new HashMap<>();
 		ret.put(prop(m, NS.DC.PROP_SUBJECT), new HashSet<Resource>());
 		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.SKOS.CLASS_CONCEPT));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.DM2E_UNVERSIONED.CLASS_WORK));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.FABIO.CLASS_ARTICLE));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.FABIO.CLASS_CHAPTER));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.DM2E_UNVERSIONED.CLASS_PARAGRAPH));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.DM2E_UNVERSIONED.CLASS_PUBLICATION));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.BIBO.CLASS_SERIES));
 		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.EDM.CLASS_AGENT));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.FOAF.CLASS_PERSON));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.FOAF.CLASS_ORGANIZATION));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.DM2E_UNVERSIONED.CLASS_ARCHIVE));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.VIVO.CLASS_LIBRARY));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.VIVO.CLASS_MUSEUM));
+		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.VIVO.CLASS_UNIVERSITY));
 		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.EDM.CLASS_TIMESPAN));
 		ret.get(prop(m, NS.DC.PROP_SUBJECT)).add(res(m, NS.EDM.CLASS_PLACE));
 
