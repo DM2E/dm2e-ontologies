@@ -49,7 +49,7 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 
 	@Override
 	public InputStream getOwlInputStream() {
-		return getClass().getResourceAsStream("/dm2e-model/DM2Ev1.1_Rev1.4.owl");
+		return getClass().getResourceAsStream("/dm2e-model/DM2Ev1.1_Rev1.5-WITH-CONSTRAINTS.owl");
 	}
 	
 	@Override public String getVersion() {
@@ -164,6 +164,8 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 
 		ret.put(prop(m, NS.BIBO.PROP_NUMBER), new HashSet<Resource>());
 		ret.get(prop(m, NS.BIBO.PROP_NUMBER)).add(res(m, NS.XSD.UNSIGNED_INT));
+		ret.put(prop(m, NS.BIBO.PROP_NUM_PAGES), new HashSet<Resource>());
+		ret.get(prop(m, NS.BIBO.PROP_NUM_PAGES)).add(res(m, NS.XSD.UNSIGNED_INT));
 		ret.put(prop(m, NS.DM2E_UNVERSIONED.PROP_LEVEL_OF_HIERARCHY), new HashSet<Resource>());
 		ret.get(prop(m, NS.DM2E_UNVERSIONED.PROP_LEVEL_OF_HIERARCHY)).add(res(m, NS.XSD.UNSIGNED_INT));
 
