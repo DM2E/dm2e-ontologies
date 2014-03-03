@@ -11,8 +11,10 @@ import org.slf4j.LoggerFactory;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import eu.dm2e.NS;
 import eu.dm2e.validation.Dm2eValidationReport;
@@ -30,8 +32,20 @@ import eu.dm2e.validation.ValidationProblemCategory;
  */
 public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 
-
+	
+	@SuppressWarnings("unused")
+	private static final Logger log = LoggerFactory.getLogger(Dm2eValidator_1_1_Rev_1_5.class);
+	
 	private static final String	modelVersion	= "1.1_Rev1.5-DRAFT";
+	private static final Set<String> imageMimeTypes = new HashSet<>();
+	
+	static {
+		imageMimeTypes.add("image/png");
+		imageMimeTypes.add("image/jpeg");
+		imageMimeTypes.add("image/gif");
+		imageMimeTypes.add("image/tiff");
+		imageMimeTypes.add("application/pdf");
+	}
 
 	@Override
 	public InputStream getOwlInputStream() {
@@ -42,9 +56,10 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 		return modelVersion;
 	}
 	
-	@SuppressWarnings("unused")
-	private static final Logger log = LoggerFactory.getLogger(Dm2eValidator_1_1_Rev_1_5.class);
-	
+	@Override public Set<String> build_image_mimeType_List() {
+		return imageMimeTypes;
+	}
+
 	@Override public Set<Property> build_DateLike_Properties(Model m) {
 		Set<Property> ret = new HashSet<>();
 		ret.add(prop(m, NS.DCTERMS.PROP_CREATED));
@@ -202,9 +217,8 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 	//
 	// Validation Overrides
 	//
-
-	@Override
-	public void validate_edm_ProvidedCHO(Model m, Resource cho, Dm2eValidationReport report) {
+	
+	@Override public void validate_edm_ProvidedCHO(Model m, Resource cho, Dm2eValidationReport report) {
 		super.validate_edm_ProvidedCHO(m, cho, report);
 
 		//
@@ -236,10 +250,36 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 			}
 		}
 		
+		//
+		// Validate that "?agg edm:object ?wr" implies
+		// "?wr dc:format ?mime_type" where ?mime_type is an image mime type
+		//
+		{
+			StmtIterator iter = m.listStatements(agg, prop(m, NS.EDM.PROP_OBJECT), (RDFNode)null);
+			while (iter.hasNext()) {
+				Statement stmt = iter.next();
+				if (! stmt.getObject().isResource()) {
+					report.add(ValidationLevel.FATAL, ValidationProblemCategory.SHOULD_BE_RESOURCE, agg, NS.EDM.PROP_OBJECT);
+				} else {
+					Resource edmObjectRes = stmt.getObject().asResource();
+					Statement dcFormatStmt = edmObjectRes.getProperty(prop(m, NS.DC.PROP_FORMAT));
+					if (! dcFormatStmt.getObject().isLiteral()) {
+						report.add(ValidationLevel.FATAL, ValidationProblemCategory.SHOULD_BE_LITERAL, agg, NS.DC.PROP_FORMAT);
+					} else {
+						String dcFormatStr = dcFormatStmt.getObject().asLiteral().getLexicalForm();
+						if (! build_image_mimeType_List().contains(dcFormatStr)) {
+							report.add(ValidationLevel.FATAL, ValidationProblemCategory.BAD_MIMETYPE, edmObjectRes, dcFormatStr);
+						}
+					}
+				}
+			}
+		}
+		
+		
+		
 	}
 
-	@Override
-	protected void checkStatement(Statement stmt, Dm2eValidationReport report) {
+	@Override protected void checkStatement(Statement stmt, Dm2eValidationReport report) {
 		super.checkStatement(stmt, report);
 
 		//
@@ -262,10 +302,10 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 					stmt.getPredicate());
 		}
 	}
-	@Override
-	public Set<Resource> build_edm_ProvidedcHO_AllowedDcTypes(Model m) {
+
+	@Override public Set<Resource> build_edm_ProvidedcHO_AllowedDcTypes(Model m) {
 		Set<Resource> ret = new HashSet<>();
-		// ret.add(res(m, NS.BIBO.CLASS_ISSUE));
+		// edm:PhysicalThing
 		ret.add(res(m, NS.BIBO.CLASS_BOOK));
 		ret.add(res(m, NS.FABIO.CLASS_COVER));
 		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_DOCUMENT));

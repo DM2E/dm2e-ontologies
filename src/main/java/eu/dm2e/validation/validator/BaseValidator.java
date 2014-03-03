@@ -131,6 +131,10 @@ abstract public class BaseValidator implements Dm2eValidator {
 		return propertyWhiteList;
 	}
 
+	public Set<String> build_image_mimeType_List() {
+		return new HashSet<>();
+	}
+
 	//
 	// Generic checkers
 	//
@@ -717,5 +721,4 @@ abstract public class BaseValidator implements Dm2eValidator {
 			setValidated(res);
 		}
 	}
-
 }

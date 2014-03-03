@@ -257,6 +257,8 @@ public interface Dm2eValidator {
 
 	public void validateByStatement(Model m, Dm2eValidationReport report);
 
+	public abstract Set<String> build_image_mimeType_List();
+
 
 
 }
