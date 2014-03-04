@@ -598,6 +598,7 @@ public final class NS {
 		public static final String	CLASS_PARAGRAPH						= BASE + "Paragraph";
 		public static final String	CLASS_PUBLICATION						= BASE + "Publication";
 		public static final String	CLASS_ARCHIVE	= BASE + "Archive";
+
 	}
 
 	public static final class DM2E_UNVERSIONED {
@@ -627,6 +628,10 @@ public final class NS {
 		public static final String	CLASS_PARAGRAPH						= BASE + "Paragraph";
 		public static final String	CLASS_PUBLICATION						= BASE + "Publication";
 		public static final String	CLASS_ARCHIVE	= BASE + "Archive";
+
+		public static final String	PROP_HAS_ABSTRACT_DATASET	= BASE + "hasAbstractDataset";
+		public static final String PROP_HAS_VERSION    = BASE + "hasVersion";
+        public static final String PROP_CONTAINS_CHO = BASE + "containsCHO";
 	}
 
 	public static final class FABIO {
@@ -682,9 +687,9 @@ public final class NS {
 	}
 	public static final class DM2E_UNOFFICIAL {
 		public static final String BASE = "http://onto.dm2e.eu/UNOFFICIAL/";
-		public static final String PROP_HAS_COLLECTION = BASE + "hasCollection";
-		public static final String PROP_HAS_VERSION    = BASE + "hasVersion";
-        public static final String PROP_CONTAINS_CHO = BASE + "containsCHO";
+//		public static final String PROP_HAS_COLLECTION = BASE + "hasCollection";
+//		public static final String PROP_HAS_VERSION    = BASE + "hasVersion";
+//        public static final String PROP_CONTAINS_CHO = BASE + "containsCHO";
         public static final String PROP_STABILITY = BASE + "stability";
         public static final String PROP_DM2E_VERSION = BASE + "dm2eVersion";
         public static final String PROP_VALIDATED_AT_LEVEL = BASE + "validatedAtLevel";
