@@ -193,7 +193,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 				if (obj.isLiteral()) {
 					final Literal objLit = obj.asLiteral();
 					boolean validRange = false;
-					if (null == objLit.getDatatype()) {
+					if (null == objLit.getDatatype() && ! entry.getValue().contains(null)) {
 						report.add(ValidationLevel.ERROR,
 								ValidationProblemCategory.ILLEGALLY_UNTYPED_LITERAL,
 								cho,
@@ -202,11 +202,18 @@ abstract public class BaseValidator implements Dm2eValidator {
 						continue;
 					}
 					for (Resource allowedRange : entry.getValue()) {
-						// log.debug(objLit.getDatatype().getURI());
-						// log.debug(allowedRange.getURI());
-						if (objLit.getDatatype().getURI().equals(allowedRange.getURI())) {
-							validRange = true;
-							break;
+						if (allowedRange == null) {
+							if (objLit.getDatatype() == null) {
+								// it is okay to have an untyped literal if
+								// 'null' is part of the allowed ranges
+								validRange = true;
+								break;
+							}
+						} else {
+							if (objLit.getDatatype().getURI().equals(allowedRange.getURI())) {
+								validRange = true;
+								break;
+							}
 						}
 					}
 					if (!validRange) report.add(ValidationLevel.ERROR,
