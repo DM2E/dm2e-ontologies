@@ -9,12 +9,14 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 
 import eu.dm2e.NS;
 import eu.dm2e.validation.Dm2eValidationReport;
+import eu.dm2e.validation.ValidationProblemCategory;
 import eu.dm2e.validation.ValidationTest;
 
 
@@ -41,6 +43,39 @@ public class Dm2eValidator_1_1_Rev_1_5Test extends ValidationTest {
 			Dm2eValidationReport report = buildAggWrMime(m, mimeType);
 			assertThat(report.exportToString(true)).contains("BAD_MIMETYPE");
 		}
+	}
+	
+	@Test
+	public void testNumPagesUnsignedOrUntyped()
+			throws Exception {
+		{
+			log.info("OK:  bibo:numPages '3'^^xsd:unsignedInt");
+			Model m = ModelFactory.createDefaultModel();
+			final Resource res = res(m, "http://foo");
+			m.add(res, prop(m, NS.BIBO.PROP_NUM_PAGES), m.createTypedLiteral("3", XSDDatatype.XSDunsignedInt));
+			Dm2eValidationReport report = new Dm2eValidationReport("");
+			rev_1_5.validate_edm_ProvidedCHO(m, res, report);
+			doesNotContainCategory(report, ValidationProblemCategory.INVALID_LITERAL);
+		}
+		{
+			log.info("FAIL:  bibo:numPages '3'^^xsd:boolean");
+			Model m = ModelFactory.createDefaultModel();
+			final Resource res = res(m, "http://foo");
+			m.add(res, prop(m, NS.BIBO.PROP_NUM_PAGES), m.createTypedLiteral("3", XSDDatatype.XSDboolean));
+			Dm2eValidationReport report = new Dm2eValidationReport("");
+			rev_1_5.validate_edm_ProvidedCHO(m, res, report);
+			containsCategory(report, ValidationProblemCategory.INVALID_DATA_PROPERTY_RANGE);
+		}
+		{
+			log.info("OK:  bibo:numPages '3'");
+			Model m = ModelFactory.createDefaultModel();
+			final Resource res = res(m, "http://foo");
+			m.add(res, prop(m, NS.BIBO.PROP_NUM_PAGES), "3");
+			Dm2eValidationReport report = new Dm2eValidationReport("");
+			rev_1_5.validate_edm_ProvidedCHO(m, res, report);
+			doesNotContainCategory(report, ValidationProblemCategory.INVALID_DATA_PROPERTY_RANGE);
+		}
+
 	}
 
 	private Dm2eValidationReport buildAggWrMime(Model m, String mimeType) {
