@@ -205,6 +205,8 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 		ret.put(prop(m, NS.EDM.PROP_CURRENT_LOCATION), new HashSet<Resource>());
 		ret.get(prop(m, NS.EDM.PROP_CURRENT_LOCATION)).add(res(m, NS.EDM.CLASS_PLACE));
 
+		ret.put(prop(m, NS.DM2E_UNVERSIONED.PROP_SHELFMARK_LOCATION), new HashSet<Resource>());
+		ret.get(prop(m, NS.DM2E_UNVERSIONED.PROP_SHELFMARK_LOCATION)).add(res(m, NS.EDM.CLASS_PLACE));
 		return ret;
 	}
 
