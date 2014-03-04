@@ -54,10 +54,14 @@ abstract public class BaseValidator implements Dm2eValidator {
 		InputStream owlInputStream = getOwlInputStream();
 		Model ontModel = ModelFactory.createDefaultModel();
 		ontModel.read(owlInputStream, "RDF-XML");
+		
+		// TODO SMELLY HACK this should not be necessary, since it should be read from the OWL. 
 		{
 			propertyWhiteList.add(NS.RDF.PROP_TYPE);
 			propertyWhiteList.add(NS.OWL.SAME_AS);
 			propertyWhiteList.add(NS.EDM.PROP_IS_NEXT_IN_SEQUENCE);
+			propertyWhiteList.add("http://rdvocab.info/ElementsGr2/otherDesignationAssociatedWithThePerson");
+			
 		}
 		{
 			StmtIterator iter = ontModel.listStatements(null, 
