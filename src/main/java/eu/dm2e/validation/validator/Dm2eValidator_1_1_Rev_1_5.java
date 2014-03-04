@@ -120,7 +120,6 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 		ret.add(prop(m, NS.EDM.PROP_IS_SHOWN_BY));
 		ret.add(prop(m, NS.EDM.PROP_IS_SHOWN_AT));
 		ret.add(prop(m, NS.EDM.PROP_OBJECT));
-		ret.add(prop(m, NS.DM2E_UNVERSIONED.PROP_HAS_ANNOTABLE_VERSION_AT));
 		return ret;
 	}
 
