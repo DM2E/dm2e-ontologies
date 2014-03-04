@@ -562,7 +562,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 		} else {
 			RDFNode dcformat = it.next();
 			if (!dcformat.isLiteral()) {
-				report.add(ValidationLevel.ERROR,
+				report.add(ValidationLevel.FATAL,
 						ValidationProblemCategory.SHOULD_BE_LITERAL,
 						wr,
 						prop_dc_format);
