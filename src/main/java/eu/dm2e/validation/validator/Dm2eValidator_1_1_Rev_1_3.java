@@ -30,7 +30,7 @@ import eu.dm2e.validation.ValidationProblemCategory;
  */
 public class Dm2eValidator_1_1_Rev_1_3 extends BaseValidator {
 
-	private static final String	modelVersion	= "1.1_Rev1.3";
+	private static final String	modelVersion	= Dm2eValidatorVersion.V_1_1_REV_1_3.getVersionString();
 
 	@Override
 	public InputStream getOwlInputStream() {
