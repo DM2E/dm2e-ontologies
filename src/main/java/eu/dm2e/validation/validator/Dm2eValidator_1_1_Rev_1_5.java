@@ -202,6 +202,9 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 		ret.get(prop(m, NS.EDM.PROP_HAS_MET)).add(res(m, NS.FOAF.CLASS_PERSON));
 		ret.get(prop(m, NS.EDM.PROP_HAS_MET)).add(res(m, NS.FOAF.CLASS_ORGANIZATION));
 
+		ret.put(prop(m, NS.EDM.PROP_CURRENT_LOCATION), new HashSet<Resource>());
+		ret.get(prop(m, NS.EDM.PROP_CURRENT_LOCATION)).add(res(m, NS.EDM.CLASS_PLACE));
+
 		return ret;
 	}
 
