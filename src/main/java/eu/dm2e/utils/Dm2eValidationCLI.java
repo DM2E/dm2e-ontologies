@@ -194,12 +194,6 @@ public class Dm2eValidationCLI {
 	private static Options getOptions() {
 		Options options = new Options();
 		
-		StringBuilder versionSB = new StringBuilder();
-		for (Dm2eValidatorVersion validatorVersion : Dm2eValidatorVersion.values()) {
-			versionSB.append(validatorVersion.getVersionString());
-			if (validatorVersion.ordinal() < Dm2eValidatorVersion.values().length -1)
-				versionSB.append(" | ");
-		}
 		StringBuilder levelSB = new StringBuilder();
 		for (ValidationLevel thisLevel : ValidationLevel.values()) {
 			levelSB.append(thisLevel.name());
@@ -208,7 +202,7 @@ public class Dm2eValidationCLI {
 		}
 		options.addOption(OptionBuilder
 			.hasArgs(1)
-			.withArgName(versionSB.toString())
+			.withArgName(Dm2eValidatorVersion.valuesAsTerseString())
 			.withDescription("DM2E Data Model version [REQUIRED]")
 			.isRequired()
 			.create("version"));

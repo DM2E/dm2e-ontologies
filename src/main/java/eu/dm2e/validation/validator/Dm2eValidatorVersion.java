@@ -1,5 +1,7 @@
 package eu.dm2e.validation.validator;
 
+import java.util.ArrayList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,6 +55,38 @@ public enum Dm2eValidatorVersion {
 			log.error("!! Could not instantiate Validator " + name() + " !!");
 			e.printStackTrace();
 		}
+	}
+	
+	public static String valuesAsTerseString() {
+		StringBuilder sb = new StringBuilder();
+		ArrayList<Dm2eValidatorVersion> versions1_1 = new ArrayList<>();
+		ArrayList<Dm2eValidatorVersion> versions1_2 = new ArrayList<>();
+		for (Dm2eValidatorVersion thisVersion : values()) {
+			if (thisVersion.getVersionString().startsWith("1.1_Rev")) {
+				versions1_1.add(thisVersion);
+			} else {
+				versions1_2.add(thisVersion);
+			}
+		}
+		if (versions1_1.size() > 0) {
+			sb.append("1.1_Rev{");
+			int i = 0;
+			for (Dm2eValidatorVersion thisVersion : versions1_1) {
+				sb.append(thisVersion.getVersionString().substring(7));
+				if (i++ < versions1_1.size() -1) sb.append("|");
+			}
+			sb.append("}");
+		}
+		if (versions1_2.size() > 0) {
+			sb.append(" | 1.2_Rev{");
+			int i = 0;
+			for (Dm2eValidatorVersion thisVersion : versions1_2) {
+				sb.append(thisVersion.getVersionString().substring(7));
+				if (i++ < versions1_2.size() -1) sb.append("|");
+			}
+			sb.append("}");
+		}
+		return sb.toString();
 	}
 
 }
