@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
@@ -37,17 +38,52 @@ public class BaseValidatorTest extends ValidationTest {
 	
 	@Test
 	public void testEdmTimeSpan() throws Exception {
-			Model m = ModelFactory.createDefaultModel();
-			m.read(getClass().getResourceAsStream("/edm_timespan.ttl"), "", "TURTLE");
 			{
-				Dm2eValidationReport report = new Dm2eValidationReport(v1_1_rev1_3.getVersion());
-				v1_1_rev1_3.validate_edm_TimeSpan(m, m.createResource("foo"), report);
-				log.debug(report.toString());
-			}
-			{
+				Model m = ModelFactory.createDefaultModel();
+				m.read(getClass().getResourceAsStream("/edm_timespan.ttl"), "", "TURTLE");
 				Dm2eValidationReport report = new Dm2eValidationReport(v1_1_rev1_2.getVersion());
 				v1_1_rev1_2.validate_edm_TimeSpan(m, m.createResource("foo"), report);
 				log.debug(report.toString());
+			}
+			{
+				log.info("Bad xsd:Datetime (Pattern bad)");
+				Model m = ModelFactory.createDefaultModel();
+				Resource tsRes = res(m, "http://ts1");
+				m.add(tsRes, prop(m, NS.EDM.PROP_BEGIN), m.createTypedLiteral("523-01-01T00:00:00", XSDDatatype.XSDdateTime));
+				Dm2eValidationReport report = new Dm2eValidationReport("");
+				v1_1_rev1_2.validate_DateLike(m, tsRes, report);
+				containsCategory(report, ValidationProblemCategory.INVALID_XSD_DATETIME);
+				log.debug(report.exportToString(true));
+			}
+			{
+				log.info("Good xsd:Datetime (Zero-padded)");
+				Model m = ModelFactory.createDefaultModel();
+				Resource tsRes = res(m, "http://ts1");
+				m.add(tsRes, prop(m, NS.EDM.PROP_BEGIN), m.createTypedLiteral("0523-01-01T00:00:00", XSDDatatype.XSDdateTime));
+				Dm2eValidationReport report = new Dm2eValidationReport("");
+				v1_1_rev1_2.validate_DateLike(m, tsRes, report);
+				doesNotContainCategory(report, ValidationProblemCategory.INVALID_XSD_DATETIME);
+				log.debug(report.exportToString(true));
+			}
+			{
+				log.info("Good xsd:Datetime (Zero-padded, trailing 'Z')");
+				Model m = ModelFactory.createDefaultModel();
+				Resource tsRes = res(m, "http://ts1");
+				m.add(tsRes, prop(m, NS.EDM.PROP_BEGIN), m.createTypedLiteral("0523-01-01T00:00:00Z", XSDDatatype.XSDdateTime));
+				Dm2eValidationReport report = new Dm2eValidationReport("");
+				v1_1_rev1_2.validate_DateLike(m, tsRes, report);
+				doesNotContainCategory(report, ValidationProblemCategory.INVALID_XSD_DATETIME);
+				log.debug(report.exportToString(true));
+			}
+			{
+				log.info("Bad xsd:Datetime (Logical error)");
+				Model m = ModelFactory.createDefaultModel();
+				Resource tsRes = res(m, "http://ts1");
+				m.add(tsRes, prop(m, NS.EDM.PROP_BEGIN), m.createTypedLiteral("0523-21-01T00:00:00", XSDDatatype.XSDdateTime));
+				Dm2eValidationReport report = new Dm2eValidationReport("");
+				v1_1_rev1_2.validate_DateLike(m, tsRes, report);
+				containsCategory(report, ValidationProblemCategory.INVALID_XSD_DATETIME);
+				log.debug(report.exportToString(true));
 			}
 	}
 

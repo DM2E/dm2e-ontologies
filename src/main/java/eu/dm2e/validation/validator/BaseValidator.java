@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.jena.riot.RiotNotFoundException;
 import org.joda.time.DateTime;
@@ -500,6 +502,11 @@ abstract public class BaseValidator implements Dm2eValidator {
 								prop);
 					} else if (thing.asLiteral().getDatatypeURI().equals(NS.XSD.DATETIME)) {
 						try {
+							Pattern pat = Pattern.compile("\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z?");
+							Matcher matcher = pat.matcher(thing.asLiteral().getLexicalForm());
+							if (!matcher.matches()) {
+								throw new IllegalArgumentException("Bad xsd:dateTime.");
+							}
 							DateTime.parse(thing.asLiteral().getLexicalForm());
 						} catch (IllegalArgumentException e) {
 							report.add(ValidationLevel.ERROR,
