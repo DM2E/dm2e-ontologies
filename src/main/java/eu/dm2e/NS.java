@@ -650,6 +650,7 @@ public final class NS {
 		public static final String	CLASS_BOOK			= BASE + "Book";
 		public static final String	CLASS_JOURNAL		= BASE + "Journal";
 		public static final String	CLASS_LETTER	= BASE + "Letter";
+		public static final String	PROP_NUM_PAGES	= BASE + "numPages";
 	}
 	public static final class EDM {
 		public static final String	BASE				= "http://www.europeana.eu/schemas/edm/";
