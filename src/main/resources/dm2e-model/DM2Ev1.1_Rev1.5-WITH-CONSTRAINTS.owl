@@ -256,6 +256,16 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
+    <!-- http://purl.org/ontology/bibo/suffixName -->
+
+    <owl:AnnotationProperty rdf:about="&bibo;suffixName">
+        <scopeNote xml:lang="en">Persons names or notations about organisations including counting, for example Johannes Paul, I.</scopeNote>
+        <rdfs:comment xml:lang="en">The suffix of the name.</rdfs:comment>
+        <rdfs:domain rdf:resource="&edm;Agent"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://purl.org/vocab/vann/changes -->
 
     <owl:AnnotationProperty rdf:about="&vann;changes"/>
@@ -1818,7 +1828,6 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
     <owl:DatatypeProperty rdf:about="&bibo;suffixName">
         <scopeNote xml:lang="en">Persons names or notations about organisations including counting, for example Johannes Paul, I.</scopeNote>
         <rdfs:comment xml:lang="en">The suffix of the name.</rdfs:comment>
-        <rdfs:domain rdf:resource="&edm;Agent"/>
         <rdfs:subPropertyOf rdf:resource="&skos;note"/>
     </owl:DatatypeProperty>
     
@@ -1898,6 +1907,15 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
         <skos:definition xml:lang="en">The gender with which a person identifies.</skos:definition>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rdvocab.info/ElementsGr2/otherDesignationAssociatedWithTheCorporateBody -->
+
+    <owl:DatatypeProperty rdf:about="&rdaGr2;otherDesignationAssociatedWithTheCorporateBody">
+        <skos:definition xml:lang="en">A term other than a title that is associated with a person’s name.</skos:definition>
+        <scopeNote xml:lang="en">Additional names. </scopeNote>
     </owl:DatatypeProperty>
     
 
