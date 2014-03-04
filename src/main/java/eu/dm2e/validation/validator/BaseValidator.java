@@ -54,10 +54,14 @@ abstract public class BaseValidator implements Dm2eValidator {
 		InputStream owlInputStream = getOwlInputStream();
 		Model ontModel = ModelFactory.createDefaultModel();
 		ontModel.read(owlInputStream, "RDF-XML");
+		
+		// TODO SMELLY HACK this should not be necessary, since it should be read from the OWL. 
 		{
 			propertyWhiteList.add(NS.RDF.PROP_TYPE);
 			propertyWhiteList.add(NS.OWL.SAME_AS);
 			propertyWhiteList.add(NS.EDM.PROP_IS_NEXT_IN_SEQUENCE);
+			propertyWhiteList.add("http://rdvocab.info/ElementsGr2/otherDesignationAssociatedWithThePerson");
+			
 		}
 		{
 			StmtIterator iter = ontModel.listStatements(null, 
@@ -193,7 +197,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 				if (obj.isLiteral()) {
 					final Literal objLit = obj.asLiteral();
 					boolean validRange = false;
-					if (null == objLit.getDatatype()) {
+					if (null == objLit.getDatatype() && ! entry.getValue().contains(null)) {
 						report.add(ValidationLevel.ERROR,
 								ValidationProblemCategory.ILLEGALLY_UNTYPED_LITERAL,
 								cho,
@@ -202,11 +206,18 @@ abstract public class BaseValidator implements Dm2eValidator {
 						continue;
 					}
 					for (Resource allowedRange : entry.getValue()) {
-						// log.debug(objLit.getDatatype().getURI());
-						// log.debug(allowedRange.getURI());
-						if (objLit.getDatatype().getURI().equals(allowedRange.getURI())) {
-							validRange = true;
-							break;
+						if (allowedRange == null) {
+							if (objLit.getDatatype() == null) {
+								// it is okay to have an untyped literal if
+								// 'null' is part of the allowed ranges
+								validRange = true;
+								break;
+							}
+						} else {
+							if (objLit.getDatatype().getURI().equals(allowedRange.getURI())) {
+								validRange = true;
+								break;
+							}
 						}
 					}
 					if (!validRange) report.add(ValidationLevel.ERROR,
