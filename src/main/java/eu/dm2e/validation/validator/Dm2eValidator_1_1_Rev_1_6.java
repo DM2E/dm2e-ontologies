@@ -36,7 +36,7 @@ public class Dm2eValidator_1_1_Rev_1_6 extends BaseValidator {
 	@SuppressWarnings("unused")
 	private static final Logger log = LoggerFactory.getLogger(Dm2eValidator_1_1_Rev_1_6.class);
 	
-	private static final String	modelVersion	= "1.1_Rev1.6";
+	private static final String	modelVersion	= "1.1_Rev1.6-DRAFT";
 	private static final Set<String> imageMimeTypes = new HashSet<>();
 	
 	static {
