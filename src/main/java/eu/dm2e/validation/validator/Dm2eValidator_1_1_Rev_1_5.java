@@ -163,11 +163,12 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 
 		ret.put(prop(m, NS.BIBO.PROP_NUMBER), new HashSet<Resource>());
 		ret.get(prop(m, NS.BIBO.PROP_NUMBER)).add(res(m, NS.XSD.UNSIGNED_INT));
+		ret.get(prop(m, NS.BIBO.PROP_NUMBER)).add(null); // can also be untyped
 		ret.put(prop(m, NS.BIBO.PROP_NUM_PAGES), new HashSet<Resource>());
 		ret.get(prop(m, NS.BIBO.PROP_NUM_PAGES)).add(res(m, NS.XSD.UNSIGNED_INT));
 		ret.get(prop(m, NS.BIBO.PROP_NUM_PAGES)).add(null); // can also be untyped
 		ret.put(prop(m, NS.DM2E_UNVERSIONED.PROP_LEVEL_OF_HIERARCHY), new HashSet<Resource>());
-		ret.get(prop(m, NS.DM2E_UNVERSIONED.PROP_LEVEL_OF_HIERARCHY)).add(res(m, NS.XSD.UNSIGNED_INT));
+		ret.get(prop(m, NS.DM2E_UNVERSIONED.PROP_LEVEL_OF_HIERARCHY)).add(res(m, NS.XSD.INT));
 
 		return ret;
 	}
