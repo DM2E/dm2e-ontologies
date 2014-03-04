@@ -628,6 +628,7 @@ public final class NS {
 		public static final String	CLASS_PARAGRAPH						= BASE + "Paragraph";
 		public static final String	CLASS_PUBLICATION						= BASE + "Publication";
 		public static final String	CLASS_ARCHIVE	= BASE + "Archive";
+		public static final String	PROP_WRITTEN_AT	= BASE + "writtenAt";
 
 		public static final String	PROP_HAS_ABSTRACT_DATASET	= BASE + "hasAbstractDataset";
 		public static final String PROP_HAS_VERSION    = BASE + "hasVersion";
