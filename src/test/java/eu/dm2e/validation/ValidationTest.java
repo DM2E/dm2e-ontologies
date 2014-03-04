@@ -11,6 +11,7 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 
 import eu.dm2e.NS;
+import eu.dm2e.validation.validator.Dm2eValidatorVersion;
 import eu.dm2e.validation.validator.Dm2eValidator_1_1_Rev_1_2;
 import eu.dm2e.validation.validator.Dm2eValidator_1_1_Rev_1_3;
 
@@ -22,8 +23,8 @@ public class ValidationTest {
 	// Validators
 	//
 
-	protected static Dm2eValidator v1_1_rev1_2 = new Dm2eValidator_1_1_Rev_1_2();
-	protected static Dm2eValidator v1_1_rev1_3 = new Dm2eValidator_1_1_Rev_1_3();
+	protected static Dm2eValidator v1_1_rev1_2 = Dm2eValidatorVersion.V_1_1_REV_1_2.getValidator();
+	protected static Dm2eValidator v1_1_rev1_3 = Dm2eValidatorVersion.V_1_1_REV_1_3.getValidator();
 
 	//
 	// Utility

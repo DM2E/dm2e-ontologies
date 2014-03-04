@@ -8,10 +8,10 @@ import eu.dm2e.validation.Dm2eValidator;
 public enum Dm2eValidatorVersion {
 	
 
-	V_1_1_REV_1_2(Dm2eValidator_1_1_Rev_1_2.class, "1.1_Rev1.2"),
-	V_1_1_REV_1_3(Dm2eValidator_1_1_Rev_1_3.class, "1.1_Rev1.3"),
-	V_1_1_REV_1_4(Dm2eValidator_1_1_Rev_1_4.class, "1.1_Rev1.4"),
-	V_1_1_REV_1_5(Dm2eValidator_1_1_Rev_1_5.class, "1.1_Rev1.5-DRAFT"),
+	V_1_1_REV_1_2(Dm2eValidator_1_1_Rev_1_2.class),
+	V_1_1_REV_1_3(Dm2eValidator_1_1_Rev_1_3.class),
+	V_1_1_REV_1_4(Dm2eValidator_1_1_Rev_1_4.class),
+	V_1_1_REV_1_5(Dm2eValidator_1_1_Rev_1_5.class),
 	;
 	
 	public static Dm2eValidatorVersion forString(String versionStr) throws NoSuchFieldException 
@@ -43,10 +43,10 @@ public enum Dm2eValidatorVersion {
 		return validator;
 	}
 	
-	Dm2eValidatorVersion(Class<? extends Dm2eValidator> clazz, String versionString) {
-		this.versionString = versionString;
+	Dm2eValidatorVersion(Class<? extends Dm2eValidator> clazz) {
 		try {
 			this.validator = clazz.newInstance();
+			this.versionString = validator.getVersion();
 		} catch (InstantiationException | IllegalAccessException e) {
 			final Logger log = LoggerFactory.getLogger(Dm2eValidatorVersion.class);
 			log.error("!! Could not instantiate Validator " + name() + " !!");
