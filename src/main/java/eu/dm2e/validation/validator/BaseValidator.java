@@ -58,8 +58,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 			propertyWhiteList.add(NS.RDF.PROP_TYPE);
 			propertyWhiteList.add(NS.OWL.SAME_AS);
 			propertyWhiteList.add(NS.EDM.PROP_IS_NEXT_IN_SEQUENCE);
-			propertyWhiteList.add("http://rdvocab.info/ElementsGr2/otherDesignationAssociatedWithThePerson");
-			
+			propertyWhiteList.add("http://rdvocab.info/ElementsGr2/otherDesignationAssociatedWithTheCorporateBody");
 		}
 		{
 			StmtIterator iter = ontModel.listStatements(null, 
