@@ -663,7 +663,7 @@ public final class NS {
 		public static final String	BASE				= "http://www.europeana.eu/schemas/edm/";
 		public static final String	CLASS_AGENT				= BASE + "Agent";
 		public static final String	CLASS_EVENT				= BASE + "Event";
-		public static final String	CLASS_PLACE				= BASE + "Event";
+		public static final String	CLASS_PLACE				= BASE + "Place";
 		public static final String	CLASS_PROVIDED_CHO		= BASE + "ProvidedCHO";
 		public static final String	CLASS_TIMESPAN			= BASE + "TimeSpan";
 		public static final String	CLASS_WEBRESOURCE		= BASE + "WebResource";
