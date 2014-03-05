@@ -176,7 +176,7 @@ public class Dm2eValidator_1_1_Rev_1_6 extends BaseValidator {
 		ret.get(prop(m, NS.BIBO.PROP_NUM_VOLUMES)).add(null); // can also be untyped
 
 		ret.put(prop(m, NS.DM2E_UNVERSIONED.PROP_LEVEL_OF_HIERARCHY), new HashSet<Resource>());
-		ret.get(prop(m, NS.DM2E_UNVERSIONED.PROP_LEVEL_OF_HIERARCHY)).add(res(m, NS.XSD.INT));
+		ret.get(prop(m, NS.DM2E_UNVERSIONED.PROP_LEVEL_OF_HIERARCHY)).add(res(m, NS.XSD.UNSIGNED_INT));
 
 		return ret;
 	}
