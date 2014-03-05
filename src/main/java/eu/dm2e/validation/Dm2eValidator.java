@@ -259,6 +259,8 @@ public interface Dm2eValidator {
 
 	public abstract Set<String> build_image_mimeType_List();
 
+	public abstract Set<String> build_illegal_Uri_Strings();
+
 
 
 }

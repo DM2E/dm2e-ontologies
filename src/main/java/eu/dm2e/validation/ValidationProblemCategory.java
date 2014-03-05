@@ -24,6 +24,9 @@ public enum ValidationProblemCategory {
 	UNKNOWN_PROPERTY(" has unknown property <%s>"),
 	RELATIVE_URL(" is a relative URL used with property <%s>"),
 	INVALID_DC_TYPE(" uses an unknown dc:type <%s>"),
+	
+	ILLEGAL_URI_CHARACTER(" uses illegal URI character '%s'"),
+	UNWISE_URI_CHARACTER(" uses unwise URI character '%s'"),
 	;
 	
 	private String msg;

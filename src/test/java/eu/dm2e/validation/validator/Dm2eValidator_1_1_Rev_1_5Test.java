@@ -16,6 +16,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 
 import eu.dm2e.NS;
 import eu.dm2e.validation.Dm2eValidationReport;
+import eu.dm2e.validation.Dm2eValidator;
 import eu.dm2e.validation.ValidationProblemCategory;
 import eu.dm2e.validation.ValidationTest;
 
@@ -24,7 +25,7 @@ public class Dm2eValidator_1_1_Rev_1_5Test extends ValidationTest {
 	
 	@SuppressWarnings("unused") private static final Logger log = LoggerFactory.getLogger(Dm2eValidator_1_1_Rev_1_5Test.class);
 
-	BaseValidator rev_1_5 = new Dm2eValidator_1_1_Rev_1_5();
+	Dm2eValidator rev_1_5 = new Dm2eValidator_1_1_Rev_1_5();
 	final String ex = "http://example.com/";
 	
 	@Test

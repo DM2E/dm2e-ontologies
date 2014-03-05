@@ -292,11 +292,23 @@ abstract public class BaseValidator implements Dm2eValidator {
 	protected void checkStatement(final Statement stmt, Dm2eValidationReport report) {
 		final Property prop = stmt.getPredicate();
 		final Resource res = stmt.getSubject();
+		final String resPath = res.getURI().substring("http://".length());
 		if (res.getURI().startsWith(RELATIVE_URL_BASE)) {
 			report.add(ValidationLevel.FATAL,
 					ValidationProblemCategory.RELATIVE_URL,
 					res,
 					prop);
+		}
+		//
+		// Check for invalid URI strings
+		//
+		for (String illegalUriString : build_illegal_Uri_Strings()) {
+			if (resPath.contains(illegalUriString)) {
+				report.add(ValidationLevel.FATAL,
+						ValidationProblemCategory.ILLEGAL_URI_CHARACTER,
+						res,
+						illegalUriString);
+			}
 		}
 		if (! propertyWhiteList.contains(prop.getURI())) {
 			report.add(ValidationLevel.ERROR,
@@ -304,6 +316,27 @@ abstract public class BaseValidator implements Dm2eValidator {
 					res,
 					prop);
 		}
+	}
+
+	@Override
+	public Set<String> build_illegal_Uri_Strings() {
+		Set<String> ret = new HashSet<>();
+		ret.add("\r");
+		ret.add("\n");
+		ret.add("\t");
+		ret.add(":");
+		ret.add("<");
+		ret.add(">");
+//		ret.add("?");
+		ret.add("%2F"); // == '/'
+		ret.add("%0D");	// == '\r'
+		ret.add("%0A");	// == '\n'
+		ret.add("%09");	// == '\t'
+		ret.add("%3A");	// == ':'
+		ret.add("%3C");	// == '<'
+		ret.add("%3E");	// == '>'
+//		ret.add("%3F");	// == '?'
+		return ret;
 	}
 
 	//

@@ -209,6 +209,29 @@ public class BaseValidatorTest extends ValidationTest {
 			doesNotContainCategory(report, expected);
 		}
 	}
+	
+	@Test
+	public void testInvalidURI() {
+		{
+			log.info("Newline and Tab");
+			Model m = ModelFactory.createDefaultModel();
+			final Resource testRes = res(m, "http://foo.com/bla\n\tquux");
+			testRes.addProperty(prop(m, NS.RDF.PROP_TYPE), "fnobeck");
+			Dm2eValidationReport report = v1_1_rev1_2.validateWithDm2e(m);
+			ValidationProblemCategory expected = ValidationProblemCategory.ILLEGAL_URI_CHARACTER;
+			containsCategory(report, expected);
+		}
+		{
+			log.info("URL-encoded Slash");
+			Model m = ModelFactory.createDefaultModel();
+			final Resource testRes = res(m, "http://foo.com/bla%2Fquux");
+			testRes.addProperty(prop(m, NS.RDF.PROP_TYPE), "fnobeck");
+			Dm2eValidationReport report = v1_1_rev1_2.validateWithDm2e(m);
+			ValidationProblemCategory expected = ValidationProblemCategory.ILLEGAL_URI_CHARACTER;
+			log.info(report.exportToString(false));
+			containsCategory(report, expected);
+		}
+	}
 
 
 	
@@ -230,4 +253,4 @@ public class BaseValidatorTest extends ValidationTest {
 	
 	
 	
-}
+};
