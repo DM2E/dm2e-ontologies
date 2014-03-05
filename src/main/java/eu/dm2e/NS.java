@@ -515,6 +515,7 @@ public final class NS {
 		public static final String PROP_ISSUED = BASE + "issued";
 		public static final String PROP_TEMPORAL	= BASE + "temporal";
 		public static final String	PROP_ALTERNATIVE	= BASE + "alternative";
+		public static final String	PROP_SPATIAL	= BASE + "spatial";
 
 	}
 
@@ -685,6 +686,8 @@ public final class NS {
 		public static final String BASE = "http://purl.org/spar/pro/";
 		public static final String PROP_AUTHOR = BASE + "author";
 		public static final String	PROP_TRANSLATOR	= BASE + "translator";
+		public static final String	PROP_PRINTER	= BASE + "printer";
+		public static final String	PROP_ILLUSTRATOR	= BASE + "illustrator";
 	}
 	public static final class DM2E_UNOFFICIAL {
 		public static final String BASE = "http://onto.dm2e.eu/UNOFFICIAL/";
