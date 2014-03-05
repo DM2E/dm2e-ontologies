@@ -496,6 +496,7 @@ public final class NS {
 		public static final String PROP_DESCRIPTION	= BASE + "description";
 		public static final String	PROP_CREATOR	= BASE + "creator";
 		public static final String	PROP_CONTRIBUTOR	= BASE + "contributor";
+		public static final String	PROP_COVERAGE	= BASE + "coverage";
 
 	}
 
