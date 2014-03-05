@@ -49,7 +49,7 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 
 	@Override
 	public InputStream getOwlInputStream() {
-		return getClass().getResourceAsStream("/dm2e-model/DM2Ev1.1_Rev1.5-WITH-CONSTRAINTS.owl");
+		return getClass().getResourceAsStream("/dm2e-model/DM2Ev1.1_Rev1.5.owl");
 	}
 	
 	@Override public String getVersion() {
@@ -281,7 +281,9 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 				} else {
 					Resource edmObjectRes = stmt.getObject().asResource();
 					Statement dcFormatStmt = edmObjectRes.getProperty(prop(m, NS.DC.PROP_FORMAT));
-					if (! dcFormatStmt.getObject().isLiteral()) {
+					if (null == dcFormatStmt) {
+						report.add(ValidationLevel.FATAL, ValidationProblemCategory.MISSING_REQUIRED_PROPERTY, edmObjectRes, NS.DC.PROP_FORMAT);
+					} else if (! dcFormatStmt.getObject().isLiteral()) {
 						report.add(ValidationLevel.FATAL, ValidationProblemCategory.SHOULD_BE_LITERAL, agg, NS.DC.PROP_FORMAT);
 					} else {
 						String dcFormatStr = dcFormatStmt.getObject().asLiteral().getLexicalForm();
