@@ -1,0 +1,8 @@
+SELECT (COUNT(DISTINCT ?thing) AS ?thingCount)
+WHERE
+{
+    GRAPH ?g
+    {
+        ?thing ?paramProp ?paramValue .
+    }
+} 

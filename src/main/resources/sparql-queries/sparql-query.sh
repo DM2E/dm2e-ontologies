@@ -68,13 +68,16 @@ queryUnformatted=$(cat $prefixFile $queryFile | grep -v '^\s*#')
 # Initialize with initial bindings
 for bindingName in ${!initialBindings[@]};do
     bindingValue=${initialBindings["$bindingName"]}
-    queryFormatted=$(echo "$queryUnformatted" | sed "s,\?$bindingName,$bindingValue,")
+    echo "Binding $bindingName to $bindingValue"
+    queryUnformatted=$(echo "$queryUnformatted" | sed "s,\?$bindingName,$bindingValue,")
 done
+
+echo $queryUnformatted
 
 # URL Encode
 queryFormatted=$(urlencode "$queryUnformatted")
 
 # Send request
 url="${endpointSelect}?format=${outputFormat}&query=${queryFormatted}"
-echo $url
+# echo $url
 curl $url

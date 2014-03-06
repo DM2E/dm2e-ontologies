@@ -1,0 +1,8 @@
+SELECT *
+WHERE
+{
+    GRAPH ?g
+    {
+        <http://data.dm2e.eu/data/place/mpiwg/harriot/MPIWG_KECMZ5BH/tMRX3uV_Petworth%2C+UK> ?prop ?obj .
+    }
+}
