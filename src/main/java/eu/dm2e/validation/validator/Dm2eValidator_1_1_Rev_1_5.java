@@ -236,24 +236,6 @@ public class Dm2eValidator_1_1_Rev_1_5 extends BaseValidator {
 	// Validation Overrides
 	//
 	
-	@Override public void validate_edm_ProvidedCHO(Model m, Resource cho, Dm2eValidationReport report) {
-		super.validate_edm_ProvidedCHO(m, cho, report);
-
-		//
-		// NS.BIBO.PROP_NUMBER:
-		// "mandatory not repeatable for CHOs of dc:type type dm2e:Page" (p.32)
-		//
-		if (cho.hasProperty(prop(m, NS.DC.PROP_TYPE), res(m, NS.DM2E_UNVERSIONED.CLASS_PAGE))
-				&&
-			! cho.hasProperty(prop(m, NS.BIBO.PROP_NUMBER))) {	
-			report.add(ValidationLevel.ERROR,
-					ValidationProblemCategory.MISSING_CONDITIONALLY_REQUIRED_PROPERTY,
-					cho,
-					NS.BIBO.PROP_NUMBER,
-					"One bibo:Number for every dm2e:Page");
-		}
-	}
-
 	@Override public void validate_ore_Aggregation(Model m, Resource agg, Dm2eValidationReport report) {
 		
 		// Basic validation is the same
