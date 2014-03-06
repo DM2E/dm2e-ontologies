@@ -61,7 +61,7 @@ public class Dm2eValidationCLI {
 				: line.getOptionValue("format");
 		
 		// Minimum level
-		final ValidationLevel level = (null == line.getOptionValue("level"))
+		final ValidationLevel minLevel = (null == line.getOptionValue("level"))
 				? DEFAULT_LEVEL
 				: ValidationLevel.valueOf(line.getOptionValue("level"));
 
@@ -76,6 +76,9 @@ public class Dm2eValidationCLI {
 		// Whether to write to stdout
 		final boolean writeToStdout = line.hasOption("stdout");
 		
+		// Skip okay results
+		boolean skipOk = line.hasOption("skipOk");
+
 		// Input files
 		final List fileList = line.getArgList();
 
@@ -98,16 +101,11 @@ public class Dm2eValidationCLI {
 			}
 
 			if (writeToStdout) {
-				System.out.println(report.exportToString(level, true, terse));
+				if (report.getHighestLevel().ordinal() >= minLevel.ordinal()) {
+					System.out.println(report.exportToString(minLevel, true, terse));
+				}
 				System.err.println("DONE validating " + fileName);
 			} else {
-				final String outputFileName = fileName + outputFileSuffix;
-				File outfile = new File(outputFileName);
-				try {
-					FileUtils.writeStringToFile(outfile, report.exportToString(level, true, terse));
-				} catch (IOException e) {
-					dieHelpfully("Error writing file to output file", e);
-				}
 				StringBuilder sb = new StringBuilder();
 				sb.append("DONE [");
 				sb.append(++currentFile);
@@ -116,9 +114,19 @@ public class Dm2eValidationCLI {
 				sb.append("]");
 				sb.append("[");
 				sb.append(report.getHighestLevel().name());
-				sb.append("] See '");
-				sb.append(outputFileName);
-				sb.append("'.");
+				sb.append("]");
+				if (! skipOk || report.getHighestLevel().ordinal() >= minLevel.ordinal()) {
+					final String outputFileName = fileName + outputFileSuffix;
+					File outfile = new File(outputFileName);
+					try {
+						FileUtils.writeStringToFile(outfile, report.exportToString(minLevel, true, terse));
+					} catch (IOException e) {
+						dieHelpfully("Error writing file to output file", e);
+					}
+					sb.append(" See '");
+					sb.append(outputFileName);
+					sb.append("'.");
+				}
 				System.err.println(sb.toString());
 			}
 		}
@@ -200,6 +208,7 @@ public class Dm2eValidationCLI {
 			if (thisLevel.ordinal() < ValidationLevel.values().length -1)
 				levelSB.append(" | ");
 		}
+		options.addOption("skipOk", false, "Skip writing results for valid results");
 		options.addOption(OptionBuilder
 			.hasArgs(1)
 			.withArgName(Dm2eValidatorVersion.valuesAsTerseString())
