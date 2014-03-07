@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.Normalizer;
+import java.text.Normalizer.Form;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -290,15 +292,21 @@ abstract public class BaseValidator implements Dm2eValidator {
 	 * @param report
 	 */
 	protected void checkStatement(final Statement stmt, Dm2eValidationReport report) {
-		final Property prop = stmt.getPredicate();
 		final Resource res = stmt.getSubject();
+		final Property prop = stmt.getPredicate();
+		final RDFNode obj = stmt.getObject();
 		final String resPath = res.getURI().substring("http://".length());
+		
+		//
+		// Check for illegal relative URLs
+		//
 		if (res.getURI().startsWith(RELATIVE_URL_BASE)) {
 			report.add(ValidationLevel.FATAL,
 					ValidationProblemCategory.RELATIVE_URL,
 					res,
 					prop);
 		}
+
 		//
 		// Check for invalid URI strings
 		//
@@ -310,12 +318,30 @@ abstract public class BaseValidator implements Dm2eValidator {
 						illegalUriString);
 			}
 		}
+
+		//
+		// Check for unknown properties
+		//
 		if (! propertyWhiteList.contains(prop.getURI())) {
 			report.add(ValidationLevel.ERROR,
 					ValidationProblemCategory.UNKNOWN_PROPERTY,
 					res,
 					prop);
 		}
+		
+		//
+		// Check for non NFC-normalized UTF-8 strings
+		//
+		if(obj.isLiteral() && ! Normalizer.isNormalized(obj.asLiteral().getLexicalForm(), Form.NFC)) {
+			report.add(ValidationLevel.WARNING,
+					ValidationProblemCategory.LITERAL_NOT_IN_NFC,
+					res,
+					prop,
+					obj.asLiteral().getLexicalForm()
+					);
+			
+		}
+		
 	}
 
 	@Override

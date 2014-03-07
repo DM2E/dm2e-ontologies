@@ -2,6 +2,8 @@ package eu.dm2e.validation.validator;
 
 import static org.fest.assertions.Assertions.*;
 
+import java.text.Normalizer;
+import java.text.Normalizer.Form;
 import java.util.Set;
 
 import org.junit.Ignore;
@@ -230,6 +232,35 @@ public class BaseValidatorTest extends ValidationTest {
 			ValidationProblemCategory expected = ValidationProblemCategory.ILLEGAL_URI_CHARACTER;
 			log.info(report.exportToString(false));
 			containsCategory(report, expected);
+		}
+	}
+	
+	@Test
+	public void testNFC() throws Exception {
+		String sample = "ĥ̖̗̲â̲ᷜ̃ç̲︣̌̕k̲̈͆";
+		log.info("Raw: {}", sample);
+		log.info("Is NFC: {}", Normalizer.isNormalized(sample, Form.NFC));
+		log.info("NFD: {}", Normalizer.normalize(sample, Form.NFD));
+		log.info("NFC: {}", Normalizer.normalize(sample, Form.NFC));
+		{
+			log.info("Non-NFC");
+			Model m = ModelFactory.createDefaultModel();
+			final Resource testRes = res(m, "http://foo.com/bla");
+			testRes.addProperty(prop(m, NS.DC.PROP_DESCRIPTION), sample);
+			Dm2eValidationReport report = v1_1_rev1_2.validateWithDm2e(m);
+			ValidationProblemCategory expected = ValidationProblemCategory.LITERAL_NOT_IN_NFC;
+			log.info(report.exportToString(false));
+			containsCategory(report, expected);
+		}
+		{
+			log.info("NFC");
+			Model m = ModelFactory.createDefaultModel();
+			final Resource testRes = res(m, "http://foo.com/bla");
+			testRes.addProperty(prop(m, NS.DC.PROP_DESCRIPTION), Normalizer.normalize(sample, Form.NFC));
+			Dm2eValidationReport report = v1_1_rev1_2.validateWithDm2e(m);
+			ValidationProblemCategory expected = ValidationProblemCategory.LITERAL_NOT_IN_NFC;
+			log.info(report.exportToString(false));
+			doesNotContainCategory(report, expected);
 		}
 	}
 
