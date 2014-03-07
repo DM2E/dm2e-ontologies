@@ -27,6 +27,7 @@ public enum ValidationProblemCategory {
 	
 	ILLEGAL_URI_CHARACTER(" uses illegal URI character '%s'"),
 	UNWISE_URI_CHARACTER(" uses unwise URI character '%s'"),
+	LITERAL_NOT_IN_NFC(" has literal value for prop <%s> not in Unicode Normalization Form C: '''%s'''"),
 	;
 	
 	private String msg;
