@@ -29,10 +29,10 @@
                </skos:Concept>
             </dc:subject>
             <dcterms:issued>
-               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1826-01-01T00%2000%2000UG_1826-12-31T23%2059%2059UG">
-                  <skos:prefLabel>1826</skos:prefLabel>
-                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1826-01-01T00:00:00</edm:begin>
-                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1826-12-31T23:59:59</edm:end>
+               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1848-01-01T00%2000%2000UG_1848-12-31T23%2059%2059UG">
+                  <skos:prefLabel>1848</skos:prefLabel>
+                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1848-01-01T00:00:00</edm:begin>
+                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1848-12-31T23:59:59</edm:end>
                </edm:TimeSpan>
             </dcterms:issued>
             <dm2e:publishedAt>
@@ -174,12 +174,12 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/issue_pj022">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/issue_pj107">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj022">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj107">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://purl.org/ontology/bibo/Issue"/>
-            <dc:title xml:lang="de">Polytechnisches Journal, Volume 1826, Issue 22</dc:title>
+            <dc:title xml:lang="de">Polytechnisches Journal, Volume 1848, Issue 107</dc:title>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -187,10 +187,10 @@
                </skos:Concept>
             </dc:subject>
             <dcterms:issued>
-               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1826-01-01T00%2000%2000UG_1826-12-31T23%2059%2059UG">
-                  <skos:prefLabel>1826</skos:prefLabel>
-                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1826-01-01T00:00:00</edm:begin>
-                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1826-12-31T23:59:59</edm:end>
+               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1848-01-01T00%2000%2000UG_1848-12-31T23%2059%2059UG">
+                  <skos:prefLabel>1848</skos:prefLabel>
+                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1848-01-01T00:00:00</edm:begin>
+                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1848-12-31T23:59:59</edm:end>
                </edm:TimeSpan>
             </dcterms:issued>
             <dm2e:publishedAt>
@@ -241,13 +241,13 @@
          </foaf:Organization>
       </dcterms:rightsHolder>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/pj022/">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/pj107/">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/pj022/">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/pj107/">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
                <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
@@ -339,28 +339,114 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/article_pj022_ar022026">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/article_pj107_ar107mi05">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj107_ar107mi05">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://purl.org/spar/fabio/Article"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
+            <dc:title xml:lang="de">Miscellen.</dc:title>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:pages>150-163</bibo:pages>
-            <dcterms:tableOfContents xml:lang="de"/>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P.Berthier</skos:prefLabel>
+            <bibo:pages>392-400</bibo:pages>
+            <dcterms:tableOfContents xml:lang="de">Ueber Manometer mit comprimirter Luft für Dampfkessel, von Galy-Cazalat.
+Prüfung einer Blecher'schen feuerfesten Geldkiste.
+ Hibbard's Verbesserungen im Furniren.
+Das Abformen der Füße, ein Mittel zum Anfertigen ganz naturgetreuer Leisten.
+Ueber einige zur Erwärmung und zum Warmhalten der Wohnungen in Rußland allgemein verbreitete
+									Vorrichtungen, welche zu empfehlen sind.
+ Solomons' patentirte Holzkohlen-Ziegel.
+ Lelievre's Verfahren zum Schwarzfärben und Spannen der Seide.
+Auf Stabeisen geschweißtes Gußeisen; von Labouysse zu Toulouse.
+Neue Kältemischung.
+Ueber die Zuckerfabrication aus getrockneten Rüben; von C. Schedl.
+Verhalten des unterschwefligsauren Natrons zu den Chinaalkaloiden.
+Ueber einen Firniß welcher die Kröten anzieht und vergiftet.
+Ueber Insecten welche in Apotheken Schaden anrichten.
+Hanf als Mittel gegen den Kornwurm.
+Beschreibung des Baumes welcher die Gutta-percha liefert.
+Verwendung fester Einbrennmasse als Nahrungsmittel auf Reisen; von Dr. Hammerschmidt in Wien.
+</dcterms:tableOfContents>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Galy-Cazalat">
+                  <skos:prefLabel xml:lang="de">Galy-Cazalat</skos:prefLabel>
                </foaf:Person>
-            </pro:author>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Blecher">
+                  <skos:prefLabel xml:lang="de">Blecher</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Mutzenbecher">
+                  <skos:prefLabel xml:lang="de">Mutzenbecher</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Spiermann">
+                  <skos:prefLabel xml:lang="de">Spiermann</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Sch%C3%B6ppler">
+                  <skos:prefLabel xml:lang="de">Schöppler</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/B%C3%B6ttger">
+                  <skos:prefLabel xml:lang="de">Böttger</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/FabrikantWerner">
+                  <skos:prefLabel xml:lang="de">FabrikantWerner</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Labouysse">
+                  <skos:prefLabel xml:lang="de">Labouysse</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Thibaut">
+                  <skos:prefLabel xml:lang="de">Thibaut</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Perronet">
+                  <skos:prefLabel xml:lang="de">Perronet</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Buron">
+                  <skos:prefLabel xml:lang="de">Buron</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/LeDuc">
+                  <skos:prefLabel xml:lang="de">LeDuc</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Silvestre">
+                  <skos:prefLabel xml:lang="de">Silvestre</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/R%C3%A9tif">
+                  <skos:prefLabel xml:lang="de">Rétif</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
+            <dm2e:mentioned>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/J.Hooker">
+                  <skos:prefLabel xml:lang="de">J.Hooker</skos:prefLabel>
+               </foaf:Person>
+            </dm2e:mentioned>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj022"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj107"/>
             </dcterms:isPartOf>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">3</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -393,7 +479,7 @@
          </foaf:Organization>
       </dcterms:rightsHolder>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj022/ar022026">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj107/ar107mi05">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
                <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
@@ -403,12 +489,12 @@
          </edm:WebResource>
       </edm:isShownAt>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000177.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000411.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj022/ar022026">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj107/ar107mi05">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
@@ -495,27 +581,22 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb150">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj107_pb392">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb150">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb392">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
+            <dc:title xml:lang="de">Miscellen.</dc:title>
+            <dm2e:subtitle xml:lang="de">Ueber Manometer mit comprimirter Luft für Dampfkessel, von Galy-Cazalat.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">155</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">393</bibo:number>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj107_ar107mi05"/>
             </dcterms:isPartOf>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -534,30 +615,30 @@
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000177.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000411.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000177">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000411">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000176.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000410.tif.medium.jpg">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000176.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000410.tif.medium.jpg">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:isShownBy>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000177">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000411">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
@@ -644,31 +725,25 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pbzu_S._155">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj107_pb393">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pbzu_S._155">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb393">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
+            <dc:title xml:lang="de">Miscellen.</dc:title>
+            <dm2e:subtitle xml:lang="de">Prüfung einer Blecher'schen feuerfesten Geldkiste.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">155</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">393</bibo:number>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj107_ar107mi05"/>
             </dcterms:isPartOf>
             <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb154"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb392"/>
             </edm:isNextInSequence>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -686,32 +761,32 @@
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000177.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000411.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000177">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000411">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000177.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000411.tif.medium.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000177.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000411.tif.medium.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:isShownBy>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000177">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000411">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
@@ -804,31 +879,25 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb155">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj107_pb394">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb155">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb394">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
+            <dc:title xml:lang="de">Miscellen.</dc:title>
+            <dm2e:subtitle xml:lang="de">Das Abformen der Füße, ein Mittel zum Anfertigen ganz naturgetreuer Leisten.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">155</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">394</bibo:number>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj107_ar107mi05"/>
             </dcterms:isPartOf>
             <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb154"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb393"/>
             </edm:isNextInSequence>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -846,32 +915,32 @@
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000178.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000412.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000178">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000412">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000178.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000412.tif.medium.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000178.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000412.tif.medium.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:isShownBy>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000178">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000412">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
@@ -964,31 +1033,25 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb159">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj107_pb396">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb159">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb396">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
+            <dc:title xml:lang="de">Miscellen.</dc:title>
+            <dm2e:subtitle xml:lang="de"> Lelievre's Verfahren zum Schwarzfärben und Spannen der Seide.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">159</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">396</bibo:number>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj107_ar107mi05"/>
             </dcterms:isPartOf>
             <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb158"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb395"/>
             </edm:isNextInSequence>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -1006,32 +1069,32 @@
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000182.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000414.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000182">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000414">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000182.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000414.tif.medium.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000182.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000414.tif.medium.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:isShownBy>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000182">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000414">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
@@ -1124,31 +1187,25 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb151">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj107_pb397">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb151">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb397">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
+            <dc:title xml:lang="de">Miscellen.</dc:title>
+            <dm2e:subtitle xml:lang="de">Ueber die Zuckerfabrication aus getrockneten Rüben; von C. Schedl.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">151</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">397</bibo:number>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj107_ar107mi05"/>
             </dcterms:isPartOf>
             <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb150"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb396"/>
             </edm:isNextInSequence>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -1166,31 +1223,32 @@
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000173.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000415.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000173">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000415">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000173.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000415.tif.medium.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000173.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000415.tif.medium.jpg">
+            <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:isShownBy>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000173">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000415">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
@@ -1283,31 +1341,25 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb152">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj107_pb395">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb152">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb395">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
+            <dc:title xml:lang="de">Miscellen.</dc:title>
+            <dm2e:subtitle xml:lang="de"> Solomons' patentirte Holzkohlen-Ziegel.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">152</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">395</bibo:number>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj107_ar107mi05"/>
             </dcterms:isPartOf>
             <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb151"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb394"/>
             </edm:isNextInSequence>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -1325,31 +1377,31 @@
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000174.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000413.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000174">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000413">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000174.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000413.tif.medium.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000174.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000413.tif.medium.jpg">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:isShownBy>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000174">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000413">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
@@ -1442,31 +1494,25 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb153">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj107_pb398">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb153">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb398">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
+            <dc:title xml:lang="de">Miscellen.</dc:title>
+            <dm2e:subtitle xml:lang="de">Verhalten des unterschwefligsauren Natrons zu den Chinaalkaloiden.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">153</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">398</bibo:number>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj107_ar107mi05"/>
             </dcterms:isPartOf>
             <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb152"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb397"/>
             </edm:isNextInSequence>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -1484,31 +1530,31 @@
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000175.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000416.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000175">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000416">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000175.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000416.tif.medium.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000175.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000416.tif.medium.jpg">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:isShownBy>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000175">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000416">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
@@ -1601,31 +1647,25 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb154">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj107_pb399">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb154">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb399">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
+            <dc:title xml:lang="de">Miscellen.</dc:title>
+            <dm2e:subtitle xml:lang="de">Hanf als Mittel gegen den Kornwurm.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">154</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">399</bibo:number>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj107_ar107mi05"/>
             </dcterms:isPartOf>
             <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb153"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb398"/>
             </edm:isNextInSequence>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -1643,31 +1683,31 @@
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000176.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000417.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000176">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000417">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000176.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000417.tif.medium.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000176.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000417.tif.medium.jpg">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:isShownBy>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000176">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000417">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
@@ -1760,31 +1800,25 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb156">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj107_pb400">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb156">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb400">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
+            <dc:title xml:lang="de">Miscellen.</dc:title>
+            <dm2e:subtitle xml:lang="de">Verwendung fester Einbrennmasse als Nahrungsmittel auf Reisen; von Dr. Hammerschmidt in Wien.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">156</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">400</bibo:number>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj107_ar107mi05"/>
             </dcterms:isPartOf>
             <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb155"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj107_pb399"/>
             </edm:isNextInSequence>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -1802,986 +1836,31 @@
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000179.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000418.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000179">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000418">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000179.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000418.tif.medium.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000179.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422598Z/32422598Z_tif/jpegs/00000418.tif.medium.jpg">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:isShownBy>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000179">
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-            <edm:isDerivativeOf>
-               <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
-                  <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-                  <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-               </edm:WebResource>
-            </edm:isDerivativeOf>
-         </edm:WebResource>
-      </edm:isShownAt>
-      <dc:creator>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-         </foaf:Organization>
-      </dc:creator>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Prof.Dr.ChristianKassung">
-            <skos:prefLabel xml:lang="de">Prof. Dr. Christian Kassung</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/MariusHug">
-            <skos:prefLabel xml:lang="de">Marius Hug</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeborahZehnder">
-            <skos:prefLabel xml:lang="de">Deborah Zehnder</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/LauraLuzardo">
-            <skos:prefLabel xml:lang="de">Laura Luzardo</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/UnaSch%C3%A4fer">
-            <skos:prefLabel xml:lang="de">Una Schäfer</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/AntoniaBechmann">
-            <skos:prefLabel xml:lang="de">Antonia Bechmann</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DianaDaniel">
-            <skos:prefLabel xml:lang="de">Diana Daniel</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/FrankWiegand">
-            <skos:prefLabel xml:lang="de">Frank Wiegand</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/MarcRohrm%C3%BCller">
-            <skos:prefLabel xml:lang="de">Marc Rohrmüller</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/S%C3%A4chsischeLandesbibliothek%E2%80%93Staats-undUniversit%C3%A4tsbibliothekDresden">
-            <skos:prefLabel xml:lang="de">Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeutscheForschungsgemeinschaft">
-            <skos:prefLabel xml:lang="de">Deutsche Forschungsgemeinschaft</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/EdituraGmbH%26Co.KG%2CBerlin">
-            <skos:prefLabel xml:lang="de">Editura GmbH &amp; Co. KG, Berlin</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/CLARIN-D">
-            <skos:prefLabel xml:lang="de">CLARIN-D</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeutschesTextarchiv">
-            <skos:prefLabel xml:lang="de">Deutsches Textarchiv</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
-   </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb157">
-      <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb157">
-            <edm:type>TEXT</edm:type>
-            <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
-            <dc:language>de</dc:language>
-            <dc:subject>
-               <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
-                  <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
-               </skos:Concept>
-            </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">157</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
-            <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
-            </dcterms:isPartOf>
-            <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb156"/>
-            </edm:isNextInSequence>
-            <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
-         </edm:ProvidedCHO>
-      </edm:aggregatedCHO>
-      <edm:provider>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DM2E">
-            <skos:prefLabel xml:lang="de">DM2E</skos:prefLabel>
-         </foaf:Organization>
-      </edm:provider>
-      <edm:dataProvider>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-            <owl:sameAs>http://d-nb.info/gnd/5067292-7</owl:sameAs>
-         </foaf:Organization>
-      </edm:dataProvider>
-      <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-      <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000180.tif.thumbnail.jpg">
-            <dc:format>image/jpeg</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </edm:object>
-      <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000180">
-            <dc:format>text/html</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-         </edm:WebResource>
-      </dm2e:hasAnnotatableVersionAt>
-      <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000180.tif.medium.jpg">
-            <dc:format>image/jpeg</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </dm2e:hasAnnotatableVersionAt>
-      <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000180.tif.medium.jpg">
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </edm:isShownBy>
-      <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000180">
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-            <edm:isDerivativeOf>
-               <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
-                  <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-                  <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-               </edm:WebResource>
-            </edm:isDerivativeOf>
-         </edm:WebResource>
-      </edm:isShownAt>
-      <dc:creator>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-         </foaf:Organization>
-      </dc:creator>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Prof.Dr.ChristianKassung">
-            <skos:prefLabel xml:lang="de">Prof. Dr. Christian Kassung</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/MariusHug">
-            <skos:prefLabel xml:lang="de">Marius Hug</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeborahZehnder">
-            <skos:prefLabel xml:lang="de">Deborah Zehnder</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/LauraLuzardo">
-            <skos:prefLabel xml:lang="de">Laura Luzardo</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/UnaSch%C3%A4fer">
-            <skos:prefLabel xml:lang="de">Una Schäfer</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/AntoniaBechmann">
-            <skos:prefLabel xml:lang="de">Antonia Bechmann</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DianaDaniel">
-            <skos:prefLabel xml:lang="de">Diana Daniel</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/FrankWiegand">
-            <skos:prefLabel xml:lang="de">Frank Wiegand</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/MarcRohrm%C3%BCller">
-            <skos:prefLabel xml:lang="de">Marc Rohrmüller</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/S%C3%A4chsischeLandesbibliothek%E2%80%93Staats-undUniversit%C3%A4tsbibliothekDresden">
-            <skos:prefLabel xml:lang="de">Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeutscheForschungsgemeinschaft">
-            <skos:prefLabel xml:lang="de">Deutsche Forschungsgemeinschaft</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/EdituraGmbH%26Co.KG%2CBerlin">
-            <skos:prefLabel xml:lang="de">Editura GmbH &amp; Co. KG, Berlin</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/CLARIN-D">
-            <skos:prefLabel xml:lang="de">CLARIN-D</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeutschesTextarchiv">
-            <skos:prefLabel xml:lang="de">Deutsches Textarchiv</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
-   </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb158">
-      <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb158">
-            <edm:type>TEXT</edm:type>
-            <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
-            <dc:language>de</dc:language>
-            <dc:subject>
-               <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
-                  <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
-               </skos:Concept>
-            </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">158</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
-            <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
-            </dcterms:isPartOf>
-            <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb157"/>
-            </edm:isNextInSequence>
-            <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
-         </edm:ProvidedCHO>
-      </edm:aggregatedCHO>
-      <edm:provider>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DM2E">
-            <skos:prefLabel xml:lang="de">DM2E</skos:prefLabel>
-         </foaf:Organization>
-      </edm:provider>
-      <edm:dataProvider>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-            <owl:sameAs>http://d-nb.info/gnd/5067292-7</owl:sameAs>
-         </foaf:Organization>
-      </edm:dataProvider>
-      <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-      <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000181.tif.thumbnail.jpg">
-            <dc:format>image/jpeg</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </edm:object>
-      <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000181">
-            <dc:format>text/html</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-         </edm:WebResource>
-      </dm2e:hasAnnotatableVersionAt>
-      <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000181.tif.medium.jpg">
-            <dc:format>image/jpeg</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </dm2e:hasAnnotatableVersionAt>
-      <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000181.tif.medium.jpg">
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </edm:isShownBy>
-      <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000181">
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-            <edm:isDerivativeOf>
-               <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
-                  <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-                  <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-               </edm:WebResource>
-            </edm:isDerivativeOf>
-         </edm:WebResource>
-      </edm:isShownAt>
-      <dc:creator>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-         </foaf:Organization>
-      </dc:creator>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Prof.Dr.ChristianKassung">
-            <skos:prefLabel xml:lang="de">Prof. Dr. Christian Kassung</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/MariusHug">
-            <skos:prefLabel xml:lang="de">Marius Hug</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeborahZehnder">
-            <skos:prefLabel xml:lang="de">Deborah Zehnder</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/LauraLuzardo">
-            <skos:prefLabel xml:lang="de">Laura Luzardo</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/UnaSch%C3%A4fer">
-            <skos:prefLabel xml:lang="de">Una Schäfer</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/AntoniaBechmann">
-            <skos:prefLabel xml:lang="de">Antonia Bechmann</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DianaDaniel">
-            <skos:prefLabel xml:lang="de">Diana Daniel</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/FrankWiegand">
-            <skos:prefLabel xml:lang="de">Frank Wiegand</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/MarcRohrm%C3%BCller">
-            <skos:prefLabel xml:lang="de">Marc Rohrmüller</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/S%C3%A4chsischeLandesbibliothek%E2%80%93Staats-undUniversit%C3%A4tsbibliothekDresden">
-            <skos:prefLabel xml:lang="de">Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeutscheForschungsgemeinschaft">
-            <skos:prefLabel xml:lang="de">Deutsche Forschungsgemeinschaft</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/EdituraGmbH%26Co.KG%2CBerlin">
-            <skos:prefLabel xml:lang="de">Editura GmbH &amp; Co. KG, Berlin</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/CLARIN-D">
-            <skos:prefLabel xml:lang="de">CLARIN-D</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeutschesTextarchiv">
-            <skos:prefLabel xml:lang="de">Deutsches Textarchiv</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
-   </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb161">
-      <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb161">
-            <edm:type>TEXT</edm:type>
-            <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
-            <dc:language>de</dc:language>
-            <dc:subject>
-               <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
-                  <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
-               </skos:Concept>
-            </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">161</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
-            <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
-            </dcterms:isPartOf>
-            <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb160"/>
-            </edm:isNextInSequence>
-            <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
-         </edm:ProvidedCHO>
-      </edm:aggregatedCHO>
-      <edm:provider>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DM2E">
-            <skos:prefLabel xml:lang="de">DM2E</skos:prefLabel>
-         </foaf:Organization>
-      </edm:provider>
-      <edm:dataProvider>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-            <owl:sameAs>http://d-nb.info/gnd/5067292-7</owl:sameAs>
-         </foaf:Organization>
-      </edm:dataProvider>
-      <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-      <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000184.tif.thumbnail.jpg">
-            <dc:format>image/jpeg</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </edm:object>
-      <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000184">
-            <dc:format>text/html</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-         </edm:WebResource>
-      </dm2e:hasAnnotatableVersionAt>
-      <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000184.tif.medium.jpg">
-            <dc:format>image/jpeg</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </dm2e:hasAnnotatableVersionAt>
-      <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000184.tif.medium.jpg">
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </edm:isShownBy>
-      <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000184">
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-            <edm:isDerivativeOf>
-               <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
-                  <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-                  <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-               </edm:WebResource>
-            </edm:isDerivativeOf>
-         </edm:WebResource>
-      </edm:isShownAt>
-      <dc:creator>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-         </foaf:Organization>
-      </dc:creator>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Prof.Dr.ChristianKassung">
-            <skos:prefLabel xml:lang="de">Prof. Dr. Christian Kassung</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/MariusHug">
-            <skos:prefLabel xml:lang="de">Marius Hug</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeborahZehnder">
-            <skos:prefLabel xml:lang="de">Deborah Zehnder</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/LauraLuzardo">
-            <skos:prefLabel xml:lang="de">Laura Luzardo</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/UnaSch%C3%A4fer">
-            <skos:prefLabel xml:lang="de">Una Schäfer</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/AntoniaBechmann">
-            <skos:prefLabel xml:lang="de">Antonia Bechmann</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DianaDaniel">
-            <skos:prefLabel xml:lang="de">Diana Daniel</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/FrankWiegand">
-            <skos:prefLabel xml:lang="de">Frank Wiegand</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/MarcRohrm%C3%BCller">
-            <skos:prefLabel xml:lang="de">Marc Rohrmüller</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/S%C3%A4chsischeLandesbibliothek%E2%80%93Staats-undUniversit%C3%A4tsbibliothekDresden">
-            <skos:prefLabel xml:lang="de">Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeutscheForschungsgemeinschaft">
-            <skos:prefLabel xml:lang="de">Deutsche Forschungsgemeinschaft</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/EdituraGmbH%26Co.KG%2CBerlin">
-            <skos:prefLabel xml:lang="de">Editura GmbH &amp; Co. KG, Berlin</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/CLARIN-D">
-            <skos:prefLabel xml:lang="de">CLARIN-D</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeutschesTextarchiv">
-            <skos:prefLabel xml:lang="de">Deutsches Textarchiv</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
-   </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb162">
-      <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb162">
-            <edm:type>TEXT</edm:type>
-            <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
-            <dc:language>de</dc:language>
-            <dc:subject>
-               <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
-                  <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
-               </skos:Concept>
-            </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">162</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
-            <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
-            </dcterms:isPartOf>
-            <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb161"/>
-            </edm:isNextInSequence>
-            <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
-         </edm:ProvidedCHO>
-      </edm:aggregatedCHO>
-      <edm:provider>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DM2E">
-            <skos:prefLabel xml:lang="de">DM2E</skos:prefLabel>
-         </foaf:Organization>
-      </edm:provider>
-      <edm:dataProvider>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-            <owl:sameAs>http://d-nb.info/gnd/5067292-7</owl:sameAs>
-         </foaf:Organization>
-      </edm:dataProvider>
-      <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-      <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000185.tif.thumbnail.jpg">
-            <dc:format>image/jpeg</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </edm:object>
-      <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000185">
-            <dc:format>text/html</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-         </edm:WebResource>
-      </dm2e:hasAnnotatableVersionAt>
-      <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000185.tif.medium.jpg">
-            <dc:format>image/jpeg</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </dm2e:hasAnnotatableVersionAt>
-      <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000185.tif.medium.jpg">
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </edm:isShownBy>
-      <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000185">
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-            <edm:isDerivativeOf>
-               <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
-                  <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-                  <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-               </edm:WebResource>
-            </edm:isDerivativeOf>
-         </edm:WebResource>
-      </edm:isShownAt>
-      <dc:creator>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-         </foaf:Organization>
-      </dc:creator>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Prof.Dr.ChristianKassung">
-            <skos:prefLabel xml:lang="de">Prof. Dr. Christian Kassung</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/MariusHug">
-            <skos:prefLabel xml:lang="de">Marius Hug</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeborahZehnder">
-            <skos:prefLabel xml:lang="de">Deborah Zehnder</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/LauraLuzardo">
-            <skos:prefLabel xml:lang="de">Laura Luzardo</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/UnaSch%C3%A4fer">
-            <skos:prefLabel xml:lang="de">Una Schäfer</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/AntoniaBechmann">
-            <skos:prefLabel xml:lang="de">Antonia Bechmann</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DianaDaniel">
-            <skos:prefLabel xml:lang="de">Diana Daniel</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/FrankWiegand">
-            <skos:prefLabel xml:lang="de">Frank Wiegand</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/MarcRohrm%C3%BCller">
-            <skos:prefLabel xml:lang="de">Marc Rohrmüller</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/S%C3%A4chsischeLandesbibliothek%E2%80%93Staats-undUniversit%C3%A4tsbibliothekDresden">
-            <skos:prefLabel xml:lang="de">Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeutscheForschungsgemeinschaft">
-            <skos:prefLabel xml:lang="de">Deutsche Forschungsgemeinschaft</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/EdituraGmbH%26Co.KG%2CBerlin">
-            <skos:prefLabel xml:lang="de">Editura GmbH &amp; Co. KG, Berlin</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/CLARIN-D">
-            <skos:prefLabel xml:lang="de">CLARIN-D</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeutschesTextarchiv">
-            <skos:prefLabel xml:lang="de">Deutsches Textarchiv</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
-   </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb163">
-      <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb163">
-            <edm:type>TEXT</edm:type>
-            <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
-            <dc:language>de</dc:language>
-            <dc:subject>
-               <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
-                  <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
-               </skos:Concept>
-            </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">163</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
-            <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
-            </dcterms:isPartOf>
-            <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb162"/>
-            </edm:isNextInSequence>
-            <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
-         </edm:ProvidedCHO>
-      </edm:aggregatedCHO>
-      <edm:provider>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DM2E">
-            <skos:prefLabel xml:lang="de">DM2E</skos:prefLabel>
-         </foaf:Organization>
-      </edm:provider>
-      <edm:dataProvider>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-            <owl:sameAs>http://d-nb.info/gnd/5067292-7</owl:sameAs>
-         </foaf:Organization>
-      </edm:dataProvider>
-      <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-      <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000186.tif.thumbnail.jpg">
-            <dc:format>image/jpeg</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </edm:object>
-      <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000186">
-            <dc:format>text/html</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-         </edm:WebResource>
-      </dm2e:hasAnnotatableVersionAt>
-      <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000186.tif.medium.jpg">
-            <dc:format>image/jpeg</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </dm2e:hasAnnotatableVersionAt>
-      <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000186.tif.medium.jpg">
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </edm:isShownBy>
-      <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000186">
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-            <edm:isDerivativeOf>
-               <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
-                  <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-                  <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-               </edm:WebResource>
-            </edm:isDerivativeOf>
-         </edm:WebResource>
-      </edm:isShownAt>
-      <dc:creator>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-         </foaf:Organization>
-      </dc:creator>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Prof.Dr.ChristianKassung">
-            <skos:prefLabel xml:lang="de">Prof. Dr. Christian Kassung</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/MariusHug">
-            <skos:prefLabel xml:lang="de">Marius Hug</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeborahZehnder">
-            <skos:prefLabel xml:lang="de">Deborah Zehnder</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/LauraLuzardo">
-            <skos:prefLabel xml:lang="de">Laura Luzardo</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/UnaSch%C3%A4fer">
-            <skos:prefLabel xml:lang="de">Una Schäfer</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/AntoniaBechmann">
-            <skos:prefLabel xml:lang="de">Antonia Bechmann</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DianaDaniel">
-            <skos:prefLabel xml:lang="de">Diana Daniel</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/FrankWiegand">
-            <skos:prefLabel xml:lang="de">Frank Wiegand</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/MarcRohrm%C3%BCller">
-            <skos:prefLabel xml:lang="de">Marc Rohrmüller</skos:prefLabel>
-         </foaf:Person>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/S%C3%A4chsischeLandesbibliothek%E2%80%93Staats-undUniversit%C3%A4tsbibliothekDresden">
-            <skos:prefLabel xml:lang="de">Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeutscheForschungsgemeinschaft">
-            <skos:prefLabel xml:lang="de">Deutsche Forschungsgemeinschaft</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/EdituraGmbH%26Co.KG%2CBerlin">
-            <skos:prefLabel xml:lang="de">Editura GmbH &amp; Co. KG, Berlin</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/CLARIN-D">
-            <skos:prefLabel xml:lang="de">CLARIN-D</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dc:contributor>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DeutschesTextarchiv">
-            <skos:prefLabel xml:lang="de">Deutsches Textarchiv</skos:prefLabel>
-         </foaf:Organization>
-      </dc:contributor>
-      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
-   </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj022_pb160">
-      <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb160">
-            <edm:type>TEXT</edm:type>
-            <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Analyse der Asche verschiedener Holzarten. Von Hrn. P. Berthier.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus den Annales de Chimie. Jul. 1826. S. 240.</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de"/>
-            <dc:language>de</dc:language>
-            <dc:subject>
-               <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
-                  <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
-               </skos:Concept>
-            </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">160</bibo:number>
-            <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/P.Berthier">
-                  <skos:prefLabel xml:lang="de">P. Berthier</skos:prefLabel>
-               </foaf:Person>
-            </pro:author>
-            <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj022_ar022026"/>
-            </dcterms:isPartOf>
-            <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj022_pb159"/>
-            </edm:isNextInSequence>
-            <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
-         </edm:ProvidedCHO>
-      </edm:aggregatedCHO>
-      <edm:provider>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/DM2E">
-            <skos:prefLabel xml:lang="de">DM2E</skos:prefLabel>
-         </foaf:Organization>
-      </edm:provider>
-      <edm:dataProvider>
-         <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Humboldt-Universit%C3%A4tzuBerlin">
-            <skos:prefLabel xml:lang="de">Humboldt-Universität zu Berlin</skos:prefLabel>
-            <owl:sameAs>http://d-nb.info/gnd/5067292-7</owl:sameAs>
-         </foaf:Organization>
-      </edm:dataProvider>
-      <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-      <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000183.tif.thumbnail.jpg">
-            <dc:format>image/jpeg</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </edm:object>
-      <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000183">
-            <dc:format>text/html</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-         </edm:WebResource>
-      </dm2e:hasAnnotatableVersionAt>
-      <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000183.tif.medium.jpg">
-            <dc:format>image/jpeg</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </dm2e:hasAnnotatableVersionAt>
-      <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422566Z/32422566Z_tif/jpegs/00000183.tif.medium.jpg">
-            <dc:format>image/jpeg</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </edm:isShownBy>
-      <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj022?p=00000183">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj107?p=00000418">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>

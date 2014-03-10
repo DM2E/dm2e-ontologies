@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet exclude-result-prefixes="tei xml xs xsd" version="2.0"
+    base="http://onto.dm2e.eu/schemas/dm2e/"
     xmlns:bibo="http://purl.org/ontology/bibo/"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:dcterms="http://purl.org/dc/terms/"
@@ -147,7 +148,7 @@
                                 <xsl:value-of select="$place"/>
                                 <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:publicationStmt/tei:pubPlace">
                                     <xsl:if test="position() = 1">
-                                        <xsl:value-of select="."/>
+                                        <xsl:value-of select="encode-for-uri(translate(normalize-space(.),' ',''))"/>
                                     </xsl:if>
                                 </xsl:for-each>
                             </xsl:attribute>
@@ -164,6 +165,8 @@
                         </edm:Place>
                     </dm2e:publishedAt>
                     
+                    
+                    <!--<xsl:if test="exists(tei:TEI/tei:text/tei:front/tei:pb)">-->
                     <xsl:for-each select="tei:TEI/tei:text/tei:front/tei:pb">
                         <dc:identifier>
                             <xsl:if test="position() = 1">
@@ -171,6 +174,7 @@
                             </xsl:if>
                         </dc:identifier>
                     </xsl:for-each>
+                    <!--</xsl:if>-->
                     
                     <dc:publisher>
                         <foaf:Organization>
@@ -178,7 +182,7 @@
                                 <xsl:value-of select="$agent"/>
                                 <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:publicationStmt/tei:publisher/tei:name">
                                     <xsl:if test="position() = 1">
-                                        <xsl:value-of select="replace(., ' ', '_')"/>
+                                        <xsl:value-of select="encode-for-uri(translate(normalize-space(.),' ',''))"/>
                                     </xsl:if>
                                 </xsl:for-each>
                             </xsl:attribute>
@@ -201,7 +205,7 @@
                                 <xsl:value-of select="$agent"/>
                                 <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:sourceDesc/tei:biblFull/tei:titleStmt/tei:editor/tei:persName">
                                     <xsl:if test="position() = 1">
-                                        <xsl:value-of select="replace(., ' ', '_')"/>
+                                        <xsl:value-of select="encode-for-uri(translate(normalize-space(.),' ',''))"/>
                                     </xsl:if>
                                 </xsl:for-each>
                             </xsl:attribute>
@@ -235,7 +239,7 @@
                         </edm:ProvidedCHO>
                     </dcterms:isPartOf>                  
                    
-                    <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">
+                    <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">
                         <xsl:text>2</xsl:text>
                     </dm2e:levelOfHierarchy>
                     
@@ -274,7 +278,7 @@
                         <xsl:value-of select="$agent"/>
                         <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:persName">
                             <xsl:if test="position() = 1">
-                                <xsl:value-of select="encode-for-uri(.)"/>
+                                <xsl:value-of select="encode-for-uri(translate(normalize-space(.),' ',''))"/>
                             </xsl:if>
                         </xsl:for-each>
                     </xsl:attribute>
@@ -286,6 +290,9 @@
                                 </xsl:attribute>
                                 <xsl:value-of select="."/>
                             </skos:prefLabel>
+                            <owl:sameAs>
+                                <xsl:value-of select="@ref"/>
+                            </owl:sameAs>
                         </xsl:if>
                     </xsl:for-each>
                 </foaf:Organization>
@@ -294,9 +301,116 @@
             
             <edm:rights>
                 <xsl:attribute name="rdf:resource">
-                    <xsl:value-of select="$RIGHTS_RESOURCE"/>
+                    <xsl:value-of select="$RIGHTS_RESOURCE_METADATA"/>
                 </xsl:attribute>
             </edm:rights>
+            
+            <dcterms:rightsHolder>
+                <foaf:Organization>
+                    <xsl:attribute name="rdf:about">
+                        <xsl:value-of select="$agent"/>
+                        <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:persName">
+                            <xsl:if test="position() = 1">
+                                <xsl:value-of select="encode-for-uri(translate(normalize-space(.),' ',''))"/>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </xsl:attribute>
+                    <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:persName">
+                        <xsl:if test="position() = 1">
+                            <skos:prefLabel>
+                                <xsl:attribute name="xml:lang">
+                                    <xsl:text>de</xsl:text>
+                                </xsl:attribute>
+                                <xsl:value-of select="."/>
+                            </skos:prefLabel>
+                            <skos:note>
+                                <xsl:attribute name="xml:lang">
+                                    <xsl:text>de</xsl:text>
+                                </xsl:attribute>
+                                <xsl:text>Rightsholder of the transcriptions metadata.</xsl:text>
+                            </skos:note>
+                            <owl:sameAs>
+                                <xsl:value-of select="@ref"/>
+                            </owl:sameAs>
+                        </xsl:if>
+                    </xsl:for-each>
+                </foaf:Organization>
+            </dcterms:rightsHolder>
+            
+            <dcterms:rightsHolder>
+                <foaf:Organization>
+                    <xsl:attribute name="rdf:about">
+                        <xsl:value-of select="$agent"/>
+                        <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:orgName">
+                            <xsl:if test="position() = 1">
+                                <xsl:value-of select="encode-for-uri(translate(normalize-space(.),' ',''))"/>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </xsl:attribute>
+                    <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:orgName">
+                        <xsl:if test="position() = 1">
+                            <skos:prefLabel>
+                                <xsl:attribute name="xml:lang">
+                                    <xsl:text>de</xsl:text>
+                                </xsl:attribute>
+                                <xsl:value-of select="."/>
+                            </skos:prefLabel>
+                            <skos:note>
+                                <xsl:attribute name="xml:lang">
+                                    <xsl:text>de</xsl:text>
+                                </xsl:attribute>
+                                <xsl:text>Rightsholder of the facsimiles.</xsl:text>
+                            </skos:note>
+                        </xsl:if>
+                        <xsl:if test="position() = 7">
+                            <owl:sameAs>
+                                <xsl:value-of select="@ref"/>
+                            </owl:sameAs>
+                        </xsl:if>
+                    </xsl:for-each>
+                </foaf:Organization>
+            </dcterms:rightsHolder>
+            
+            <!-- For the whole issues there is no any thumbnail or other image -->
+            <!-- <edm:object>
+                <edm:WebResource>
+                    <!-\-<xsl:if test="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">-\->
+                        <xsl:attribute name="rdf:about">
+                            <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">
+                                <xsl:if test="position() = 1">
+                                    <xsl:value-of select="substring-before(
+                                        (
+                                        replace(., 'article', 'journal/page')
+                                        ), 'ar')"/>
+                                </xsl:if>
+                            </xsl:for-each>
+                        </xsl:attribute>
+                    <!-\-</xsl:if>-\->   
+                </edm:WebResource>
+            </edm:object>-->
+            
+            <dm2e:hasAnnotatableVersionAt>
+                <edm:WebResource>
+                    <xsl:attribute name="rdf:about">
+                        <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">
+                            <xsl:if test="position() = 1">
+                                <xsl:value-of select="substring-before(
+                                    (
+                                    replace(., 'article', 'journal')
+                                    ), 'ar')"/>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </xsl:attribute> 
+                    <dc:format>
+                        <xsl:text>text/html</xsl:text>
+                    </dc:format>
+                    <edm:rights>
+                        <xsl:attribute name="rdf:resource">
+                            <xsl:value-of select="$RIGHTS_RESOURCE_METADATA"/>
+                        </xsl:attribute>
+                    </edm:rights>
+                </edm:WebResource>
+            </dm2e:hasAnnotatableVersionAt>
             
        <!--     <edm:isShownAt>
                 <edm:WebResource>
@@ -304,7 +418,7 @@
                         <xsl:attribute name="rdf:about">
                             <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">
                                 <xsl:if test="position() = 1">
-                                    <xsl:value-of select="substring-before((replace(., 'article', 'journal')), 'ar0')"/>
+                                    <xsl:value-of select="substring-before((replace(., 'article', 'journal')), 'ar')"/>
                                 </xsl:if>
                             </xsl:for-each>
                         </xsl:attribute>
@@ -320,7 +434,7 @@
                                 <xsl:attribute name="rdf:about">
                                     <xsl:for-each select=".">
                                         <xsl:if test="position() = 1">
-                                            <xsl:value-of select="substring-before((replace(., 'article', 'journal')), 'ar0')"/>
+                                            <xsl:value-of select="substring-before((replace(., 'article', 'journal')), 'ar')"/>
                                         </xsl:if>
                                     </xsl:for-each>
                                 </xsl:attribute>
@@ -333,7 +447,13 @@
                                     <xsl:value-of select="."/>
                                 </dc:description>
                             </xsl:for-each>
-                            <dcterms:rightsHolder>
+                            <edm:rights>
+                                <xsl:attribute name="rdf:resource">
+                                    <xsl:value-of select="$RIGHTS_RESOURCE_METADATA"/>
+                                </xsl:attribute>
+                            </edm:rights>
+                            
+                            <!--<dcterms:rightsHolder>
                                 <foaf:Organization>
                                     <xsl:attribute name="rdf:about">
                                         <xsl:value-of select="$agent"/>
@@ -354,29 +474,8 @@
                                         </xsl:if>
                                     </xsl:for-each>
                                 </foaf:Organization>
-                            </dcterms:rightsHolder>
-                            <!--<dcterms:rightsHolder>
-                                <foaf:Organization>
-                                    <xsl:attribute name="rdf:about">
-                                        <xsl:value-of select="$agent"/>
-                                        <xsl:for-each select="../tei:publisher">
-                                            <xsl:if test="position() = 1">
-                                                <xsl:value-of select="."/>
-                                            </xsl:if>
-                                        </xsl:for-each>
-                                    </xsl:attribute>
-                                    <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:publisher">
-                                        <xsl:if test="position() = 1">
-                                            <skos:prefLabel>
-                                                <xsl:attribute name="xml:lang">
-                                                    <xsl:text>de</xsl:text>
-                                                </xsl:attribute>
-                                                <xsl:value-of select="."/>
-                                            </skos:prefLabel>
-                                        </xsl:if>
-                                    </xsl:for-each>
-                                </foaf:Organization>
                             </dcterms:rightsHolder>-->
+                           
                             <edm:isDerivativeOf>
                                 <edm:WebResource>
                                     <xsl:if test=".">
@@ -388,59 +487,19 @@
                                             </xsl:for-each>
                                         </xsl:attribute>
                                     </xsl:if>
+                                    <edm:rights>
+                                        <xsl:attribute name="rdf:resource">
+                                            <xsl:value-of select="$RIGHTS_RESOURCE_METADATA"/>
+                                        </xsl:attribute>
+                                    </edm:rights>
                                 </edm:WebResource>
                             </edm:isDerivativeOf>
                             
-                            <dc:format>
-                                <xsl:text>text/plain</xsl:text>
-                            </dc:format>
-                            <dc:format>
-                                <xsl:text>image/jpeg</xsl:text>
-                            </dc:format>
                         </edm:WebResource>
                     </xsl:for-each>
                 </edm:isShownAt>
             </xsl:for-each>
             
-            <edm:object>
-                <edm:WebResource>
-                    <xsl:if test="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">
-                        <xsl:attribute name="rdf:about">
-                            <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">
-                                <xsl:if test="position() = 1">
-                                    <xsl:value-of select="substring-before(
-                                        (
-                                        replace(., 'article', 'journal/page')
-                                        ), 'ar0')"/>
-                                </xsl:if>
-                            </xsl:for-each>
-                        </xsl:attribute>
-                    </xsl:if>   
-                </edm:WebResource>
-            </edm:object>
-            
-            <dm2e:hasAnnotatableVersionAt>
-                <edm:WebResource>
-                    <xsl:if test="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">
-                        <xsl:attribute name="rdf:about">
-                            <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">
-                                <xsl:if test="position() = 1">
-                                    <xsl:value-of select="substring-before(
-                                        (
-                                                replace(., 'article', 'journal/page')
-                                         ), 'ar0')"/>
-                                </xsl:if>
-                            </xsl:for-each>
-                        </xsl:attribute>
-                    </xsl:if>
-                    <dc:format>
-                        <xsl:text>text/plain</xsl:text>
-                    </dc:format>
-                    <dc:format>
-                        <xsl:text>image/jpeg</xsl:text>
-                    </dc:format>
-                </edm:WebResource>
-            </dm2e:hasAnnotatableVersionAt>
             
             <dc:creator>
                 <foaf:Organization>
@@ -448,7 +507,7 @@
                         <xsl:value-of select="$agent"/>
                         <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:persName">
                             <xsl:if test="position() = 1">
-                                <xsl:value-of select="encode-for-uri(.)"/>
+                                <xsl:value-of select="encode-for-uri(translate(normalize-space(.),' ',''))"/>
                             </xsl:if>
                         </xsl:for-each>
                     </xsl:attribute>
@@ -480,7 +539,7 @@
                             <xsl:value-of select="$agent"/>
                             <xsl:for-each select=".">
                                 <xsl:if test="position() = 1">
-                                    <xsl:value-of select="encode-for-uri(.)"/>
+                                    <xsl:value-of select="encode-for-uri(translate(normalize-space(.),' ',''))"/>
                                 </xsl:if>
                             </xsl:for-each>
                         </xsl:attribute>
@@ -505,7 +564,7 @@
                             <xsl:value-of select="$agent"/>
                             <xsl:for-each select=".">
                                 <xsl:if test="position() = 1">
-                                    <xsl:value-of select="encode-for-uri(.)"/>
+                                    <xsl:value-of select="encode-for-uri(translate(normalize-space(.),' ',''))"/>
                                 </xsl:if>
                             </xsl:for-each>
                         </xsl:attribute>
@@ -529,7 +588,7 @@
                         <xsl:value-of select="$agent"/>
                         <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:publisher/tei:orgName">
                             <xsl:if test="position() = 1">
-                                <xsl:value-of select="replace(., ' ', '_')"/>
+                                <xsl:value-of select="encode-for-uri(translate(normalize-space(.),' ',''))"/>
                             </xsl:if>
                         </xsl:for-each>
                     </xsl:attribute>
