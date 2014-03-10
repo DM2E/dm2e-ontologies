@@ -124,21 +124,6 @@ Changes between ontology file DM2Ev1.1_Rev1.2.owl and DM2Ev1.1_Rev1.3.owl
 - Moved dm2e:displayLevel to Aggregation
 - Added prism:startingPage (rdfs:range edm:ProvidedCHO)
 </rdfs:comment>
-        <vann:changes xml:lang="en">***********************************
-Changes between ontology file DM2Ev1.1_Rev1.1.owl and DM2Ev1.1_Rev1.2.owl
-***********************************
-
-- dc:subject repeatable
-- Deleted additional constraints for edm:isShownBy and edm:object (“mandatory if dm2e:displayLevel is true edm:isShownBy and/or edm:object must be provided”)
-- Deleted prism:startingPage</vann:changes>
-        <vann:changes xml:lang="en">
-***********************************
-Changes between ontology file DM2Ev1.1_Rev1.5.owl and DM2Ev1.1_Rev1.6.owl
-***********************************
-
-- added dm2e:writtenAt
-- Now repeatable: dm2e:publishedAt, dm2e:printedAtt
-        </vann:changes>
         <vann:changes xml:lang="en">
 ***********************************
 Changes between ontology file DM2Ev1.1_Rev1.4.owl and DM2Ev1.1_Rev1.5.owl
@@ -178,6 +163,27 @@ Changes between ontology file DM2Ev1.1_Rev1.4.owl and DM2Ev1.1_Rev1.5.owl
 - added scopeNotes, definitions and comments
 - dm2e:hasAnnotatableVersionAt is now repeatable
 </vann:changes>
+        <vann:changes xml:lang="en">
+***********************************
+Changes between ontology file DM2Ev1.1_Rev1.5.owl and DM2Ev1.1_Rev1.6.owl
+***********************************
+
+- added dm2e:writtenAt (domain CHO) (KS)
+- Now repeatable: dm2e:publishedAt, dm2e:printedAt (DG)
+- new property dm2e:holdingInstitution (domain CHO) (KS)
+- changed scopeNote of edm:currentLocation (KS)
+- changed range from dm2e:shelfmarkLocation to literal (KS)
+- changed superproperty of dm2e:shelfmarkLocation (ED)
+- changed scopeNote of dcterms:spatial (ED)
+
+        </vann:changes>
+        <vann:changes xml:lang="en">***********************************
+Changes between ontology file DM2Ev1.1_Rev1.1.owl and DM2Ev1.1_Rev1.2.owl
+***********************************
+
+- dc:subject repeatable
+- Deleted additional constraints for edm:isShownBy and edm:object (“mandatory if dm2e:displayLevel is true edm:isShownBy and/or edm:object must be provided”)
+- Deleted prism:startingPage</vann:changes>
         <owl:versionInfo xml:lang="en">1.1 Revision 1.5</owl:versionInfo>
         <dc:modified xml:lang="en">2014-03-03</dc:modified>
         <dc:title xml:lang="en">Digitised Manuscripts to Europeana (DM2E) vocabulary</dc:title>
@@ -455,6 +461,17 @@ http://www.dm2e.eu</foaf:homepage>
     
 
 
+    <!-- http://onto.dm2e.eu/schemas/dm2e/holdingInstitution -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/holdingInstitution">
+        <scopeNote xml:lang="en">The institution holding the physical CHO, e.g. a specific library.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+        <rdfs:range rdf:resource="&foaf;Organization"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://onto.dm2e.eu/schemas/dm2e/honoree -->
 
     <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/honoree">
@@ -501,7 +518,6 @@ http://www.dm2e.eu</foaf:homepage>
         <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
     </owl:ObjectProperty>
     
-
 
 
     <!-- http://onto.dm2e.eu/schemas/dm2e/owner -->
@@ -575,15 +591,6 @@ http://www.dm2e.eu</foaf:homepage>
     </owl:ObjectProperty>
     
 
-    <!-- http://onto.dm2e.eu/schemas/dm2e/writtenAt -->
-
-    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/writtenAt">
-        <rdfs:label xml:lang="en">written at</rdfs:label>
-        <scopeNote xml:lang="en">Indicates the place where the CHO was written.</scopeNote>
-        <rdfs:subPropertyOf rdf:resource="&dcterms;spatial"/>
-        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
-    </owl:ObjectProperty>
-    
 
     <!-- http://onto.dm2e.eu/schemas/dm2e/printedAt -->
 
@@ -630,18 +637,6 @@ http://www.dm2e.eu</foaf:homepage>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation -->
-
-    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation">
-        <rdfs:label xml:lang="en">shelfmark location</rdfs:label>
-        <rdfs:comment xml:lang="en">Shelfmark location from the CHO.</rdfs:comment>
-        <rdfs:range rdf:resource="&edm;Place"/>
-        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
-        <rdfs:subPropertyOf rdf:resource="&edm;currentLocation"/>
     </owl:ObjectProperty>
     
 
@@ -702,6 +697,18 @@ http://www.dm2e.eu</foaf:homepage>
         <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/writtenAt -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/writtenAt">
+        <rdfs:label xml:lang="en">written at</rdfs:label>
+        <scopeNote xml:lang="en">Indicates the place where the CHO was written.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;spatial"/>
+        <rdfs:range rdf:resource="&edm;Place"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
     </owl:ObjectProperty>
     
 
@@ -834,16 +841,6 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:ObjectProperty rdf:about="&dcterms;hasPart">
         <rdfs:comment xml:lang="en">This term is intended to be used with non-literal values as defined in the DCMI Abstract Model . As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration.</rdfs:comment>
         <scopeNote xml:lang="en">dcterms:hasPart can be used to indicate that a class is part of the current class. It can only be used for the same type of objects, e.g. edm:ProvidedCHO dcterms:hasPart edm:ProvidedCHO.</scopeNote>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&edm;Place"/>
-                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
-                    <rdf:Description rdf:about="&edm;TimeSpan"/>
-                    <rdf:Description rdf:about="&edm;WebResource"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -854,6 +851,16 @@ http://www.dm2e.eu</foaf:homepage>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;Place"/>
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;TimeSpan"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -981,7 +988,7 @@ http://www.dm2e.eu</foaf:homepage>
 
     <owl:ObjectProperty rdf:about="&dcterms;spatial">
         <skos:definition xml:lang="en">Spatial characteristics of the resource.</skos:definition>
-        <scopeNote xml:lang="en">This property can be used for not further specified places. If the place of publication or printing should be indicated, use dm2e:publishedAt or dme2e:printedAt instead. This property should be used for unspecified or not exactly defined spatial characteristics of the CHO itself.</scopeNote>
+        <scopeNote xml:lang="en">This property can be used for not further specified places. If the place of publication, printing or writing should be indicated, use dm2e:publishedAt, dme2e:printedAt or dm2e:writtenAt instead. This property should be used for unspecified or not exactly defined spatial characteristics of the CHO itself.</scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;coverage"/>
         <rdfs:range rdf:resource="&edm;Place"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
@@ -1130,7 +1137,7 @@ http://www.dm2e.eu</foaf:homepage>
     <!-- http://www.europeana.eu/schemas/edm/currentLocation -->
 
     <owl:ObjectProperty rdf:about="&edm;currentLocation">
-        <scopeNote xml:lang="en">Current location of physical CHO, possibly a library building. If possible, use a resource here.</scopeNote>
+        <scopeNote xml:lang="en">Current geographic location of the physical CHO.</scopeNote>
         <skos:definition xml:lang="en">The geographic location and/or name of the repository, building, site, or other entity whose boundaries presently include the resource.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dcterms;spatial"/>
         <rdfs:range rdf:resource="&edm;Place"/>
@@ -1526,8 +1533,9 @@ If you provide an edm:object it is mandatory to add one of the following MIME ty
     <!-- http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation -->
 
     <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation">
-        <rdfs:label xml:lang="en">shelfmark location</rdfs:label>
-        <rdfs:comment xml:lang="en">Shelfmark location from the CHO.</rdfs:comment>
+        <scopeNote xml:lang="en">Shelfmark location from the CHO.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -2547,8 +2555,9 @@ Definition: “The WGS84 longitude of a SpatialThing (decimal degrees).
                         <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation"/>
-                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/holdingInstitution"/>
+                        <owl:onClass rdf:resource="&foaf;Organization"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&dcterms;spatial"/>
@@ -2572,6 +2581,10 @@ Definition: “The WGS84 longitude of a SpatialThing (decimal degrees).
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/levelOfGenesis"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation"/>
                         <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
                     </owl:Restriction>
                     <owl:Restriction>
