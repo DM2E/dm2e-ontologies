@@ -16,7 +16,7 @@ public enum ValidationProblemCategory {
 	INVALID_DATA_PROPERTY_RANGE(" has data property with invalid datatype <%s>. Allowed rdf:datatype: %s"),
 	INVALID_XSD_DATETIME(" has invalid xsd:datetime literal value '%s'"), 
 
-	INVALID_OBJECT_PROPERTY_RANGE(" has object property with incopatible resource <%s>. Allowed rdf:type: "),
+	INVALID_OBJECT_PROPERTY_RANGE(" has object property with incompatible resource <%s>. Allowed rdf:type: %s"),
 	SHOULD_BE_RESOURCE(" has property <%s> which should be a resource but is a literal."),
 	NON_REPEATABLE(" repeats non-repeatable property <%s>"),
 	MISC(" has specific Problem: %s"),
