@@ -403,11 +403,6 @@
             </edm:isDerivativeOf>
          </edm:WebResource>
       </edm:isShownAt>
-      <edm:object>
-         <edm:WebResource rdf:about="">
-            <dc:format>image/jpeg</dc:format>
-         </edm:WebResource>
-      </edm:object>
       <dm2e:hasAnnotatableVersionAt>
          <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj056/ar056058">
             <dc:format>text/html</dc:format>
@@ -510,6 +505,7 @@
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">1</bibo:number>
             <pro:author>
                <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/JamesR.White">
                   <skos:prefLabel xml:lang="de">James R. White</skos:prefLabel>
@@ -534,33 +530,16 @@
          </foaf:Organization>
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
-      <edm:object>
-         <edm:WebResource rdf:about="">
-            <dc:format>image/jpeg</dc:format>
-         </edm:WebResource>
-      </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj056/ar056058">
             <dc:format>text/html</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
-      <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="">
-            <dc:format>text/html</dc:format>
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </dm2e:hasAnnotatableVersionAt>
-      <edm:isShownBy>
-         <edm:WebResource rdf:about="">
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-         </edm:WebResource>
-      </edm:isShownBy>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="">
-            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
-            <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj056/ar056058">
+            <dc:format>text/html</dc:format>
+            <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </edm:isShownAt>
       <dc:creator>

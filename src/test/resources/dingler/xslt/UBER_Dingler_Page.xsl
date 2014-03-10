@@ -680,7 +680,7 @@
                       </xsl:if>
                     </xsl:for-each>
                   </xsl:when> 
-                  <xsl:otherwise>
+                  <xsl:when test="exists(tei:TEI/tei:text/tei:body/tei:div/tei:p/tei:pb)">
                    <xsl:for-each select="tei:TEI/tei:text/tei:body/tei:div/tei:p/tei:pb">
                     <xsl:if test="position() = 1">
                       <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">
@@ -688,6 +688,11 @@
                       </bibo:number>
                     </xsl:if>
                    </xsl:for-each>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">
+                      <xsl:text>1</xsl:text>
+                    </bibo:number>
                   </xsl:otherwise>
                 </xsl:choose>
                 
@@ -861,7 +866,7 @@
                         </edm:WebResource>
                       </edm:object>
                     </xsl:when> 
-                    <xsl:otherwise>
+                    <xsl:when test="exists(tei:TEI/tei:text/tei:body/tei:div/tei:p/tei:pb)">
                       <edm:object>
                         <edm:WebResource>
                           <xsl:attribute name="rdf:about">
@@ -878,7 +883,8 @@
                           </dc:format>
                         </edm:WebResource>
                       </edm:object>
-                    </xsl:otherwise>
+                    </xsl:when>
+                    <xsl:otherwise></xsl:otherwise>
                   </xsl:choose>
                   
                   <xsl:choose>
@@ -1142,7 +1148,7 @@
                         </edm:WebResource>
                       </dm2e:hasAnnotatableVersionAt>   
                     </xsl:when> 
-                    <xsl:otherwise>
+                    <xsl:when test="exists(tei:TEI/tei:text/tei:body/tei:div/tei:p/tei:pb)">
                       <dm2e:hasAnnotatableVersionAt>
                         <edm:WebResource>
                           <xsl:attribute name="rdf:about">
@@ -1206,6 +1212,29 @@
                           </edm:rights>
                         </edm:WebResource>
                       </dm2e:hasAnnotatableVersionAt>  
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <dm2e:hasAnnotatableVersionAt>
+                        <edm:WebResource>
+                          <xsl:if test="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">
+                            <xsl:attribute name="rdf:about">
+                              <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">
+                                <xsl:if test="position() = 1">
+                                  <xsl:value-of select="."/>
+                                </xsl:if>
+                              </xsl:for-each>
+                            </xsl:attribute>
+                            <dc:format>
+                              <xsl:text>text/html</xsl:text>
+                            </dc:format>
+                            <edm:rights>
+                              <xsl:attribute name="rdf:resource">
+                                <xsl:value-of select="$RIGHTS_RESOURCE_METADATA"/>
+                              </xsl:attribute>
+                            </edm:rights>
+                          </xsl:if>
+                        </edm:WebResource>
+                      </dm2e:hasAnnotatableVersionAt>
                     </xsl:otherwise>
                   </xsl:choose>
                   
@@ -1358,7 +1387,7 @@
                         </edm:WebResource>
                       </edm:isShownBy>   
                     </xsl:when> 
-                    <xsl:otherwise>
+                    <xsl:when test="exists(tei:TEI/tei:text/tei:body/tei:div/tei:p/tei:pb)">
                       <edm:isShownBy>
                         <edm:WebResource>
                           <xsl:attribute name="rdf:about">
@@ -1394,7 +1423,8 @@
                           </edm:rights>
                         </edm:WebResource>
                       </edm:isShownBy>  
-                    </xsl:otherwise>
+                    </xsl:when>
+                    <xsl:otherwise></xsl:otherwise>
                   </xsl:choose>
          
                  <!--  <dm2e:zweitesCHO>
@@ -1546,7 +1576,7 @@
                 </xsl:for-each>
               </edm:isShownAt>
             </xsl:when>
-            <xsl:otherwise>
+            <xsl:when test="exists(tei:TEI/tei:text/tei:body/tei:div/tei:p/tei:pb)">
               <edm:isShownAt>
                 <xsl:for-each select=".">
                   <edm:WebResource>
@@ -1581,6 +1611,29 @@
                   </edm:WebResource>
                 </xsl:for-each>
               </edm:isShownAt>
+            </xsl:when>
+            <xsl:otherwise>
+            <edm:isShownAt>
+              <edm:WebResource>
+                <xsl:if test="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">
+                  <xsl:attribute name="rdf:about">
+                    <xsl:for-each select="$theTEIHeader/tei:fileDesc/tei:publicationStmt/tei:idno">
+                      <xsl:if test="position() = 1">
+                        <xsl:value-of select="."/>
+                      </xsl:if>
+                    </xsl:for-each>
+                  </xsl:attribute>
+                  <dc:format>
+                    <xsl:text>text/html</xsl:text>
+                  </dc:format>
+                  <edm:rights>
+                    <xsl:attribute name="rdf:resource">
+                      <xsl:value-of select="$RIGHTS_RESOURCE_METADATA"/>
+                    </xsl:attribute>
+                  </edm:rights>
+                </xsl:if>
+              </edm:WebResource>
+            </edm:isShownAt>
             </xsl:otherwise>
           </xsl:choose>
                   

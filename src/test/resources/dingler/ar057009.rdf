@@ -29,10 +29,10 @@
                </skos:Concept>
             </dc:subject>
             <dcterms:issued>
-               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1834-01-01T00%2000%2000UG_1834-12-31T23%2059%2059UG">
-                  <skos:prefLabel>1834</skos:prefLabel>
-                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1834-01-01T00:00:00</edm:begin>
-                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1834-12-31T23:59:59</edm:end>
+               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1835-01-01T00%2000%2000UG_1835-12-31T23%2059%2059UG">
+                  <skos:prefLabel>1835</skos:prefLabel>
+                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1835-01-01T00:00:00</edm:begin>
+                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1835-12-31T23:59:59</edm:end>
                </edm:TimeSpan>
             </dcterms:issued>
             <dm2e:publishedAt>
@@ -174,12 +174,12 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/issue_pj051">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/issue_pj057">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj051">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj057">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://purl.org/ontology/bibo/Issue"/>
-            <dc:title xml:lang="de">Polytechnisches Journal, Volume 1834, Issue 51</dc:title>
+            <dc:title xml:lang="de">Polytechnisches Journal, Volume 1835, Issue 57</dc:title>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -187,10 +187,10 @@
                </skos:Concept>
             </dc:subject>
             <dcterms:issued>
-               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1834-01-01T00%2000%2000UG_1834-12-31T23%2059%2059UG">
-                  <skos:prefLabel>1834</skos:prefLabel>
-                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1834-01-01T00:00:00</edm:begin>
-                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1834-12-31T23:59:59</edm:end>
+               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1835-01-01T00%2000%2000UG_1835-12-31T23%2059%2059UG">
+                  <skos:prefLabel>1835</skos:prefLabel>
+                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1835-01-01T00:00:00</edm:begin>
+                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1835-12-31T23:59:59</edm:end>
                </edm:TimeSpan>
             </dcterms:issued>
             <dm2e:publishedAt>
@@ -241,13 +241,13 @@
          </foaf:Organization>
       </dcterms:rightsHolder>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/pj051/">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/pj057/">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/pj051/">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/pj057/">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
                <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
@@ -339,28 +339,29 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/article_pj051_ar051046">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/article_pj057_ar057009">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj051_ar051046">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj057_ar057009">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://purl.org/spar/fabio/Article"/>
-            <dc:title xml:lang="de">Verbesserungen in der Methode Eisen aus den Eisenerzen oder anderen eisenhaltigen Substanzen auszuschmelzen, und es in sogenanntes Gareisen (finers) zu verwandeln, worauf sich Josiah John Guest Esq., an den Dowlais Eisenwerken, Merthyr Tydvil in der Grafschaft Glamorgan, am 31. Jan. 1853 ein Patent ertheilen ließ.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus dem Repertory of Patent-Inventions. December 1833, S. 346.</dm2e:subtitle>
+            <dc:title xml:lang="de">Ueber die patentirten Muͤhlsteine des Hrn. James Preston in Anburn in den Vereinigten Staaten von Nordamerika.</dc:title>
+            <dm2e:subtitle xml:lang="de">Aus dem Mechanics' Magazine, No. 594, S. 219.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Mit einer Abbildung auf Tab. I.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:pages>205</bibo:pages>
+            <bibo:pages>49</bibo:pages>
             <dcterms:tableOfContents xml:lang="de"/>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/JosiahJohnGuest">
-                  <skos:prefLabel xml:lang="de">JosiahJohnGuest</skos:prefLabel>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/JamesPreston">
+                  <skos:prefLabel xml:lang="de">JamesPreston</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj051"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj057"/>
             </dcterms:isPartOf>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">3</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -393,7 +394,7 @@
          </foaf:Organization>
       </dcterms:rightsHolder>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj051/ar051046">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj057/ar057009">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
                <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
@@ -403,7 +404,7 @@
          </edm:WebResource>
       </edm:isShownAt>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj051/ar051046">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj057/ar057009">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
@@ -490,13 +491,14 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj051_pb">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj057_pb">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj051_pb">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj057_pb">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Verbesserungen in der Methode Eisen aus den Eisenerzen oder anderen eisenhaltigen Substanzen auszuschmelzen, und es in sogenanntes Gareisen (finers) zu verwandeln, worauf sich Josiah John Guest Esq., an den Dowlais Eisenwerken, Merthyr Tydvil in der Grafschaft Glamorgan, am 31. Jan. 1853 ein Patent ertheilen ließ.</dc:title>
-            <dm2e:subtitle xml:lang="de">Aus dem Repertory of Patent-Inventions. December 1833, S. 346.</dm2e:subtitle>
+            <dc:title xml:lang="de">Ueber die patentirten Muͤhlsteine des Hrn. James Preston in Anburn in den Vereinigten Staaten von Nordamerika.</dc:title>
+            <dm2e:subtitle xml:lang="de">Aus dem Mechanics' Magazine, No. 594, S. 219.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Mit einer Abbildung auf Tab. I.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -505,12 +507,12 @@
             </dc:subject>
             <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">1</bibo:number>
             <pro:author>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/JosiahJohnGuest">
-                  <skos:prefLabel xml:lang="de">Josiah John Guest</skos:prefLabel>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/JamesPreston">
+                  <skos:prefLabel xml:lang="de">James Preston</skos:prefLabel>
                </foaf:Person>
             </pro:author>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj051_ar051046"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj057_ar057009"/>
             </dcterms:isPartOf>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -529,13 +531,13 @@
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj051/ar051046">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj057/ar057009">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj051/ar051046">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj057/ar057009">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
