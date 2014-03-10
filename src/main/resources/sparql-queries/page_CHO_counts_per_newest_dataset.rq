@@ -1,0 +1,12 @@
+select ?ds count (?cho) where {
+	graph ?ds {
+		?cho <http://purl.org/dc/elements/1.1/type> <http://onto.dm2e.eu/schemas/dm2e/Page> .
+	} .
+	{
+		select (max(?x) as ?ds) where {
+			graph ?g {                                                                                 
+				?x <http://www.w3.org/ns/prov#specializationOf> ?s .                                   
+			} 
+		}  group by ?s
+	}	
+} group by ?ds
