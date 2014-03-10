@@ -33,11 +33,18 @@
 	         
 	         
 	LOG:
+	Version:  1.13
+	          - 8 paths to the CHO ids
 	
 	Version:  1.12
 	          - bibo:number works (no more NaN error)
 	          - Added Aggregation and CHOs for Frontpages without tei:pb
-	          - Added dc:format to all Webresources (todos: check the double dc:format??)
+	          - Added dc:format to all WebResources (todos: check the double dc:format??)
+	          - Changed all dc:subtitle or dcterms:subtitle into dm2e:subtitle
+	          - All hasAnnotatbleContent work
+	          - All edm:object work
+	          - Changed xsd:int into xsd:insignedInt at bibo:number, dm2e:levelOfHierarchy
+	         
 	          
 	Version:  1.11
 	          - Added bibo:pages for articles
@@ -136,7 +143,11 @@
   <!-- Default type -->
   <xsl:param name="DEF_DCTYPE">text</xsl:param>
   <!-- Default rights -->
-  <xsl:variable name="RIGHTS_RESOURCE">http://creativecommons.org/licenses/by-nc-sa/3.0/</xsl:variable>
+  <xsl:variable name="RIGHTS_RESOURCE_METADATA">http://creativecommons.org/licenses/by-nc-sa/3.0/</xsl:variable>
+  <xsl:variable name="RIGHTSHODER_METADATA" select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:persName[@type='ref']"/>
+  <!-- Default rights -->
+  <xsl:variable name="RIGHTS_RESOURCE_FACSIMILES">http://creativecommons.org/licenses/by-nc-nd/3.0/</xsl:variable>
+  <xsl:variable name="RIGHTSHODER_FACSIMILES" select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:respStmt/tei:orgName[@type='ref']" />
   <!-- DM2E-ID-Root -->
   <xsl:param name="baseURI">http://data.dm2e.eu/data/</xsl:param>
   <!-- Dataprovider und Repostitory -->
@@ -145,13 +156,16 @@
   <xsl:param name="DEF_SUBJECT">19th century engineering and natural sciences</xsl:param>
   <xsl:variable name="DEF_SUBJECT_URI" select="replace($DEF_SUBJECT, ' ', '_')"/>
   <!-- Default article ID -->
-  <xsl:param name="XML_ID" select="tei:TEI/tei:text/tei:body/tei:div/tei:pb/@xml:id"/>
-  <xsl:variable name="DEF_ARTICLE_NAME" select="substring-before($XML_ID, '_')"/>
-  <!--<xsl:param name="XML_ID" select="tei:TEI/tei:fileDesc/tei:publicationStmt/tei:idno"/>
-  <xsl:variable name="DEF_ARTICLE_NAME" select="substring-after(substring-before($XML_ID,'http://dingler.culture.hu-berlin.de/article/'), '/')"/>-->
+  <!--<xsl:variable name="XML_ID" select="tei:TEI/tei:text/tei:body/tei:div/tei:pb/@xml:id"/>
+  <xsl:variable name="DEF_ARTICLE_NAME" select="substring-before($XML_ID, '_')"/>-->
   
+  <xsl:variable name="XML_ID" select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:idno[@type='URL']"/>
+  <xsl:variable name="DEF_ARTICLE_NAME" select="substring-before(substring-after($XML_ID,'http://dingler.culture.hu-berlin.de/article/'), '/')"/>
+
   <!-- Default author name -->
-  <xsl:variable name="AUTHOR" select="tei:TEI/tei:text/tei:front/tei:titlePart/tei:persName"/>
+  <xsl:variable name="AUTHOR" select="tei:TEI/tei:text/tei:front/tei:titlePart/tei:persName[@role='author']"/>
+  <!-- Default author origin name -->
+  <xsl:variable name="AUTHOR_ORIG" select="tei:TEI/tei:text/tei:front/tei:titlePart/tei:persName[@role='author_orig']"/>
   
   
   <!-- DM2E URIs -->

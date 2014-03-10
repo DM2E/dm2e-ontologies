@@ -21,7 +21,7 @@
          <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/Polytechnisches_Journal">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://purl.org/ontology/bibo/Journal"/>
-            <dc:title xml:lang="de">Dinglers Polytechnisches Journal</dc:title>
+            <dc:title xml:lang="de">Polytechnisches Journal</dc:title>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -29,10 +29,10 @@
                </skos:Concept>
             </dc:subject>
             <dcterms:issued>
-               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1898-01-01T00%2000%2000UG_1898-12-31T23%2059%2059UG">
-                  <skos:prefLabel>1898</skos:prefLabel>
-                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1898-01-01T00:00:00</edm:begin>
-                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1898-12-31T23:59:59</edm:end>
+               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1836-01-01T00%2000%2000UG_1836-12-31T23%2059%2059UG">
+                  <skos:prefLabel>1836</skos:prefLabel>
+                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1836-01-01T00:00:00</edm:begin>
+                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1836-12-31T23:59:59</edm:end>
                </edm:TimeSpan>
             </dcterms:issued>
             <dm2e:publishedAt>
@@ -46,8 +46,8 @@
                </foaf:Organization>
             </dc:publisher>
             <bibo:editor>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/A.Hollenberg">
-                  <skos:prefLabel xml:lang="de">A. Hollenberg</skos:prefLabel>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Dr.JohannGottfriedDingler">
+                  <skos:prefLabel xml:lang="de">Dr. Johann Gottfried Dingler</skos:prefLabel>
                </foaf:Person>
             </bibo:editor>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">1</dm2e:levelOfHierarchy>
@@ -174,12 +174,12 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/issue_pj310">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/issue_pj061">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj310">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj061">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://purl.org/ontology/bibo/Issue"/>
-            <dc:title xml:lang="de">Dinglers Polytechnisches Journal, Volume 1898, Issue 310</dc:title>
+            <dc:title xml:lang="de">Polytechnisches Journal, Volume 1836, Issue 61</dc:title>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
@@ -187,10 +187,10 @@
                </skos:Concept>
             </dc:subject>
             <dcterms:issued>
-               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1898-01-01T00%2000%2000UG_1898-12-31T23%2059%2059UG">
-                  <skos:prefLabel>1898</skos:prefLabel>
-                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1898-01-01T00:00:00</edm:begin>
-                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1898-12-31T23:59:59</edm:end>
+               <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/uber/dingler/1836-01-01T00%2000%2000UG_1836-12-31T23%2059%2059UG">
+                  <skos:prefLabel>1836</skos:prefLabel>
+                  <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1836-01-01T00:00:00</edm:begin>
+                  <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1836-12-31T23:59:59</edm:end>
                </edm:TimeSpan>
             </dcterms:issued>
             <dm2e:publishedAt>
@@ -204,8 +204,8 @@
                </foaf:Organization>
             </dc:publisher>
             <bibo:editor>
-               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/A.Hollenberg">
-                  <skos:prefLabel xml:lang="de">A. Hollenberg</skos:prefLabel>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/Dr.JohannGottfriedDingler">
+                  <skos:prefLabel xml:lang="de">Dr. Johann Gottfried Dingler</skos:prefLabel>
                </foaf:Person>
             </bibo:editor>
             <dcterms:isPartOf>
@@ -241,13 +241,13 @@
          </foaf:Organization>
       </dcterms:rightsHolder>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/pj310/">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/pj061/">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/pj310/">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/pj061/">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
                <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
@@ -339,24 +339,34 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/article_pj310_ar310025">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/article_pj061_ar061037">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj310_ar310025">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj061_ar061037">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://purl.org/spar/fabio/Article"/>
-            <dc:title xml:lang="de">Kraftmaschinen.Neuerungen an Dampfmaschinen.</dc:title>
-            <dm2e:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de">Mit Abbildungen.</dm2e:subtitle>
+            <dc:title xml:lang="de">Ueber ein einfaches Reflexionsmikroskop. Von Hrn. A. Guthrie Esq. Mitgetheilt durch Hrn. J. Robison Esq., Secretaͤr der Royal Society in Edinburgh.</dc:title>
+            <dm2e:subtitle xml:lang="de">Aus dem Edinburgh New Philosophical Journal. Jan. – April 1836, S. 326.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Mit Abbildungen auf Tab. III.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:pages>81-83</bibo:pages>
+            <bibo:pages>183-185</bibo:pages>
             <dcterms:tableOfContents xml:lang="de"/>
+            <pro:author>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/A.Guthrie">
+                  <skos:prefLabel xml:lang="de">A.Guthrie</skos:prefLabel>
+               </foaf:Person>
+            </pro:author>
+            <pro:author>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/J.Robison">
+                  <skos:prefLabel xml:lang="de">J.Robison</skos:prefLabel>
+               </foaf:Person>
+            </pro:author>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj310"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/issue_pj061"/>
             </dcterms:isPartOf>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">3</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -389,7 +399,7 @@
          </foaf:Organization>
       </dcterms:rightsHolder>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj310/ar310025">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj061/ar061037">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
                <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/">
@@ -399,12 +409,12 @@
          </edm:WebResource>
       </edm:isShownAt>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32199812Z/32199812Z_tif/jpegs/00000391.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422555Z/32422555Z_tif/jpegs/00000202.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj310/ar310025">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/article/pj061/ar061037">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
@@ -491,23 +501,34 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj310_pb081">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj061_pb183">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj310_pb081">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj061_pb183">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Kraftmaschinen.Neuerungen an Dampfmaschinen.</dc:title>
-            <dm2e:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de">Mit Abbildungen.</dm2e:subtitle>
+            <dc:title xml:lang="de">Ueber ein einfaches Reflexionsmikroskop. Von Hrn. A. Guthrie Esq. Mitgetheilt durch Hrn. J. Robison Esq., Secretaͤr der Royal Society in Edinburgh.</dc:title>
+            <dm2e:subtitle xml:lang="de">Aus dem Edinburgh New Philosophical Journal. Jan. – April 1836, S. 326.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Mit Abbildungen auf Tab. III.</dm2e:subtitle>
             <dc:language>de</dc:language>
             <dc:subject>
                <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences">
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">83</bibo:number>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">184</bibo:number>
+            <pro:author>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/A.Guthrie">
+                  <skos:prefLabel xml:lang="de">A. Guthrie</skos:prefLabel>
+               </foaf:Person>
+            </pro:author>
+            <pro:author>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/J.Robison">
+                  <skos:prefLabel xml:lang="de">J.
+                                    Robison</skos:prefLabel>
+               </foaf:Person>
+            </pro:author>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj310_ar310025"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj061_ar061037"/>
             </dcterms:isPartOf>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -526,30 +547,30 @@
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32199812Z/32199812Z_tif/jpegs/00000391.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422555Z/32422555Z_tif/jpegs/00000202.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj310?p=00000391">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj061?p=00000202">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32199812Z/32199812Z_tif/jpegs/00000390.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422555Z/32422555Z_tif/jpegs/00000201.tif.medium.jpg">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32199812Z/32199812Z_tif/jpegs/00000390.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422555Z/32422555Z_tif/jpegs/00000201.tif.medium.jpg">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:isShownBy>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj310?p=00000391">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj061?p=00000202">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
@@ -636,14 +657,14 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj310_pb083">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj061_pb184">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj310_pb083">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj061_pb184">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Kraftmaschinen.Neuerungen an Dampfmaschinen.</dc:title>
-            <dm2e:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de">Mit Abbildungen.</dm2e:subtitle>
+            <dc:title xml:lang="de">Ueber ein einfaches Reflexionsmikroskop. Von Hrn. A. Guthrie Esq. Mitgetheilt durch Hrn. J. Robison Esq., Secretaͤr der Royal Society in Edinburgh.</dc:title>
+            <dm2e:subtitle xml:lang="de">Aus dem Edinburgh New Philosophical Journal. Jan. – April 1836, S. 326.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Mit Abbildungen auf Tab. III.</dm2e:subtitle>
             <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
@@ -651,12 +672,23 @@
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">83</bibo:number>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">184</bibo:number>
+            <pro:author>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/A.Guthrie">
+                  <skos:prefLabel xml:lang="de">A. Guthrie</skos:prefLabel>
+               </foaf:Person>
+            </pro:author>
+            <pro:author>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/J.Robison">
+                  <skos:prefLabel xml:lang="de">J.
+                                    Robison</skos:prefLabel>
+               </foaf:Person>
+            </pro:author>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj310_ar310025"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj061_ar061037"/>
             </dcterms:isPartOf>
             <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj310_pb082"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj061_pb183"/>
             </edm:isNextInSequence>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -674,32 +706,31 @@
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32199812Z/32199812Z_tif/jpegs/00000391.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422555Z/32422555Z_tif/jpegs/00000202.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj310?p=00000391">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj061?p=00000202">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32199812Z/32199812Z_tif/jpegs/00000391.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422555Z/32422555Z_tif/jpegs/00000202.tif.medium.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32199812Z/32199812Z_tif/jpegs/00000391.tif.medium.jpg">
-            <dc:format>image/jpeg</dc:format>
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422555Z/32422555Z_tif/jpegs/00000202.tif.medium.jpg">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:isShownBy>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj310?p=00000391">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj061?p=00000202">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
@@ -792,14 +823,14 @@
       </dc:contributor>
       <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
    </ore:Aggregation>
-   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj310_pb082">
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/uber/dingler/page_pj061_pb185">
       <edm:aggregatedCHO>
-         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj310_pb082">
+         <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj061_pb185">
             <edm:type>TEXT</edm:type>
             <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
-            <dc:title xml:lang="de">Kraftmaschinen.Neuerungen an Dampfmaschinen.</dc:title>
-            <dm2e:subtitle xml:lang="de">(Fortsetzung des Berichtes S. 61 d. Bd.)</dm2e:subtitle>
-            <dm2e:subtitle xml:lang="de">Mit Abbildungen.</dm2e:subtitle>
+            <dc:title xml:lang="de">Ueber ein einfaches Reflexionsmikroskop. Von Hrn. A. Guthrie Esq. Mitgetheilt durch Hrn. J. Robison Esq., Secretaͤr der Royal Society in Edinburgh.</dc:title>
+            <dm2e:subtitle xml:lang="de">Aus dem Edinburgh New Philosophical Journal. Jan. – April 1836, S. 326.</dm2e:subtitle>
+            <dm2e:subtitle xml:lang="de">Mit Abbildungen auf Tab. III.</dm2e:subtitle>
             <dm2e:subtitle xml:lang="de"/>
             <dc:language>de</dc:language>
             <dc:subject>
@@ -807,12 +838,23 @@
                   <skos:prefLabel xml:lang="en">19th century engineering and natural sciences</skos:prefLabel>
                </skos:Concept>
             </dc:subject>
-            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">82</bibo:number>
+            <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">185</bibo:number>
+            <pro:author>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/A.Guthrie">
+                  <skos:prefLabel xml:lang="de">A. Guthrie</skos:prefLabel>
+               </foaf:Person>
+            </pro:author>
+            <pro:author>
+               <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/uber/dingler/J.Robison">
+                  <skos:prefLabel xml:lang="de">J.
+                                    Robison</skos:prefLabel>
+               </foaf:Person>
+            </pro:author>
             <dcterms:isPartOf>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj310_ar310025"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/article_pj061_ar061037"/>
             </dcterms:isPartOf>
             <edm:isNextInSequence>
-               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj310_pb081"/>
+               <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/uber/dingler/page_pj061_pb184"/>
             </edm:isNextInSequence>
             <dm2e:levelOfHierarchy rdf:datatype="http://www.w3.org/2001/XMLSchema#unsignedInt">4</dm2e:levelOfHierarchy>
          </edm:ProvidedCHO>
@@ -830,31 +872,31 @@
       </edm:dataProvider>
       <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
       <edm:object>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32199812Z/32199812Z_tif/jpegs/00000390.tif.thumbnail.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422555Z/32422555Z_tif/jpegs/00000203.tif.thumbnail.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:object>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj310?p=00000390">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj061?p=00000203">
             <dc:format>text/html</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <dm2e:hasAnnotatableVersionAt>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32199812Z/32199812Z_tif/jpegs/00000390.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422555Z/32422555Z_tif/jpegs/00000203.tif.medium.jpg">
             <dc:format>image/jpeg</dc:format>
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </dm2e:hasAnnotatableVersionAt>
       <edm:isShownBy>
-         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32199812Z/32199812Z_tif/jpegs/00000390.tif.medium.jpg">
+         <edm:WebResource rdf:about="http://www.polytechnischesjournal.de/fileadmin/data/32422555Z/32422555Z_tif/jpegs/00000203.tif.medium.jpg">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
          </edm:WebResource>
       </edm:isShownBy>
       <edm:isShownAt>
-         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj310?p=00000390">
+         <edm:WebResource rdf:about="http://dingler.culture.hu-berlin.de/journal/page/pj061?p=00000203">
             <edm:rights rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/"/>
             <dc:rights rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
             <edm:isDerivativeOf>
