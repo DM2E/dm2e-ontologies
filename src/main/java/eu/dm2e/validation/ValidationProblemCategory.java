@@ -7,6 +7,8 @@ public enum ValidationProblemCategory {
 	MISSING_CONDITIONALLY_REQUIRED_PROPERTY(" is missing required property <%s> (Condition: %s)"),
 	MISSING_REQUIRED_ONE_OF(" is missing one of %s"),
 	MISSING_CONDITIONALLY_REQUIRED_ONE_OF(" is missing required property <%s> (Condition: %s)"),
+	
+	UNTYPED_RESOURCE(" has no rdf:type."),
 
 	INVALID_LITERAL(" Invalid literal value for <%s>: '%s' (%s)"),
 	BAD_MIMETYPE(" has unsupported MIME type '%s'."),

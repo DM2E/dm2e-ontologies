@@ -31,6 +31,18 @@ public class BaseValidatorTest extends ValidationTest {
 	//
 	
 	@Test
+	public void testIssue85() throws Exception {
+		Model m = ModelFactory.createDefaultModel();
+		final Resource testAgg = res(m, "http://agg1");
+		final Resource testCho = res(m, "http://cho1");
+		testAgg.addProperty(prop(m, NS.EDM.PROP_AGGREGATED_CHO), testCho);
+		Dm2eValidationReport report = v1_1_rev1_2.validateWithDm2e(m);
+		ValidationProblemCategory expected = ValidationProblemCategory.UNTYPED_RESOURCE;
+		log.debug(report.toString());
+		containsCategory(report, expected);
+	}
+
+	@Test
     @Ignore
 	public void testPropertyWhiteList() {
 		Set<String> wl = ((BaseValidator) v1_1_rev1_3).getPropertyWhitelist();

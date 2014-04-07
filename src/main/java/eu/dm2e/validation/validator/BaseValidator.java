@@ -344,6 +344,23 @@ abstract public class BaseValidator implements Dm2eValidator {
 		
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * reg-name = *( unreserved / pct-encoded / sub-delims )
+	 * 
+	 * unreserved = ALPHA / DIGIT / "-" / "." / "_" / "~" <---This seems like a
+	 * practical shortcut, most closely resembling original answer
+	 * 
+	 * reserved = gen-delims / sub-delims
+	 * 
+	 * gen-delims = ":" / "/" / "?" / "#" / "[" / "]" / "@"
+	 * 
+	 * sub-delims = "!" / "$" / "&" / "'" / "(" / ")" / "*" / "+" / "," / ";" /
+	 * "="
+	 * 
+	 * pct-encoded = "%" HEXDIG HEXDIG
+	 */
 	@Override
 	public Set<String> build_illegal_Uri_Strings() {
 		Set<String> ret = new HashSet<>();
@@ -351,20 +368,30 @@ abstract public class BaseValidator implements Dm2eValidator {
 		ret.add("\n");
 		ret.add("\t");
 		ret.add(":");
+		ret.add("[");
+		ret.add("]");
+		ret.add("!");
+		ret.add("$");
+		ret.add("'");
+		ret.add("(");
+		ret.add(")");
+		ret.add("*");
+		ret.add(",");
+		ret.add(";");
+		ret.add("{");
+		ret.add("}");
 		ret.add("<");
 		ret.add(">");
-		ret.add("+");
 		ret.add(" ");
 		ret.add("^");
 //		ret.add("?");
+//		ret.add("&");
 		ret.add("%2F"); // == '/'
 		ret.add("%0D");	// == '\r'
 		ret.add("%0A");	// == '\n'
 		ret.add("%09");	// == '\t'
-//		ret.add("%3A");	// == ':'
 		ret.add("%3C");	// == '<'
 		ret.add("%3E");	// == '>'
-//		ret.add("%3F");	// == '?'
 		return ret;
 	}
 
@@ -732,6 +759,14 @@ abstract public class BaseValidator implements Dm2eValidator {
 
 		Dm2eValidationReport report = new Dm2eValidationReport(getVersion());
 
+		// Check that every subject has a rdf:type
+		ResIterator iter = m.listSubjects();
+		while (iter.hasNext()) {
+			Resource subj = iter.next();
+			if (! m.contains(subj, prop(m, NS.RDF.PROP_TYPE), (Resource)null)) {
+				report.add(ValidationLevel.WARNING, ValidationProblemCategory.UNTYPED_RESOURCE, subj);
+			}
+		}
 		// * check unknown elements
 		validateByStatement(m, report);
 
