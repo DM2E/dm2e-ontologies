@@ -30,13 +30,13 @@ import eu.dm2e.validation.ValidationProblemCategory;
  * 
  * @author Konstantin Baierer
  */
-public class Dm2eValidator_1_1_Rev_1_6 extends BaseValidator {
+public class Dm2eValidator_1_1_Rev_Final extends BaseValidator {
 
 	
 	@SuppressWarnings("unused")
-	private static final Logger log = LoggerFactory.getLogger(Dm2eValidator_1_1_Rev_1_6.class);
+	private static final Logger log = LoggerFactory.getLogger(Dm2eValidator_1_1_Rev_Final.class);
 	
-	private static final String	modelVersion	= "1.1_Rev1.6";
+	private static final String	modelVersion	= "1.1_RevFinal";
 	private static final Set<String> imageMimeTypes = new HashSet<>();
 	
 	static {
@@ -49,7 +49,7 @@ public class Dm2eValidator_1_1_Rev_1_6 extends BaseValidator {
 
 	@Override
 	public InputStream getOwlInputStream() {
-		return getClass().getResourceAsStream("/dm2e-model/DM2Ev1.1_Rev1.6.owl");
+		return getClass().getResourceAsStream("/dm2e-model/DM2Ev1.1.owl");
 	}
 	
 	@Override public String getVersion() {
