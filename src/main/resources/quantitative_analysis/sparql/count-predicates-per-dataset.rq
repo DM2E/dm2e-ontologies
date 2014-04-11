@@ -1,0 +1,7 @@
+SELECT ?prop (COUNT (DISTINCT ?prop) as ?no) {
+    GRAPH ?g {
+        ?s ?prop ?o
+    }
+}
+GROUP BY ?prop
+ORDER BY DESC(?no)

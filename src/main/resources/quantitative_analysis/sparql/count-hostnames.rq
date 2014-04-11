@@ -1,0 +1,14 @@
+SELECT ?host (COUNT(?host) AS ?no) {
+    GRAPH ?g {
+        {
+            ?uri ?p ?o .
+        } UNION {
+            ?sub ?p ?uri .
+            FILTER(isIRI(?uri))
+        }
+    }
+    BIND(STR(?uri) AS ?s)
+    BIND(STRBEFORE(SUBSTR(?s, 8), "/") AS ?host)
+}
+GROUP BY ?host
+ORDER BY DESC(?no)

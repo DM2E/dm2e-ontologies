@@ -1,0 +1,21 @@
+# :Alice foaf:age "25".
+# :Bob foaf:age "25" .
+# :Charlie foaf:age "30 .
+# =>
+# ?p ?o ?no
+# foaf:age "25" 2
+# foaf:age "30" 1
+
+
+
+SELECT ?p ?o (COUNT (*) AS ?no)
+WHERE
+{
+    GRAPH ?g
+    {
+        ?s ?p ?o .
+    }
+}
+GROUP BY ?p ?o
+HAVING (?no > 1)
+ORDER BY DESC(?no)

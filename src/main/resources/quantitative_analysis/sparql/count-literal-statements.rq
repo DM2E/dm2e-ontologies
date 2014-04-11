@@ -1,0 +1,9 @@
+SELECT (COUNT(*) AS ?no)
+{
+    GRAPH ?g
+    {
+        ?s ?p ?o
+        FILTER(isLiteral(?o))
+    }
+}
+ORDER BY DESC(?no)

@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      var data_columns = ${TABLE_COLUMNS};
+      var data_rows = ${TABLE_ROWS};
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['map']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawMap);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawMap() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data_columns.forEach(function(column) { 
+            data.addColumn(column[0], column[1]);
+        });
+        data_rows.forEach(function(row) {
+            data.addRow(row);
+        });
+
+        // Set chart options
+        var options = {'title':'${TITLE}',
+                        'showTip': true,
+                       'width':600,
+                       'height':450};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new
+        google.visualization.Map(document.getElementById('map_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="map_div"></div>
+  </body>
+</html>

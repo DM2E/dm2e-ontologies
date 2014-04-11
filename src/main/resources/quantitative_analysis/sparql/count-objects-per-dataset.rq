@@ -1,0 +1,10 @@
+SELECT ?obj (COUNT (?obj) as ?no) {
+    GRAPH ?g {
+        ?s ?p ?obj .
+        FILTER isIRI(?obj)
+    }
+}
+GROUP BY ?obj 
+HAVING (?no > 1)
+ORDER BY DESC(?no)
+

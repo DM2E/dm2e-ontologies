@@ -1,0 +1,6 @@
+SELECT ?cho {
+    GRAPH ?g {
+        ?cho rdf:type edm:ProvidedCHO .
+        FILTER NOT EXISTS { ?agg edm:aggregatedCHO ?cho }
+    }
+}

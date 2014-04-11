@@ -1,0 +1,11 @@
+SELECT DISTINCT ?prop ?range (COUNT(*) AS ?no)
+{
+    GRAPH ?g
+    {
+        ?s ?prop ?o .
+        ?o rdf:type ?range .
+    }
+}
+GROUP BY ?prop ?range
+HAVING (?no > 1)
+ORDER BY DESC(?no)

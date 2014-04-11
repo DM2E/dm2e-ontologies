@@ -1,0 +1,7 @@
+SELECT ?s {
+    GRAPH ?g {
+        ?s ?p ?o .
+        OPTIONAL { ?s rdf:type ?type }
+        FILTER (!bound(?type))
+    }
+}

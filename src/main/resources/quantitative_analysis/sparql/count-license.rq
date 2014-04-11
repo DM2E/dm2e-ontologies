@@ -1,0 +1,6 @@
+SELECT ?license (COUNT(?license) AS ?no)
+{
+    GRAPH ?g {
+        ?s edm:rights ?license .
+    }
+} GROUP BY ?license

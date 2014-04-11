@@ -1,0 +1,8 @@
+SELECT ?s (COUNT(?type) AS ?no) {
+    GRAPH ?g {
+        ?s rdf:type ?type .
+    }
+}
+GROUP BY ?s
+HAVING (?no > 1)
+ORDER BY DESC(?no)

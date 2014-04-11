@@ -1,0 +1,6 @@
+SELECT (COUNT(*) AS ?no) {
+    GRAPH ?g {
+        ?s ?p ?o 
+    }
+} GROUP BY ?g
+

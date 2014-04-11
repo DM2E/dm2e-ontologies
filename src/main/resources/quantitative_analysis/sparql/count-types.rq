@@ -1,0 +1,7 @@
+SELECT DISTINCT ?type (COUNT(?type) AS ?no) {
+    GRAPH ?g {
+        ?s rdf:type ?type
+    }
+}
+GROUP BY ?type
+ORDER BY DESC(?no)

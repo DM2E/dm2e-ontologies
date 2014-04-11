@@ -1,0 +1,9 @@
+SELECT ?subj (COUNT (?subj) as ?no) {
+    GRAPH ?g {
+        ?subj ?p ?o .
+    }
+} 
+GROUP BY ?subj
+HAVING (?no > 1)
+ORDER BY DESC(?no)
+
