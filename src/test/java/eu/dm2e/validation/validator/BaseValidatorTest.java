@@ -227,7 +227,7 @@ public class BaseValidatorTest extends ValidationTest {
 	@Test
 	public void testInvalidURI() {
 		{
-			log.info("Newline and Tab");
+			log.info("Newline and Tab (plain)");
 			Model m = ModelFactory.createDefaultModel();
 			final Resource testRes = res(m, "http://foo.com/bla\n\tquux");
 			testRes.addProperty(prop(m, NS.RDF.PROP_TYPE), "fnobeck");
@@ -236,13 +236,31 @@ public class BaseValidatorTest extends ValidationTest {
 			containsCategory(report, expected);
 		}
 		{
+			log.info("Newline and Tab (url-encoded)");
+			Model m = ModelFactory.createDefaultModel();
+			final Resource testRes = res(m, "http://foo.com/bla%0A%09quux");
+			testRes.addProperty(prop(m, NS.RDF.PROP_TYPE), "fnobeck");
+			Dm2eValidationReport report = v1_1_rev1_2.validateWithDm2e(m);
+			ValidationProblemCategory expected = ValidationProblemCategory.UNWISE_URI_CHARACTER;
+			containsCategory(report, expected);
+		}
+		{
 			log.info("URL-encoded Slash");
 			Model m = ModelFactory.createDefaultModel();
 			final Resource testRes = res(m, "http://foo.com/bla%2Fquux");
 			testRes.addProperty(prop(m, NS.RDF.PROP_TYPE), "fnobeck");
 			Dm2eValidationReport report = v1_1_rev1_2.validateWithDm2e(m);
-			ValidationProblemCategory expected = ValidationProblemCategory.ILLEGAL_URI_CHARACTER;
+			ValidationProblemCategory expected = ValidationProblemCategory.UNWISE_URI_CHARACTER;
 			log.info(report.exportToString(false));
+			containsCategory(report, expected);
+		}
+		{
+			Model m = ModelFactory.createDefaultModel();
+			final Resource testUri = res(m, "http://agg1/a[b]");
+			testUri.addProperty(prop(m, NS.RDF.PROP_TYPE), res(m, NS.ORE.CLASS_AGGREGATION));
+			Dm2eValidationReport report = v1_1_rev1_2.validateWithDm2e(m);
+			ValidationProblemCategory expected = ValidationProblemCategory.ILLEGAL_URI_CHARACTER;
+			log.debug(report.toString());
 			containsCategory(report, expected);
 		}
 	}

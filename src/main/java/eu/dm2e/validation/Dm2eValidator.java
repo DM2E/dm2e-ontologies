@@ -261,6 +261,8 @@ public interface Dm2eValidator {
 
 	public abstract Set<String> build_illegal_Uri_Strings();
 
+	public abstract Set<String> build_unwise_Uri_Strings();
+
 
 
 }

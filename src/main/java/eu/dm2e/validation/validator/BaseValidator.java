@@ -318,6 +318,17 @@ abstract public class BaseValidator implements Dm2eValidator {
 						illegalUriString);
 			}
 		}
+		//
+		// Check for unwise URI strings
+		//
+		for (String unwiseUriString : build_unwise_Uri_Strings()) {
+			if (resPath.contains(unwiseUriString)) {
+				report.add(ValidationLevel.WARNING,
+						ValidationProblemCategory.UNWISE_URI_CHARACTER,
+						res,
+						unwiseUriString);
+			}
+		}
 
 		//
 		// Check for unknown properties
@@ -356,8 +367,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 	 * 
 	 * gen-delims = ":" / "/" / "?" / "#" / "[" / "]" / "@"
 	 * 
-	 * sub-delims = "!" / "$" / "&" / "'" / "(" / ")" / "*" / "+" / "," / ";" /
-	 * "="
+	 * sub-delims = "!" / "$" / "&" / "'" / "(" / ")" / "*" / "+" / "," / ";" / "="
 	 * 
 	 * pct-encoded = "%" HEXDIG HEXDIG
 	 */
@@ -384,8 +394,12 @@ abstract public class BaseValidator implements Dm2eValidator {
 		ret.add(">");
 		ret.add(" ");
 		ret.add("^");
-//		ret.add("?");
-//		ret.add("&");
+		return ret;
+	}
+
+	@Override
+	public Set<String> build_unwise_Uri_Strings() {
+		Set<String> ret = new HashSet<>();
 		ret.add("%2F"); // == '/'
 		ret.add("%0D");	// == '\r'
 		ret.add("%0A");	// == '\n'
