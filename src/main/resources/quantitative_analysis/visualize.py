@@ -222,16 +222,16 @@ class Vis:
 
 if __name__ == '__main__':
     vis = Vis(
-        output_dir='out',
-        template_dir='tpl',
+        output_dir='out/',
+        template_dir='tpl/',
         datasets='bbawdta geigeidigital mpiwgharriot mpiwgrara mpiwgrarafulltextsample onbabo onbcodices uberdingler ubffmsammlungen uibwab'.split(' '),
-        analyses_dir='/data/analyses/analysis_2014-04-08_13/',
+        analyses_dir='analysis/',
     )
-    vis.visualize_total('numbers-per-dataset', '?nr_stmt_total')
+    # vis.visualize_total('numbers-per-dataset', '?nr_stmt_total')
     # vis.collate_no('hostnames')
     # vis.collate_no('license')
     # # vis.collate_no('predicate-object-equal-statements')
     # vis.collate_no('triples-per-dataset')
     # vis.distribution_no('statements-per-resource')
     # vis.average_across_datasets_no('statements-per-resource')
-    vis.visualize_map('find-geonames')
+    # vis.visualize_map('find-geonames')

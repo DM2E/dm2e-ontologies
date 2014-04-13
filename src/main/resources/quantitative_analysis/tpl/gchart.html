@@ -4,8 +4,6 @@
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 
-      var data_columns = ${TABLE_COLUMNS};
-      var data_rows = ${TABLE_ROWS};
 
       // Load the Visualization API and the piechart package.
       google.load('visualization', '1.0', {'packages':['corechart']});
@@ -19,21 +17,26 @@
       function drawChart() {
 
         // Create the data table.
-        var data = new google.visualization.DataTable();
-        data_columns.forEach(function(column) { 
-            data.addColumn(column[0], column[1]);
-        });
-        data_rows.forEach(function(row) {
-            data.addRow(row);
-        });
+        var data = google.visualization.arrayToDataTable(${data});
 
         // Set chart options
-        var options = {'title':'${TITLE}',
-                       'width':600,
-                       'height':450};
+        var options = {'title':${title},
+            'width':800,
+            'height':800,
+            bar: { groupWidth: '75%' },
+        };
 
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        var el = document.getElementById('chart_div');
+        var chart = null
+        if (${vis} === "pie") {
+            chart = new  google.visualization.PieChart(el);
+        } else if (${vis} === 'bar') {
+            chart = new google.visualization.BarChart(el);
+        } else if (${vis} === 'stack-bar') {
+            chart = new google.visualization.BarChart(el);
+            options['isStacked'] = 'true';
+        }
+
         chart.draw(data, options);
       }
     </script>
