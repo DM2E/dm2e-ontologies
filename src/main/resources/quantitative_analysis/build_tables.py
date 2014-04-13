@@ -62,7 +62,7 @@ class TableBuilder:
 
     def __init__(self, **kwargs):
         logging.basicConfig(level=logging.DEBUG)
-        self.output_dir = kwargs['output_dir']
+        self.vis_dir = kwargs['vis_dir']
         self.sparql_dir = kwargs['sparql_dir']
         self.analyses_dir = kwargs['analyses_dir']
         self.template_dir = kwargs['template_dir']
@@ -187,7 +187,7 @@ class TableBuilder:
         ret_tables['total'] = []
         for series in total_series.itervalues(): ret_tables['total'].append(series.to_dict())
         for dataset in ret_tables.keys():
-            fname = self.output_dir + 'average_' + analysis + '_by_' + key_group.replace("?", "") + "_" + dataset + ".rq.tsv"
+            fname = self.analyses_dir + 'average_' + analysis + '_by_' + key_group.replace("?", "") + "_" + dataset + ".rq.tsv"
             with open(fname, "wb") as csvout:
                 writer = csv.DictWriter(csvout, "?key ?size ?min ?max ?amean ?gmean ?hmean".split(" "), delimiter="\t")
                 writer.writeheader()
@@ -218,7 +218,7 @@ class TableBuilder:
 
     def run_template(self, out_name, **kwargs):
         tpl_path = self.template_dir + 'gchart.html'
-        out_path = self.output_dir + out_name + '_' + kwargs['vis'] + '.html'
+        out_path = self.vis_dir + out_name + '_' + kwargs['vis'] + '.html'
         tpl = string.Template(open(tpl_path, 'rb').read())
         repl = {}
         for tplvar_key, tplvar_val in kwargs.iteritems():
@@ -299,7 +299,7 @@ class TableBuilder:
 
 if __name__ == '__main__':
     tb = TableBuilder(
-        output_dir='out/',
+        vis_dir='out/',
         template_dir='tpl/',
         sparql_dir='sparql/',
         analyses_dir='analysis/',
