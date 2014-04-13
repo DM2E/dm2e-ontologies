@@ -287,6 +287,16 @@ class TableBuilder:
         data_avg = tb.extract_data_from_table(table_name, ['?key', '?amean', '?gmean', '?hmean'], ['Value', 'Abith. Mean', 'Geom. Mean', 'Harm. Mean'])
         tb.run_template(table_name + '_averages', vis='bar', data=data_avg, title='Average for ' + label)
 
+    def visualize_averages(self):
+        datasets_plus_total = ['total']
+        for dataset in tb.datasets:
+            datasets_plus_total.append(dataset)
+        for dataset in datasets_plus_total:
+            tb.visualize_average_table('average_predicate-object-equal-statements_by_predicate_' + dataset + '.rq.tsv', 'P-O-Equal Statemenets by Predicate')
+            tb.visualize_average_table('average_statements-per-resource-and-type_by_dctype_' + dataset + '.rq.tsv', 'Statements per Resource by dc:type')
+            tb.visualize_average_table('average_statements-per-resource-and-type_by_type_' + dataset + '.rq.tsv', 'Statements per Resource by rdf:type')
+        # tb.visualize_average_table('average_ranges-per-property_by_range_' + dataset + '.rq.tsv', 'Average Number of rdfs:range per rdfs:range')
+
 if __name__ == '__main__':
     tb = TableBuilder(
         output_dir='out/',
@@ -294,24 +304,20 @@ if __name__ == '__main__':
         sparql_dir='sparql/',
         analyses_dir='analysis/',
     )
+
     tb.count_per_dataset_stats()
     tb.write_per_dataset_stats()
-    tb.visualize_global_numbers()
 
-    datasets_plus_total = ['total']
-    for dataset in tb.datasets:
-        datasets_plus_total.append(dataset)
-    for dataset in datasets_plus_total:
-        tb.visualize_average_table('average_predicate-object-equal-statements_by_p_' + dataset + '.rq.tsv', 'P-O-Equal Statemenets by Predicate')
-        tb.visualize_average_table('average_statements-per-resource-and-type_by_dctype_' + dataset + '.rq.tsv', 'Statements per Resource by dc:type')
-        tb.visualize_average_table('average_statements-per-resource-and-type_by_type_' + dataset + '.rq.tsv', 'Statements per Resource by rdf:type')
-        # tb.visualize_average_table('average_ranges-per-property_by_range_' + dataset + '.rq.tsv', 'Average Number of rdfs:range per rdfs:range')
+    tb.calculate_average('statements-per-resource-and-type', '?dctype', '?no')
+    tb.calculate_average('statements-per-resource-and-type', '?type', '?no')
+    tb.calculate_average('predicate-object-equal-statements', '?predicate', '?no')
+
+    tb.visualize_global_numbers()
+    tb.visualize_averages()
+
     # vis.collate_no('license')
     # # vis.collate_no('predicate-object-equal-statements')
     # vis.collate_no('triples-per-dataset')
     # vis.distribution_no('statements-per-resource')
     # vis.average_across_datasets_no('statements-per-resource')
     # vis.visualize_map('find-geonames')
-    # tb.calculate_average('statements-per-resource-and-type', '?dctype', '?no')
-    # tb.calculate_average('statements-per-resource-and-type', '?type', '?no')
-    # tb.calculate_average('predicate-object-equal-statements', '?predicate', '?no')
