@@ -1,0 +1,22 @@
+SELECT ?baseuri (COUNT(?baseuri) AS ?no) {
+    GRAPH ?g {
+        {
+            ?res ?p1 ?o1 .
+        }
+        UNION
+        {
+            ?s2 ?res ?o2 .
+        }
+        UNION 
+        {
+            ?cs3 ?p3 ?res .
+            FILTER(isIRI(?res))
+        }
+    }
+    BIND(STR(?res) AS ?raw_uri)
+    FILTER(! CONTAINS(?raw_uri, "data.dm2e.eu"))
+    BIND(REPLACE(?raw_uri, "\\?.*$", "") AS ?uri_wo_query)
+    BIND(REPLACE(?uri_wo_query, "/[^/]*$", "") AS ?baseuri)
+}
+GROUP BY ?baseuri
+ORDER BY DESC(?no)

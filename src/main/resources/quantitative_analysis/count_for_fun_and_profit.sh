@@ -20,18 +20,19 @@ sparql/count-literal-statements.rq
 sparql/count-untyped.rq
 sparql/count-types.rq
 sparql/count-hostnames.rq
+sparql/count-baserurls.rq
 sparql/count-statements-per-resource-and-type.rq
 sparql/count-license.rq)
 
-datasets=(http://data.dm2e.eu/data/dataset/uber/dingler/20140410122428139
-http://data.dm2e.eu/data/dataset/mpiwg/harriot/20140408150928033
+datasets=(http://data.dm2e.eu/data/dataset/mpiwg/harriot/20140408150928033
 http://data.dm2e.eu/data/dataset/uib/wab/20140311101616905
-http://data.dm2e.eu/data/dataset/gei/gei-digital/20140301021526607
-http://data.dm2e.eu/data/dataset/mpiwg/rara/20140408163521482
-http://data.dm2e.eu/data/dataset/onb/abo/20140306154239247
-http://data.dm2e.eu/data/dataset/bbaw/dta/20140310171954361
 http://data.dm2e.eu/data/dataset/onb/codices/20140304184952678
-http://data.dm2e.eu/data/dataset/ub-ffm/sammlungen/20140301004538912)
+http://data.dm2e.eu/data/dataset/onb/abo/20140306154239247
+http://data.dm2e.eu/data/dataset/ub-ffm/sammlungen/20140301004538912
+http://data.dm2e.eu/data/dataset/gei/gei-digital/20140301021526607
+http://data.dm2e.eu/data/dataset/uber/dingler/20140410122428139
+http://data.dm2e.eu/data/dataset/mpiwg/rara/20140408163521482
+http://data.dm2e.eu/data/dataset/bbaw/dta/20140310171954361)
 
 analysis_dir="/data/analyses/analysis_$(date '+%Y-%m-%d_%H')"
 mkdir -p $analysis_dir

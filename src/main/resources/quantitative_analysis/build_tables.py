@@ -168,30 +168,14 @@ if __name__ == '__main__':
     tb = TableBuilder(
         output_dir='out/',
         template_dir='tpl/',
-        analyses_dir='analysis_2014-04-10_18/',
+        analyses_dir='analysis/',
     )
-    dataset_to_country = {
-        'bbawdta': 'Germany',
-        'geigeidigital': 'Germany',
-        'mpiwgharriot': 'Germany',
-        'mpiwgrara': 'Germany',
-        'mpiwgrarafulltextsample': 'Germany',
-        'onbabo': 'Austria',
-        'onbcodices': 'Austria',
-        'uberdingler': 'Germany',
-        'ubffmsammlungen': 'Germany',
-        'uibwab': 'Norway',
-    }
-    # tb.write_per_dataset_stats()
-    # x = tb.calculate_average('statements-per-resource-and-type', '?type', '?no')
-    x = tb.calculate_average('ranges-per-property', '?range', '?no')
-    # x = tb.calculate_average('statements-per-resource-and-type', '?s', '?no')
-    # print(json.dumps(x))
-    print(x)
-    # vis.collate_no('hostnames')
     # vis.collate_no('license')
     # # vis.collate_no('predicate-object-equal-statements')
     # vis.collate_no('triples-per-dataset')
     # vis.distribution_no('statements-per-resource')
     # vis.average_across_datasets_no('statements-per-resource')
     # vis.visualize_map('find-geonames')
+    tb.calculate_average('statements-per-resource-and-type', '?dctype', '?no')
+    tb.calculate_average('statements-per-resource-and-type', '?type', '?no')
+    # tb.calculate_average('predicate-object-equal-statements', '?predicate', '?no')

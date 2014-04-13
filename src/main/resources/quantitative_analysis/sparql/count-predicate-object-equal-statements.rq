@@ -2,20 +2,20 @@
 # :Bob foaf:age "25" .
 # :Charlie foaf:age "30 .
 # =>
-# ?p ?o ?no
+# ?predicate ?object ?no
 # foaf:age "25" 2
 # foaf:age "30" 1
 
 
 
-SELECT ?p ?o (COUNT (*) AS ?no)
+SELECT ?predicate ?object (COUNT (*) AS ?no)
 WHERE
 {
     GRAPH ?g
     {
-        ?s ?p ?o .
+        ?s ?predicate ?object .
     }
 }
-GROUP BY ?p ?o
+GROUP BY ?predicate ?object
 HAVING (?no > 1)
 ORDER BY DESC(?no)

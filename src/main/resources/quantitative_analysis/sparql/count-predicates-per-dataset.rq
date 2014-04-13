@@ -1,7 +1,7 @@
-SELECT ?prop (COUNT (DISTINCT ?prop) as ?no) {
+SELECT ?pred (COUNT(?pred) as ?no) {
     GRAPH ?g {
-        ?s ?prop ?o
+        ?s ?pred ?o
     }
 }
-GROUP BY ?prop
+GROUP BY ?pred
 ORDER BY DESC(?no)

@@ -1,9 +1,10 @@
-SELECT ?s ?type (COUNT(?p) AS ?no) {
+SELECT ?s ?type ?dctype (COUNT(?p) AS ?no) {
     GRAPH ?g {
         ?s rdf:type ?type .
+        OPTIONAL { ?s dc:type ?dctype }
         ?s ?p ?o .
     }
 }
-GROUP BY ?s ?type
+GROUP BY ?s ?type ?dctype
 HAVING (?no > 1)
 ORDER BY DESC(?no)
