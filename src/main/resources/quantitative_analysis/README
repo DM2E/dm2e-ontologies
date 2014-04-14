@@ -1,0 +1,31 @@
+Generating statistics over RDF data
+-----------------------------------
+
+This directory contains a set of scripts and queries for generating
+quantitative analyses and visualizations about the data in a triplestore.
+
+Directory Contents
+-------------------
+
+```
+sparql/           #-- SPARQL Queries
+tpl/              #-- Templates for empty summary tables and HTML
+sparql-query.sh   #-- Shell script to execute SPARQL queries
+count_for_fun_and_profit.sh   #-- Shell script for the generation of TSV results from SPARQL queries on datasets
+build_tables.py   #-- Generate mean values and summaries and visualizations on the data
+```
+
+Running the whole shebang
+-------------------------
+
+First adapt `count_for_fun_and_profit.sh` to fit your needs (i.e. the set
+of SPARQL queries to use and the list of named graphs
+
+```
+bash count_for_fun_and_profit.sh
+```
+
+Depending on the size of the triplestore, this can take quite a while,
+hours even.
+
+
