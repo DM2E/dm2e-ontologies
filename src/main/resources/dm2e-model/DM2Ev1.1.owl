@@ -22,6 +22,7 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY korbo "http://purl.org/net7/korbo/vocab#" >
     <!ENTITY crm "http://www.cidoc-crm.org/cidoc-crm/" >
+    <!ENTITY crm-correct "http://www.cidoc-crm.org/rdfs/cidoc-crm#" >
     <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
     <!ENTITY edm "http://www.europeana.eu/schemas/edm/" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
@@ -51,6 +52,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+     xmlns:crm-correct="http://www.cidoc-crm.org/rdfs/cidoc-crm#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:vivo="http://vivoweb.org/ontology/core#"
      xmlns:prism="http://prismstandard.org/namespaces/basic/3.0/"
@@ -1956,6 +1958,7 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
         <rdfs:comment xml:lang="en">Qualifying information about the end of the timespan – such as degree of certainty, precision, source etc.</rdfs:comment>
         <scopeNote xml:lang="en">This property is used to indicate the certainty of a timespan, in this case its end. Use “uncertainty_data” or “uncertainty_granularity” to indicate the type of uncertainty. More information can be found in the “Recommendations for the RDF representation of DM2E metadata”.</scopeNote>
         <rdfs:domain rdf:resource="&edm;TimeSpan"/>
+        <rdfs:subPropertyOf rdf:resource="&crm-correct;P79_end_is_qualified_by"/>
     </owl:DatatypeProperty>
     
 
@@ -1968,6 +1971,7 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
         <scopeNote xml:lang="en">This property is used to indicate the certainty of a timespan, in this case its beginning. Use “uncertainty_data” or “uncertainty_granularity” to indicate the type of uncertainty. More information can be found in the “Recommendations for the RDF representation of DM2E metadata”</scopeNote>
         <rdfs:domain rdf:resource="&edm;TimeSpan"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:subPropertyOf rdf:resource="&crm-correct;P80_end_is_qualified_by"/>
     </owl:DatatypeProperty>
     
 
