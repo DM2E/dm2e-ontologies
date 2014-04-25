@@ -453,12 +453,14 @@ public class Dm2e2Edm {
 				if (Dm2e2Edm.dm2eSuperClasses.containsKey(type)) {
 					Dm2e2Edm.typeCache.get(s).addAll(Dm2e2Edm.dm2eSuperClasses.get(type));
 				}
-			} else {
-				dm2e2edm.addStatementToTarget(s, p, o);
 			}
+			dm2e2edm.addStatementToTarget(s, p, o);
 			counter++;
 			if (counter % 1000 == 0) {
-				System.out.println(counter);
+				System.out.print(counter);
+				System.out.print(" <");
+				System.out.print(s.toString());
+				System.out.print(">\n");
 			}
 		}
 		
