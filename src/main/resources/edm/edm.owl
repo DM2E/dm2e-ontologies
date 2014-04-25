@@ -889,6 +889,27 @@ born digital object.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&edm;hasType"/>
     </rdf:Description>
 
+    <!-- http://purl.org/dc/elements/1.1/description -->
+    <!-- TODO kba Thu Apr 24 15:18:16 CEST 2014 -->
+
+    <rdf:Description rdf:about="&dc;description">
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+    </rdf:Description>
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+    <!-- TODO kba Thu Apr 24 15:18:16 CEST 2014 -->
+
+    <rdf:Description rdf:about="&dc;title">
+        <rdfs:subPropertyOf rdf:resource="&dc;title"/>
+    </rdf:Description>
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+    <!-- TODO kba Thu Apr 24 15:18:16 CEST 2014 -->
+
+    <rdf:Description rdf:about="&skos;prefLabel">
+        <rdfs:subPropertyOf rdf:resource="&skos;prefLabel"/>
+    </rdf:Description>
+
     <!--****************************************************************************************************************************** -->
     <!-- Class declarations added for compatibility with some OWL-DL reasoners -->
     <!--****************************************************************************************************************************** -->

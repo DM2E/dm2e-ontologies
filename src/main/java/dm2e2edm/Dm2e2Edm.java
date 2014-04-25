@@ -10,10 +10,12 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
@@ -46,6 +48,7 @@ public class Dm2e2Edm {
 	public static final Model dm2eModel;
 	public static final Set<Resource> edmProperties = new HashSet<>();
 	public static final Map<Resource,List<Resource>> dm2eSuperProperties = new HashMap<Resource, List<Resource>>();
+	public static final Map<Resource,List<Resource>> dm2eSuperClasses = new HashMap<Resource, List<Resource>>();
 	
 	static {
 		edmModel = ModelFactory.createDefaultModel();
@@ -55,8 +58,8 @@ public class Dm2e2Edm {
 		dm2eModel.read(Dm2e2Edm.class.getResourceAsStream(DM2E_OWL_RESOURCE), null, "RDF/XML");
 
 		buildEdmProperties();
-		
 		buildDm2eSuperProperties();
+		buildDm2eSuperClasses();
 	}
 
 	private static void buildEdmProperties() {
@@ -77,6 +80,14 @@ public class Dm2e2Edm {
 				edmProperties.add(iter.next().getSubject().asResource());
 		}
 		// subproperties
+		{
+			StmtIterator iter = edmModel.listStatements(null, 
+					edmModel.createProperty(NS.RDFS.PROP_SUB_PROPERTY_OF),
+					(RDFNode)null);
+			while (iter.hasNext())
+				edmProperties.add(iter.next().getSubject().asResource());
+		}
+		// subproperties
 		Set<Resource> subProperties = new HashSet<>();
 		for (Resource edmProperty : edmProperties) {
 			StmtIterator iter = edmModel.listStatements(null, 
@@ -86,6 +97,21 @@ public class Dm2e2Edm {
 				subProperties.add(iter.next().getSubject().asResource());		
 		}
 		edmProperties.addAll(subProperties);
+	}
+
+	private static void buildDm2eSuperClasses() {
+		Set<Resource> toCheck = new HashSet<>();
+		// object properties
+		{
+			StmtIterator iter = dm2eModel.listStatements(null, 
+					dm2eModel.createProperty(NS.RDF.PROP_TYPE),
+					dm2eModel.createProperty(NS.OWL.CLASS));
+			while (iter.hasNext())
+				toCheck.add(iter.next().getSubject().asResource());
+		}
+		for (Resource dm2eClass : toCheck) {
+			dm2eSuperClasses.put(dm2eClass, findSuperClassesIn(dm2eModel, dm2eClass, edmModel));
+		}
 	}
 	
 	private static void buildDm2eSuperProperties() {
@@ -107,71 +133,146 @@ public class Dm2e2Edm {
 				toCheck.add(iter.next().getSubject().asResource());
 		}
 		for (Resource dm2eProperty : toCheck) {
-			dm2eSuperProperties.put(dm2eProperty, findSuperProps(dm2eModel, dm2eProperty, true));
+			dm2eSuperProperties.put(dm2eProperty, findSuperPropsIn(dm2eModel, dm2eProperty, edmModel));
 		}
 	}
-
-	private static ArrayList<Resource> findSuperProps(Model m, Resource prop, boolean recurse) {
+	
+	private static ArrayList<Resource> findSuperIn(Model source, Resource thing, Model target, Property toParentProp) {
 		final ArrayList<Resource> superProps = new ArrayList<Resource>();
-		StmtIterator iter = m.listStatements(prop, m.createProperty(NS.RDFS.PROP_SUB_PROPERTY_OF), (Resource)null);
+
+		if (target.contains(thing, target.createProperty(NS.RDF.PROP_TYPE), (RDFNode)null)) {
+			superProps.add(thing);
+		}
+
+		StmtIterator iter = source.listStatements(thing, toParentProp, (Resource)null);
 		if (iter.hasNext()) {
 			while (iter.hasNext()) {
 				final Resource object = iter.next().getObject().asResource();
-				superProps.add(object.asResource());
-				if (recurse) {
-					superProps.addAll(findSuperProps(m, object, recurse));
+				if (target.containsResource(object)) {
+					superProps.add(object.asResource());
 				}
+                superProps.addAll(findSuperIn(source, object, target, toParentProp));
 			}		
 		}
 		return superProps;
 	}
 
-	private static void convertResource(Model source, Resource agg, Model target) {
-		StmtIterator iter = source.listStatements(agg, null, (RDFNode)null);
-		while (iter.hasNext()) {
-			Statement stmt = iter.next();
-			Property prop = stmt.getPredicate();
-			if (edmProperties.contains(prop)) {
-				target.add(stmt);
-			} else if (dm2eSuperProperties.containsKey(prop)) {
-				boolean foundSuper = false;
-				for (Resource superProp : dm2eSuperProperties.get(prop)) {
-					if (edmProperties.contains(superProp)) {
-						target.add(stmt.getSubject(), target.createProperty(superProp.getURI()), stmt.getObject());
-						foundSuper = true;
-						break;
+	private static ArrayList<Resource> findSuperPropsIn(Model source, Resource thing, Model target) {
+		final Property toParentProp = source.createProperty(NS.RDFS.PROP_SUB_PROPERTY_OF);
+		return findSuperIn(source, thing, target, toParentProp);
+	}
+
+	private static ArrayList<Resource> findSuperClassesIn(Model source, Resource thing, Model target) {
+		final Property toParentProp = source.createProperty(NS.RDFS.PROP_SUB_CLASS_OF);
+		return findSuperIn(source, thing, target, toParentProp);
+	}
+
+	private static void convertResource(Model source, Resource res, Model target) {
+		
+		log.debug("Converting <{}>", res);
+		StmtIterator stmtIter = source.listStatements(res, null, (RDFNode)null);
+		if (stmtIter.hasNext()) {
+
+			// add correct rdf:type
+			Resource targetType = getRdfType(source, res);
+			if (null == targetType) {
+				log.debug("Resource {} has no rdf:type. Skipping.", res);
+				return;
+			}
+			List<Resource> superTypes = dm2eSuperClasses.get(targetType);
+			if (null == superTypes || superTypes.isEmpty()) {
+				log.debug("No EDM type for DM2E type {}", targetType);
+				return;
+			}
+			target.add(res, source.createProperty(NS.RDF.PROP_TYPE), superTypes.get(0));
+
+			while (stmtIter.hasNext()) {
+				Statement stmt = stmtIter.next();
+				Property prop = stmt.getPredicate();
+				Resource targetSubject = stmt.getSubject().asResource();
+				RDFNode targetObject = stmt.getObject();
+				Property targetProp = null;
+				
+				if (! dm2eSuperProperties.containsKey(prop) || null == dm2eSuperProperties.get(prop)) {
+					if (!(prop.getURI().equals(NS.RDF.PROP_TYPE))){
+						log.debug("Not in DM2E: {}", prop);
+					}
+					continue;
+				}
+				if (edmProperties.contains(prop)) {
+					targetProp = prop;
+				} else {
+					boolean foundSuper = false;
+					for (Resource superProp : dm2eSuperProperties.get(prop))
+						if (edmProperties.contains(superProp)) {
+							targetProp = target.createProperty(superProp.getURI());
+							foundSuper = true;
+							break;
+						}
+					if (! foundSuper) {
+						log.debug("Didn't find an EDM compatible super property for {}", prop);
+						continue;
 					}
 				}
-				if (! foundSuper) {
-					log.debug("Didn't find an EDM compatible super property for {}", prop);
-				}
-			} else {
-				log.debug("Not in DM2E: {}", prop);
+				addStatementToTarget(source, targetSubject, targetObject, targetProp, targetType, target);
 			}
 		}
 	}
 	
-	public static Model convertToEdm(Model m) {
-		HashSet<String> types = new HashSet<>();
-		types.add(NS.EDM.CLASS_PROVIDED_CHO);
-		types.add(NS.EDM.CLASS_AGENT);
-		types.add(NS.EDM.CLASS_EVENT);
-		types.add(NS.EDM.CLASS_PLACE);
-		types.add(NS.EDM.CLASS_TIMESPAN);
-		types.add(NS.EDM.CLASS_WEBRESOURCE);
-		types.add(NS.ORE.CLASS_AGGREGATION);
-		types.add(NS.FOAF.CLASS_ORGANIZATION);
-		types.add(NS.FOAF.CLASS_PERSON);
-
-		Model ret = ModelFactory.createDefaultModel();
-		for (String type : types) {
-			StmtIterator iter = m.listStatements(null, m.createProperty(NS.RDF.PROP_TYPE), m.createResource(type));
-			while (iter.hasNext()) {
-				Resource res = iter.next().getSubject();
-				convertResource(m, res, ret);
-				ret.add(res, m.createProperty(NS.RDF.PROP_TYPE), m.createResource(type));
+	private static final Resource getRdfType(Model m, RDFNode res) {
+		final Resource owlThing = m.createResource(NS.OWL.THING);
+		if (! res.isResource()) {
+			log.trace("Resource {} is not a resource. Skipping.", res);
+			return owlThing;
+		} else {
+			final StmtIterator typeIter = m.listStatements(res.asResource(), m.createProperty(NS.RDF.PROP_TYPE), (RDFNode)null);
+			if (! typeIter.hasNext()) {
+				log.debug("Resource {} has no rdf:type. Skipping.", res);
+				return owlThing;
+			} else {
+				return typeIter.next().getObject().asResource();
 			}
 		}
+	}
+
+	private static void addStatementToTarget(Model source, Resource targetSubject,
+			RDFNode targetObject,
+			Property targetProp,
+			Resource targetType,
+			Model target) {
+		if (
+				getRdfType(target, targetObject).getURI().equals(NS.EDM.CLASS_AGENT)
+				||
+				getRdfType(target, targetObject).getURI().equals(NS.SKOS.CLASS_CONCEPT)) {
+			StmtIterator prefLabelStmtIter = source.listStatements(targetObject.asResource(),
+					source.createProperty(NS.SKOS.PROP_PREF_LABEL),
+					(RDFNode) null);
+			if (prefLabelStmtIter.hasNext()){
+				String prefLabel = prefLabelStmtIter.next().getObject().asLiteral().getLexicalForm();
+				target.add(targetSubject, targetProp, prefLabel);
+				target.add(targetSubject, targetProp, targetObject);
+			}
+		} else if (targetProp.getURI().equals(NS.DC.PROP_TYPE)) {
+			if (targetObject.isResource()) {
+				Literal literalObject = target.createLiteral(lastUriSegment(targetObject.asResource().getURI()));
+				target.add(targetSubject, target.createProperty(NS.EDM.PROP_HAS_TYPE), literalObject);
+			}
+		} else {
+			target.add(targetSubject, targetProp, targetObject);
+		}
+	}
+	
+	public static Model convertToEdm(Model m) {
+		Model ret = ModelFactory.createDefaultModel();
+		ResIterator iter = m.listSubjects();
+		while (iter.hasNext()) {
+			Resource res = iter.next();
+			convertResource(m, res, ret);
+		}
 		return ret;
+	}
+	
+	private static String lastUriSegment(String uri) {
+		return uri.substring(uri.lastIndexOf('/')+1);
 	}
 }

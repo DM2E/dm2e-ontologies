@@ -808,6 +808,7 @@ http://www.dm2e.eu</foaf:homepage>
 
     <owl:ObjectProperty rdf:about="&dc;type">
         <skos:definition xml:lang="en">The nature or genre of the resource.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasType"/>
         <scopeNote xml:lang="en">The property dc:type provides a specific type that applies to the CHO. By type, we mean either a physical form (e.g. book) or logical form (e.g. paragraph) as they are specified as subclasses of edm:PhysicalThing and skos:Concept respectively. At least one dc:type must be provided.</scopeNote>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
         <rdfs:range>
@@ -1958,7 +1959,7 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
         <rdfs:comment xml:lang="en">Qualifying information about the end of the timespan – such as degree of certainty, precision, source etc.</rdfs:comment>
         <scopeNote xml:lang="en">This property is used to indicate the certainty of a timespan, in this case its end. Use “uncertainty_data” or “uncertainty_granularity” to indicate the type of uncertainty. More information can be found in the “Recommendations for the RDF representation of DM2E metadata”.</scopeNote>
         <rdfs:domain rdf:resource="&edm;TimeSpan"/>
-        <rdfs:subPropertyOf rdf:resource="&crm-correct;P79_end_is_qualified_by"/>
+        <rdfs:subPropertyOf rdf:resource="&crm-correct;P79_beginning_is_qualified_by"/>
     </owl:DatatypeProperty>
     
 

@@ -440,6 +440,7 @@ public final class NS {
 		public static final String PROP_LABEL = BASE + "label";
 		public static final String PROP_COMMENT = BASE + "comment";
 		public static final String	PROP_SUB_PROPERTY_OF	= BASE + "subPropertyOf";
+		public static final String	PROP_SUB_CLASS_OF	= BASE + "subClassOf";
 	}
 
 	/**
@@ -683,6 +684,7 @@ public final class NS {
 		public static final String	PROP_RIGHTS				= BASE + "rights";
 		public static final String	PROP_TYPE				= BASE + "type";
 		public static final String	PROP_IS_NEXT_IN_SEQUENCE	= BASE + "isNextInSequence";
+		public static final String	PROP_HAS_TYPE	= BASE + "hasType";
 	}
 	public static final class PRO {
 		public static final String BASE = "http://purl.org/spar/pro/";
