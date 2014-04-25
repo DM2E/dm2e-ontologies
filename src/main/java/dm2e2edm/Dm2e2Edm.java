@@ -305,7 +305,6 @@ public class Dm2e2Edm {
 				ParameterizedSparqlString rdfTypeQuery = new ParameterizedSparqlString("SELECT ?val WHERE { GRAPH ?g { ?res ?prop ?val } } LIMIT 1");
 				rdfTypeQuery.setParam("res", res.asResource());
 				rdfTypeQuery.setParam("prop", prop);
-				log.debug(rdfTypeQuery.toString());
 				QueryExecution qExec = QueryExecutionFactory.createServiceRequest(sparqlEndpoint, rdfTypeQuery.asQuery());
 				ResultSet rs = qExec.execSelect();
 				if (rs.hasNext()) {
@@ -335,7 +334,6 @@ public class Dm2e2Edm {
 		} else {
 			ParameterizedSparqlString rdfTypeQuery = new ParameterizedSparqlString("SELECT ?type WHERE { GRAPH ?g { ?res <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type } } LIMIT 1");
 			rdfTypeQuery.setParam("res", res.asResource());
-			log.debug(sparqlEndpoint);
 			QueryExecution qExec = QueryExecutionFactory.createServiceRequest(sparqlEndpoint, rdfTypeQuery.asQuery());
 			ResultSet rs = qExec.execSelect();
 			if (rs.hasNext()) {
