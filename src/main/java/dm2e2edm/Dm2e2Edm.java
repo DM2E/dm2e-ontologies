@@ -8,6 +8,9 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
@@ -16,6 +19,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.query.ParameterizedSparqlString;
 import com.hp.hpl.jena.query.QueryExecution;
@@ -31,6 +37,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.sparql.core.Quad;
+import com.hp.hpl.jena.util.OneToManyMap.Entry;
 
 import eu.dm2e.NS;
 
@@ -69,8 +76,26 @@ public class Dm2e2Edm {
 	public static final Resource OWL_THING = edmModel.createResource(NS.OWL.THING);
 	public static final Resource RDFS_LITERAL = edmModel.createResource(NS.RDFS.CLASS_LITERAL);
 	
-	private static final Map<Resource, LinkedHashSet<Resource>> typeCache = new HashMap<>();
-	private static final Map<RDFNode, Map<Property, String>> literalCache = new HashMap<>();
+	private final LoadingCache<Resource, LinkedHashSet<Resource>> typeCache = CacheBuilder.newBuilder()
+			.maximumSize(10000)
+			.expireAfterWrite(10, TimeUnit.MINUTES)
+			.build(new CacheLoader<Resource, LinkedHashSet<Resource>>() {
+				@Override
+				public LinkedHashSet<Resource> load(Resource key) throws Exception {
+					return getRdfTypes(key);
+				}
+			});
+	private final LoadingCache<SubjectPredicate, String> literalCache = CacheBuilder.newBuilder()
+			.maximumSize(100000)
+			.expireAfterWrite(10, TimeUnit.MINUTES)
+			.build(new CacheLoader<SubjectPredicate, String>() {
+				@Override
+				public String load(SubjectPredicate key) throws Exception {
+					return getLiteral(key.getSubject(), key.getPredicate());
+				}
+			});
+//	private static final Map<Resource, LinkedHashSet<Resource>> typeCache = new HashMap<>();
+//	private static final Map<RDFNode, Map<Property, String>> literalCache = new HashMap<>();
 	
 	private final Model dummyModel = ModelFactory.createDefaultModel();
 	private final boolean streaming;
@@ -221,7 +246,7 @@ public class Dm2e2Edm {
 		return findSuperIn(source, thing, target, toParentProp);
 	}
 
-	private  void convertResource(Resource res) {
+	private void convertResourceInInputModel(Resource res) {
 		
 		log.debug("Converting <{}>", res);
 		StmtIterator stmtIter = inputModel.listStatements(res, null, (RDFNode)null);
@@ -275,18 +300,23 @@ public class Dm2e2Edm {
 						continue;
 					}
 				}
-				addStatementToTarget(targetSubject, targetProp, targetObject);
+				try {
+					addStatementToTarget(targetSubject, targetProp, targetObject);
+				} catch (ExecutionException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 	}
 
 	private final String getLiteral(RDFNode res, Property prop) {
 		String ret = null;
-		if (! literalCache.containsKey(res)) {
-			literalCache.put(res, new HashMap<Property,String>());
-		} else if (literalCache.get(res).containsKey(prop)) {
-			return literalCache.get(res).get(prop);
-		}
+//		if (! literalCache.containsKey(res)) {
+//			literalCache.put(res, new HashMap<Property,String>());
+//		} else if (literalCache.get(res).containsKey(prop)) {
+//			return literalCache.get(res).get(prop);
+//		}
 		if (! res.isResource()) {
 			log.trace("Resource {} is not a resource. Skipping.", res);
 		} else {
@@ -312,14 +342,14 @@ public class Dm2e2Edm {
 				} 
 			}
 		}
-		literalCache.get(res).put(prop, ret);
+//		literalCache.get(res).put(prop, ret);
 		return ret;
 	}
 	
 	private  final LinkedHashSet<Resource> getRdfTypes(Resource res) {
-		if (typeCache.containsKey(res)) {
-			return typeCache.get(res);
-		}
+//		if (typeCache.containsKey(res)) {
+//			return typeCache.get(res);
+//		}
 		final Resource owlThing = edmModel.createResource(NS.OWL.THING);
 		final Resource rdfsLiteral = edmModel.createResource(NS.RDFS.CLASS_LITERAL);
 		final LinkedHashSet<Resource> types = new LinkedHashSet<>();
@@ -347,19 +377,19 @@ public class Dm2e2Edm {
 				types.addAll(dm2eSuperClasses.get(type));
 			}
 		}
-		typeCache.put(res, types);
+//		typeCache.put(res, types);
 		return types;
 	}
 
 	private void addStatementToTarget(
 			Resource targetSubject,
 			Property targetProp,
-			RDFNode targetObject) {
+			RDFNode targetObject) throws ExecutionException {
 		if ( targetObject.isResource() && (
-				getRdfTypes(targetObject.asResource()).contains(EDM_AGENT)
+				typeCache.get(targetObject.asResource()).contains(EDM_AGENT)
 				||
-				getRdfTypes(targetObject.asResource()).contains(SKOS_CONCEPT))) {
-			String prefLabel = getLiteral(targetObject.asResource(), SKOS_PREF_LABEL);
+				typeCache.get(targetObject.asResource()).contains(SKOS_CONCEPT))) {
+			String prefLabel = literalCache.get(new SubjectPredicate(targetObject.asResource(), SKOS_PREF_LABEL));
 			if (null != prefLabel) {
 				addToTarget(targetSubject, targetProp, prefLabel);
 				addToTarget(targetSubject, targetProp, targetObject);
@@ -412,7 +442,7 @@ public class Dm2e2Edm {
 		ResIterator iter = inputModel.listSubjects();
 		while (iter.hasNext()) {
 			Resource res = iter.next();
-			convertResource(res);
+			convertResourceInInputModel(res);
 		}
 	}
 	
@@ -445,16 +475,22 @@ public class Dm2e2Edm {
 				o = dummyModel.createResource(oNode.getURI());
 			}
 			if (p.getURI().equals(NS.RDF.PROP_TYPE)) {
-				if (! Dm2e2Edm.typeCache.containsKey(s)) {
-					Dm2e2Edm.typeCache.put(s, new LinkedHashSet<Resource>());
-				}
-				final Resource type = o.asResource();
-				Dm2e2Edm.typeCache.get(s).add(type);
-				if (Dm2e2Edm.dm2eSuperClasses.containsKey(type)) {
-					Dm2e2Edm.typeCache.get(s).addAll(Dm2e2Edm.dm2eSuperClasses.get(type));
+				if (null == dm2e2edm.typeCache.getIfPresent(s)) {
+					final Resource type = o.asResource();
+					LinkedHashSet<Resource> types = new LinkedHashSet<>();
+					types.add(type);
+					if (Dm2e2Edm.dm2eSuperClasses.containsKey(type)) {
+						types.addAll(Dm2e2Edm.dm2eSuperClasses.get(type));
+					}
+					dm2e2edm.typeCache.put(s, types);
 				}
 			}
-			dm2e2edm.addStatementToTarget(s, p, o);
+			try {
+				dm2e2edm.addStatementToTarget(s, p, o);
+			} catch (ExecutionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			counter++;
 			if (counter % 1000 == 0) {
 				System.out.print(counter);
@@ -464,6 +500,18 @@ public class Dm2e2Edm {
 			}
 		}
 		
+		
+	}
+	private static final class SubjectPredicate {
+		
+		private Resource subject;
+		private Property predicate;
+		public Resource getSubject() { return subject; }
+		public Property getPredicate() { return predicate; }
+		public SubjectPredicate(Resource subject, Property predicate) {
+			this.subject = subject;
+			this.predicate = predicate;
+		}
 		
 	}
 }
