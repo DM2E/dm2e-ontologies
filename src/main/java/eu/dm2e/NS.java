@@ -6,6 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 //CHECKSTYLE.OFF: JavadocVariable
 
+import com.hp.hpl.jena.rdf.model.AnonId;
+
 /**
  * Central list of RDF entities.
  *
@@ -441,6 +443,7 @@ public final class NS {
 		public static final String PROP_COMMENT = BASE + "comment";
 		public static final String	PROP_SUB_PROPERTY_OF	= BASE + "subPropertyOf";
 		public static final String	PROP_SUB_CLASS_OF	= BASE + "subClassOf";
+		public static final String	CLASS_LITERAL	= BASE + "Literal";
 	}
 
 	/**

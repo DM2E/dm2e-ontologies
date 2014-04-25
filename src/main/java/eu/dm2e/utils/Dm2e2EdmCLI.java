@@ -14,6 +14,7 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.apache.jena.riot.RDFLanguages;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,12 +27,13 @@ public class Dm2e2EdmCLI {
 	
 	private static final Logger log = LoggerFactory.getLogger(Dm2e2EdmCLI.class);
 
-	private static final String	DEFAULT_IN_FORMAT	= "RDF/XML";
+	private static final String	DEFAULT_IN_FORMAT	= "N-QUADS";
 	private static final String	DEFAULT_OUT_FORMAT	= "TURTLE";
 	
 	public static void main(String[] args) throws ParseException, FileNotFoundException {
 
 		executeMain(args);
+
 	}
 
 	private static void executeMain(String[] args) throws ParseException, FileNotFoundException {
@@ -39,9 +41,9 @@ public class Dm2e2EdmCLI {
 		CommandLine line = parseOptions(args);
 		
 		String suffix = line.getOptionValue("suffix");
-		String inFormat = line.getOptionValue("inFormat");
-		if (null == inFormat) {
-			inFormat = DEFAULT_IN_FORMAT;
+		String inFormatStr = line.getOptionValue("inFormat");
+		if (null == inFormatStr) {
+			inFormatStr = DEFAULT_IN_FORMAT;
 		}
 		String outFormat = line.getOptionValue("outFormat");
 		if (null == outFormat) {
@@ -51,18 +53,29 @@ public class Dm2e2EdmCLI {
 			suffix = ".edm.";
 			suffix += outFormat.equals("RDF/XML") ? "xml" : outFormat.equals("TURTLE") ? "ttl" : outFormat.equals("N-TRIPLE") ? "n3" : "";
 		}
-		String filename = line.getOptionValue("file");
-		String endpoint = line.getOptionValue("endpoint");
-		System.out.println("Input Format: " + inFormat);
-		System.out.println("Output Format: " + outFormat);
-		if (line.hasOption("file")) {
+		boolean streaming = line.hasOption("streaming");
+		if (!streaming) {
+			String filename = line.getOptionValue("file");
+			String endpoint = line.getOptionValue("endpoint");
+			System.out.println("Input Format: " + inFormatStr);
+			System.out.println("Output Format: " + outFormat);
+			if (! line.hasOption("file")) {
+				dieHelpfully("Must set file", new Exception());
+			}
 			String outname = filename + suffix;
 			Model input = ModelFactory.createDefaultModel();
-			input.read(new FileInputStream(filename), "", inFormat);
-			Model output = Dm2e2Edm.convertToEdm(input);
+			Model output = ModelFactory.createDefaultModel();
+			input.read(new FileInputStream(filename), "", inFormatStr);
+			Dm2e2Edm dm2e2edm = new Dm2e2Edm(input, output);
+			dm2e2edm.convertDm2eModelToEdmModel();
 			output.write(new FileOutputStream(outname), outFormat);
 		} else {
-			
+			String filename = line.getOptionValue("file");
+			String endpoint = line.getOptionValue("endpoint");
+			FileInputStream fis = new FileInputStream(filename);
+			FileOutputStream fos = new FileOutputStream(filename + suffix);
+			Dm2e2Edm dm2e2edm = new Dm2e2Edm(endpoint, fis, fos);
+			dm2e2edm.convertDumptoEdm();
 		}
 	}
 
@@ -82,6 +95,7 @@ public class Dm2e2EdmCLI {
 			inOutFormatOpts.add("outFormat");
 			for (String opt : inOutFormatOpts) {
 				String formatArg = line.getOptionValue(opt);
+				log.debug("{}: {}", opt, formatArg);
 				if (null != formatArg) {
 					switch (formatArg) {
 						case "RDF/XML": case "TURTLE": case "N-TRIPLE":
@@ -127,8 +141,8 @@ public class Dm2e2EdmCLI {
 			.create("endpoint"));
 		options.addOption(OptionBuilder
 			.hasArgs(1)
-			.withArgName("RDF/XML | N-TRIPLE | TURTLE")
-			.withDescription("RDF input serialization format [Default: RDF/XML]")
+			.withArgName("RDF/XML | N-TRIPLE | TURTLE | N-QUAD")
+			.withDescription("RDF input serialization format [Default: N-QUAD]")
 			.create("inFormat"));
 		options.addOption(OptionBuilder
 			.hasArgs(1)
@@ -136,6 +150,7 @@ public class Dm2e2EdmCLI {
 			.withDescription("RDF input serialization format [Default: RDF/XML]")
 			.create("outFormat"));
 		options.addOption("stdout", false, "Write to STDOUT [Default: false]");
+		options.addOption("streaming", false, "Read statements from file in a streaming fashion, requires 'endpoint' as well [Default: false]");
 		options.addOption(OptionBuilder
 			.hasArgs(1)
 			.withArgName("suffix")

@@ -26,6 +26,27 @@ bash count_for_fun_and_profit.sh
 ```
 
 Depending on the size of the triplestore, this can take quite a while,
-hours even.
+hours even and will produce tables of various size, from a few bytes to a
+few hundred MB in `analysis`
 
+Additional tables (averages and summaries) as well as the visualizations
+are created with the `build_tables.py` script:
 
+```
+python build_tables.py
+```
+
+This will create the tables `analysis/averages_*` and
+`analysis/numbers-per-dataset.tsv` and create visualization in `out/`.
+
+There are currently four types of visualizations, distinguishable by their
+suffix:
+* `-bar`: Bar chart with multiple bars for multiple values
+* `-stack-bar`: Bar chart with stacked bars for multiple values (good for
+  percentages that addd up to 100%
+* `-pie`: Pie chart
+* `-hist`: Histogram of the frequency of certain value intervals
+
+The filenames of the visualizations contain either the names of the SPARQL
+queries they are based on and/or the column name of the relevant column of
+values and/or the short version of the dataset.
