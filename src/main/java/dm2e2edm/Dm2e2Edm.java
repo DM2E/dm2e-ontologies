@@ -77,7 +77,7 @@ public class Dm2e2Edm {
 	public static final Resource RDFS_LITERAL = edmModel.createResource(NS.RDFS.CLASS_LITERAL);
 	
 	private final LoadingCache<Resource, LinkedHashSet<Resource>> typeCache = CacheBuilder.newBuilder()
-			.maximumSize(10000)
+			.maximumSize(1_000_000)
 			.recordStats()
 			.expireAfterWrite(10, TimeUnit.MINUTES)
 			.build(new CacheLoader<Resource, LinkedHashSet<Resource>>() {
@@ -87,7 +87,7 @@ public class Dm2e2Edm {
 				}
 			});
 	private final LoadingCache<SubjectPredicate, String> literalCache = CacheBuilder.newBuilder()
-			.maximumSize(10000)
+			.maximumSize(10_000)
 			.recordStats()
 			.expireAfterWrite(10, TimeUnit.MINUTES)
 			.build(new CacheLoader<SubjectPredicate, String>() {
