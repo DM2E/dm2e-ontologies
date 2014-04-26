@@ -58,6 +58,10 @@ import eu.dm2e.NS;
  */
 public class Dm2e2Edm {
 	
+	private static final int	LITERAL_CACHE_SIZE	= 10_000;
+
+	private static final int	TYPE_CACHE_SIZE	= 1_000_000;
+
 	private static final Logger log = LoggerFactory.getLogger(Dm2e2Edm.class);
 	
 	public static final String EDM_OWL_RESOURCE = "/edm/edm.owl";
@@ -77,7 +81,7 @@ public class Dm2e2Edm {
 	public static final Resource RDFS_LITERAL = edmModel.createResource(NS.RDFS.CLASS_LITERAL);
 	
 	private final LoadingCache<Resource, LinkedHashSet<Resource>> typeCache = CacheBuilder.newBuilder()
-			.maximumSize(1_000_000)
+			.maximumSize(TYPE_CACHE_SIZE)
 			.recordStats()
 			.expireAfterWrite(10, TimeUnit.MINUTES)
 			.build(new CacheLoader<Resource, LinkedHashSet<Resource>>() {
@@ -87,7 +91,7 @@ public class Dm2e2Edm {
 				}
 			});
 	private final LoadingCache<SubjectPredicate, String> literalCache = CacheBuilder.newBuilder()
-			.maximumSize(10_000)
+			.maximumSize(LITERAL_CACHE_SIZE)
 			.recordStats()
 			.expireAfterWrite(10, TimeUnit.MINUTES)
 			.build(new CacheLoader<SubjectPredicate, String>() {
@@ -501,16 +505,22 @@ public class Dm2e2Edm {
 				System.out.print(">\n");
 			}
 			if (counter % 50000 == 0) {
-				System.out.println("Type Cache:" + cacheInfo(dm2e2edm.typeCache));
-				System.out.println("Literal Cache:" + cacheInfo(dm2e2edm.literalCache));
+				System.out.println("Type Cache:" + cacheInfo(dm2e2edm.typeCache, TYPE_CACHE_SIZE));
+				System.out.println("Literal Cache:" + cacheInfo(dm2e2edm.literalCache, LITERAL_CACHE_SIZE));
 			}
 		}
 
-		private String cacheInfo(LoadingCache cache) {
+		private String cacheInfo(LoadingCache cache, int totalSize) {
 			StringBuilder sb = new StringBuilder();
-			sb.append(" SIZE=").append(cache.size());
-			sb.append(" STATS=").append(cache.stats().toString());
-			sb.append(" HIT/MISS=").append(cache.stats().hitRate()).append("/").append(cache.stats().missRate());
+			sb.append("\n");
+			sb.append("\tSIZE=").append(cache.size());
+			sb.append("\n");
+			sb.append("\tUSAGE=").append(cache.size()/totalSize);
+			sb.append("\n");
+			sb.append("\tSTATS=").append(cache.stats().toString());
+			sb.append("\n");
+			sb.append("\tHIT/MISS=").append(cache.stats().hitRate()).append("/").append(cache.stats().missRate());
+			sb.append("\n");
 			return sb.toString();
 		}
 		
