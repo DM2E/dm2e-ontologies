@@ -510,6 +510,7 @@ public class Dm2e2Edm {
 			StringBuilder sb = new StringBuilder();
 			sb.append(" SIZE=").append(cache.size());
 			sb.append(" STATS=").append(cache.stats().toString());
+			sb.append(" HIT/MISS=").append(cache.stats().hitRate()).append("/").append(cache.stats().missRate());
 			return sb.toString();
 		}
 		
