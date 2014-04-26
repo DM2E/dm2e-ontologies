@@ -58,7 +58,7 @@ import eu.dm2e.NS;
  */
 public class Dm2e2Edm {
 	
-	private static final int	LITERAL_CACHE_SIZE	= 10_000;
+	private static final int	LITERAL_CACHE_SIZE	= 100_000;
 
 	private static final int	TYPE_CACHE_SIZE	= 1_000_000;
 
