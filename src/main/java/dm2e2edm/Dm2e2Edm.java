@@ -515,7 +515,7 @@ public class Dm2e2Edm {
 			sb.append("\n");
 			sb.append("\tSIZE=").append(cache.size());
 			sb.append("\n");
-			sb.append("\tUSAGE=").append(cache.size()/totalSize);
+			sb.append("\tUSAGE=").append(cache.size()/(float)totalSize);
 			sb.append("\n");
 			sb.append("\tSTATS=").append(cache.stats().toString());
 			sb.append("\n");
