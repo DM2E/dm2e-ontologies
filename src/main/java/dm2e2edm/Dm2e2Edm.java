@@ -409,13 +409,13 @@ public class Dm2e2Edm {
 		} else {
 			addToTarget(targetSubject, targetProp, targetObject);
 		}
-		if (streaming) {
-			try {
-				outputStream.flush();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+//		if (streaming) {
+//			try {
+//				outputStream.flush();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
 	}
 	
 	private void addToTarget(Resource targetSubject, Property targetProp, RDFNode targetObject) {
@@ -499,6 +499,12 @@ public class Dm2e2Edm {
 			}
 			counter++;
 			if (counter % 1000 == 0) {
+				try {
+					dm2e2edm.outputStream.flush();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				System.out.print(counter);
 				System.out.print(" <");
 				System.out.print(s.toString());
