@@ -78,6 +78,7 @@ public class Dm2e2Edm {
 	
 	private final LoadingCache<Resource, LinkedHashSet<Resource>> typeCache = CacheBuilder.newBuilder()
 			.maximumSize(10000)
+			.recordStats()
 			.expireAfterWrite(10, TimeUnit.MINUTES)
 			.build(new CacheLoader<Resource, LinkedHashSet<Resource>>() {
 				@Override
@@ -86,7 +87,8 @@ public class Dm2e2Edm {
 				}
 			});
 	private final LoadingCache<SubjectPredicate, String> literalCache = CacheBuilder.newBuilder()
-			.maximumSize(100000)
+			.maximumSize(10000)
+			.recordStats()
 			.expireAfterWrite(10, TimeUnit.MINUTES)
 			.build(new CacheLoader<SubjectPredicate, String>() {
 				@Override
@@ -498,8 +500,18 @@ public class Dm2e2Edm {
 				System.out.print(s.toString());
 				System.out.print(">\n");
 			}
+			if (counter % 50000 == 0) {
+				System.out.println("Type Cache:" + cacheInfo(dm2e2edm.typeCache));
+				System.out.println("Literal Cache:" + cacheInfo(dm2e2edm.literalCache));
+			}
 		}
-		
+
+		private String cacheInfo(LoadingCache cache) {
+			StringBuilder sb = new StringBuilder();
+			sb.append(" SIZE=").append(cache.size());
+			sb.append(" STATS=").append(cache.stats().toString());
+			return sb.toString();
+		}
 		
 	}
 	private static final class SubjectPredicate {
