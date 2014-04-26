@@ -317,7 +317,7 @@ public class Dm2e2Edm {
 	}
 
 	private final String getLiteral(RDFNode res, Property prop) {
-		String ret = null;
+		String ret = "";
 //		if (! literalCache.containsKey(res)) {
 //			literalCache.put(res, new HashMap<Property,String>());
 //		} else if (literalCache.get(res).containsKey(prop)) {
@@ -396,7 +396,7 @@ public class Dm2e2Edm {
 				||
 				typeCache.get(targetObject.asResource()).contains(SKOS_CONCEPT))) {
 			String prefLabel = literalCache.get(new SubjectPredicate(targetObject.asResource(), SKOS_PREF_LABEL));
-			if (null != prefLabel) {
+			if (null != prefLabel && ! "".equals(prefLabel)) {
 				addToTarget(targetSubject, targetProp, prefLabel);
 				addToTarget(targetSubject, targetProp, targetObject);
 			}
