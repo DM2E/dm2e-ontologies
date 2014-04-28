@@ -59,7 +59,7 @@ public class Dm2e2Edm {
 	
 	private static final int	LITERAL_CACHE_SIZE	= 100_000;
 
-	private static final int	TYPE_CACHE_SIZE	= 10_000_000;
+	private static final int	TYPE_CACHE_SIZE	= 5_000_000;
 
 	private static final Logger log = LoggerFactory.getLogger(Dm2e2Edm.class);
 	
