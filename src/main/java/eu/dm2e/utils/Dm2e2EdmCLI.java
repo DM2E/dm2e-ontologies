@@ -98,7 +98,7 @@ public class Dm2e2EdmCLI {
 				log.debug("{}: {}", opt, formatArg);
 				if (null != formatArg) {
 					switch (formatArg) {
-						case "RDF/XML": case "TURTLE": case "N-TRIPLE":
+						case "RDF/XML": case "TURTLE": case "N-TRIPLE": case "N-QUADS":
 							break;
 						default:
 							throw new ParseException("Invalid '" + opt + "' arg '" + formatArg + "'. ");
@@ -141,8 +141,8 @@ public class Dm2e2EdmCLI {
 			.create("endpoint"));
 		options.addOption(OptionBuilder
 			.hasArgs(1)
-			.withArgName("RDF/XML | N-TRIPLE | TURTLE | N-QUAD")
-			.withDescription("RDF input serialization format [Default: N-QUAD]")
+			.withArgName("RDF/XML | N-TRIPLE | TURTLE | N-QUADS")
+			.withDescription("RDF input serialization format [Default: N-QUADS]")
 			.create("inFormat"));
 		options.addOption(OptionBuilder
 			.hasArgs(1)
