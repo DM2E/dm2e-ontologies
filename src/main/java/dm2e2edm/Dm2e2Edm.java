@@ -22,6 +22,7 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.hp.hpl.jena.graph.Node;
+import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.query.ParameterizedSparqlString;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
@@ -470,13 +471,28 @@ public class Dm2e2Edm {
 			super();
 			this.dm2e2edm = dm2e2edm;
 		}
+		
+		@Override
+		public void triple(Triple triple) {
+			final Resource s = dummyModel.createResource(triple.getSubject().getURI());
+			final Property p = dummyModel.createProperty(triple.getPredicate().getURI());
+			parseTriple(s, p, triple.getObject());
+		}
 
 		@Override
 		public void quad(Quad quad) {
 			final Resource s = dummyModel.createResource(quad.getSubject().getURI());
 			final Property p = dummyModel.createProperty(quad.getPredicate().getURI());
-			final RDFNode o;
-			Node oNode = quad.getObject();
+			parseTriple(s, p, quad.getObject());
+		}
+
+		private void parseTriple(final Resource s, final Property p, final Node oNode) {
+			RDFNode o;
+			if (oNode.isLiteral()) {
+				o = dummyModel.createLiteral(oNode.getLiteralLexicalForm());
+			} else {
+				o = dummyModel.createResource(oNode.getURI());
+			}
 			if (oNode.isLiteral()) {
 				o = dummyModel.createLiteral(oNode.getLiteralLexicalForm());
 			} else {
