@@ -492,6 +492,12 @@ public class Dm2e2Edm {
 					}
 					dm2e2edm.typeCache.put(s, types);
 				}
+			} else if (p.getURI().equals(NS.SKOS.PROP_PREF_LABEL)) {
+				SubjectPredicate sp = new SubjectPredicate(s, p);
+				if (null == dm2e2edm.literalCache.getIfPresent(sp)) {
+					dm2e2edm.literalCache.put(sp, o.asLiteral().getLexicalForm());
+				}
+				
 			}
 			try {
 				dm2e2edm.addStatementToTarget(s, p, o);
