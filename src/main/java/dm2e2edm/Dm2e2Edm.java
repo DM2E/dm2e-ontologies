@@ -8,7 +8,6 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
@@ -37,7 +36,6 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.sparql.core.Quad;
-import com.hp.hpl.jena.util.OneToManyMap.Entry;
 
 import eu.dm2e.NS;
 
@@ -79,6 +77,10 @@ public class Dm2e2Edm {
 	private static final Property	SKOS_PREF_LABEL	= edmModel.createProperty(NS.SKOS.PROP_PREF_LABEL);
 	public static final Resource OWL_THING = edmModel.createResource(NS.OWL.THING);
 	public static final Resource RDFS_LITERAL = edmModel.createResource(NS.RDFS.CLASS_LITERAL);
+	
+	static {
+		System.setProperty("http.maxConnections", String.valueOf(100));
+	}
 	
 	private final LoadingCache<Resource, LinkedHashSet<Resource>> typeCache = CacheBuilder.newBuilder()
 			.maximumSize(TYPE_CACHE_SIZE)
