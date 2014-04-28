@@ -493,11 +493,6 @@ public class Dm2e2Edm {
 			} else {
 				o = dummyModel.createResource(oNode.getURI());
 			}
-			if (oNode.isLiteral()) {
-				o = dummyModel.createLiteral(oNode.getLiteralLexicalForm());
-			} else {
-				o = dummyModel.createResource(oNode.getURI());
-			}
 			if (p.getURI().equals(NS.RDF.PROP_TYPE)) {
 				if (null == dm2e2edm.typeCache.getIfPresent(s)) {
 					final Resource type = o.asResource();
