@@ -377,7 +377,7 @@ public class Dm2e2Edm {
 			qExec.setTimeout(5000);
 			ResultSet rs = null;
 //			try {
-//				rs = qExec.execSelect();
+				rs = qExec.execSelect();
 //			} catch (Exception e) {
 //				// TODO Auto-generated catch block
 //				e.printStackTrace();
