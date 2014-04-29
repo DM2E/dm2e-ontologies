@@ -59,7 +59,7 @@ public class Dm2e2Edm {
 	
 	private static final int	LITERAL_CACHE_SIZE	= 100_000;
 
-	private static final int	TYPE_CACHE_SIZE	= 5_000_000;
+	private static final int	TYPE_CACHE_SIZE	= 100_000;
 
 	private static final Logger log = LoggerFactory.getLogger(Dm2e2Edm.class);
 	
@@ -374,6 +374,7 @@ public class Dm2e2Edm {
 			ParameterizedSparqlString rdfTypeQuery = new ParameterizedSparqlString("SELECT ?type WHERE { GRAPH ?g { ?res <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type } } LIMIT 1");
 			rdfTypeQuery.setParam("res", res.asResource());
 			QueryExecution qExec = QueryExecutionFactory.createServiceRequest(sparqlEndpoint, rdfTypeQuery.asQuery());
+			qExec.setTimeout(5000);
 			ResultSet rs = qExec.execSelect();
 			if (rs.hasNext()) {
 				types.add(rs.next().get("type").asResource());
