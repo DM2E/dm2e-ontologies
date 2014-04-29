@@ -386,7 +386,7 @@ public class Dm2e2Edm {
 					System.out.println("***********************************");
 					System.out.println("* Fuseki hangs, trying to restart *");
 					System.out.println("***********************************");
-					Process p = r.exec("/etc/init.d/dm2e-fuseki restart");
+					Process p = r.exec("bash /etc/init.d/dm2e-fuseki restart");
 					p.waitFor();
 					Thread.sleep(5000);
 					rs = qExec.execSelect();
