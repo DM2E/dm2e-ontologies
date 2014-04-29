@@ -376,30 +376,31 @@ public class Dm2e2Edm {
 			QueryExecution qExec = QueryExecutionFactory.createServiceRequest(sparqlEndpoint, rdfTypeQuery.asQuery());
 			qExec.setTimeout(5000);
 			ResultSet rs = null;
-			try {
-				rs = qExec.execSelect();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				Runtime r = Runtime.getRuntime();
-				try {
-					System.out.println("***********************************");
-					System.out.println("* Fuseki hangs, trying to restart *");
-					System.out.println("***********************************");
-					Process p = r.exec("bash /etc/init.d/dm2e-fuseki restart");
-					p.waitFor();
-					Thread.sleep(5000);
-					rs = qExec.execSelect();
-				} catch (IOException | InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
+//			try {
+//				rs = qExec.execSelect();
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//				Runtime r = Runtime.getRuntime();
+//				try {
+//					System.out.println("***********************************");
+//					System.out.println("* Fuseki hangs, trying to restart *");
+//					System.out.println("***********************************");
+//					Process p = r.exec("/etc/init.d/dm2e-fuseki restart");
+//					p.waitFor();
+//					Thread.sleep(5000);
+//					rs = qExec.execSelect();
+//				} catch (IOException | InterruptedException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
+//			}
 			if (rs.hasNext()) {
 				types.add(rs.next().get("type").asResource());
 			} else {
 				types.add(owlThing);
 			}
+			qExec.close();
 		}
 		for (Resource type : types) {
 			if (dm2eSuperClasses.containsKey(type)) {
