@@ -12,6 +12,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.jena.riot.RiotException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -238,7 +239,7 @@ public class Dm2e2Edm implements Runnable {
 	}
 
 	public Dm2e2Edm(Path inputFile, String inputSerialization,
-			Path outputFile, String outputSerialization) {
+			Path outputFile, String outputSerialization) throws IOException, RiotException {
 		super();
 		this.inputModel = ModelFactory.createDefaultModel();
 		this.outputModel = ModelFactory.createDefaultModel();
@@ -246,11 +247,7 @@ public class Dm2e2Edm implements Runnable {
 		outputModel.setNsPrefixes(nsPrefixes);
 		this.outputFile = outputFile;
 		this.outputSerialization = outputSerialization;
-		try {
-			inputModel.read(Files.newInputStream(inputFile, StandardOpenOption.READ), "", inputSerialization);
-		} catch (IOException e) {
-			log.error("Couldn't read input file {}", inputFile, e);
-		}
+		inputModel.read(Files.newInputStream(inputFile, StandardOpenOption.READ), "", inputSerialization);
 	}
 
 	private void convertResourceInInputModel(Resource res) {
