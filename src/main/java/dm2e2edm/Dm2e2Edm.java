@@ -13,7 +13,6 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.jena.riot.RiotException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -286,10 +285,10 @@ public class Dm2e2Edm implements Runnable {
 			outputModel.add(res, res(NS.RDF.PROP_TYPE), targetType);
 			
 			//
-			// dc:source
+			// edm:ProvidedCHO
 			//
 			if (targetType.getURI().equals(NS.EDM.CLASS_PROVIDED_CHO)) {
-				outputModel.add(res, res(NS.DC.PROP_SOURCE), targetType);
+				outputModel.add(res, res(NS.DC.PROP_SOURCE), res);
 			}
 			
 			while (stmtIter.hasNext()) {
@@ -329,29 +328,29 @@ public class Dm2e2Edm implements Runnable {
 		return inputModel.createProperty(uri);
 	}
 
-//	private final String getLiteral(RDFNode res, Property prop) {
-//		String ret = "";
-//		if (! res.isResource()) {
-//			log.trace("Resource {} is not a resource. Skipping.", res);
-//		} else {
-//			ParameterizedSparqlString rdfTypeQuery = SparqlQueries.SELECT_GET_LITERAL.getQuery();
-//			rdfTypeQuery.setParam("res", res.asResource());
-//			rdfTypeQuery.setParam("prop", prop);
-//			QueryExecution qExec = QueryExecutionFactory.create(rdfTypeQuery.asQuery(), inputModel);
-//			ResultSet rs = qExec.execSelect();
-//			if (rs.hasNext()) {
-//				ret = rs.next().get("val").asLiteral().getLexicalForm();
-//			} 
-//		}
-//		return ret;
-//	}
+	private final String getLiteral(RDFNode res, Property prop) {
+		String ret = "";
+		if (! res.isResource()) {
+			log.trace("Resource {} is not a resource. Skipping.", res);
+		} else {
+			ParameterizedSparqlString rdfTypeQuery = SparqlQueries.SELECT_GET_LITERAL.getQuery();
+			rdfTypeQuery.setParam("res", res.asResource());
+			rdfTypeQuery.setParam("prop", prop);
+			QueryExecution qExec = QueryExecutionFactory.create(rdfTypeQuery.asQuery(), inputModel);
+			ResultSet rs = qExec.execSelect();
+			if (rs.hasNext()) {
+				ret = rs.next().get("val").asLiteral().getLexicalForm();
+			} 
+		}
+		return ret;
+	}
 	
 	private final LinkedHashSet<Resource> getRdfTypes(Resource res) {
 		final LinkedHashSet<Resource> types = new LinkedHashSet<>();
 		ParameterizedSparqlString rdfTypeQuery = SparqlQueries.SELECT_GET_RDF_TYPE.getQuery();
 		rdfTypeQuery.setParam("res", res.asResource());
 		QueryExecution qExec = QueryExecutionFactory.create(rdfTypeQuery.asQuery(), inputModel);
-		qExec.setTimeout(5000);
+//		qExec.setTimeout(5000);
 		ResultSet rs = qExec.execSelect();
 		if (rs.hasNext()) {
 			types.add(rs.next().get("type").asResource());
@@ -374,26 +373,53 @@ public class Dm2e2Edm implements Runnable {
 //		log.debug("  O: {}", targetObject);
 
 		//
+		// Turn one-year timespans into xsd:gYear literals 
+		//
+		if (targetObject.isResource() && getRdfTypes(targetObject.asResource()).contains(res(NS.EDM.CLASS_TIMESPAN))) {
+			Resource res = targetObject.asResource();
+			String begin = getLiteral(res, res(NS.EDM.PROP_BEGIN));
+			String end = getLiteral(res, res(NS.EDM.PROP_END));
+			log.debug("SCHMOO {} ", begin);
+			log.debug("foo {} ", end);
+			if (null != begin && null != end) {
+				final String beginYear = begin.substring(0,4);
+				final String endYear = end.substring(0,4);
+				final String beginDM = begin.substring(5,10);
+				final String endDM = end.substring(5,10);
+				if (beginYear.equals(endYear)
+					&&
+					beginDM.equals("01-01")
+					&&
+					endDM.equals("12-31")) {
+					outputModel.add(targetSubject, targetProp, outputModel.createTypedLiteral(beginYear, XSDDatatype.XSDgYear));
+					return;
+				}
+			}
+		}
+		//
 		// xsd:datetime -> xsd:date
 		//
 		if (targetObject.isLiteral() && targetObject.asLiteral().getDatatype() !=null &&  targetObject.asLiteral().getDatatypeURI().equals(NS.XSD.DATETIME)) {
-			String newVal = targetObject.asLiteral().getLexicalForm().substring(0, "2000-01-01".length() - 1);
+			String newVal = targetObject.asLiteral().getLexicalForm().substring(0, "2000-01-01".length());
 			targetObject = inputModel.createTypedLiteral(newVal, XSDDatatype.XSDdate);
+			outputModel.add(targetSubject, targetProp, targetObject);
+		} else if (targetProp.equals(NS.DC.PROP_TYPE)) {
+			outputModel.add(targetSubject, edmModel.createProperty(NS.EDM.PROP_HAS_TYPE), lastUriSegment(targetObject.toString()));
+		} else {
+			outputModel.add(targetSubject, targetProp, targetObject);
 		}
-		outputModel.add(targetSubject, targetProp, targetObject);
 	}
 //	private void addToTarget(Resource targetSubject, Property targetProp, String targetObject) {
 //		outputModel.add(targetSubject, targetProp, targetObject);
 //	}
 	
-//	private static String lastUriSegment(String uri) {
-//		return uri.substring(uri.lastIndexOf('/')+1);
-//	}
+	private static String lastUriSegment(String uri) {
+		return uri.substring(uri.lastIndexOf('/')+1);
+	}
 
 	@Override
 	public void run() {
 		
-		boolean returnNow = false;
 		if (inputFile != null) {
 			try {
 				final InputStream is = Files.newInputStream(inputFile, StandardOpenOption.READ);
