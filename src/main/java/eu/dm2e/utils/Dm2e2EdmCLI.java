@@ -93,6 +93,8 @@ public class Dm2e2EdmCLI {
 					curIn.getFileName().endsWith("n3")
 					||
 					curIn.getFileName().endsWith("nt")
+					||
+					curIn.getFileName().endsWith("rdf")
 					)) {
 				continue;
 			}
