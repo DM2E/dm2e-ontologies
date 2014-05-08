@@ -1,5 +1,5 @@
 #!/bin/bash
-endpointSelect="http://data.dm2e.eu:9997/dm2e-direct/sparql"
+endpointSelect="http://localhost:9997/dm2e-direct/sparql"
 prefixFile="prefixes.rq"
 outputFormat="tsv"
 declare -A initialBindings
@@ -71,7 +71,8 @@ queryUnformatted=$(cat $prefixFile $queryFile | grep -v '^\s*#')
 for bindingName in ${!initialBindings[@]};do
     bindingValue=${initialBindings["$bindingName"]}
     echoerr "Binding $bindingName to $bindingValue"
-    queryUnformatted=$(echo "$queryUnformatted" | sed "s,\?$bindingName,$bindingValue,")
+    echo "Binding $bindingName to $bindingValue"
+    queryUnformatted=$(echo "$queryUnformatted" | sed "s,\?$bindingName\b,$bindingValue,")
 done
 
 echoerr $queryUnformatted
@@ -80,10 +81,20 @@ echoerr $queryUnformatted
 queryFormatted=$(urlencode "$queryUnformatted")
 
 # Send request
-if [[ $outputFormat = "ntriples" ]];then
-    url="${endpointSelect}?query=${queryFormatted}"
-    curl -H "Accept: application/n-triples" $url
-else
-    url="${endpointSelect}?format=${outputFormat}&query=${queryFormatted}"
-    curl $url
-fi
+case $outputFormat in
+    "tsv")
+        ;&
+    "json")
+        ;&
+    "xml")
+        url="${endpointSelect}?format=${outputFormat}&query=${queryFormatted}"
+        # echo $url
+        curl $url
+        ;;
+    "ntriples")
+        url="${endpointSelect}?query=${queryFormatted}"
+        curl -H "Accept: application/n-triples" $url
+        ;;
+    *)
+        echo "Unhandled format '$outputFormat'"
+esac

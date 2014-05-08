@@ -1,0 +1,5 @@
+SELECT DISTINCT ?agg {
+    GRAPH ?g {
+        ?agg rdf:type ore:Aggregation .
+    }
+}

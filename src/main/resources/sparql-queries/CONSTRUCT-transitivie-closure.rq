@@ -1,0 +1,18 @@
+CONSTRUCT {
+    ?agg ?agg_p ?agg_o .
+    ?cho ?cho_p ?cho_o .
+    ?agg_o ?agg_o_p ?agg_o_o .
+    ?cho_o ?cho_o_p ?cho_o_o .
+} WHERE {
+    GRAPH ?g {
+        ?agg ?agg_p ?agg_o .
+        ?agg edm:aggregatedCHO ?cho .
+        ?cho ?cho_p ?cho_o .
+        OPTIONAL {
+            ?agg_o ?agg_o_p ?agg_o_o .  
+        }
+        OPTIONAL {
+            ?cho_o ?cho_o_p ?cho_o_o .  
+        }
+    }
+}

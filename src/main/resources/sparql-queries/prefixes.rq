@@ -9,3 +9,10 @@ PREFIX ore: <http://www.openarchives.org/ore/terms/>
 PREFIX geo-pos: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX void: <http://rdfs.org/ns/void#>
 
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX ore: <http://www.openarchives.org/ore/terms/>
+PREFIX pro: <http://purl.org/spar/pro/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>

@@ -1,33 +1,26 @@
 package dm2e2edm;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 
-import org.apache.jena.riot.Lang;
-import org.apache.jena.riot.RDFDataMgr;
-import org.apache.jena.riot.system.StreamRDFBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.base.Preconditions;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.graph.Triple;
+import com.google.common.io.Resources;
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.query.ParameterizedSparqlString;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
@@ -36,7 +29,6 @@ import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
-import com.hp.hpl.jena.sparql.core.Quad;
 
 import eu.dm2e.NS;
 
@@ -55,17 +47,39 @@ import eu.dm2e.NS;
  * 
  * @author Konstantin Baierer
  */
-public class Dm2e2Edm {
-	
-	private static final int	LITERAL_CACHE_SIZE	= 100_000;
-
-	private static final int	TYPE_CACHE_SIZE	= 100_000;
+public class Dm2e2Edm implements Runnable {
 
 	private static final Logger log = LoggerFactory.getLogger(Dm2e2Edm.class);
 	
-	public static final String EDM_OWL_RESOURCE = "/edm/edm.owl";
-	public static final String DM2E_OWL_RESOURCE = "/dm2e-model/DM2Ev1.1.owl";
-
+	enum SparqlQueries {
+		SELECT_GET_RDF_TYPE("/sparql-queries/SELECT-get-rdf-type.rq"),
+		SELECT_GET_LITERAL("/sparql-queries/SELECT-get-literal.rq"),
+		SELECT_LIST_AGGREGATIONS("/sparql-queries/SELECT-list-aggregations-in-dataset.rq"),
+		SELECT_LIST_LATEST_VERSIONED_DATASETS("/sparql-queries/SELECT-list-latest-versioned-datasets.rq"),
+		;
+		private static final String prefixesRes = "/sparql-queries/prefixes.rq";
+		private final ParameterizedSparqlString query;
+		public ParameterizedSparqlString getQuery() {
+			return query;
+		}
+		private SparqlQueries(String resName) {
+			ParameterizedSparqlString s = null;
+			try {
+				s = new ParameterizedSparqlString();
+				s.append(Resources.toString(SparqlQueries.class.getResource(prefixesRes), Charset.forName("UTF-8")));
+				s.append(Resources.toString(SparqlQueries.class.getResource(resName), Charset.forName("UTF-8")));
+			} catch (IOException e) {
+				log.error("NOT FOUND: {}", resName);
+				e.printStackTrace();
+			}
+			this.query = s;
+		}
+	}
+	
+	// ******************************
+	// CLASS
+	// ******************************
+	public static final Map<String,String> nsPrefixes = new HashMap<>();
 	public static final Model edmModel = ModelFactory.createDefaultModel();
 	public static final Model dm2eModel = ModelFactory.createDefaultModel();;
 
@@ -73,77 +87,26 @@ public class Dm2e2Edm {
 	public static final Map<Resource,LinkedHashSet<Resource>> dm2eSuperProperties = new HashMap<Resource, LinkedHashSet<Resource>>();
 	public static final Map<Resource,LinkedHashSet<Resource>> dm2eSuperClasses = new HashMap<Resource, LinkedHashSet<Resource>>();
 
+	private final static Resource OWL_THING = edmModel.createResource(NS.OWL.THING);
+	private final static Resource RDFS_LITERAL = edmModel.createResource(NS.RDFS.CLASS_LITERAL);
 	private static final Resource	SKOS_CONCEPT	= edmModel.createResource(NS.SKOS.CLASS_CONCEPT);
 	private static final Resource	EDM_AGENT	= edmModel.createResource(NS.EDM.CLASS_AGENT);
 	private static final Property	SKOS_PREF_LABEL	= edmModel.createProperty(NS.SKOS.PROP_PREF_LABEL);
-	public static final Resource OWL_THING = edmModel.createResource(NS.OWL.THING);
-	public static final Resource RDFS_LITERAL = edmModel.createResource(NS.RDFS.CLASS_LITERAL);
 	
 	static {
+		nsPrefixes.put("edm", NS.EDM.BASE);
+		nsPrefixes.put("foaf", NS.FOAF.BASE);
+		nsPrefixes.put("skos", NS.SKOS.BASE);
+		nsPrefixes.put("ore", NS.ORE.BASE);
+		nsPrefixes.put("dcterms", NS.DCTERMS.BASE);
+		nsPrefixes.put("dc", NS.DC.BASE);
+		nsPrefixes.put("dm2e", NS.DM2E_UNVERSIONED.BASE);
+
 		System.setProperty("http.maxConnections", String.valueOf(100));
-	}
-	
-	private final LoadingCache<Resource, LinkedHashSet<Resource>> typeCache = CacheBuilder.newBuilder()
-			.maximumSize(TYPE_CACHE_SIZE)
-			.recordStats()
-			.expireAfterWrite(10, TimeUnit.MINUTES)
-			.build(new CacheLoader<Resource, LinkedHashSet<Resource>>() {
-				@Override
-				public LinkedHashSet<Resource> load(Resource key) throws Exception {
-					return getRdfTypes(key);
-				}
-			});
-	private final LoadingCache<SubjectPredicate, String> literalCache = CacheBuilder.newBuilder()
-			.maximumSize(LITERAL_CACHE_SIZE)
-			.recordStats()
-			.expireAfterWrite(10, TimeUnit.MINUTES)
-			.build(new CacheLoader<SubjectPredicate, String>() {
-				@Override
-				public String load(SubjectPredicate key) throws Exception {
-					return getLiteral(key.getSubject(), key.getPredicate());
-				}
-			});
-//	private static final Map<Resource, LinkedHashSet<Resource>> typeCache = new HashMap<>();
-//	private static final Map<RDFNode, Map<Property, String>> literalCache = new HashMap<>();
-	
-	private final Model dummyModel = ModelFactory.createDefaultModel();
-	private final boolean streaming;
-	private final String sparqlEndpoint;
-	private final OutputStream outputStream;
-	private final InputStream inputStream;
-	private final Model inputModel;
-	private final Model outputModel;
-	private String	inputSerialization = "N-QUAD";
-	private String	outputSerialization = "N-TRIPLE";
-
-	
-	public Dm2e2Edm(Model inputModel, Model outputModel) {
-		this.inputModel = inputModel;
-		this.outputModel  = outputModel;
-		this.streaming = false;
-		this.sparqlEndpoint = null;
-		this.outputStream = null;
-		this.inputStream = null;
-	}
-	
-	public Dm2e2Edm(String sparqlEndpoint,
-			InputStream inputStream,
-			OutputStream outputStream
-			) {
-		super();
-		this.streaming = true;
-		this.sparqlEndpoint = sparqlEndpoint;
-		this.inputStream = inputStream;
-		this.outputStream = outputStream;
-		// TODO validate
-		this.inputModel = null;
-		this.outputModel = ModelFactory.createDefaultModel();
-	}
-
-	static {
-		edmModel.read(Dm2e2Edm.class.getResourceAsStream(EDM_OWL_RESOURCE), null, "RDF/XML");
 		
-		dm2eModel.read(Dm2e2Edm.class.getResourceAsStream(DM2E_OWL_RESOURCE), null, "RDF/XML");
+		// Read ontologies
+		edmModel.read(Dm2e2Edm.class.getResourceAsStream("/edm/edm.owl"), null, "RDF/XML");
+		dm2eModel.read(Dm2e2Edm.class.getResourceAsStream("/dm2e-model/DM2Ev1.1.owl"), null, "RDF/XML");
 
 		buildEdmProperties();
 		buildDm2eSuperProperties();
@@ -254,6 +217,41 @@ public class Dm2e2Edm {
 		final Property toParentProp = source.createProperty(NS.RDFS.PROP_SUB_CLASS_OF);
 		return findSuperIn(source, thing, target, toParentProp);
 	}
+	
+	
+	// ******************************
+	// INSTANCE
+	// ******************************
+
+	private final Model inputModel;
+	private final Model outputModel;
+	private final String outputSerialization;
+	private final Path outputFile;
+	
+	public Dm2e2Edm(Model inputModel, Model outputModel) {
+		this.inputModel = inputModel;
+		this.outputModel  = outputModel;
+		inputModel.setNsPrefixes(nsPrefixes);
+		outputModel.setNsPrefixes(nsPrefixes);
+		this.outputFile = null;
+		this.outputSerialization = null;
+	}
+
+	public Dm2e2Edm(Path inputFile, String inputSerialization,
+			Path outputFile, String outputSerialization) {
+		super();
+		this.inputModel = ModelFactory.createDefaultModel();
+		this.outputModel = ModelFactory.createDefaultModel();
+		inputModel.setNsPrefixes(nsPrefixes);
+		outputModel.setNsPrefixes(nsPrefixes);
+		this.outputFile = outputFile;
+		this.outputSerialization = outputSerialization;
+		try {
+			inputModel.read(Files.newInputStream(inputFile, StandardOpenOption.READ), "", inputSerialization);
+		} catch (IOException e) {
+			log.error("Couldn't read input file {}", inputFile, e);
+		}
+	}
 
 	private void convertResourceInInputModel(Resource res) {
 		
@@ -262,25 +260,35 @@ public class Dm2e2Edm {
 		if (stmtIter.hasNext()) {
 
 			// add correct rdf:type
+			Resource origType = null;
 			Resource targetType = null;
 			for (Resource type : getRdfTypes(res)) {
-				targetType = type;
+				origType = type;
 				break;
 			}
-			if (null == targetType) {
+			if (null == origType) {
 				log.debug("Resource {} has no rdf:type. Skipping.", res);
 				return;
 			}
-			Set<Resource> superTypes = dm2eSuperClasses.get(targetType);
+			Set<Resource> superTypes = dm2eSuperClasses.get(origType);
 			if (null == superTypes || superTypes.isEmpty()) {
-				log.debug("No EDM type for DM2E type {}", targetType);
+				log.debug("No EDM type for DM2E type {}", origType);
 				return;
+			} else {
+				for (Resource thisSuperType : superTypes) {
+					targetType = thisSuperType;
+					break;
+				}
 			}
-			for (Resource superType : superTypes) {
-				outputModel.add(res, inputModel.createProperty(NS.RDF.PROP_TYPE), superType);
-				break;
+			outputModel.add(res, res(NS.RDF.PROP_TYPE), targetType);
+			
+			//
+			// dc:source
+			//
+			if (targetType.getURI().equals(NS.EDM.CLASS_PROVIDED_CHO)) {
+				outputModel.add(res, res(NS.DC.PROP_SOURCE), targetType);
 			}
-
+			
 			while (stmtIter.hasNext()) {
 				Statement stmt = stmtIter.next();
 				Property prop = stmt.getPredicate();
@@ -309,300 +317,93 @@ public class Dm2e2Edm {
 						continue;
 					}
 				}
-				try {
-					addStatementToTarget(targetSubject, targetProp, targetObject);
-				} catch (ExecutionException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				addToTarget(targetSubject, targetProp, targetObject);
 			}
 		}
 	}
 
-	private final String getLiteral(RDFNode res, Property prop) {
-		String ret = "";
-//		if (! literalCache.containsKey(res)) {
-//			literalCache.put(res, new HashMap<Property,String>());
-//		} else if (literalCache.get(res).containsKey(prop)) {
-//			return literalCache.get(res).get(prop);
-//		}
-		if (! res.isResource()) {
-			log.trace("Resource {} is not a resource. Skipping.", res);
-		} else {
-			if (! streaming) {
-				final StmtIterator iter = inputModel.listStatements(res.asResource(), prop, (RDFNode)null);
-				if (! iter.hasNext()) {
-					log.debug("Resource {} has no {}. Skipping.", res, prop);
-				} else {
-					final RDFNode object = iter.next().getObject();
-					if (! object.isLiteral()) {
-						log.debug("Object of <{}> <{}> not a literal. Skipping.", res, prop);
-					}
-					ret = object.asLiteral().getLexicalForm();
-				}
-			} else {
-				ParameterizedSparqlString rdfTypeQuery = new ParameterizedSparqlString("SELECT ?val WHERE { GRAPH ?g { ?res ?prop ?val } } LIMIT 1");
-				rdfTypeQuery.setParam("res", res.asResource());
-				rdfTypeQuery.setParam("prop", prop);
-				QueryExecution qExec = QueryExecutionFactory.createServiceRequest(sparqlEndpoint, rdfTypeQuery.asQuery());
-				ResultSet rs = qExec.execSelect();
-				if (rs.hasNext()) {
-					ret = rs.next().get("val").asLiteral().getLexicalForm();
-				} 
-			}
-		}
-//		literalCache.get(res).put(prop, ret);
-		return ret;
+	private Property res(String uri) {
+		return inputModel.createProperty(uri);
 	}
-	
-	private  final LinkedHashSet<Resource> getRdfTypes(Resource res) {
-//		if (typeCache.containsKey(res)) {
-//			return typeCache.get(res);
+
+//	private final String getLiteral(RDFNode res, Property prop) {
+//		String ret = "";
+//		if (! res.isResource()) {
+//			log.trace("Resource {} is not a resource. Skipping.", res);
+//		} else {
+//			ParameterizedSparqlString rdfTypeQuery = SparqlQueries.SELECT_GET_LITERAL.getQuery();
+//			rdfTypeQuery.setParam("res", res.asResource());
+//			rdfTypeQuery.setParam("prop", prop);
+//			QueryExecution qExec = QueryExecutionFactory.create(rdfTypeQuery.asQuery(), inputModel);
+//			ResultSet rs = qExec.execSelect();
+//			if (rs.hasNext()) {
+//				ret = rs.next().get("val").asLiteral().getLexicalForm();
+//			} 
 //		}
-		final Resource owlThing = edmModel.createResource(NS.OWL.THING);
-		final Resource rdfsLiteral = edmModel.createResource(NS.RDFS.CLASS_LITERAL);
+//		return ret;
+//	}
+	
+	private final LinkedHashSet<Resource> getRdfTypes(Resource res) {
 		final LinkedHashSet<Resource> types = new LinkedHashSet<>();
-		if (! streaming) {
-			final StmtIterator typeIter = inputModel.listStatements(res.asResource(), inputModel.createProperty(NS.RDF.PROP_TYPE), (RDFNode)null);
-			if (! typeIter.hasNext()) {
-				log.debug("Resource {} has no rdf:type. Skipping.", res);
-				types.add(owlThing);
-			} else {
-				types.add(typeIter.next().getObject().asResource());
-			}
+		ParameterizedSparqlString rdfTypeQuery = SparqlQueries.SELECT_GET_RDF_TYPE.getQuery();
+		rdfTypeQuery.setParam("res", res.asResource());
+		QueryExecution qExec = QueryExecutionFactory.create(rdfTypeQuery.asQuery(), inputModel);
+		qExec.setTimeout(5000);
+		ResultSet rs = qExec.execSelect();
+		if (rs.hasNext()) {
+			types.add(rs.next().get("type").asResource());
 		} else {
-			ParameterizedSparqlString rdfTypeQuery = new ParameterizedSparqlString("SELECT ?type WHERE { GRAPH ?g { ?res <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type } } LIMIT 1");
-			rdfTypeQuery.setParam("res", res.asResource());
-			QueryExecution qExec = QueryExecutionFactory.createServiceRequest(sparqlEndpoint, rdfTypeQuery.asQuery());
-			qExec.setTimeout(5000);
-			ResultSet rs = null;
-//			try {
-				rs = qExec.execSelect();
-//			} catch (Exception e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//				Runtime r = Runtime.getRuntime();
-//				try {
-//					System.out.println("***********************************");
-//					System.out.println("* Fuseki hangs, trying to restart *");
-//					System.out.println("***********************************");
-//					Process p = r.exec("/etc/init.d/dm2e-fuseki restart");
-//					p.waitFor();
-//					Thread.sleep(5000);
-//					rs = qExec.execSelect();
-//				} catch (IOException | InterruptedException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				}
-//			}
-			if (rs.hasNext()) {
-				types.add(rs.next().get("type").asResource());
-			} else {
-				types.add(owlThing);
-			}
-			qExec.close();
+			types.add(OWL_THING);
 		}
+		qExec.close();
 		for (Resource type : types) {
 			if (dm2eSuperClasses.containsKey(type)) {
 				types.addAll(dm2eSuperClasses.get(type));
 			}
 		}
-//		typeCache.put(res, types);
 		return types;
 	}
 
-	private void addStatementToTarget(
-			Resource targetSubject,
-			Property targetProp,
-			RDFNode targetObject) throws ExecutionException {
-		if ( targetObject.isResource() && (
-				typeCache.get(targetObject.asResource()).contains(EDM_AGENT)
-				||
-				typeCache.get(targetObject.asResource()).contains(SKOS_CONCEPT))) {
-			String prefLabel = literalCache.get(new SubjectPredicate(targetObject.asResource(), SKOS_PREF_LABEL));
-			if (null != prefLabel && ! "".equals(prefLabel)) {
-				addToTarget(targetSubject, targetProp, prefLabel);
-				addToTarget(targetSubject, targetProp, targetObject);
-			}
-		} else if (targetProp.getURI().equals(NS.DC.PROP_TYPE)) {
-			if (targetObject.isResource()) {
-				Literal literalObject = dummyModel.createLiteral(lastUriSegment(targetObject.asResource().getURI()));
-				final Property EDM_HAS_TYPE = edmModel.createProperty(NS.EDM.PROP_HAS_TYPE);
-				addToTarget(targetSubject, EDM_HAS_TYPE, literalObject);
-			}
-		} else {
-			addToTarget(targetSubject, targetProp, targetObject);
-		}
-//		if (streaming) {
-//			try {
-//				outputStream.flush();
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}
-	}
-	
 	private void addToTarget(Resource targetSubject, Property targetProp, RDFNode targetObject) {
-		if (streaming) {
-			dummyModel.removeAll();
-			dummyModel.add(targetSubject, targetProp, targetObject);
-			dummyModel.write(outputStream, outputSerialization);
-		} else {
-			outputModel.add(targetSubject, targetProp, targetObject);
-		}
-	}
-	private void addToTarget(Resource targetSubject, Property targetProp, String targetObject) {
-		if (streaming) {
-			dummyModel.removeAll();
-			dummyModel.add(targetSubject, targetProp, targetObject);
-			dummyModel.write(outputStream, outputSerialization);
-		} else {
-			outputModel.add(targetSubject, targetProp, targetObject);
-		}
-	}
-	
-	public void convertDumptoEdm() {
-		Preconditions.checkArgument(streaming, "This method works only for streaming workflow");
-		Dm2e2EdmConversionFilter filter = new Dm2e2EdmConversionFilter(this);
-		RDFDataMgr.parse(filter, inputStream, "", Lang.NQUADS);
-	}
+//		log.debug("STMT");
+//		log.debug("  S: {}", targetSubject);
+//		log.debug("  P: {}", targetProp);
+//		log.debug("  O: {}", targetObject);
 
-	public void convertDm2eModelToEdmModel() {
-		Preconditions.checkArgument(! streaming, "This method works only for non-streaming workflow");
+		//
+		// xsd:datetime -> xsd:date
+		//
+		if (targetObject.isLiteral() && targetObject.asLiteral().getDatatype() !=null &&  targetObject.asLiteral().getDatatypeURI().equals(NS.XSD.DATETIME)) {
+			String newVal = targetObject.asLiteral().getLexicalForm().substring(0, "2000-01-01".length() - 1);
+			targetObject = inputModel.createTypedLiteral(newVal, XSDDatatype.XSDdate);
+		}
+		outputModel.add(targetSubject, targetProp, targetObject);
+	}
+//	private void addToTarget(Resource targetSubject, Property targetProp, String targetObject) {
+//		outputModel.add(targetSubject, targetProp, targetObject);
+//	}
+	
+//	private static String lastUriSegment(String uri) {
+//		return uri.substring(uri.lastIndexOf('/')+1);
+//	}
+
+	@Override
+	public void run() {
 		ResIterator iter = inputModel.listSubjects();
 		while (iter.hasNext()) {
 			Resource res = iter.next();
 			convertResourceInInputModel(res);
 		}
-	}
-	
-	private static String lastUriSegment(String uri) {
-		return uri.substring(uri.lastIndexOf('/')+1);
-	}
-	
-	private static class Dm2e2EdmConversionFilter extends StreamRDFBase {
-		
-		private static final Logger log = LoggerFactory
-			.getLogger(Dm2e2Edm.Dm2e2EdmConversionFilter.class);
-		private Model dummyModel = ModelFactory.createDefaultModel();
-		private final Dm2e2Edm dm2e2edm;
-		private int counter = 0;
-
-		public Dm2e2EdmConversionFilter(Dm2e2Edm dm2e2edm) {
-			super();
-			this.dm2e2edm = dm2e2edm;
-		}
-		
-		@Override
-		public void triple(Triple triple) {
-			final Resource s = dummyModel.createResource(triple.getSubject().getURI());
-			final Property p = dummyModel.createProperty(triple.getPredicate().getURI());
-			parseTriple(s, p, triple.getObject());
-		}
-
-		@Override
-		public void quad(Quad quad) {
-			final Resource s = dummyModel.createResource(quad.getSubject().getURI());
-			final Property p = dummyModel.createProperty(quad.getPredicate().getURI());
-			parseTriple(s, p, quad.getObject());
-		}
-
-		private void parseTriple(final Resource s, final Property p, final Node oNode) {
-			RDFNode o;
-			if (oNode.isLiteral()) {
-				o = dummyModel.createLiteral(oNode.getLiteralLexicalForm());
-			} else {
-				o = dummyModel.createResource(oNode.getURI());
-			}
-			if (p.getURI().equals(NS.RDF.PROP_TYPE)) {
-				if (null == dm2e2edm.typeCache.getIfPresent(s)) {
-					final Resource type = o.asResource();
-					LinkedHashSet<Resource> types = new LinkedHashSet<>();
-					types.add(type);
-					if (Dm2e2Edm.dm2eSuperClasses.containsKey(type)) {
-						types.addAll(Dm2e2Edm.dm2eSuperClasses.get(type));
-					}
-					dm2e2edm.typeCache.put(s, types);
-				}
-			} else if (p.getURI().equals(NS.SKOS.PROP_PREF_LABEL)) {
-				SubjectPredicate sp = new SubjectPredicate(s, p);
-				if (null == dm2e2edm.literalCache.getIfPresent(sp)) {
-					dm2e2edm.literalCache.put(sp, o.asLiteral().getLexicalForm());
-				}
-				
-			}
+		log.debug("IN: {}", inputModel.size());
+		log.debug("OUT: {}", outputModel.size());
+		if (null != outputFile) {
+			OutputStream newOutputStream = null;
 			try {
-				dm2e2edm.addStatementToTarget(s, p, o);
-			} catch (ExecutionException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				newOutputStream = Files.newOutputStream(outputFile, StandardOpenOption.CREATE);
+			} catch (IOException e) {
+				log.error("Couldn't write to output file {}: {}", outputFile, e);
 			}
-			counter++;
-			if (counter % 1000 == 0) {
-				try {
-					dm2e2edm.outputStream.flush();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				System.out.print(counter);
-				System.out.print(" <");
-				System.out.print(s.toString());
-				System.out.print(">\n");
-			}
-			if (counter % 50000 == 0) {
-				System.out.println("Type Cache:" + cacheInfo(dm2e2edm.typeCache, TYPE_CACHE_SIZE));
-				System.out.println("Literal Cache:" + cacheInfo(dm2e2edm.literalCache, LITERAL_CACHE_SIZE));
-			}
+			outputModel.write(newOutputStream, outputSerialization);
 		}
-
-		private String cacheInfo(LoadingCache cache, int totalSize) {
-			StringBuilder sb = new StringBuilder();
-			sb.append("\n");
-			sb.append("\tSIZE=").append(cache.size());
-			sb.append("\n");
-			sb.append("\tUSAGE=").append(cache.size()/(float)totalSize);
-			sb.append("\n");
-			sb.append("\tSTATS=").append(cache.stats().toString());
-			sb.append("\n");
-			sb.append("\tHIT/MISS=").append(cache.stats().hitRate()).append("/").append(cache.stats().missRate());
-			sb.append("\n");
-			return sb.toString();
-		}
-		
-	}
-	private static final class SubjectPredicate {
-		
-		private Resource subject;
-		private Property predicate;
-		public Resource getSubject() { return subject; }
-		public Property getPredicate() { return predicate; }
-		public SubjectPredicate(Resource subject, Property predicate) {
-			this.subject = subject;
-			this.predicate = predicate;
-		}
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + ((predicate == null) ? 0 : predicate.hashCode());
-			result = prime * result + ((subject == null) ? 0 : subject.hashCode());
-			return result;
-		}
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj) return true;
-			if (obj == null) return false;
-			if (getClass() != obj.getClass()) return false;
-			SubjectPredicate other = (SubjectPredicate) obj;
-			if (predicate == null) {
-				if (other.predicate != null) return false;
-			} else if (!predicate.equals(other.predicate)) return false;
-			if (subject == null) {
-				if (other.subject != null) return false;
-			} else if (!subject.equals(other.subject)) return false;
-			return true;
-		}
-		
 	}
 }

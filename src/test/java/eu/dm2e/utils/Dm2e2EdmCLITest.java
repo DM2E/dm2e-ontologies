@@ -16,6 +16,10 @@ public class Dm2e2EdmCLITest {
 //			String[] args = "--streaming --endpoint http://localhost:9997/dm2e-direct/sparql --file test.nquads".split(" ");
 //			Dm2e2EdmCLI.main(args);
 //		}
+		{
+			String[] args = "--input_dir src/test/resources/dingler --input_format RDF/XML".split(" ");
+			Dm2e2EdmCLI.main(args);
+		}
 		
 	}
 
