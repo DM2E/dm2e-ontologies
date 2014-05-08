@@ -1,7 +1,0 @@
-SELECT ?pred (COUNT(?pred) as ?no) {
-    GRAPH ?g {
-        ?s ?pred ?o
-    }
-}
-GROUP BY ?pred
-ORDER BY DESC(?no)

@@ -1,0 +1,61 @@
+@prefix edm:     <http://www.europeana.eu/schemas/edm/> .
+@prefix dm2e:    <http://onto.dm2e.eu/schemas/dm2e/> .
+@prefix omnom_types:  <http://onto.dm2e.eu/omnom-types/> .
+@prefix rdaGr2:  <http://rdvocab.info/ElementsGr2/> .
+@prefix ore:     <http://www.openarchives.org/ore/terms/> .
+@prefix geonames:  <http://www.geonames.org/ontology#> .
+@prefix meta:    <http://example.org/metadata#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prvTypes:  <http://purl.org/net/provenance/types#> .
+@prefix tei2edm:  <http://sbb.spk-berlin.de/dm2e/tei2edm> .
+@prefix dbpedia:  <http://localhost:8080/resource/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix crm:     <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dm2e11:  <http://onto.dm2e.eu/schemas/dm2e/1.1/> .
+@prefix prv:     <http://purl.org/net/provenance/ns#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix ir:      <http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix geo:     <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix yago:    <http://localhost:8080/class/yago/> .
+@prefix void:    <http://rdfs.org/ns/void#> .
+@prefix units:   <http://dbpedia.org/units/> .
+@prefix omnom:   <http://onto.dm2e.eu/omnom/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix p:       <http://localhost:8080/property/> .
+@prefix bibo:    <http://purl.org/ontology/bibo/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix pro:     <http://purl.org/spar/pro/> .
+@prefix wgs84:   <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix doap:    <http://usefulinc.com/ns/doap#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xalan:   <http://xml.apache.org/xalan> .
+@prefix dm2e_unofficial:  <http://onto.dm2e.eu/UNOFFICIAL/> .
+
+
+<http://data.dm2e.eu/data/agent/uber/dingler/Marechaux>
+      a       foaf:Person ;
+      skos:prefLabel "Marechaux"@de .
+
+<http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences>
+      a       skos:Concept ;
+      skos:prefLabel "19th century engineering and natural sciences"@en .
+
+<http://data.dm2e.eu/data/item/uber/dingler/article_pj001_ar001001>
+      a       edm:ProvidedCHO ;
+      dm2e:levelOfHierarchy
+              3 ;
+      dm2e:subtitle "(Mit Abbildungen. Tab. I.)"@de , "Vom Prof. Marechaux in Muͤnchen."@de ;
+      dc:language "de" ;
+      dc:subject <http://data.dm2e.eu/data/concept/uber/dingler/19th_century_engineering_and_natural_sciences> ;
+      dc:title "Ueber die hydraulische Presse."@de ;
+      dc:type <http://purl.org/spar/fabio/Article> ;
+      dct:isPartOf <http://data.dm2e.eu/data/item/uber/dingler/issue_pj001> ;
+      dct:tableOfContents """1. Vorzuͤge der hydraulischen Presse."""@de ;
+      bibo:pages "1-34" ;
+      pro:author <http://data.dm2e.eu/data/agent/uber/dingler/Marechaux> ;
+      void:inDataset <http://data.dm2e.eu/data/dataset/uber/dingler/20140410122428139> ;
+      edm:type "TEXT" .
