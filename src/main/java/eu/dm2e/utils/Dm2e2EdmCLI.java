@@ -37,7 +37,7 @@ public class Dm2e2EdmCLI {
 
 	private static final Logger log = LoggerFactory.getLogger(Dm2e2EdmCLI.class);
 
-	private static final String	DEFAULT_IN_FORMAT	= "N-QUADS";
+	private static final String	DEFAULT_IN_FORMAT	= "RDF/XML";
 	private static final String	DEFAULT_OUT_FORMAT	= "RDF/XML-ABBREV";
 
 	private static final String	DEFAULT_OUTPUT_DIR	= "dm2e2edm-output";
@@ -85,6 +85,17 @@ public class Dm2e2EdmCLI {
 		}
 		while (inputFileIterator.hasNext()) {
 			Path curIn = inputFileIterator.next();
+			if (! (
+					curIn.getFileName().endsWith("ttl")
+					||
+					curIn.getFileName().endsWith("xml")
+					||
+					curIn.getFileName().endsWith("n3")
+					||
+					curIn.getFileName().endsWith("nt")
+					)) {
+				continue;
+			}
 			Path curOut = Paths.get(outputDir.toAbsolutePath().toString(), curIn.getFileName() + suffix );
 			log.debug("{} --> {}", curIn, curOut);
 			Dm2e2Edm worker = new Dm2e2Edm(curIn, inFormat, curOut, outFormat);
