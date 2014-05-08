@@ -910,6 +910,10 @@ born digital object.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&skos;prefLabel"/>
     </rdf:Description>
 
+    <rdf:Description rdf:about="&skos;altLabel">
+        <rdfs:subPropertyOf rdf:resource="&skos;altLabel"/>
+    </rdf:Description>
+
     <!--****************************************************************************************************************************** -->
     <!-- Class declarations added for compatibility with some OWL-DL reasoners -->
     <!--****************************************************************************************************************************** -->

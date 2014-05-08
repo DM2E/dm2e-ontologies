@@ -1234,7 +1234,7 @@ http://www.dm2e.eu</foaf:homepage>
 
     <!-- http://www.europeana.eu/schemas/edm/isNextInSenquence -->
 
-    <owl:ObjectProperty rdf:about="&edm;isNextInSenquence">
+    <owl:ObjectProperty rdf:about="&edm;isNextInSequence">
         <scopeNote xml:lang="en">Can be used if a CHO has several parts of CHOs or WebResources in a sequence. </scopeNote>
         <skos:definition xml:lang="en">edm:isNextInSequence relates two resources S and R that are ordered parts of the same resource A, and such that S comes immediately after R in the order created by their being parts of A.</skos:definition>
         <rdfs:range>
