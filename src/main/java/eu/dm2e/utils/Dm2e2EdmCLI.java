@@ -90,16 +90,8 @@ public class Dm2e2EdmCLI {
 			}
 			Path curOut = Paths.get(outputDir.toString(), curIn.getFileName() + suffix );
 			System.out.println(String.format("Converting %s --> %s", curIn, curOut));
-			Dm2e2Edm worker;
-			try {
-				worker = new Dm2e2Edm(curIn, inFormat, curOut, outFormat);
-				threadPool.execute(worker);
-			} catch (Exception e) {
-				System.out.println("Couldn't parse as RDF: " + curIn);
-				e.printStackTrace();
-			}
-//			worker.run();
-//			break;
+			Dm2e2Edm worker = new Dm2e2Edm(curIn, inFormat, curOut, outFormat);
+			threadPool.execute(worker);
 		}
 		threadPool.shutdown();
 		try {

@@ -226,8 +226,10 @@ public class Dm2e2Edm implements Runnable {
 
 	private final Model inputModel;
 	private final Model outputModel;
+	private final String inputSerialization;
 	private final String outputSerialization;
 	private final Path outputFile;
+	private final Path inputFile;
 	
 	public Dm2e2Edm(Model inputModel, Model outputModel) {
 		this.inputModel = inputModel;
@@ -236,18 +238,21 @@ public class Dm2e2Edm implements Runnable {
 		outputModel.setNsPrefixes(nsPrefixes);
 		this.outputFile = null;
 		this.outputSerialization = null;
+		this.inputFile = null;
+		this.inputSerialization = null;
 	}
 
 	public Dm2e2Edm(Path inputFile, String inputSerialization,
-			Path outputFile, String outputSerialization) throws IOException, RiotException {
+			Path outputFile, String outputSerialization) {
 		super();
 		this.inputModel = ModelFactory.createDefaultModel();
 		this.outputModel = ModelFactory.createDefaultModel();
 		inputModel.setNsPrefixes(nsPrefixes);
 		outputModel.setNsPrefixes(nsPrefixes);
+		this.inputFile = inputFile;
+		this.inputSerialization = inputSerialization;
 		this.outputFile = outputFile;
 		this.outputSerialization = outputSerialization;
-		inputModel.read(Files.newInputStream(inputFile, StandardOpenOption.READ), "", inputSerialization);
 	}
 
 	private void convertResourceInInputModel(Resource res) {
@@ -386,6 +391,16 @@ public class Dm2e2Edm implements Runnable {
 
 	@Override
 	public void run() {
+		
+		if (inputFile != null) {
+			try {
+				inputModel.read(Files.newInputStream(inputFile, StandardOpenOption.READ), "", inputSerialization);
+			} catch (Exception e) {
+				System.out.println("Couldn't parse as RDF: " + inputFile);
+				return;
+			}
+		}
+
 		ResIterator iter = inputModel.listSubjects();
 		while (iter.hasNext()) {
 			Resource res = iter.next();
