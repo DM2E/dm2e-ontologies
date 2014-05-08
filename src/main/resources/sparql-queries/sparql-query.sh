@@ -4,6 +4,8 @@ prefixFile="prefixes.rq"
 outputFormat="tsv"
 declare -A initialBindings
 
+echoerr() { echo $@ 1>&2; }
+
 showUsage() {
 echo "sparql-query <queryFile> [Options]"
 echo ""
@@ -15,7 +17,7 @@ echo "Options:"
 echo ""
 echo "  --endpoint <endpoint>       SPARQL endpoint to query [Default: '$endpointSelect']"
 echo "  --prefixes <prefixfile>     Load SPARQL Prefixes from prefixfile [Default: '$prefixFile']"
-echo "  --format <tsv|xml|json>     Format for displaying the result bindings [Default: '$outputFormat']"
+echo "  --format <tsv|xml|json|ntriples>     Format for displaying the result bindings [Default: '$outputFormat']"
 echo "  --bind <var> <val>          Replace all occurences of ?val by the value"
 echo "                              (to parameterize the query) REPEATABLE"
 }
@@ -68,16 +70,20 @@ queryUnformatted=$(cat $prefixFile $queryFile | grep -v '^\s*#')
 # Initialize with initial bindings
 for bindingName in ${!initialBindings[@]};do
     bindingValue=${initialBindings["$bindingName"]}
-    echo "Binding $bindingName to $bindingValue"
+    echoerr "Binding $bindingName to $bindingValue"
     queryUnformatted=$(echo "$queryUnformatted" | sed "s,\?$bindingName,$bindingValue,")
 done
 
-echo $queryUnformatted
+echoerr $queryUnformatted
 
 # URL Encode
 queryFormatted=$(urlencode "$queryUnformatted")
 
 # Send request
-url="${endpointSelect}?format=${outputFormat}&query=${queryFormatted}"
-# echo $url
-curl $url
+if [[ $outputFormat = "ntriples" ]];then
+    url="${endpointSelect}?query=${queryFormatted}"
+    curl -H "Accept: application/n-triples" $url
+else
+    url="${endpointSelect}?format=${outputFormat}&query=${queryFormatted}"
+    curl $url
+fi
