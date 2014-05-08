@@ -1,6 +1,7 @@
 package dm2e2edm;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -392,11 +393,15 @@ public class Dm2e2Edm implements Runnable {
 	@Override
 	public void run() {
 		
+		boolean returnNow = false;
 		if (inputFile != null) {
 			try {
-				inputModel.read(Files.newInputStream(inputFile, StandardOpenOption.READ), "", inputSerialization);
+				final InputStream is = Files.newInputStream(inputFile, StandardOpenOption.READ);
+				inputModel.read(is, "", inputSerialization);
+				is.close();
 			} catch (Exception e) {
 				System.out.println("Couldn't parse as RDF: " + inputFile);
+				e.printStackTrace();
 				return;
 			}
 		}
@@ -409,13 +414,13 @@ public class Dm2e2Edm implements Runnable {
 		log.debug("IN: {}", inputModel.size());
 		log.debug("OUT: {}", outputModel.size());
 		if (null != outputFile) {
-			OutputStream newOutputStream = null;
 			try {
-				newOutputStream = Files.newOutputStream(outputFile, StandardOpenOption.CREATE);
+				OutputStream out = Files.newOutputStream(outputFile, StandardOpenOption.CREATE);
+				outputModel.write(out, outputSerialization);
+				out.close();
 			} catch (IOException e) {
 				log.error("Couldn't write to output file {}: {}", outputFile, e);
 			}
-			outputModel.write(newOutputStream, outputSerialization);
 		}
 	}
 }

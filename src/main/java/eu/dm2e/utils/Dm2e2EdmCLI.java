@@ -93,13 +93,17 @@ public class Dm2e2EdmCLI {
 			Dm2e2Edm worker = new Dm2e2Edm(curIn, inFormat, curOut, outFormat);
 			threadPool.execute(worker);
 		}
+		System.out.println("Shutting down thread pool.");
 		threadPool.shutdown();
+		System.out.println("Shut down thread pool.");
 		try {
+			System.out.println("Wait for workers to finish.");
 			threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+			System.out.println("Workers finished.");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
+		System.exit(0);
 	}
 
 	private static CommandLine parseOptions(String[] args)
