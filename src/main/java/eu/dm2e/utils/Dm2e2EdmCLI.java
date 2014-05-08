@@ -88,8 +88,8 @@ public class Dm2e2EdmCLI {
 			if (! Files.isRegularFile(curIn)) {
 				continue;
 			}
-			Path curOut = Paths.get(outputDir.toAbsolutePath().toString(), curIn.getFileName() + suffix );
-			log.debug("{} --> {}", curIn, curOut);
+			Path curOut = Paths.get(outputDir.toString(), curIn.getFileName() + suffix );
+			System.out.println(String.format("Converting %s --> %s", curIn, curOut));
 			Dm2e2Edm worker = new Dm2e2Edm(curIn, inFormat, curOut, outFormat);
 //			worker.run();
 //			break;
