@@ -6,6 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 //CHECKSTYLE.OFF: JavadocVariable
 
+
 import com.hp.hpl.jena.rdf.model.AnonId;
 
 /**
@@ -501,6 +502,7 @@ public final class NS {
 		public static final String	PROP_CREATOR	= BASE + "creator";
 		public static final String	PROP_CONTRIBUTOR	= BASE + "contributor";
 		public static final String	PROP_COVERAGE	= BASE + "coverage";
+		public static final String	PROP_SOURCE	= BASE + "source";
 
 	}
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-endpointSelect="http://data.dm2e.eu:9997/dm2e-direct/sparql"
+endpointSelect="http://localhost:9997/dm2e-direct/sparql"
 prefixFile="prefixes.rq"
 outputFormat="tsv"
 declare -A initialBindings
@@ -69,7 +69,7 @@ queryUnformatted=$(cat $prefixFile $queryFile | grep -v '^\s*#')
 for bindingName in ${!initialBindings[@]};do
     bindingValue=${initialBindings["$bindingName"]}
     echo "Binding $bindingName to $bindingValue"
-    queryUnformatted=$(echo "$queryUnformatted" | sed "s,\?$bindingName,$bindingValue,")
+    queryUnformatted=$(echo "$queryUnformatted" | sed "s,\?$bindingName\b,$bindingValue,")
 done
 
 echo $queryUnformatted
@@ -78,6 +78,18 @@ echo $queryUnformatted
 queryFormatted=$(urlencode "$queryUnformatted")
 
 # Send request
-url="${endpointSelect}?format=${outputFormat}&query=${queryFormatted}"
-# echo $url
-curl $url
+case $outputFormat in
+    "tsv")
+        ;&
+    "json")
+        ;&
+    "xml")
+        url="${endpointSelect}?format=${outputFormat}&query=${queryFormatted}"
+        # echo $url
+        curl $url
+        ;;
+    *)
+        echo "Unkhandled format '$outputFormat'"
+esac
+
+
