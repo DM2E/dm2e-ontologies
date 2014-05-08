@@ -85,17 +85,7 @@ public class Dm2e2EdmCLI {
 		}
 		while (inputFileIterator.hasNext()) {
 			Path curIn = inputFileIterator.next();
-			if (! (
-					curIn.getFileName().endsWith("ttl")
-					||
-					curIn.getFileName().endsWith("xml")
-					||
-					curIn.getFileName().endsWith("n3")
-					||
-					curIn.getFileName().endsWith("nt")
-					||
-					curIn.getFileName().endsWith("rdf")
-					)) {
+			if (! Files.isRegularFile(curIn)) {
 				continue;
 			}
 			Path curOut = Paths.get(outputDir.toAbsolutePath().toString(), curIn.getFileName() + suffix );
