@@ -381,7 +381,7 @@ public class Dm2e2Edm implements Runnable {
 			String end = getLiteral(res, res(NS.EDM.PROP_END));
 			log.debug("SCHMOO {} ", begin);
 			log.debug("foo {} ", end);
-			if (null != begin && null != end) {
+			if (null != begin && null != end && begin.length() >= 10 && end.length() >= 10) {
 				final String beginYear = begin.substring(0,4);
 				final String endYear = end.substring(0,4);
 				final String beginDM = begin.substring(5,10);
