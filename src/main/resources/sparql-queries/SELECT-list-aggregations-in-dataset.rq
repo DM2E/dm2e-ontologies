@@ -1,5 +1,6 @@
 SELECT DISTINCT ?agg {
     GRAPH ?g {
         ?agg rdf:type ore:Aggregation .
+        ?agg dm2e:displayLevel "true"^^xsd:boolean .
     }
-}
+} ?limit

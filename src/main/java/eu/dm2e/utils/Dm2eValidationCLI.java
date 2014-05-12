@@ -19,6 +19,17 @@ import eu.dm2e.validation.Dm2eValidator;
 import eu.dm2e.validation.ValidationLevel;
 import eu.dm2e.validation.validator.Dm2eValidatorVersion;
 
+/**
+ * @author Konstantin Baierer
+ * 
+ * Algorithm:
+ * 		Get data out of triplestore
+ * 		Translate properties and classes
+ * 		Fit additional requirements
+ * 			Translate datetime to lower granularity (strip the day part)
+ * 			Add dc:source to CHO, Feed.The.Pundit ...
+ *
+ */
 public class Dm2eValidationCLI {
 	
 

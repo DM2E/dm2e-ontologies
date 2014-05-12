@@ -914,6 +914,10 @@ born digital object.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&skos;altLabel"/>
     </rdf:Description>
 
+    <rdf:Description rdf:about="&dc;identifier">
+        <rdfs:subPropertyOf rdf:resource="&dc;identifier"/>
+    </rdf:Description>
+
     <!--****************************************************************************************************************************** -->
     <!-- Class declarations added for compatibility with some OWL-DL reasoners -->
     <!--****************************************************************************************************************************** -->

@@ -17,7 +17,8 @@ public class Dm2e2EdmCLITest {
 //			Dm2e2EdmCLI.main(args);
 //		}
 		{
-			String[] args = "--input_dir src/test/resources/dingler --input_format RDF/XML".split(" ");
+//			String[] args = "--input_dir src/test/resources/dingler --input_format RDF/XML".split(" ");
+			String[] args = "--input_dir test --input_format RDF/XML".split(" ");
 			Dm2e2EdmCLI.main(args);
 		}
 		

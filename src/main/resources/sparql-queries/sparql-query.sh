@@ -3,6 +3,7 @@ endpointSelect="http://localhost:9997/dm2e-direct/sparql"
 prefixFile="prefixes.rq"
 outputFormat="tsv"
 declare -A initialBindings
+limit=""
 
 echoerr() { echo $@ 1>&2; }
 
@@ -40,12 +41,17 @@ parseOpts() {
                 shift ; shift
                 ;;
             "--prefixes")
-                prefixFiles=$2;
+                prefixFile=$2;
                 shift ; shift
                 ;;
             "--format")
                 outputFormat=$2;
                 shift ; shift
+                ;;
+            "--limit")
+                limit=$2
+                initialBindings["limit"]=" LIMIT $limit"
+                shift ; shift ;
                 ;;
             "--bind")
                 local varName=$2
@@ -59,6 +65,9 @@ parseOpts() {
                 ;;
         esac
     done
+    if [[ -z $limit ]];then
+        initialBindings["limit"]=""
+    fi
 }
 
 # Parse command line options
@@ -71,7 +80,6 @@ queryUnformatted=$(cat $prefixFile $queryFile | grep -v '^\s*#')
 for bindingName in ${!initialBindings[@]};do
     bindingValue=${initialBindings["$bindingName"]}
     echoerr "Binding $bindingName to $bindingValue"
-    echo "Binding $bindingName to $bindingValue"
     queryUnformatted=$(echo "$queryUnformatted" | sed "s,\?$bindingName\b,$bindingValue,")
 done
 
