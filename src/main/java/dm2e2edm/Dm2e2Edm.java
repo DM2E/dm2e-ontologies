@@ -423,7 +423,6 @@ public class Dm2e2Edm implements Runnable {
 			//
 			String prefLabel = getLiteral(targetObject, SKOS_PREF_LABEL);
 			outputModel.add(targetSubject, targetProp, prefLabel);
-		}
 		} else {
 			outputModel.add(targetSubject, targetProp, targetObject);
 		}
