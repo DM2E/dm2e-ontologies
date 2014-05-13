@@ -405,27 +405,29 @@ public class Dm2e2Edm implements Runnable {
 				}
 			}
 		}
-		//
-		// xsd:datetime -> xsd:date
-		//
 		if (targetObject.isLiteral() && targetObject.asLiteral().getDatatype() !=null &&  targetObject.asLiteral().getDatatypeURI().equals(NS.XSD.DATETIME)) {
+			//
+			// xsd:datetime -> xsd:date
+			//
 			String newVal = targetObject.asLiteral().getLexicalForm().substring(0, "2000-01-01".length());
 			targetObject = inputModel.createTypedLiteral(newVal, XSDDatatype.XSDdate);
 			outputModel.add(targetSubject, targetProp, targetObject);
 		} else if (targetProp.equals(NS.DC.PROP_TYPE)) {
+			//
+			// dc:type -> lastUriSegment -> edm:hasType
+			//
 			outputModel.add(targetSubject, edmModel.createProperty(NS.EDM.PROP_HAS_TYPE), lastUriSegment(targetObject.toString()));
+		} else if (targetProp.getURI().equals(NS.EDM.PROP_PROVIDER) || targetProp.getURI().equals(NS.EDM.PROP_DATA_PROVIDER)) {
+			//
+			// edm:provider and edm:dataProvider -> skos:prefLabel
+			//
+			String prefLabel = getLiteral(targetObject, SKOS_PREF_LABEL);
+			outputModel.add(targetSubject, targetProp, prefLabel);
+		}
 		} else {
 			outputModel.add(targetSubject, targetProp, targetObject);
 		}
 		
-		//
-		// edm:provider and edm:dataProvider -> skos:prefLabel
-		//
-		
-		if (targetProp.getURI().equals(NS.EDM.PROP_PROVIDER) || targetProp.getURI().equals(NS.EDM.PROP_DATA_PROVIDER)) {
-			String prefLabel = getLiteral(targetObject, SKOS_PREF_LABEL);
-			outputModel.add(targetSubject, targetProp, prefLabel);
-		}
 	}
 //	private void addToTarget(Resource targetSubject, Property targetProp, String targetObject) {
 //		outputModel.add(targetSubject, targetProp, targetObject);
