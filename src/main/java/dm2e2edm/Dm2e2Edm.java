@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -55,8 +56,8 @@ public class Dm2e2Edm implements Runnable {
 	enum SparqlQueries {
 		SELECT_GET_RDF_TYPE("/sparql-queries/SELECT-get-rdf-type.rq"),
 		SELECT_GET_LITERAL("/sparql-queries/SELECT-get-literal.rq"),
-		SELECT_LIST_AGGREGATIONS("/sparql-queries/SELECT-list-aggregations-in-dataset.rq"),
-		SELECT_LIST_LATEST_VERSIONED_DATASETS("/sparql-queries/SELECT-list-latest-versioned-datasets.rq"),
+//		SELECT_LIST_AGGREGATIONS("/sparql-queries/SELECT-list-aggregations-in-dataset.rq"),
+//		SELECT_LIST_LATEST_VERSIONED_DATASETS("/sparql-queries/SELECT-list-latest-versioned-datasets.rq"),
 		;
 		private static final String prefixesRes = "/sparql-queries/prefixes.rq";
 		private final ParameterizedSparqlString query;
@@ -230,6 +231,7 @@ public class Dm2e2Edm implements Runnable {
 	private final String outputSerialization;
 	private final Path outputFile;
 	private final Path inputFile;
+	private final Properties configProps;
 	
 	public Dm2e2Edm(Model inputModel, Model outputModel) {
 		this.inputModel = inputModel;
@@ -240,10 +242,11 @@ public class Dm2e2Edm implements Runnable {
 		this.outputSerialization = null;
 		this.inputFile = null;
 		this.inputSerialization = null;
+		this.configProps = new Properties();
 	}
 
 	public Dm2e2Edm(Path inputFile, String inputSerialization,
-			Path outputFile, String outputSerialization) {
+			Path outputFile, String outputSerialization, Properties configProps) {
 		super();
 		this.inputModel = ModelFactory.createDefaultModel();
 		this.outputModel = ModelFactory.createDefaultModel();
@@ -253,6 +256,12 @@ public class Dm2e2Edm implements Runnable {
 		this.inputSerialization = inputSerialization;
 		this.outputFile = outputFile;
 		this.outputSerialization = outputSerialization;
+		this.configProps = configProps;
+	}
+
+	public Dm2e2Edm(Path inputFile, String inputSerialization,
+			Path outputFile, String outputSerialization) {
+		this(inputFile, inputSerialization, outputFile, outputSerialization, new Properties());
 	}
 
 	private void convertResourceInInputModel(Resource res) {
@@ -379,20 +388,20 @@ public class Dm2e2Edm implements Runnable {
 			Resource res = targetObject.asResource();
 			String begin = getLiteral(res, res(NS.EDM.PROP_BEGIN));
 			String end = getLiteral(res, res(NS.EDM.PROP_END));
-			log.debug("SCHMOO {} ", begin);
-			log.debug("foo {} ", end);
-			if (null != begin && null != end && begin.length() >= 10 && end.length() >= 10) {
-				final String beginYear = begin.substring(0,4);
-				final String endYear = end.substring(0,4);
-				final String beginDM = begin.substring(5,10);
-				final String endDM = end.substring(5,10);
-				if (beginYear.equals(endYear)
-					&&
-					beginDM.equals("01-01")
-					&&
-					endDM.equals("12-31")) {
-					outputModel.add(targetSubject, targetProp, outputModel.createTypedLiteral(beginYear, XSDDatatype.XSDgYear));
-					return;
+			if ("true".equals(configProps.getProperty("shortenYear", "true"))) {
+				if (null != begin && null != end && begin.length() >= 10 && end.length() >= 10) {
+					final String beginYear = begin.substring(0,4);
+					final String endYear = end.substring(0,4);
+					final String beginDM = begin.substring(5,10);
+					final String endDM = end.substring(5,10);
+					if (beginYear.equals(endYear)
+							&&
+							beginDM.equals("01-01")
+							&&
+							endDM.equals("12-31")) {
+						outputModel.add(targetSubject, targetProp, outputModel.createTypedLiteral(beginYear, XSDDatatype.XSDgYear));
+						return;
+					}
 				}
 			}
 		}
@@ -407,6 +416,15 @@ public class Dm2e2Edm implements Runnable {
 			outputModel.add(targetSubject, edmModel.createProperty(NS.EDM.PROP_HAS_TYPE), lastUriSegment(targetObject.toString()));
 		} else {
 			outputModel.add(targetSubject, targetProp, targetObject);
+		}
+		
+		//
+		// edm:provider and edm:dataProvider -> skos:prefLabel
+		//
+		
+		if (targetProp.getURI().equals(NS.EDM.PROP_PROVIDER) || targetProp.getURI().equals(NS.EDM.PROP_DATA_PROVIDER)) {
+			String prefLabel = getLiteral(targetObject, SKOS_PREF_LABEL);
+			outputModel.add(targetSubject, targetProp, prefLabel);
 		}
 	}
 //	private void addToTarget(Resource targetSubject, Property targetProp, String targetObject) {
