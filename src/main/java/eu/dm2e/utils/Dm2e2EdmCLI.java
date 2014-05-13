@@ -38,7 +38,7 @@ public class Dm2e2EdmCLI {
 	private static final Logger log = LoggerFactory.getLogger(Dm2e2EdmCLI.class);
 
 	private static final String	DEFAULT_IN_FORMAT	= "RDF/XML";
-	private static final String	DEFAULT_OUT_FORMAT	= "RDF/XML-ABBREV";
+	private static final String	DEFAULT_OUT_FORMAT	= "RDF/XML";
 
 	private static final String	DEFAULT_OUTPUT_DIR	= "dm2e2edm-output";
 	
