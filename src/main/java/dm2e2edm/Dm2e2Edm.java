@@ -7,6 +7,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -27,6 +28,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.RDFWriter;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -71,7 +73,7 @@ public class Dm2e2Edm implements Runnable {
 				s.append(Resources.toString(SparqlQueries.class.getResource(prefixesRes), Charset.forName("UTF-8")));
 				s.append(Resources.toString(SparqlQueries.class.getResource(resName), Charset.forName("UTF-8")));
 			} catch (IOException e) {
-				log.error("NOT FOUND: {}", resName);
+//				log.error("NOT FOUND: {}", resName);
 				e.printStackTrace();
 			}
 			this.query = s;
@@ -94,6 +96,15 @@ public class Dm2e2Edm implements Runnable {
 	private static final Resource	SKOS_CONCEPT	= edmModel.createResource(NS.SKOS.CLASS_CONCEPT);
 	private static final Resource	EDM_AGENT	= edmModel.createResource(NS.EDM.CLASS_AGENT);
 	private static final Property	SKOS_PREF_LABEL	= edmModel.createProperty(NS.SKOS.PROP_PREF_LABEL);
+	private static final Resource[] prettyTypes = {
+		edmModel.createResource(NS.ORE.CLASS_AGGREGATION),
+		edmModel.createResource(NS.EDM.CLASS_AGENT),
+		edmModel.createResource(NS.EDM.CLASS_EVENT),
+		edmModel.createResource(NS.EDM.CLASS_PLACE),
+		edmModel.createResource(NS.EDM.CLASS_PROVIDED_CHO),
+		edmModel.createResource(NS.EDM.CLASS_TIMESPAN),
+		edmModel.createResource(NS.EDM.CLASS_WEBRESOURCE),
+	};
 	
 	static {
 		nsPrefixes.put("edm", NS.EDM.BASE);
@@ -232,6 +243,7 @@ public class Dm2e2Edm implements Runnable {
 	private final Path outputFile;
 	private final Path inputFile;
 	private final Properties configProps;
+	private final Set<Resource> skipSet = new HashSet<>();
 	
 	public Dm2e2Edm(Model inputModel, Model outputModel) {
 		this.inputModel = inputModel;
@@ -264,7 +276,7 @@ public class Dm2e2Edm implements Runnable {
 		this(inputFile, inputSerialization, outputFile, outputSerialization, new Properties());
 	}
 
-	private void convertResourceInInputModel(Resource res) {
+	private synchronized void convertResourceInInputModel(Resource res) {
 		
 		log.debug("Converting <{}>", res);
 		StmtIterator stmtIter = inputModel.listStatements(res, null, (RDFNode)null);
@@ -333,11 +345,11 @@ public class Dm2e2Edm implements Runnable {
 		}
 	}
 
-	private Property res(String uri) {
+	private final synchronized Property res(String uri) {
 		return inputModel.createProperty(uri);
 	}
 
-	private final String getLiteral(RDFNode res, Property prop) {
+	private final synchronized String getLiteral(RDFNode res, Property prop) {
 		String ret = "";
 		if (! res.isResource()) {
 			log.trace("Resource {} is not a resource. Skipping.", res);
@@ -345,16 +357,23 @@ public class Dm2e2Edm implements Runnable {
 			ParameterizedSparqlString rdfTypeQuery = SparqlQueries.SELECT_GET_LITERAL.getQuery();
 			rdfTypeQuery.setParam("res", res.asResource());
 			rdfTypeQuery.setParam("prop", prop);
+			log.debug(rdfTypeQuery.toString());
 			QueryExecution qExec = QueryExecutionFactory.create(rdfTypeQuery.asQuery(), inputModel);
+			qExec.setTimeout(10000);
 			ResultSet rs = qExec.execSelect();
 			if (rs.hasNext()) {
 				ret = rs.next().get("val").asLiteral().getLexicalForm();
-			} 
+			} else {
+				System.err.println("+*************+");
+				System.err.println("|*** ERROR ***|");
+				System.err.println(rdfTypeQuery.toString());
+				System.err.println("+*************+");
+			}
 		}
 		return ret;
 	}
 	
-	private final LinkedHashSet<Resource> getRdfTypes(Resource res) {
+	private final synchronized LinkedHashSet<Resource> getRdfTypes(Resource res) {
 		final LinkedHashSet<Resource> types = new LinkedHashSet<>();
 		ParameterizedSparqlString rdfTypeQuery = SparqlQueries.SELECT_GET_RDF_TYPE.getQuery();
 		rdfTypeQuery.setParam("res", res.asResource());
@@ -375,7 +394,7 @@ public class Dm2e2Edm implements Runnable {
 		return types;
 	}
 
-	private void addToTarget(Resource targetSubject, Property targetProp, RDFNode targetObject) {
+	private synchronized void addToTarget(Resource targetSubject, Property targetProp, RDFNode targetObject) {
 //		log.debug("STMT");
 //		log.debug("  S: {}", targetSubject);
 //		log.debug("  P: {}", targetProp);
@@ -400,6 +419,7 @@ public class Dm2e2Edm implements Runnable {
 							&&
 							endDM.equals("12-31")) {
 						outputModel.add(targetSubject, targetProp, outputModel.createTypedLiteral(beginYear, XSDDatatype.XSDgYear));
+						skipSet.add(res);
 						return;
 					}
 				}
@@ -412,32 +432,38 @@ public class Dm2e2Edm implements Runnable {
 			String newVal = targetObject.asLiteral().getLexicalForm().substring(0, "2000-01-01".length());
 			targetObject = inputModel.createTypedLiteral(newVal, XSDDatatype.XSDdate);
 			outputModel.add(targetSubject, targetProp, targetObject);
+			return;
 		} else if (targetProp.equals(NS.DC.PROP_TYPE)) {
 			//
 			// dc:type -> lastUriSegment -> edm:hasType
 			//
-			outputModel.add(targetSubject, edmModel.createProperty(NS.EDM.PROP_HAS_TYPE), lastUriSegment(targetObject.toString()));
-		} else if (targetProp.getURI().equals(NS.EDM.PROP_PROVIDER) || targetProp.getURI().equals(NS.EDM.PROP_DATA_PROVIDER)) {
+			outputModel.add(targetSubject, outputModel.createProperty(NS.EDM.PROP_HAS_TYPE), lastUriSegment(targetObject.toString()));
+			return;
+		} else if (targetObject.isResource() && (targetProp.getURI().equals(NS.EDM.PROP_PROVIDER) || targetProp.getURI().equals(NS.EDM.PROP_DATA_PROVIDER))) {
 			//
 			// edm:provider and edm:dataProvider -> skos:prefLabel
 			//
-			String prefLabel = getLiteral(targetObject, SKOS_PREF_LABEL);
+			String prefLabel = getLiteral(targetObject, inputModel.createProperty(NS.SKOS.PROP_PREF_LABEL));
+//			if ("".equals(prefLabel)) {
+////				System.err.println("**** ERROR ****");
+//			} 
 			outputModel.add(targetSubject, targetProp, prefLabel);
-		} else {
-			outputModel.add(targetSubject, targetProp, targetObject);
+			skipSet.add(targetObject.asResource());
+			return;
 		}
+		outputModel.add(targetSubject, targetProp, targetObject);
 		
 	}
 //	private void addToTarget(Resource targetSubject, Property targetProp, String targetObject) {
 //		outputModel.add(targetSubject, targetProp, targetObject);
 //	}
 	
-	private static String lastUriSegment(String uri) {
+	private synchronized static String lastUriSegment(String uri) {
 		return uri.substring(uri.lastIndexOf('/')+1);
 	}
 
 	@Override
-	public void run() {
+	public synchronized void run() {
 		
 		if (inputFile != null) {
 			try {
@@ -451,17 +477,40 @@ public class Dm2e2Edm implements Runnable {
 			}
 		}
 
-		ResIterator iter = inputModel.listSubjects();
-		while (iter.hasNext()) {
-			Resource res = iter.next();
-			convertResourceInInputModel(res);
+		// NOTE: We start with Aggregation and CHO and then the rest
+		// so as to not add anything that is explicitly skipped (such as unconnected agents or timespans)
+		ArrayList<Resource> resList = new ArrayList<Resource>();
+		{
+			ResIterator iter = inputModel.listSubjectsWithProperty(inputModel.createProperty(NS.RDF.PROP_TYPE), inputModel.createResource(NS.ORE.CLASS_AGGREGATION));
+			if (iter.hasNext()) resList.add(iter.next());
+		}
+		{
+			ResIterator iter = inputModel.listSubjectsWithProperty(inputModel.createProperty(NS.RDF.PROP_TYPE), inputModel.createResource(NS.EDM.CLASS_PROVIDED_CHO));
+			if (iter.hasNext()) resList.add(iter.next());
+		}
+		{
+			ResIterator iter = inputModel.listSubjects();
+			while (iter.hasNext()) {
+				resList.add(iter.next());
+			}
+		}
+		for (Resource res : resList) {
+			if (!skipSet.contains(res)) {
+				convertResourceInInputModel(res);
+				skipSet.add(res);
+			}
 		}
 		log.debug("IN: {}", inputModel.size());
 		log.debug("OUT: {}", outputModel.size());
 		if (null != outputFile) {
 			try {
 				OutputStream out = Files.newOutputStream(outputFile, StandardOpenOption.CREATE);
-				outputModel.write(out, outputSerialization);
+				RDFWriter writer = outputModel.getWriter(outputSerialization);
+				if (outputSerialization.equals("RDF/XML-ABBREV")) {
+					writer.setProperty("prettyTypes", prettyTypes);
+//					writer.setProperty("blockRules", "propertyAttr");
+				}
+				writer.write(outputModel, out, "");
 				out.close();
 			} catch (IOException e) {
 				log.error("Couldn't write to output file {}: {}", outputFile, e);

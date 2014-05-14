@@ -115,6 +115,7 @@ action_dump_aggregations() {
 action_convert_to_edm() {
     ensure_IN_DIR
     ensure_OUT_DIR
+    echo "Converting data in $IN_DIR to EDM -> $OUT_DIR"
     java -jar $DM2E_EDM_JAR --input_format "RDF/XML" --input_dir $IN_DIR --output_dir $OUT_DIR
 }
 

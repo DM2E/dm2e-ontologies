@@ -1,4 +1,4 @@
 SELECT ?val WHERE {
     ?res ?prop ?val
     FILTER(isLiteral(?val))
-}
+} LIMIT 1

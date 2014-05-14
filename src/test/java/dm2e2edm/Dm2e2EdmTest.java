@@ -17,18 +17,18 @@ public class Dm2e2EdmTest {
 	
 	@Test
 	public void testStatic() throws Exception {
-//		new Dm2e2Edm();
-		final Model m = Dm2e2Edm.dm2eModel;
-		log.debug("EDM props: {}", Dm2e2Edm.edmProperties);
-		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.EDM.PROP_IS_NEXT_IN_SEQUENCE));
-		log.debug(NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY);
-		log.debug("{}", Dm2e2Edm.dm2eSuperProperties);
-		log.debug("{}", Dm2e2Edm.dm2eSuperProperties.get(m.createProperty(NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY)));
-		log.debug("{}", Dm2e2Edm.dm2eSuperProperties.get(m.createProperty(NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY)));
-		log.debug("{}", Dm2e2Edm.dm2eSuperClasses.get(m.createResource(NS.FOAF.CLASS_PERSON)));
-		log.debug("{}", Dm2e2Edm.SparqlQueries.SELECT_GET_LITERAL.getQuery());
-//		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY));
-//		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY));
+////		new Dm2e2Edm();
+//		final Model m = Dm2e2Edm.dm2eModel;
+//		log.debug("EDM props: {}", Dm2e2Edm.edmProperties);
+//		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.EDM.PROP_IS_NEXT_IN_SEQUENCE));
+//		log.debug(NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY);
+//		log.debug("{}", Dm2e2Edm.dm2eSuperProperties);
+//		log.debug("{}", Dm2e2Edm.dm2eSuperProperties.get(m.createProperty(NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY)));
+//		log.debug("{}", Dm2e2Edm.dm2eSuperProperties.get(m.createProperty(NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY)));
+//		log.debug("{}", Dm2e2Edm.dm2eSuperClasses.get(m.createResource(NS.FOAF.CLASS_PERSON)));
+//		log.debug("{}", Dm2e2Edm.SparqlQueries.SELECT_GET_LITERAL.getQuery());
+////		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY));
+////		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY));
 	}
 	
 //	@Test

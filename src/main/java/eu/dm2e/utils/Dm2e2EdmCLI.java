@@ -33,7 +33,10 @@ import dm2e2edm.Dm2e2Edm;
  */
 public class Dm2e2EdmCLI {
 	
-	private static final int	NUMBER_OF_THREADS	= 5;
+	// TODO HACK -- there is a thread-related issue resulting in no results from SPARQL queries on the model
+	// Probably has to do with static models for edm and dm2e in Dm2e2Edm. For now, reusing just one thread
+	// avoids the problem, slow though it is: ~ 33 Records per second on a quadcore 2.7ghz i7 => days for DM2E whole :(
+	private static final int	NUMBER_OF_THREADS	= 1;
 
 	private static final Logger log = LoggerFactory.getLogger(Dm2e2EdmCLI.class);
 
@@ -75,6 +78,7 @@ public class Dm2e2EdmCLI {
 		
 		// Setup thread pool
 		ExecutorService threadPool = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+//		ExecutorService threadPool = Executors.newCachedThreadPool();
 		
 		// Run !
 		Iterator<Path> inputFileIterator = null;
