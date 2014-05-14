@@ -425,6 +425,8 @@ public class Dm2e2Edm implements Runnable {
 				}
 			}
 		}
+		
+		boolean skipGeneric = false;
 		if (targetObject.isLiteral() && targetObject.asLiteral().getDatatype() !=null &&  targetObject.asLiteral().getDatatypeURI().equals(NS.XSD.DATETIME)) {
 			//
 			// xsd:datetime -> xsd:date
@@ -432,26 +434,68 @@ public class Dm2e2Edm implements Runnable {
 			String newVal = targetObject.asLiteral().getLexicalForm().substring(0, "2000-01-01".length());
 			targetObject = inputModel.createTypedLiteral(newVal, XSDDatatype.XSDdate);
 			outputModel.add(targetSubject, targetProp, targetObject);
-			return;
+			skipGeneric = true;
 		} else if (targetProp.equals(NS.DC.PROP_TYPE)) {
 			//
 			// dc:type -> lastUriSegment -> edm:hasType
 			//
 			outputModel.add(targetSubject, outputModel.createProperty(NS.EDM.PROP_HAS_TYPE), lastUriSegment(targetObject.toString()));
-			return;
-		} else if (targetObject.isResource() && (targetProp.getURI().equals(NS.EDM.PROP_PROVIDER) || targetProp.getURI().equals(NS.EDM.PROP_DATA_PROVIDER))) {
+			skipGeneric = true;
+		} else if (targetObject.isResource() && targetProp.getURI().equals(NS.EDM.PROP_PROVIDER)) {
+			//
+			// Hard-code edm:provider to DM2E (Some providers didn't specify a skos:prefLabel here)
+			//
+			outputModel.add(targetSubject, targetProp, "DM2E");
+			skipSet.add(targetObject.asResource());
+			skipGeneric = true;
+		} else if (targetObject.isResource() && targetProp.getURI().equals(NS.EDM.PROP_DATA_PROVIDER)) {
 			//
 			// edm:provider and edm:dataProvider -> skos:prefLabel
 			//
 			String prefLabel = getLiteral(targetObject, inputModel.createProperty(NS.SKOS.PROP_PREF_LABEL));
-//			if ("".equals(prefLabel)) {
-////				System.err.println("**** ERROR ****");
-//			} 
+			if ("".equals(prefLabel)) {
+				log.error("No skos:prefLabel for dataProvider <%s>", targetObject);
+				return;
+			} 
 			outputModel.add(targetSubject, targetProp, prefLabel);
 			skipSet.add(targetObject.asResource());
-			return;
+			skipGeneric = true;
+		} else if (targetProp.getURI().equals(NS.OWL.SAME_AS)
+					&& getRdfTypes(targetSubject.asResource()).contains(res(NS.SKOS.CLASS_CONCEPT))) {
+			//
+			// If prop is owl:sameAs and rdf:type of subject is skos:Concept, replace owl:sameAs with skos:exactMatch
+			//
+			outputModel.add(targetSubject, outputModel.createProperty(NS.SKOS.PROP_EXACT_MATCH), targetObject);
+			skipGeneric = true;
+		} else if (targetObject.isResource()
+				&& inputModel.contains(targetObject.asResource(), inputModel.createProperty(NS.OWL.SAME_AS))) {
+			//
+			// If object is owl:sameAs as something else and that something else is either a GND or VIAF link:
+			// don't link to the object but the the GND or VIAF URI.
+			//
+			Set<Resource> sameAsSet = new HashSet<>();
+			StmtIterator iter = targetObject.asResource().listProperties(inputModel.createProperty(NS.OWL.SAME_AS));
+			while (iter.hasNext()) {
+				RDFNode o = iter.next().getObject();
+				if (o.isResource())
+					sameAsSet.add(o.asResource());
+			}
+			String[] arr = { "gnd", "viaf" };
+			SAME_AS_LOOP:
+			for (String krz : arr) {
+				for (Resource sameAsRes : sameAsSet) {
+					if (sameAsRes.getURI().contains(krz)) {
+						outputModel.add(targetSubject, targetProp, sameAsRes);
+						skipGeneric = true;
+						skipSet.add(targetObject.asResource());
+						break SAME_AS_LOOP;
+					}
+				}
+			}
 		}
-		outputModel.add(targetSubject, targetProp, targetObject);
+
+		if (!skipGeneric)
+			outputModel.add(targetSubject, targetProp, targetObject);
 		
 	}
 //	private void addToTarget(Resource targetSubject, Property targetProp, String targetObject) {
