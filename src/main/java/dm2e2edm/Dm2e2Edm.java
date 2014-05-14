@@ -161,6 +161,7 @@ public class Dm2e2Edm implements Runnable {
 				subProperties.add(iter.next().getSubject().asResource());		
 		}
 		edmProperties.addAll(subProperties);
+		edmProperties.add(edmModel.createResource(NS.OWL.SAME_AS));
 	}
 
 	private static void buildDm2eSuperClasses() {
