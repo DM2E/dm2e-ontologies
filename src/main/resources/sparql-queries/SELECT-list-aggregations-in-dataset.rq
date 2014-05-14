@@ -1,6 +1,14 @@
 SELECT DISTINCT ?agg {
     GRAPH ?g {
-        ?agg rdf:type ore:Aggregation .
-        ?agg dm2e:displayLevel "true"^^xsd:boolean .
+        {
+            ?agg dm2e:displayLevel "true"^^xsd:boolean .
+        } 
+        UNION 
+        {
+            ?childAgg dm2e:displayLevel "true"^^xsd:boolean .
+            ?childAgg edm:aggregatedCHO ?childCHO .
+            ?childCHO dcterms:isPartOf+ ?parentCHO .
+            ?agg edm:aggregatedCHO ?parentCHO .
+        }
     }
 } ?limit
