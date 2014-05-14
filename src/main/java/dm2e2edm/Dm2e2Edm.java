@@ -19,7 +19,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.io.Resources;
-import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.query.ParameterizedSparqlString;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
@@ -419,7 +418,8 @@ public class Dm2e2Edm implements Runnable {
 							beginDM.equals("01-01")
 							&&
 							endDM.equals("12-31")) {
-						outputModel.add(targetSubject, targetProp, outputModel.createTypedLiteral(beginYear, XSDDatatype.XSDgYear));
+//						outputModel.add(targetSubject, targetProp, outputModel.createTypedLiteral(beginYear, XSDDatatype.XSDgYear));
+						outputModel.add(targetSubject, targetProp, outputModel.createLiteral(beginYear));
 						skipSet.add(res);
 						return;
 					}
@@ -433,7 +433,8 @@ public class Dm2e2Edm implements Runnable {
 			// xsd:datetime -> xsd:date
 			//
 			String newVal = targetObject.asLiteral().getLexicalForm().substring(0, "2000-01-01".length());
-			targetObject = inputModel.createTypedLiteral(newVal, XSDDatatype.XSDdate);
+//			targetObject = inputModel.createTypedLiteral(newVal, XSDDatatype.XSDdate);
+			targetObject = inputModel.createLiteral(newVal);
 			outputModel.add(targetSubject, targetProp, targetObject);
 			skipGeneric = true;
 		} else if (targetProp.equals(NS.DC.PROP_TYPE)) {
