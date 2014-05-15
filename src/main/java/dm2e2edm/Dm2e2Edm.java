@@ -397,13 +397,32 @@ public class Dm2e2Edm implements Runnable {
 	private synchronized void addToTarget(Resource targetSubject, Property targetProp, RDFNode targetObject) {
 //		log.debug("STMT");
 //		log.debug("  S: {}", targetSubject);
-//		log.debug("  P: {}", targetProp);
+		log.debug("  P: {}", targetProp);
 //		log.debug("  O: {}", targetObject);
 
-		//
-		// Turn one-year timespans into xsd:gYear literals 
-		//
-		if (targetObject.isResource() && getRdfTypes(targetObject.asResource()).contains(res(NS.EDM.CLASS_TIMESPAN))) {
+		
+		boolean skipGeneric = false;
+		if (targetObject.isResource() && targetProp.getURI().equals(NS.EDM.PROP_PROVIDER)) {
+			//
+			// Hard-code edm:provider to DM2E (Some providers didn't specify a skos:prefLabel here)
+			//
+			outputModel.add(targetSubject, targetProp, "DM2E");
+			skipSet.add(targetObject.asResource());
+			skipGeneric = true;
+		} else if (getRdfTypes(targetSubject).contains(res(NS.ORE.CLASS_AGGREGATION)) 
+				&& (
+						dm2eSuperProperties.get(res(targetProp.getURI())).contains(res(NS.EDM.PROP_HAS_MET))
+                )) {
+			//
+			// Don't add any edm:hasMet superproperties to an ore:Aggregation
+			//
+			if (targetObject.isResource())
+				skipSet.add(targetObject.asResource());
+			skipGeneric = true;
+		} else if (targetObject.isResource() && getRdfTypes(targetObject.asResource()).contains(res(NS.EDM.CLASS_TIMESPAN))) {
+			//
+			// Turn one-year timespans into xsd:gYear literals 
+			//
 			Resource res = targetObject.asResource();
 			String begin = getLiteral(res, res(NS.EDM.PROP_BEGIN));
 			String end = getLiteral(res, res(NS.EDM.PROP_END));
@@ -425,10 +444,7 @@ public class Dm2e2Edm implements Runnable {
 					}
 				}
 			}
-		}
-		
-		boolean skipGeneric = false;
-		if (targetObject.isLiteral() && targetObject.asLiteral().getDatatype() !=null &&  targetObject.asLiteral().getDatatypeURI().equals(NS.XSD.DATETIME)) {
+		} else if (targetObject.isLiteral() && targetObject.asLiteral().getDatatype() !=null &&  targetObject.asLiteral().getDatatypeURI().equals(NS.XSD.DATETIME)) {
 			//
 			// xsd:datetime -> xsd:date
 			//
@@ -442,13 +458,6 @@ public class Dm2e2Edm implements Runnable {
 			// dc:type -> lastUriSegment -> edm:hasType
 			//
 			outputModel.add(targetSubject, outputModel.createProperty(NS.EDM.PROP_HAS_TYPE), lastUriSegment(targetObject.toString()));
-			skipGeneric = true;
-		} else if (targetObject.isResource() && targetProp.getURI().equals(NS.EDM.PROP_PROVIDER)) {
-			//
-			// Hard-code edm:provider to DM2E (Some providers didn't specify a skos:prefLabel here)
-			//
-			outputModel.add(targetSubject, targetProp, "DM2E");
-			skipSet.add(targetObject.asResource());
 			skipGeneric = true;
 		} else if (targetObject.isResource() && targetProp.getURI().equals(NS.EDM.PROP_DATA_PROVIDER)) {
 			//
@@ -494,17 +503,9 @@ public class Dm2e2Edm implements Runnable {
 					}
 				}
 			}
-		} else if (getRdfTypes(targetSubject).contains(res(NS.ORE.CLASS_AGGREGATION)) 
-				&& (
-						dm2eSuperProperties.get(res(targetProp.getURI())).contains(res(NS.EDM.PROP_HAS_MET))
-                )) {
-			//
-			// Don't add any edm:hasMet superproperties to an ore:Aggregation
-			//
-			if (targetObject.isResource())
-				skipSet.add(targetObject.asResource());
-			skipGeneric = true;
 		}
+		
+		log.debug("PROP: {}", targetProp.getURI());
 
 		if (!skipGeneric)
 			outputModel.add(targetSubject, targetProp, targetObject);
@@ -556,11 +557,11 @@ public class Dm2e2Edm implements Runnable {
 				skipSet.add(res);
 			}
 		}
-		log.debug("IN: {}", inputModel.size());
-		log.debug("OUT: {}", outputModel.size());
+//		log.debug("IN: {}", inputModel.size());
+//		log.debug("OUT: {}", outputModel.size());
 		if (null != outputFile) {
 			try {
-				OutputStream out = Files.newOutputStream(outputFile, StandardOpenOption.CREATE);
+				OutputStream out = Files.newOutputStream(outputFile, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
 				RDFWriter writer = outputModel.getWriter(outputSerialization);
 				if (outputSerialization.equals("RDF/XML-ABBREV")) {
 					writer.setProperty("prettyTypes", prettyTypes);

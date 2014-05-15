@@ -2,7 +2,12 @@ package dm2e2edm;
 
 import static org.fest.assertions.Assertions.*;
 
+import java.io.IOException;
 import java.io.StringWriter;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -70,7 +75,7 @@ public class Dm2e2EdmTest {
 //	}
 	
 	@Test
-	public void testHasMetInAggregation()
+	public void testHasMetInAggregation1()
 			throws Exception {
 		Model inputModel = ModelFactory.createDefaultModel();
 		Model outputModel = ModelFactory.createDefaultModel();
@@ -89,4 +94,18 @@ public class Dm2e2EdmTest {
 		assertThat(outputModel.contains(agg, outputModel.createProperty(NS.DC.PROP_DATE))).isFalse();
 	}
 
+	@Test
+	public void testHasMetInAggregation2() throws URISyntaxException, MalformedURLException, IOException {
+		Path inFile = Paths.get(Dm2e2Edm.class.getResource("/onbcodices2BZ9671240X.xml").toURI());
+		Path outFile = Paths.get(inFile.toString() + ".out.xml");
+		Dm2e2Edm dm2e2Edm = new Dm2e2Edm(inFile, "RDF/XML", outFile, "RDF/XML");
+		dm2e2Edm.run();
+
+		log.debug("{}", outFile);
+		Model m = ModelFactory.createDefaultModel();
+		m.read(outFile.toFile().toURL().openStream(), null, "RDF/XML");
+		StringWriter sw = new StringWriter();
+		m.write(sw, "TURTLE");
+		log.debug(sw.toString());
+	}
 }
