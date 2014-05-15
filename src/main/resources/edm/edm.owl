@@ -12,6 +12,7 @@
     <!ENTITY wgs84_pos "http://www.w3.org/2003/01/geo/wgs84_pos#" >
     <!ENTITY dcmitype "http://purl.org/dc/dcmitype/" >
     <!ENTITY crm "http://www.cidoc-crm.org/rdfs/cidoc-crm#" >
+    <!ENTITY rdaGr2 "http://rdvocab.info/ElementsGr2/" >
     <!ENTITY frbr_core "http://purl.org/vocab/frbr/core#" >
     <!ENTITY frbroo "http://iflastandards.info/ns/fr/frbr/frbroo/" >
     <!ENTITY abc "http://metadata.net/harmony/abc#" >
@@ -921,6 +922,362 @@ born digital object.</skos:definition>
     <rdf:Description rdf:about="&dc;identifier">
         <rdfs:subPropertyOf rdf:resource="&dc;identifier"/>
     </rdf:Description>
+<rdf:Description rdf:about="&dc;contributor">
+    <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;coverage">
+    <rdfs:subPropertyOf rdf:resource="&dc;coverage"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;creator">
+    <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;format">
+    <rdfs:subPropertyOf rdf:resource="&dc;format"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;language">
+    <rdfs:subPropertyOf rdf:resource="&dc;language"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;publisher">
+    <rdfs:subPropertyOf rdf:resource="&dc;publisher"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;rights">
+    <rdfs:subPropertyOf rdf:resource="&dc;rights"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;source">
+    <rdfs:subPropertyOf rdf:resource="&dc;source"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;alternative">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;alternative"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;conformsTo">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;conformsTo"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;created">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;created"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;extent">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;extent"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;hasFormat">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;hasFormat"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;hasPart">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;hasPart"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;hasVersion">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;hasVersion"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isFormatOf">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isFormatOf"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isPartOf">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isPartOf"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isReferencedBy">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isReferencedBy"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isReplacedBy">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isReplacedBy"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isRequiredBy">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isRequiredBy"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;issued">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;issued"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isVersionOf">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isVersionOf"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;medium">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;medium"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;references">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;references"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;replaces">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;replaces"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;requires">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;requires"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;tableOfContents">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;tableOfContents"/>
+</rdf:Description>
+<rdf:Description rdf:about="&owl;sameAs">
+    <rdfs:subPropertyOf rdf:resource="&owl;sameAs"/>
+</rdf:Description>
+<rdf:Description rdf:about="&rdf;type">
+    <rdfs:subPropertyOf rdf:resource="&rdf;type"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;rights">
+    <rdfs:subPropertyOf rdf:resource="&dc;rights"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;creator">
+    <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;format">
+    <rdfs:subPropertyOf rdf:resource="&dc;format"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;rights">
+    <rdfs:subPropertyOf rdf:resource="&dc;rights"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;source">
+    <rdfs:subPropertyOf rdf:resource="&dc;source"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;conformsTo">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;conformsTo"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;created">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;created"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;extent">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;extent"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;hasPart">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;hasPart"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isFormatOf">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isFormatOf"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isPartOf">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isPartOf"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;issued">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;issued"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;note">
+    <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;hasPart">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;hasPart"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isPartOf">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isPartOf"/>
+</rdf:Description>
+<rdf:Description rdf:about="&foaf;name"> <rdfs:subPropertyOf rdf:resource="&foaf;name"/>
+</rdf:Description>
+<rdf:Description rdf:about="&rdaGr2;biographicalInformation">
+    <rdfs:subPropertyOf rdf:resource="&rdaGr2;biographicalInformation"/>
+</rdf:Description>
+<rdf:Description rdf:about="&rdaGr2;dateOfBirth">
+    <rdfs:subPropertyOf rdf:resource="&rdaGr2;dateOfBirth"/>
+</rdf:Description>
+<rdf:Description rdf:about="&rdaGr2;dateOfDeath">
+    <rdfs:subPropertyOf rdf:resource="&rdaGr2;dateOfDeath"/>
+</rdf:Description>
+<rdf:Description rdf:about="&rdaGr2;placeOfBirth">
+    <rdfs:subPropertyOf rdf:resource="&rdaGr2;placeOfBirth"/>
+</rdf:Description>
+<rdf:Description rdf:about="&rdaGr2;placeOfDeath">
+    <rdfs:subPropertyOf rdf:resource="&rdaGr2;placeOfDeath"/>
+</rdf:Description>
+<rdf:Description rdf:about="&rdaGr2;dateOfEstablishment">
+    <rdfs:subPropertyOf rdf:resource="&rdaGr2;dateOfEstablishment"/>
+</rdf:Description>
+<rdf:Description rdf:about="&rdaGr2;dateOfTermination">
+    <rdfs:subPropertyOf rdf:resource="&rdaGr2;dateOfTermination"/>
+</rdf:Description>
+<rdf:Description rdf:about="&rdaGr2;gender">
+    <rdfs:subPropertyOf rdf:resource="&rdaGr2;gender"/>
+</rdf:Description>
+<rdf:Description rdf:about="&rdaGr2;professionOrOccupation">
+    <rdfs:subPropertyOf rdf:resource="&rdaGr2;professionOrOccupation"/>
+</rdf:Description>
+<rdf:Description rdf:about="&owl;sameAs">
+    <rdfs:subPropertyOf rdf:resource="&owl;sameAs"/>
+</rdf:Description>
+<rdf:Description rdf:about="&wgs84_pos;lat">
+    <rdfs:subPropertyOf rdf:resource="&wgs84_pos;lat"/>
+</rdf:Description>
+<rdf:Description rdf:about="&wgs84_pos;long">
+    <rdfs:subPropertyOf rdf:resource="&wgs84_pos;long"/>
+</rdf:Description>
+<rdf:Description rdf:about="&wgs84_pos;alt">
+    <rdfs:subPropertyOf rdf:resource="&wgs84_pos;alt"/>
+</rdf:Description>
+<rdf:Description rdf:about="&wgs84_pos;lat_long">
+    <rdfs:subPropertyOf rdf:resource="&wgs84_pos;lat_long"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;note">
+    <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;hasPart">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;hasPart"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isPartOf">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isPartOf"/>
+</rdf:Description>
+<rdf:Description rdf:about="&owl;sameAs">
+    <rdfs:subPropertyOf rdf:resource="&owl;sameAs"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;hiddenLabel">
+    <rdfs:subPropertyOf rdf:resource="&skos;hiddenLabel"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;note">
+    <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;hasPart">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;hasPart"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isPartOf">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isPartOf"/>
+</rdf:Description>
+<rdf:Description rdf:about="&crm;P79F.beginning_is_qualified_by">
+    <rdfs:subPropertyOf rdf:resource="&crm;P79F.beginning_is_qualified_by"/>
+</rdf:Description>
+<rdf:Description rdf:about="&crm;P80F.end_is_qualified_by">
+    <rdfs:subPropertyOf rdf:resource="&crm;P80F.end_is_qualified_by"/>
+</rdf:Description>
+<rdf:Description rdf:about="&owl;sameAs">
+    <rdfs:subPropertyOf rdf:resource="&owl;sameAs"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;hiddenLabel">
+    <rdfs:subPropertyOf rdf:resource="&skos;hiddenLabel"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;broader">
+    <rdfs:subPropertyOf rdf:resource="&skos;broader"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;narrower">
+    <rdfs:subPropertyOf rdf:resource="&skos;narrower"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;related">
+    <rdfs:subPropertyOf rdf:resource="&skos;related"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;broadMatch">
+    <rdfs:subPropertyOf rdf:resource="&skos;broadMatch"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;narrowMatch">
+    <rdfs:subPropertyOf rdf:resource="&skos;narrowMatch"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;relatedMatch">
+    <rdfs:subPropertyOf rdf:resource="&skos;relatedMatch"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;exactMatch">
+    <rdfs:subPropertyOf rdf:resource="&skos;exactMatch"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;closeMatch">
+    <rdfs:subPropertyOf rdf:resource="&skos;closeMatch"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;note">
+    <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;notation">
+    <rdfs:subPropertyOf rdf:resource="&skos;notation"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;inScheme">
+    <rdfs:subPropertyOf rdf:resource="&skos;inScheme"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;creator">
+    <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;hasTopConcept">
+    <rdfs:subPropertyOf rdf:resource="&skos;hasTopConcept"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;note">
+    <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+</rdf:Description>
+<rdf:Description rdf:about="&edm;occuredAt">
+    <rdfs:subPropertyOf rdf:resource="&edm;occuredAt"/>
+</rdf:Description>
+<rdf:Description rdf:about="&owl;sameAs">
+    <rdfs:subPropertyOf rdf:resource="&owl;sameAs"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;hiddenLabel">
+    <rdfs:subPropertyOf rdf:resource="&skos;hiddenLabel"/>
+</rdf:Description>
+<rdf:Description rdf:about="&skos;note">
+    <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;hasPart">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;hasPart"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isPartOf">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isPartOf"/>
+</rdf:Description>
+<rdf:Description rdf:about="&crm;P120F.occurs_before">
+    <rdfs:subPropertyOf rdf:resource="&crm;P120F.occurs_before"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;contributor">
+    <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;coverage">
+    <rdfs:subPropertyOf rdf:resource="&dc;coverage"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;creator">
+    <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;format">
+    <rdfs:subPropertyOf rdf:resource="&dc;format"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;language">
+    <rdfs:subPropertyOf rdf:resource="&dc;language"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;publisher">
+    <rdfs:subPropertyOf rdf:resource="&dc;publisher"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;rights">
+    <rdfs:subPropertyOf rdf:resource="&dc;rights"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dc;source">
+    <rdfs:subPropertyOf rdf:resource="&dc;source"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;alternative">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;alternative"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;conformsTo">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;conformsTo"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;created">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;created"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;extent">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;extent"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;hasFormat">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;hasFormat"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;hasPart">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;hasPart"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;hasVersion">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;hasVersion"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isFormatOf">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isFormatOf"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isPartOf">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isPartOf"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isReferencedBy">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isReferencedBy"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isReplacedBy">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isReplacedBy"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isRequiredBy">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isRequiredBy"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;issued">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;issued"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;isVersionOf">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;isVersionOf"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;medium">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;medium"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;references">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;references"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;replaces">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;replaces"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;requires">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;requires"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;tableOfContents">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;tableOfContents"/>
+</rdf:Description>
 
     <!--****************************************************************************************************************************** -->
     <!-- Class declarations added for compatibility with some OWL-DL reasoners -->
