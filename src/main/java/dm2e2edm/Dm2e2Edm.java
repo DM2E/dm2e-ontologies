@@ -496,7 +496,7 @@ public class Dm2e2Edm implements Runnable {
 			}
 		} else if (getRdfTypes(targetSubject).contains(res(NS.ORE.CLASS_AGGREGATION)) 
 				&& (
-						dm2eSuperProperties.get(targetProp).contains(res(NS.EDM.PROP_HAS_MET))
+						dm2eSuperProperties.get(res(targetProp.getURI())).contains(res(NS.EDM.PROP_HAS_MET))
                 )) {
 			//
 			// Don't add any edm:hasMet superproperties to an ore:Aggregation
