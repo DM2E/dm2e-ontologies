@@ -28,5 +28,69 @@
     >2010-06-28T00:00:00</dcterms:created>
     <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
     >true</dm2e:displayLevel>
+    <edm:provider>
+      <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/onb/DM2E">
+        <skos:prefLabel xml:lang="en">DM2E</skos:prefLabel>
+      </foaf:Organization>
+    </edm:provider>
+    <edm:rights rdf:resource="http://www.europeana.eu/rights/out-of-copyright-non-commercial.html"/>
+    <edm:object>
+      <edm:WebResource rdf:about="http://digital.onb.ac.at/content/v1/codices/jpg/Z9671240X/thumbnail">
+        <edm:rights rdf:resource="http://www.europeana.eu/rights/out-of-copyright-non-commercial.html"/>
+        <dc:format>image/jpeg</dc:format>
+      </edm:WebResource>
+    </edm:object>
+    <edm:isShownAt>
+      <edm:WebResource rdf:about="http://archiv.onb.ac.at:1801/webclient/DeliveryManager?pid=2243512&amp;custom_att_2=simple_viewer">
+        <edm:rights rdf:resource="http://www.europeana.eu/rights/out-of-copyright-non-commercial.html"/>
+        <dc:format>text/html</dc:format>
+      </edm:WebResource>
+    </edm:isShownAt>
+    <edm:aggregatedCHO>
+      <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/onb/codices/%2BZ9671240X">
+        <dm2e:cover>Roter Halblederband mit Pappdeckeln, 18. Jhdt.</dm2e:cover>
+        <dc:identifier>+Z9671240X</dc:identifier>
+        <pro:author>
+          <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/onb/authority_gnd/118692925">
+            <j.0:otherDesignationAssociatedWithThePerson>Römisch-Deutsches Reich, Kaiser</j.0:otherDesignationAssociatedWithThePerson>
+            <bibo:suffixName>I.</bibo:suffixName>
+            <j.0:dateOfBirth rdf:resource="http://data.dm2e.eu/data/timespan/onb/codices/1708-01-01T000000UG_1708-12-31T235959UG"/>
+            <j.0:dateOfDeath rdf:resource="http://data.dm2e.eu/data/timespan/onb/codices/1765-01-01T000000UG_1765-12-31T235959UG"/>
+            <j.0:biographicalInformation>1708-1765</j.0:biographicalInformation>
+            <owl:sameAs rdf:resource="http://d-nb.info/gnd/118692925"/>
+            <skos:prefLabel>Franz</skos:prefLabel>
+          </foaf:Person>
+        </pro:author>
+        <dm2e:shelfmarkLocation>Cod. 12486 HAN </dm2e:shelfmarkLocation>
+        <dcterms:issued>
+          <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/onb/codices/1754-01-01T000000UG_1754-12-31T235959UG">
+            <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >1754-01-01T00:00:00</edm:begin>
+            <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >1754-12-31T23:59:59</edm:end>
+            <j.1:P79F.beginning_is_qualified_by>uncertainty_granularity</j.1:P79F.beginning_is_qualified_by>
+            <j.1:P80F.end_is_qualified_by>uncertainty_granularity</j.1:P80F.end_is_qualified_by>
+            <skos:prefLabel>1754</skos:prefLabel>
+          </edm:TimeSpan>
+        </dcterms:issued>
+        <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Manuscript"/>
+        <dm2e:support>Papier</dm2e:support>
+        <dcterms:provenance xml:lang="de">Stephan Ladislaus Endlicher (*1804; Sinologe, Botaniker; Bibliothekar d. HB Wien; +1849): Geschenk an HB [Cod. Ser. n. 18105 (Supplementum-Katalog)].</dcterms:provenance>
+        <bibo:recipient>
+          <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/onb/authority_gnd/118556452">
+            <j.0:dateOfBirth rdf:resource="http://data.dm2e.eu/data/timespan/onb/codices/1727-01-01T000000UG_1727-12-31T235959UG"/>
+            <j.0:dateOfDeath rdf:resource="http://data.dm2e.eu/data/timespan/onb/codices/1817-01-01T000000UG_1817-12-31T235959UG"/>
+            <j.0:biographicalInformation>1727-1817</j.0:biographicalInformation>
+            <owl:sameAs rdf:resource="http://d-nb.info/gnd/118556452"/>
+            <skos:prefLabel>Jacquin, Nikolaus Joseph &lt;&lt;von&gt;&gt;</skos:prefLabel>
+          </foaf:Person>
+        </bibo:recipient>
+        <dm2e:pageDimension>Quart</dm2e:pageDimension>
+        <edm:type>TEXT</edm:type>
+        <dc:language>lat</dc:language>
+        <dc:title>Instruction pour le S. N. Jacquin, que S. Majesté imp. envoyé en Amérique a. 1754</dc:title>
+        <bibo:numPages>Handschrift; 12 Bll.</bibo:numPages>
+      </edm:ProvidedCHO>
+    </edm:aggregatedCHO>
   </ore:Aggregation>
 </rdf:RDF>

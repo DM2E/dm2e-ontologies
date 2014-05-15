@@ -903,6 +903,10 @@ born digital object.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&dc;title"/>
     </rdf:Description>
 
+    <rdf:Description rdf:about="&dcterms;issued">
+        <rdfs:subPropertyOf rdf:resource="&dc;date"/>
+    </rdf:Description>
+
     <!-- http://purl.org/dc/elements/1.1/title -->
     <!-- TODO kba Thu Apr 24 15:18:16 CEST 2014 -->
 
