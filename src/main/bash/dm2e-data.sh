@@ -165,15 +165,21 @@ action_convert_to_edm() {
     ensure_IN_DIR
     ensure_OUT_DIR
     echo "Converting data in $IN_DIR to EDM -> $OUT_DIR"
-    java -jar $DM2E_EDM_JAR --input_format "RDF/XML" --input_dir $IN_DIR --output_dir $OUT_DIR
+    java -jar $DM2E_EDM_JAR --input_format "RDF/XML" --input_dir $IN_DIR --output_dir $OUT_DIR 2>/dev/null
 }
 
 action_cleanup_edm() {
     ensure_CLEAN_DIR
+
+    cur=0
+    total=$(ls $OUT_DIR/*.xml|wc -l|cut -d' ' -f1)
     for i in $OUT_DIR/*.xml;do
 
+
         out_filename="$CLEAN_DIR/$(basename $i)"
-        echo "Cleanup $i -> $out_filename"
+
+        cur=$(( $cur + 1 ))
+        echo -ne "[$cur / $total] Cleaning up $i -> $out_filename\r"
 
         # create tempfiles
         tmpfile=$(mktemp)
@@ -190,21 +196,28 @@ action_cleanup_edm() {
 }
 
 action_batch_dump() {
-    action_list_datasets
-    for ds in $(cat $DATASET_LIST);do
-        DATASET=$ds
+    if [[ ! -z "$DATASET" ]];then
         ensure_AGGREGATIONS_LIST
         action_list_aggregations
         action_dump_aggregations
-    done
+    else
+        action_list_datasets
+        for ds in $(cat $DATASET_LIST);do
+            DATASET=$ds
+            ensure_AGGREGATIONS_LIST
+            action_list_aggregations
+            action_dump_aggregations
+        done
+    fi
 }
 action_batch_convert() {
-    TODO
+    action_convert_to_edm
+    action_cleanup_edm
 }
 
 purge_if_necessary() {
     dir=$1
-    if [[ ! -z $(ls $dir) && ! -z "$PURGE" ]];then
+    if [[ -e $dir && ! -z $(ls $dir) && ! -z "$PURGE" ]];then
         if [[ -d $1 ]];then
             echo "Are you sure you want to delete all files in '$dir' <yes/no>?"
             read yesno
