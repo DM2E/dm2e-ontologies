@@ -37,7 +37,7 @@ public class Dm2e2EdmCLI {
 	// TODO HACK -- there is a thread-related issue resulting in no results from SPARQL queries on the model
 	// Probably has to do with static models for edm and dm2e in Dm2e2Edm. For now, reusing just one thread
 	// avoids the problem, slow though it is: ~ 33 Records per second on a quadcore 2.7ghz i7 => days for DM2E whole :(
-	private static final int	NUMBER_OF_THREADS	= 1;
+//	private static final int	NUMBER_OF_THREADS	= 1;
 
 //	private static final Logger log = LoggerFactory.getLogger(Dm2e2EdmCLI.class);
 
@@ -78,7 +78,7 @@ public class Dm2e2EdmCLI {
 		Path outputDir = Paths.get(outputDirStr);
 		
 		// Setup thread pool
-		ExecutorService threadPool = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+//		ExecutorService threadPool = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 //		ExecutorService threadPool = Executors.newCachedThreadPool();
 		
 		// Run !
@@ -99,19 +99,20 @@ public class Dm2e2EdmCLI {
 			Path curOut = Paths.get(outputDir.toString(), curIn.getFileName() + suffix );
 			System.out.print(String.format("[%d/%d] Converting %s -> %s.\r", ++cur, total, curIn, curOut));
 			Dm2e2Edm worker = new Dm2e2Edm(curIn, inFormat, curOut, outFormat);
-			threadPool.execute(worker);
+//			threadPool.execute(worker);
+			worker.run();
 		}
 		System.out.println();
-		System.out.println("Shutting down thread pool.");
-		threadPool.shutdown();
-		System.out.println("Shut down thread pool.");
-		try {
-			System.out.println("Wait for workers to finish.");
-			threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-			System.out.println("Workers finished.");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//		System.out.println("Shutting down thread pool.");
+//		threadPool.shutdown();
+//		System.out.println("Shut down thread pool.");
+//		try {
+//			System.out.println("Wait for workers to finish.");
+//			threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+//			System.out.println("Workers finished.");
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 		System.exit(0);
 	}
 
