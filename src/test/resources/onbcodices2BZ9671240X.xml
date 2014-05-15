@@ -1,0 +1,32 @@
+<rdf:RDF
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dm2e11="http://onto.dm2e.eu/schemas/dm2e/1.1/"
+    xmlns:edm="http://www.europeana.eu/schemas/edm/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:void="http://rdfs.org/ns/void#"
+    xmlns:j.0="http://rdvocab.info/ElementsGr2/"
+    xmlns:pro="http://purl.org/spar/pro/"
+    xmlns:j.1="http://www.cidoc-crm.org/cidoc-crm/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:bibo="http://purl.org/ontology/bibo/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:ore="http://www.openarchives.org/ore/terms/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:geo-pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+    xmlns:dm2e="http://onto.dm2e.eu/schemas/dm2e/">
+  <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/onb/codices/%2BZ9671240X">
+    <edm:dataProvider>
+      <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/onb/Austrian_National_Library">
+        <skos:prefLabel xml:lang="en">Austrian National Library</skos:prefLabel>
+      </foaf:Organization>
+    </edm:dataProvider>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >2011-12-02T00:00:00</dcterms:modified>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >2010-06-28T00:00:00</dcterms:created>
+    <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</dm2e:displayLevel>
+  </ore:Aggregation>
+</rdf:RDF>
