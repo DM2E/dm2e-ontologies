@@ -2,11 +2,15 @@ package dm2e2edm;
 
 import static org.fest.assertions.Assertions.*;
 
+import java.io.StringWriter;
+
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
 
 import eu.dm2e.NS;
 
@@ -17,18 +21,19 @@ public class Dm2e2EdmTest {
 	
 	@Test
 	public void testStatic() throws Exception {
-////		new Dm2e2Edm();
-//		final Model m = Dm2e2Edm.dm2eModel;
-//		log.debug("EDM props: {}", Dm2e2Edm.edmProperties);
-//		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.EDM.PROP_IS_NEXT_IN_SEQUENCE));
-//		log.debug(NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY);
-//		log.debug("{}", Dm2e2Edm.dm2eSuperProperties);
-//		log.debug("{}", Dm2e2Edm.dm2eSuperProperties.get(m.createProperty(NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY)));
-//		log.debug("{}", Dm2e2Edm.dm2eSuperProperties.get(m.createProperty(NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY)));
-//		log.debug("{}", Dm2e2Edm.dm2eSuperClasses.get(m.createResource(NS.FOAF.CLASS_PERSON)));
+//		new Dm2e2Edm();
+		final Model m = Dm2e2Edm.dm2eModel;
+		log.debug("EDM props: {}", Dm2e2Edm.edmProperties);
+		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.EDM.PROP_IS_NEXT_IN_SEQUENCE));
+		log.debug(NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY);
+		log.debug("{}", Dm2e2Edm.dm2eSuperProperties);
+		log.debug("{}", Dm2e2Edm.dm2eSuperProperties.get(m.createProperty(NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY)));
+		log.debug("{}", Dm2e2Edm.dm2eSuperProperties.get(m.createProperty(NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY)));
+		log.debug("{}", Dm2e2Edm.dm2eSuperClasses.get(m.createResource(NS.FOAF.CLASS_PERSON)));
+		log.debug("{}", Dm2e2Edm.dm2eSuperProperties.get(m.createResource(NS.DC.PROP_DATE)));
 //		log.debug("{}", Dm2e2Edm.SparqlQueries.SELECT_GET_LITERAL.getQuery());
-////		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY));
-////		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY));
+//		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY));
+//		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY));
 	}
 	
 //	@Test
@@ -63,5 +68,25 @@ public class Dm2e2EdmTest {
 //		Dm2e2Edm convert = new Dm2e2Edm("http://localhost:9997/dm2e-direct/sparql", is, os);
 //		convert.convertDumptoEdm();
 //	}
+	
+	@Test
+	public void testHasMetInAggregation()
+			throws Exception {
+		Model inputModel = ModelFactory.createDefaultModel();
+		Model outputModel = ModelFactory.createDefaultModel();
+		Resource agg = inputModel.createResource("http://agg1");
+		agg.addProperty(inputModel.createProperty(NS.RDF.PROP_TYPE), inputModel.createResource(NS.ORE.CLASS_AGGREGATION));
+		// allowed
+		agg.addLiteral(inputModel.createProperty(NS.EDM.PROP_DATA_PROVIDER), "DM2E");
+		// forbidden
+		agg.addLiteral(inputModel.createProperty(NS.DCTERMS.PROP_MODIFIED), "2010");
+		
+		Dm2e2Edm dm2e2edm = new Dm2e2Edm(inputModel, outputModel);
+		dm2e2edm.run();
+		StringWriter sw = new StringWriter();
+		outputModel.write(sw);
+		log.debug(sw.toString());
+		assertThat(outputModel.contains(agg, outputModel.createProperty(NS.DC.PROP_DATE))).isFalse();
+	}
 
 }
