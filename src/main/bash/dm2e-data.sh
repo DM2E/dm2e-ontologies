@@ -121,6 +121,7 @@ action_list_datasets() {
     echo "" > $DATASET_LIST
     for i in $result;do
         i=$(strip_brackets $i)
+        echo $i
         echo $i >> $DATASET_LIST
     done
     echo "Written list of datasets to '$DATASET_LIST'"
@@ -129,9 +130,9 @@ action_list_datasets() {
 action_list_aggregations() {
     ensure_DATASET
     ensure_AGGREGATIONS_LIST
-    if [[ -s $AGGREGATIONS_LIST && -z "$PURGE" ]];then
-        usage "$AGGREGATIONS_LIST exists and is not empty. Delete and run again to recreate or use --purge"
-    fi
+    # if [[ -s $AGGREGATIONS_LIST && -z "$PURGE" ]];then
+    #     usage "$AGGREGATIONS_LIST exists and is not empty. Delete and run again to recreate or use --purge"
+    # fi
     echo "" > $AGGREGATIONS_LIST
     echo "Getting all aggregations in <$DATASET>"
     execute_sparql "SELECT-list-aggregations-in-dataset" --bind "g" "<$DATASET>" 2>/dev/null|sed '1d' > $AGGREGATIONS_LIST
@@ -139,6 +140,7 @@ action_list_aggregations() {
     sed -i 's/^<//' $AGGREGATIONS_LIST
     sed -i 's/>$//' $AGGREGATIONS_LIST
     echo "List of aggregations written to $AGGREGATIONS_LIST"
+    echo "$(wc -l $AGGREGATIONS_LIST|cut -d' ' -f1) Aggregations found"
 }
 
 action_dump_aggregations() {
@@ -148,13 +150,13 @@ action_dump_aggregations() {
     if [[ ! -s $AGGREGATIONS_LIST ]];then
         usage "$AGGREGATIONS_LIST exists but is empty."
     fi
-    local total=$(wc -l $AGGREGATIONS_LIST)
+    local total=$(wc -l "$AGGREGATIONS_LIST"|cut -d' ' -f1 )
     local cur=0
     for i in $(cat $AGGREGATIONS_LIST);do
         out_filename="$IN_DIR/$(clean_uri $i).xml"
         execute_sparql "CONSTRUCT-transitivie-closure" --bind 'agg' "<$i>" --bind 'g' "<$DATASET>" --format "xml" 2>/dev/null > $out_filename
         cur=$(( $cur + 1 ))
-        echo -ne "\r[$cur / $total] Dumped <$i> to $out_filename          "
+        echo -ne "[$cur / $total] Dumped <$i> to $out_filename\r"
     done
     echo
 }
