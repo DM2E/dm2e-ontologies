@@ -1,5 +1,6 @@
 package eu.dm2e.utils;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -38,7 +39,7 @@ public class Dm2e2EdmCLI {
 	// avoids the problem, slow though it is: ~ 33 Records per second on a quadcore 2.7ghz i7 => days for DM2E whole :(
 	private static final int	NUMBER_OF_THREADS	= 1;
 
-	private static final Logger log = LoggerFactory.getLogger(Dm2e2EdmCLI.class);
+//	private static final Logger log = LoggerFactory.getLogger(Dm2e2EdmCLI.class);
 
 	private static final String	DEFAULT_IN_FORMAT	= "RDF/XML";
 	private static final String	DEFAULT_OUT_FORMAT	= "RDF/XML";
@@ -82,21 +83,25 @@ public class Dm2e2EdmCLI {
 		
 		// Run !
 		Iterator<Path> inputFileIterator = null;
+		long total = 0;
 		try {
 			inputFileIterator = Files.newDirectoryStream(inputDir).iterator();
+			total = inputDir.toFile().listFiles().length;
 		} catch (IOException e) {
 			dieHelpfully("Couldn't list the input files");
 		}
+		int cur = 0;
 		while (inputFileIterator.hasNext()) {
 			Path curIn = inputFileIterator.next();
 			if (! Files.isRegularFile(curIn)) {
 				continue;
 			}
 			Path curOut = Paths.get(outputDir.toString(), curIn.getFileName() + suffix );
-			System.out.println(String.format("Converting %s --> %s", curIn, curOut));
+			System.out.print(String.format("[%d/%d] Converting %s -> %s.\r", ++cur, total, curIn, curOut));
 			Dm2e2Edm worker = new Dm2e2Edm(curIn, inFormat, curOut, outFormat);
 			threadPool.execute(worker);
 		}
+		System.out.println();
 		System.out.println("Shutting down thread pool.");
 		threadPool.shutdown();
 		System.out.println("Shut down thread pool.");
