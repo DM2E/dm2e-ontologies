@@ -364,10 +364,10 @@ public class Dm2e2Edm implements Runnable {
 			if (rs.hasNext()) {
 				ret = rs.next().get("val").asLiteral().getLexicalForm();
 			} else {
-				System.err.println("+*************+");
-				System.err.println("|*** ERROR ***|");
-				System.err.println(rdfTypeQuery.toString());
-				System.err.println("+*************+");
+//				System.err.println("+*************+");
+//				System.err.println("|*** ERROR ***|");
+//				System.err.println(rdfTypeQuery.toString());
+//				System.err.println("+*************+");
 			}
 		}
 		return ret;
