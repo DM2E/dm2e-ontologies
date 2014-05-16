@@ -12,7 +12,8 @@ CONSTRUCT {
             ?agg_o ?agg_o_p ?agg_o_o .  
         }
         OPTIONAL {
-            ?cho_o ?cho_o_p ?cho_o_o .  
+            ?cho_o ?cho_o_p ?cho_o_o . 
+	    FILTER ( NOT EXISTS { ?cho_o a edm:ProvidedCHO } ) 
         }
     }
 }
