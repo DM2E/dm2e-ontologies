@@ -1,0 +1,65 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dm2e11: <http://onto.dm2e.eu/schemas/dm2e/1.1/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix pro: <http://purl.org/spar/pro/> .
+@prefix j.0: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo-pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix dm2e: <http://onto.dm2e.eu/schemas/dm2e/> .
+
+<http://data.dm2e.eu/data/agent/mpiwg/rara/DM2E>
+    a foaf:Organization ;
+    skos:altLabel "Digitised Manuscripts to Europeana"@en ;
+    skos:prefLabel "DM2E"@en .
+
+<http://data.dm2e.eu/data/agent/mpiwg/rara/MPIWG>
+    a foaf:Organization ;
+    skos:prefLabel "Max Planck Institute for the History of Science"@en, "Max-Planck-Institut für Wissenschaftsgeschichte"@de .
+
+<http://data.dm2e.eu/data/aggregation/mpiwg/rara/MPIWG_D59WXSP9>
+    dm2e:displayLevel true ;
+    dcterms:created "2009-10-16T00:00:00"^^xsd:dateTime ;
+    edm:aggregatedCHO <http://data.dm2e.eu/data/item/mpiwg/rara/MPIWG_D59WXSP9> ;
+    edm:dataProvider <http://data.dm2e.eu/data/agent/mpiwg/rara/MPIWG> ;
+    edm:hasView <http://digilib.mpiwg-berlin.mpg.de/digitallibrary/servlet/Scaler?dw=50&fn=/permanent/library/9WDM4WA4/pageimg> ;
+    edm:isShownBy <http://digilib.mpiwg-berlin.mpg.de/digitallibrary/servlet/Scaler?dw=1000&fn=/permanent/library/9WDM4WA4/pageimg> ;
+    edm:provider <http://data.dm2e.eu/data/agent/mpiwg/rara/DM2E> ;
+    edm:rights <http://www.mpiwg-berlin.mpg.de/en/institute/licences.html> ;
+    a ore:Aggregation .
+
+<http://data.dm2e.eu/data/item/mpiwg/rara/MPIWG_D59WXSP9>
+    dm2e:levelOfHierarchy 1 ;
+    dc:identifier "MPIWGD59WXSP9", "escidoc80558" ;
+    dc:language "fr" ;
+    dc:title "Essai de cosmologie" ;
+    dc:type bibo:Book ;
+    dcterms:issued <http://data.dm2e.eu/data/timespan/mpiwg/rara/1751-01-01T00-00-00UG_1751-12-31T23-59-59UG> ;
+    edm:type "TEXT" ;
+    a edm:ProvidedCHO .
+
+<http://data.dm2e.eu/data/timespan/mpiwg/rara/1751-01-01T00-00-00UG_1751-12-31T23-59-59UG>
+    j.0:P79F.beginning_is_qualified_by "uncertainty_granularity" ;
+    j.0:P80F.end_is_qualified_by "uncertainty_granularity" ;
+    edm:begin "1751-01-01T00:00:00"^^xsd:dateTime ;
+    edm:end "1751-12-31T23:59:59"^^xsd:dateTime ;
+    a edm:timeSpan ;
+    skos:prefLabel "1751" .
+
+<http://digilib.mpiwg-berlin.mpg.de/digitallibrary/servlet/Scaler?dw=1000&fn=/permanent/library/9WDM4WA4/pageimg>
+    dc:description "Digilib View of Essai de cosmologie" ;
+    dc:format "image/jpeg" ;
+    edm:rights "http://www.mpiwg-berlin.mpg.de/en/institute/licences.html" .
+
+<http://digilib.mpiwg-berlin.mpg.de/digitallibrary/servlet/Scaler?dw=50&fn=/permanent/library/9WDM4WA4/pageimg>
+    dc:description "Thumbnail of Essai de cosmologie" ;
+    dc:format "image/jpeg" ;
+    edm:rights "http://www.mpiwg-berlin.mpg.de/en/institute/licences.html" .
+
