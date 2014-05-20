@@ -436,21 +436,26 @@ public class Dm2e2Edm implements Runnable {
 				final String endYear = end.substring(0,4);
 				final String beginDM = begin.substring(5,10);
 				final String endDM = end.substring(5,10);
-				if (beginYear.equals(endYear)
-						&&
-						beginDM.equals("01-01")
-						&&
-						endDM.equals("12-31")) {
-					//						outputModel.add(targetSubject, targetProp, outputModel.createTypedLiteral(beginYear, XSDDatatype.XSDgYear));
-					outputModel.add(targetSubject, targetProp, outputModel.createLiteral(beginYear));
-					skipSet.add(res);
+				if (beginYear.equals(endYear)) {
+					if (beginDM.equals("01-01") && endDM.equals("12-31")) {
+						outputModel.add(targetSubject, targetProp, outputModel.createLiteral(beginYear));
+						skipSet.add(res);
+					} else if (beginDM.equals(endDM)) {
+						outputModel.add(targetSubject, targetProp, outputModel.createLiteral(end.substring(0,10)));
+						skipSet.add(res);
+					}
 				}
 			} else {
 				log.error("Bad Timespan!");
 			}
 			skipGeneric = true;
 //			}
-		} else if (targetObject.isLiteral() && targetObject.asLiteral().getDatatype() !=null &&  targetObject.asLiteral().getDatatypeURI().equals(NS.XSD.DATETIME)) {
+		} else if (targetObject.isLiteral() 
+				&& (
+//						(targetObject.asLiteral().getDatatype() !=null &&  targetObject.asLiteral().getDatatypeURI().equals(NS.XSD.DATETIME))
+//						||
+						targetObject.asLiteral().getLexicalForm().matches("\\d{4}-\\d{2}-\\d{2}.*")
+                    )) {
 			//
 			// xsd:datetime -> xsd:date
 			//

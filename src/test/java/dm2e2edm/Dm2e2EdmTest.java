@@ -108,6 +108,20 @@ public class Dm2e2EdmTest {
 		m.write(sw, "TURTLE");
 		log.debug(sw.toString());
 	}
+
+	@Test
+	public void testUntypedDateTime() throws Exception {
+		Path inFile = Paths.get(Dm2e2Edm.class.getResource("/sbb-kpe-DE-611-HS-1778887.ttl").toURI());
+		Path outFile = Paths.get(inFile.toString() + ".out.xml");
+		Dm2e2Edm dm2e2Edm = new Dm2e2Edm(inFile, "TURTLE", outFile, "RDF/XML");
+		dm2e2Edm.run();
+
+		Model m = ModelFactory.createDefaultModel();
+		m.read(outFile.toFile().toURL().openStream(), null, "RDF/XML");
+		StringWriter sw = new StringWriter();
+		m.write(sw, "TURTLE");
+		log.debug(sw.toString());
+	}
 	
 	@Test
 	public void testOneYearTimespan() throws Exception {

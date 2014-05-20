@@ -1,0 +1,168 @@
+@prefix edm:   <http://www.europeana.eu/schemas/edm/> .
+@prefix dm2e:  <http://onto.dm2e.eu/schemas/dm2e/> .
+@prefix omnom_types: <http://onto.dm2e.eu/omnom-types/> .
+@prefix rdaGr2: <http://rdvocab.info/ElementsGr2/> .
+@prefix ore:   <http://www.openarchives.org/ore/terms/> .
+@prefix geonames: <http://www.geonames.org/ontology#> .
+@prefix meta:  <http://example.org/metadata#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prvTypes: <http://purl.org/net/provenance/types#> .
+@prefix tei2edm: <http://sbb.spk-berlin.de/dm2e/tei2edm> .
+@prefix dbpedia: <http://localhost:8080/resource/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix crm:   <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dm2e11: <http://onto.dm2e.eu/schemas/dm2e/1.1/> .
+@prefix prv:   <http://purl.org/net/provenance/ns#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ir:    <http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix geo:   <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix yago:  <http://localhost:8080/class/yago/> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix units: <http://dbpedia.org/units/> .
+@prefix omnom: <http://onto.dm2e.eu/omnom/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix p:     <http://localhost:8080/property/> .
+@prefix bibo:  <http://purl.org/ontology/bibo/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix pro:   <http://purl.org/spar/pro/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix xalan: <http://xml.apache.org/xalan> .
+@prefix dm2e_unofficial: <http://onto.dm2e.eu/UNOFFICIAL/> .
+
+<http://data.dm2e.eu/data/item/sbb/kpe/DE-611-HS-1778887_2>
+        a             edm:ProvidedCHO ;
+        dct:isPartOf  <http://data.dm2e.eu/data/item/sbb/kpe/DE-611-HS-1778887> .
+
+<http://ngcs.staatsbibliothek-berlin.de/?action=metsImage&format=jpg&metsFile=PPN769823610&divID=PHYS_0001&rotate=0>
+        a           edm:WebResource ;
+        dc:format   "image/jpeg" ;
+        edm:rights  <http://creativecommons.org/licenses/by-nc/3.0/> .
+
+<http://data.dm2e.eu/data/item/sbb/kpe/DE-611-HS-1778887>
+        a                        edm:ProvidedCHO ;
+        dm2e:composer            <http://data.dm2e.eu/data/agent/sbb/authority_gnd/13565789X> ;
+        dm2e:holdingInstitution  <http://data.dm2e.eu/data/agent/sbb/kpe/Haus%20Potsdamer%20Stra%C3%9Fe%20Staatsbibliothek%20zu%20Berlin%20-%20Preu%C3%9Fischer%20Kulturbesitz> ;
+        dm2e:levelOfHierarchy    1 ;
+        dm2e:mentioned           <http://data.dm2e.eu/data/agent/sbb/kpe/Rohde> , <http://data.dm2e.eu/data/agent/sbb/kpe/Adelaide%20Palm> , <http://data.dm2e.eu/data/agent/sbb/authority_gnd/119209349> , <http://data.dm2e.eu/data/agent/sbb/kpe/M%C3%B6ller> , <http://data.dm2e.eu/data/agent/sbb/kpe/Martiny> , <http://data.dm2e.eu/data/agent/sbb/authority_gnd/1020292792> , <http://data.dm2e.eu/data/agent/sbb/kpe/Damerow> , <http://data.dm2e.eu/data/agent/sbb/authority_gnd/116487615> , <http://data.dm2e.eu/data/agent/sbb/authority_gnd/103088040> , <http://data.dm2e.eu/data/agent/sbb/authority_gnd/102029387X> , <http://data.dm2e.eu/data/agent/sbb/kpe/Ida%20Miz> , <http://data.dm2e.eu/data/agent/sbb/kpe/Schulze%20%3CFamilie%3E> , <http://data.dm2e.eu/data/agent/sbb/authority_gnd/1020292377> ;
+        dm2e:writtenAt           <http://data.dm2e.eu/data/place/sbb/kpe/Greifswald> ;
+        dc:description           "Adelbert von Chamisso, Gustav Schwab (Hg.): Deutscher Musenalmanach [erwähntes Werk] Lyrik, Genie, Dichterberuf, Kopie, Kupferstich, Genrebild, Freundschaftsbeziehungen, bürgerliches Leben, Geselligkeit, Frauenrolle, Redaktion, Chamisso (Redakteur), Chamisso (Lyriker) [Schlagwörter]"@de ;
+        dc:identifier            "Nachl. Adelbert von Chamisso, K. 26, Nr. 30, Bl. 14-15" ;
+        dc:language              "de" ;
+        dc:title                 "Brief von Sophie Borries an Adelbert von Chamisso und Antonie von Chamisso"@de ;
+        dc:type                  bibo:Letter ;
+        dct:temporal             <http://data.dm2e.eu/data/timespan/sbb/kpe/1833-08-29T000000_1833-08-29T235959> ;
+        bibo:recipient           <http://data.dm2e.eu/data/agent/sbb/authority_gnd/1020220821> , <http://data.dm2e.eu/data/agent/sbb/authority_gnd/118520040> ;
+        void:inDataset           <http://data.dm2e.eu/data/dataset/sbb/kpe/20140506162712118> ;
+        edm:type                 "TEXT" .
+
+<http://data.dm2e.eu/data/agent/sbb/authority_gnd/116487615>
+        a               foaf:Person ;
+        owl:sameAs      <http://d-nb.info/gnd/116487615> ;
+        skos:prefLabel  "Johanna Schneider" .
+
+<http://data.dm2e.eu/data/agent/sbb/authority_gnd/1020220821>
+        a               foaf:Person ;
+        owl:sameAs      <http://d-nb.info/gnd/1020220821> ;
+        skos:prefLabel  "Antonie von Chamisso" .
+
+<http://data.dm2e.eu/data/item/sbb/kpe/DE-611-HS-1778887_1>
+        a             edm:ProvidedCHO ;
+        dct:isPartOf  <http://data.dm2e.eu/data/item/sbb/kpe/DE-611-HS-1778887> .
+
+<http://data.dm2e.eu/data/agent/sbb/authority_gnd/1020292377>
+        a               foaf:Person ;
+        owl:sameAs      <http://d-nb.info/gnd/1020292377> ;
+        skos:prefLabel  "Adolph von Chamisso" .
+
+<http://data.dm2e.eu/data/place/sbb/kpe/Greifswald>
+        a               edm:Place ;
+        skos:prefLabel  "Greifswald" .
+
+<http://data.dm2e.eu/data/agent/sbb/authority_gnd/1020292792>
+        a               foaf:Person ;
+        owl:sameAs      <http://d-nb.info/gnd/1020292792> ;
+        skos:prefLabel  "Ernst von Chamisso" .
+
+<http://data.dm2e.eu/data/agent/sbb/kpe/Schulze%20%3CFamilie%3E>
+        a               foaf:Person ;
+        skos:prefLabel  "Schulze <Familie>" .
+
+<http://data.dm2e.eu/data/agent/sbb/kpe/Ida%20Miz>
+        a               foaf:Person ;
+        skos:prefLabel  "Ida Miz" .
+
+<http://data.dm2e.eu/data/agent/sbb/authority_gnd/118520040>
+        a               foaf:Person ;
+        owl:sameAs      <http://d-nb.info/gnd/118520040> ;
+        skos:prefLabel  "Adelbert von Chamisso" .
+
+<http://data.dm2e.eu/data/agent/sbb/kpe/M%C3%B6ller>
+        a               foaf:Person ;
+        skos:prefLabel  "Möller" .
+
+<http://data.dm2e.eu/data/agent/sbb/kpe/Martiny>
+        a               foaf:Person ;
+        skos:prefLabel  "Martiny" .
+
+<http://data.dm2e.eu/data/agent/sbb/authority_gnd/103088040>
+        a               foaf:Person ;
+        owl:sameAs      <http://d-nb.info/gnd/103088040> ;
+        skos:prefLabel  "Theodor Parow" .
+
+<http://data.dm2e.eu/data/item/sbb/kpe/DE-611-HS-1778887_5>
+        a             edm:ProvidedCHO ;
+        dct:isPartOf  <http://data.dm2e.eu/data/item/sbb/kpe/DE-611-HS-1778887> .
+
+<http://data.dm2e.eu/data/item/sbb/kpe/DE-611-HS-1778887_4>
+        a             edm:ProvidedCHO ;
+        dct:isPartOf  <http://data.dm2e.eu/data/item/sbb/kpe/DE-611-HS-1778887> .
+
+<http://data.dm2e.eu/data/timespan/sbb/kpe/1833-08-29T000000_1833-08-29T235959>
+        a               edm:TimeSpan ;
+        edm:begin       "1833-08-29T00:00:00" ;
+        edm:end         "1833-08-29T23:59:59" ;
+        skos:prefLabel  "29.08.1833" .
+
+<http://data.dm2e.eu/data/agent/sbb/authority_gnd/119209349>
+        a               foaf:Person ;
+        owl:sameAs      <http://d-nb.info/gnd/119209349> ;
+        skos:prefLabel  "Julius Eduard Hitzig" .
+
+<http://data.dm2e.eu/data/agent/sbb/authority_gnd/102029387X>
+        a               foaf:Person ;
+        owl:sameAs      <http://d-nb.info/gnd/102029387X> ;
+        skos:prefLabel  "Max von Chamisso" .
+
+<http://data.dm2e.eu/data/aggregation/sbb/kpe/DE-611-HS-1778887>
+        a                  ore:Aggregation ;
+        dm2e:displayLevel  true ;
+        void:inDataset     <http://data.dm2e.eu/data/dataset/sbb/kpe/20140506162712118> ;
+        edm:aggregatedCHO  <http://data.dm2e.eu/data/item/sbb/kpe/DE-611-HS-1778887> ;
+        edm:dataProvider   <http://data.dm2e.eu/data/agent/sbb/kpe/Verbundkatalog%20Kalliope> ;
+        edm:hasView        <http://resolver.staatsbibliothek-berlin.de/SBB0000FF3700000000> ;
+        edm:isShownAt      <http://resolver.staatsbibliothek-berlin.de/SBB0000FF3700000000> ;
+        edm:object         <http://ngcs.staatsbibliothek-berlin.de/?action=metsImage&format=jpg&metsFile=PPN769823610&divID=PHYS_0001&rotate=0> ;
+        edm:provider       <http://data.dm2e.eu/data/agent/DM2E> ;
+        edm:rights         <http://creativecommons.org/licenses/by-nc/3.0/> .
+
+<http://data.dm2e.eu/data/item/sbb/kpe/DE-611-HS-1778887_3>
+        a             edm:ProvidedCHO ;
+        dct:isPartOf  <http://data.dm2e.eu/data/item/sbb/kpe/DE-611-HS-1778887> .
+
+<http://data.dm2e.eu/data/agent/sbb/kpe/Rohde>
+        a               foaf:Person ;
+        skos:prefLabel  "Rohde" .
+
+<http://data.dm2e.eu/data/agent/sbb/kpe/Adelaide%20Palm>
+        a               foaf:Person ;
+        skos:prefLabel  "Adelaide Palm" .
+
+<http://data.dm2e.eu/data/agent/sbb/kpe/Damerow>
+        a               foaf:Person ;
+        skos:prefLabel  "Damerow" .
