@@ -599,7 +599,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 					validate_edm_TimeSpan(m, thing.asResource(), report);
 				} else if (thing.isLiteral()) {
 					if (thing.asLiteral().getDatatypeURI() == null) {
-						report.add(ValidationLevel.NOTICE,
+						report.add(ValidationLevel.FATAL,
 								ValidationProblemCategory.UNTYPED_LITERAL,
 								res,
 								prop);
