@@ -410,10 +410,18 @@ public class Dm2e2Edm implements Runnable {
 		boolean skipGeneric = false;
 		if (targetObject.isResource() && targetProp.getURI().equals(NS.EDM.PROP_PROVIDER)) {
 			//
+			// HACK
 			// Hard-code edm:provider to DM2E (Some providers didn't specify a skos:prefLabel here)
 			//
 			outputModel.add(targetSubject, targetProp, "DM2E");
 			skipSet.add(targetObject.asResource());
+			skipGeneric = true;
+		} else if (targetProp.getURI().equals(NS.EDM.PROP_TYPE)) {
+			//
+			// HACK
+			// Hard-code edm:type to "TEXT" (Some providers had the case wrong)
+			//
+			outputModel.add(targetSubject, targetProp, "TEXT");
 			skipGeneric = true;
 		} else if (getRdfTypes(targetSubject).contains(res(NS.ORE.CLASS_AGGREGATION)) 
 				&& (
