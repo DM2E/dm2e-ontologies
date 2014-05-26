@@ -175,7 +175,6 @@ action_cleanup_edm() {
     total=$(ls $OUT_DIR/*.xml|wc -l|cut -d' ' -f1)
     for i in $OUT_DIR/*.xml;do
 
-
         out_filename="$CLEAN_DIR/$(basename $i)"
 
         cur=$(( $cur + 1 ))
@@ -193,6 +192,7 @@ action_cleanup_edm() {
         # remove temp files
         rm $tmpfile
     done
+    echo
 }
 
 action_batch_dump() {
