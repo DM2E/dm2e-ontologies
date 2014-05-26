@@ -18,6 +18,7 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.cache.Cache;
 import com.google.common.io.Resources;
 import com.hp.hpl.jena.query.ParameterizedSparqlString;
 import com.hp.hpl.jena.query.QueryExecution;
@@ -92,10 +93,6 @@ public class Dm2e2Edm implements Runnable {
 	public static final Map<Resource,LinkedHashSet<Resource>> dm2eSuperClasses = new HashMap<Resource, LinkedHashSet<Resource>>();
 
 	private final static Resource OWL_THING = edmModel.createResource(NS.OWL.THING);
-	private final static Resource RDFS_LITERAL = edmModel.createResource(NS.RDFS.CLASS_LITERAL);
-	private static final Resource	SKOS_CONCEPT	= edmModel.createResource(NS.SKOS.CLASS_CONCEPT);
-	private static final Resource	EDM_AGENT	= edmModel.createResource(NS.EDM.CLASS_AGENT);
-	private static final Property	SKOS_PREF_LABEL	= edmModel.createProperty(NS.SKOS.PROP_PREF_LABEL);
 	private static final Resource[] prettyTypes = {
 		edmModel.createResource(NS.ORE.CLASS_AGGREGATION),
 		edmModel.createResource(NS.EDM.CLASS_AGENT),
@@ -245,6 +242,7 @@ public class Dm2e2Edm implements Runnable {
 	private final Path inputFile;
 	private final Properties configProps;
 	private final Set<Resource> skipSet = new HashSet<>();
+	private final Set<String> skosPrefLabelCache = new HashSet<>();
 	
 	public Dm2e2Edm(Model inputModel, Model outputModel) {
 		this.inputModel = inputModel;
@@ -505,6 +503,13 @@ public class Dm2e2Edm implements Runnable {
 			//
 			outputModel.add(targetSubject, outputModel.createProperty(NS.SKOS.PROP_EXACT_MATCH), targetObject);
 			skipGeneric = true;
+		} else if (targetProp.getURI().equals(NS.SKOS.PROP_PREF_LABEL) && targetObject.isLiteral()) {
+			String key = targetSubject.getURI() + targetObject.asLiteral().getLanguage();
+			if (skosPrefLabelCache.contains(key)) {
+				targetProp = outputModel.createProperty(NS.SKOS.PROP_ALT_LABEL);
+			} else {
+				skosPrefLabelCache.add(key);
+			}
 		} else if (targetObject.isResource()
 				&& inputModel.contains(targetObject.asResource(), inputModel.createProperty(NS.OWL.SAME_AS))) {
 			//

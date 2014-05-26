@@ -15,6 +15,8 @@ import org.slf4j.LoggerFactory;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 
 import eu.dm2e.NS;
@@ -91,6 +93,7 @@ public class Dm2e2EdmTest {
 		StringWriter sw = new StringWriter();
 		outputModel.write(sw);
 		log.debug(sw.toString());
+		assertThat(outputModel.contains(agg, outputModel.createProperty(NS.RDF.PROP_TYPE))).isTrue();
 		assertThat(outputModel.contains(agg, outputModel.createProperty(NS.DC.PROP_DATE))).isFalse();
 	}
 
@@ -132,14 +135,33 @@ public class Dm2e2EdmTest {
 
 		log.debug("{}", outFile);
 		Model m = ModelFactory.createDefaultModel();
-		m.read(outFile.toFile().toURL().openStream(), null, "RDF/XML");
+		m.read(outFile.toFile().toURI().toURL().openStream(), null, "RDF/XML");
 		StringWriter sw = new StringWriter();
 		m.write(sw, "TURTLE");
 		log.debug(sw.toString());
 		
-//		final Resource cho = m.createResource("http://data.dm2e.eu/data/item/mpiwg/rara/MPIWG_D59WXSP");
-//		assertThat(cho.hasProperty(m.createProperty(NS.DCTERMS.PROP_ISSUED))).isTrue();
-//		assertThat(cho.hasProperty(m.createProperty(NS.DC.PROP_SOURCE), cho)).isTrue();
-//		assertThat(cho.hasProperty(m.createProperty(NS.DCTERMS.PROP_ISSUED), m.createLiteral("1751"))).isTrue();
+		final Resource cho = m.createResource("http://data.dm2e.eu/data/item/mpiwg/rara/MPIWG_D59WXSP9");
+		assertThat(m.containsResource(cho));
+		assertThat(cho.hasProperty(m.createProperty(NS.DCTERMS.PROP_ISSUED), m.createLiteral("1751"))).isTrue();
+		assertThat(cho.hasProperty(m.createProperty(NS.EDM.PROP_HAS_TYPE), m.createLiteral("Book")));
+	}
+	
+	@Test
+	public void testMultipleSkosPrefLabel() throws Exception {
+		
+		Model m = ModelFactory.createDefaultModel();
+		Model out = ModelFactory.createDefaultModel();
+
+		m.read(Dm2e2EdmTest.class.getResourceAsStream("/multipleSkosPrefLabelExample.ttl"), "", "TURTLE");
+
+		Dm2e2Edm dm2e2Edm = new Dm2e2Edm(m, out);
+		dm2e2Edm.run();
+
+		final Property skosPrefLabel = m.createProperty(NS.SKOS.PROP_PREF_LABEL);
+		final Property skosAltLabel = m.createProperty(NS.SKOS.PROP_ALT_LABEL);
+		assertThat(m.listStatements(null, skosPrefLabel, (RDFNode)null).toList().size()).isEqualTo(3);
+		assertThat(m.listStatements(null, skosAltLabel, (RDFNode)null).toList().size()).isEqualTo(0);
+		assertThat(out.listStatements(null, skosPrefLabel, (RDFNode)null).toList().size()).isEqualTo(1);
+		assertThat(out.listStatements(null, skosAltLabel, (RDFNode)null).toList().size()).isEqualTo(2);
 	}
 }
