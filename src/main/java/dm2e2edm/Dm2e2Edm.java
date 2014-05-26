@@ -18,11 +18,13 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.cache.Cache;
 import com.google.common.io.Resources;
 import com.hp.hpl.jena.query.ParameterizedSparqlString;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
@@ -91,10 +93,6 @@ public class Dm2e2Edm implements Runnable {
 	public static final Map<Resource,LinkedHashSet<Resource>> dm2eSuperClasses = new HashMap<Resource, LinkedHashSet<Resource>>();
 
 	private final static Resource OWL_THING = edmModel.createResource(NS.OWL.THING);
-	private final static Resource RDFS_LITERAL = edmModel.createResource(NS.RDFS.CLASS_LITERAL);
-	private static final Resource	SKOS_CONCEPT	= edmModel.createResource(NS.SKOS.CLASS_CONCEPT);
-	private static final Resource	EDM_AGENT	= edmModel.createResource(NS.EDM.CLASS_AGENT);
-	private static final Property	SKOS_PREF_LABEL	= edmModel.createProperty(NS.SKOS.PROP_PREF_LABEL);
 	private static final Resource[] prettyTypes = {
 		edmModel.createResource(NS.ORE.CLASS_AGGREGATION),
 		edmModel.createResource(NS.EDM.CLASS_AGENT),
@@ -244,6 +242,7 @@ public class Dm2e2Edm implements Runnable {
 	private final Path inputFile;
 	private final Properties configProps;
 	private final Set<Resource> skipSet = new HashSet<>();
+	private final Set<String> skosPrefLabelCache = new HashSet<>();
 	
 	public Dm2e2Edm(Model inputModel, Model outputModel) {
 		this.inputModel = inputModel;
@@ -348,21 +347,26 @@ public class Dm2e2Edm implements Runnable {
 	private final synchronized Property res(String uri) {
 		return inputModel.createProperty(uri);
 	}
+	
+	private final synchronized String getLiteralString(RDFNode res, Property prop) {
+		Literal lit = getLiteral(res, prop);
+		return null != lit ? lit.getLexicalForm() : "";
+	}
 
-	private final synchronized String getLiteral(RDFNode res, Property prop) {
-		String ret = "";
+	private final synchronized Literal getLiteral(RDFNode res, Property prop) {
+		Literal ret = null;
 		if (! res.isResource()) {
 			log.trace("Resource {} is not a resource. Skipping.", res);
 		} else {
 			ParameterizedSparqlString rdfTypeQuery = SparqlQueries.SELECT_GET_LITERAL.getQuery();
 			rdfTypeQuery.setParam("res", res.asResource());
 			rdfTypeQuery.setParam("prop", prop);
-			log.debug(rdfTypeQuery.toString());
+//			log.debug(rdfTypeQuery.toString());
 			QueryExecution qExec = QueryExecutionFactory.create(rdfTypeQuery.asQuery(), inputModel);
 			qExec.setTimeout(10000);
 			ResultSet rs = qExec.execSelect();
 			if (rs.hasNext()) {
-				ret = rs.next().get("val").asLiteral().getLexicalForm();
+				ret = rs.next().get("val").asLiteral();
 			} else {
 //				System.err.println("+*************+");
 //				System.err.println("|*** ERROR ***|");
@@ -404,10 +408,18 @@ public class Dm2e2Edm implements Runnable {
 		boolean skipGeneric = false;
 		if (targetObject.isResource() && targetProp.getURI().equals(NS.EDM.PROP_PROVIDER)) {
 			//
+			// HACK
 			// Hard-code edm:provider to DM2E (Some providers didn't specify a skos:prefLabel here)
 			//
 			outputModel.add(targetSubject, targetProp, "DM2E");
 			skipSet.add(targetObject.asResource());
+			skipGeneric = true;
+		} else if (targetProp.getURI().equals(NS.EDM.PROP_TYPE)) {
+			//
+			// HACK
+			// Hard-code edm:type to "TEXT" (Some providers had the case wrong)
+			//
+			outputModel.add(targetSubject, targetProp, "TEXT");
 			skipGeneric = true;
 		} else if (getRdfTypes(targetSubject).contains(res(NS.ORE.CLASS_AGGREGATION)) 
 				&& (
@@ -428,8 +440,8 @@ public class Dm2e2Edm implements Runnable {
 			// Turn one-year timespans into xsd:gYear literals 
 			//
 			Resource res = targetObject.asResource();
-			String begin = getLiteral(res, res(NS.EDM.PROP_BEGIN));
-			String end = getLiteral(res, res(NS.EDM.PROP_END));
+			String begin = getLiteralString(res, res(NS.EDM.PROP_BEGIN));
+			String end = getLiteralString(res, res(NS.EDM.PROP_END));
 //			if ("true".equals(configProps.getProperty("shortenYear", "true"))) {
 			if (null != begin && null != end && begin.length() >= 10 && end.length() >= 10) {
 				final String beginYear = begin.substring(0,4);
@@ -464,22 +476,24 @@ public class Dm2e2Edm implements Runnable {
 			targetObject = inputModel.createLiteral(newVal);
 			outputModel.add(targetSubject, targetProp, targetObject);
 			skipGeneric = true;
-		} else if (targetProp.equals(NS.DC.PROP_TYPE)) {
+		} else if (targetProp.getURI().equals(NS.DC.PROP_TYPE)) {
 			//
+			// TODO possibly make configurable
 			// dc:type -> lastUriSegment -> edm:hasType
 			//
 			outputModel.add(targetSubject, outputModel.createProperty(NS.EDM.PROP_HAS_TYPE), lastUriSegment(targetObject.toString()));
+			skipSet.add(targetSubject.asResource());
 			skipGeneric = true;
 		} else if (targetObject.isResource() && targetProp.getURI().equals(NS.EDM.PROP_DATA_PROVIDER)) {
 			//
 			// edm:provider and edm:dataProvider -> skos:prefLabel
 			//
-			String prefLabel = getLiteral(targetObject, inputModel.createProperty(NS.SKOS.PROP_PREF_LABEL));
-			if ("".equals(prefLabel)) {
+			Literal prefLabelLiteral = getLiteral(targetObject, inputModel.createProperty(NS.SKOS.PROP_PREF_LABEL));
+			if (null == prefLabelLiteral) {
 				log.error("No skos:prefLabel for dataProvider <%s>", targetObject);
-				return;
-			} 
-			outputModel.add(targetSubject, targetProp, prefLabel);
+			} else { 
+				outputModel.add(targetSubject, targetProp, prefLabelLiteral);
+			}
 			skipSet.add(targetObject.asResource());
 			skipGeneric = true;
 		} else if (targetProp.getURI().equals(NS.OWL.SAME_AS)
@@ -489,6 +503,13 @@ public class Dm2e2Edm implements Runnable {
 			//
 			outputModel.add(targetSubject, outputModel.createProperty(NS.SKOS.PROP_EXACT_MATCH), targetObject);
 			skipGeneric = true;
+		} else if (targetProp.getURI().equals(NS.SKOS.PROP_PREF_LABEL) && targetObject.isLiteral()) {
+			String key = targetSubject.getURI() + targetObject.asLiteral().getLanguage();
+			if (skosPrefLabelCache.contains(key)) {
+				targetProp = outputModel.createProperty(NS.SKOS.PROP_ALT_LABEL);
+			} else {
+				skosPrefLabelCache.add(key);
+			}
 		} else if (targetObject.isResource()
 				&& inputModel.contains(targetObject.asResource(), inputModel.createProperty(NS.OWL.SAME_AS))) {
 			//
@@ -518,8 +539,21 @@ public class Dm2e2Edm implements Runnable {
 		
 		log.debug("PROP: {}", targetProp.getURI());
 
-		if (!skipGeneric)
-			outputModel.add(targetSubject, targetProp, targetObject);
+		if (!skipGeneric) {
+		
+			// NOTE: Strip all rdf:datatypes, Europeana cannot handle them :(
+			if (targetObject.isLiteral() && targetObject.asLiteral().getDatatype() != null) {
+				Literal cleanedLiteral;
+				if (targetObject.asLiteral().getLanguage().equals("")) {
+					cleanedLiteral = outputModel.createLiteral(targetObject.asLiteral().getLexicalForm());
+				} else {
+					cleanedLiteral = outputModel.createLiteral(targetObject.asLiteral().getLexicalForm(), targetObject.asLiteral().getLanguage());
+				}
+				outputModel.add(targetSubject, targetProp, cleanedLiteral);
+			} else {
+				outputModel.add(targetSubject, targetProp, targetObject);
+			}
+		}
 		
 	}
 //	private void addToTarget(Resource targetSubject, Property targetProp, String targetObject) {

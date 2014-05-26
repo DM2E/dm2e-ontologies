@@ -8,6 +8,7 @@ import java.lang.annotation.Target;
 
 
 
+
 import com.hp.hpl.jena.rdf.model.AnonId;
 
 /**
@@ -484,6 +485,7 @@ public final class NS {
 		public static final String PROP_PREF_LABEL = BASE + "prefLabel";
 		public static final String CLASS_CONCEPT	= BASE + "Concept";
 		public static final String PROP_EXACT_MATCH	= BASE + "exactMatch";
+		public static final String PROP_ALT_LABEL	= BASE + "altLabel";
 	}
 
 	/**
