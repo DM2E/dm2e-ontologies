@@ -23,6 +23,7 @@ import com.hp.hpl.jena.query.ParameterizedSparqlString;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
@@ -348,21 +349,26 @@ public class Dm2e2Edm implements Runnable {
 	private final synchronized Property res(String uri) {
 		return inputModel.createProperty(uri);
 	}
+	
+	private final synchronized String getLiteralString(RDFNode res, Property prop) {
+		Literal lit = getLiteral(res, prop);
+		return null != lit ? lit.getLexicalForm() : "";
+	}
 
-	private final synchronized String getLiteral(RDFNode res, Property prop) {
-		String ret = "";
+	private final synchronized Literal getLiteral(RDFNode res, Property prop) {
+		Literal ret = null;
 		if (! res.isResource()) {
 			log.trace("Resource {} is not a resource. Skipping.", res);
 		} else {
 			ParameterizedSparqlString rdfTypeQuery = SparqlQueries.SELECT_GET_LITERAL.getQuery();
 			rdfTypeQuery.setParam("res", res.asResource());
 			rdfTypeQuery.setParam("prop", prop);
-			log.debug(rdfTypeQuery.toString());
+//			log.debug(rdfTypeQuery.toString());
 			QueryExecution qExec = QueryExecutionFactory.create(rdfTypeQuery.asQuery(), inputModel);
 			qExec.setTimeout(10000);
 			ResultSet rs = qExec.execSelect();
 			if (rs.hasNext()) {
-				ret = rs.next().get("val").asLiteral().getLexicalForm();
+				ret = rs.next().get("val").asLiteral();
 			} else {
 //				System.err.println("+*************+");
 //				System.err.println("|*** ERROR ***|");
@@ -428,8 +434,8 @@ public class Dm2e2Edm implements Runnable {
 			// Turn one-year timespans into xsd:gYear literals 
 			//
 			Resource res = targetObject.asResource();
-			String begin = getLiteral(res, res(NS.EDM.PROP_BEGIN));
-			String end = getLiteral(res, res(NS.EDM.PROP_END));
+			String begin = getLiteralString(res, res(NS.EDM.PROP_BEGIN));
+			String end = getLiteralString(res, res(NS.EDM.PROP_END));
 //			if ("true".equals(configProps.getProperty("shortenYear", "true"))) {
 			if (null != begin && null != end && begin.length() >= 10 && end.length() >= 10) {
 				final String beginYear = begin.substring(0,4);
@@ -476,12 +482,12 @@ public class Dm2e2Edm implements Runnable {
 			//
 			// edm:provider and edm:dataProvider -> skos:prefLabel
 			//
-			String prefLabel = getLiteral(targetObject, inputModel.createProperty(NS.SKOS.PROP_PREF_LABEL));
-			if ("".equals(prefLabel)) {
+			Literal prefLabelLiteral = getLiteral(targetObject, inputModel.createProperty(NS.SKOS.PROP_PREF_LABEL));
+			if (null == prefLabelLiteral) {
 				log.error("No skos:prefLabel for dataProvider <%s>", targetObject);
-				return;
-			} 
-			outputModel.add(targetSubject, targetProp, prefLabel);
+			} else { 
+				outputModel.add(targetSubject, targetProp, prefLabelLiteral);
+			}
 			skipSet.add(targetObject.asResource());
 			skipGeneric = true;
 		} else if (targetProp.getURI().equals(NS.OWL.SAME_AS)
@@ -520,8 +526,21 @@ public class Dm2e2Edm implements Runnable {
 		
 		log.debug("PROP: {}", targetProp.getURI());
 
-		if (!skipGeneric)
-			outputModel.add(targetSubject, targetProp, targetObject);
+		if (!skipGeneric) {
+		
+			// NOTE: Strip all rdf:datatypes, Europeana cannot handle them :(
+			if (targetObject.isLiteral() && targetObject.asLiteral().getDatatype() != null) {
+				Literal cleanedLiteral;
+				if (targetObject.asLiteral().getLanguage().equals("")) {
+					cleanedLiteral = outputModel.createLiteral(targetObject.asLiteral().getLexicalForm());
+				} else {
+					cleanedLiteral = outputModel.createLiteral(targetObject.asLiteral().getLexicalForm(), targetObject.asLiteral().getLanguage());
+				}
+				outputModel.add(targetSubject, targetProp, cleanedLiteral);
+			} else {
+				outputModel.add(targetSubject, targetProp, targetObject);
+			}
+		}
 		
 	}
 //	private void addToTarget(Resource targetSubject, Property targetProp, String targetObject) {
