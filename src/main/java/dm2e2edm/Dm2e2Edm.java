@@ -464,11 +464,13 @@ public class Dm2e2Edm implements Runnable {
 			targetObject = inputModel.createLiteral(newVal);
 			outputModel.add(targetSubject, targetProp, targetObject);
 			skipGeneric = true;
-		} else if (targetProp.equals(NS.DC.PROP_TYPE)) {
+		} else if (targetProp.getURI().equals(NS.DC.PROP_TYPE)) {
 			//
+			// TODO possibly make configurable
 			// dc:type -> lastUriSegment -> edm:hasType
 			//
 			outputModel.add(targetSubject, outputModel.createProperty(NS.EDM.PROP_HAS_TYPE), lastUriSegment(targetObject.toString()));
+			skipSet.add(targetSubject.asResource());
 			skipGeneric = true;
 		} else if (targetObject.isResource() && targetProp.getURI().equals(NS.EDM.PROP_DATA_PROVIDER)) {
 			//
