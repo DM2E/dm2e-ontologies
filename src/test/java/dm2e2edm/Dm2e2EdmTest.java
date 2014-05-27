@@ -175,6 +175,5 @@ public class Dm2e2EdmTest {
 		assertThat(out.listStatements(null, skosPrefLabel, (RDFNode)null).toList().size()).isEqualTo(1);
 		assertThat(out.listStatements(null, skosAltLabel, (RDFNode)null).toList().size()).isEqualTo(2);
 		
-		final StaticLoggerBinder binder = StaticLoggerBinder.getSingleton();
 	}
 }

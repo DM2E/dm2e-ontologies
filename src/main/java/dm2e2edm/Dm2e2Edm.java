@@ -87,6 +87,7 @@ public class Dm2e2Edm implements Runnable {
 	public static final Map<String,String> nsPrefixes = new HashMap<>();
 	public static final Model edmModel = ModelFactory.createDefaultModel();
 	public static final Model dm2eModel = ModelFactory.createDefaultModel();;
+	public static final Model dcTypesModel = ModelFactory.createDefaultModel();;
 
 	public static final Set<Resource> edmProperties = new HashSet<>();
 	public static final Map<Resource,LinkedHashSet<Resource>> dm2eSuperProperties = new HashMap<Resource, LinkedHashSet<Resource>>();
@@ -111,12 +112,14 @@ public class Dm2e2Edm implements Runnable {
 		nsPrefixes.put("dcterms", NS.DCTERMS.BASE);
 		nsPrefixes.put("dc", NS.DC.BASE);
 		nsPrefixes.put("dm2e", NS.DM2E_UNVERSIONED.BASE);
+		nsPrefixes.put("vocab-status", "http://www.w3.org/2003/06/sw-vocab-status/ns#");
 
 		System.setProperty("http.maxConnections", String.valueOf(100));
 		
 		// Read ontologies
 		edmModel.read(Dm2e2Edm.class.getResourceAsStream("/edm/edm.owl"), null, "RDF/XML");
 		dm2eModel.read(Dm2e2Edm.class.getResourceAsStream("/dm2e-model/DM2Ev1.1.owl"), null, "RDF/XML");
+		dcTypesModel.read(Dm2e2Edm.class.getResourceAsStream("/dm2e-model/skos_Concepts_DM2E.xml"), null, "RDF/XML");
 
 		buildEdmProperties();
 		buildDm2eSuperProperties();
@@ -486,14 +489,16 @@ public class Dm2e2Edm implements Runnable {
 			targetObject = inputModel.createLiteral(newVal);
 			outputModel.add(targetSubject, targetProp, targetObject);
 			skipGeneric = true;
-		} else if (targetProp.getURI().equals(NS.DC.PROP_TYPE)) {
-			//
-			// TODO possibly make configurable
+		} else if (targetObject.isResource() && targetProp.getURI().equals(NS.DC.PROP_TYPE)) {
 			// dc:type -> lastUriSegment -> edm:hasType
-			//
 			outputModel.add(targetSubject, outputModel.createProperty(NS.EDM.PROP_HAS_TYPE), lastUriSegment(targetObject.toString()));
-			skipSet.add(targetSubject.asResource());
-			skipGeneric = true;
+			
+			// Now add the data about the dc:type class here
+			StmtIterator iter = dcTypesModel.listStatements(targetObject.asResource(), null, (RDFNode)null);
+			while (iter.hasNext()) {
+				outputModel.add(iter.next());
+			}
+			
 		} else if (targetObject.isResource() && targetProp.getURI().equals(NS.EDM.PROP_DATA_PROVIDER)) {
 			//
 			// edm:provider and edm:dataProvider -> skos:prefLabel

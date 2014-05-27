@@ -7,6 +7,7 @@
     xmlns:foaf="http://xmlns.com/foaf/0.1/"
     xmlns:ore="http://www.openarchives.org/ore/terms/"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
     <skos:Concept rdf:about="http://purl.org/ontology/bibo/Book">
         <skos:prefLabel xml:lang="en">Book</skos:prefLabel>
