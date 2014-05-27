@@ -277,7 +277,7 @@ public class Dm2e2Edm implements Runnable {
 
 	private synchronized void convertResourceInInputModel(Resource res) {
 		
-		log.debug("Converting <{}>", res);
+//		log.debug("Converting <{}>", res);
 		StmtIterator stmtIter = inputModel.listStatements(res, null, (RDFNode)null);
 		if (stmtIter.hasNext()) {
 
@@ -290,11 +290,13 @@ public class Dm2e2Edm implements Runnable {
 			}
 			if (null == origType) {
 				log.debug("Resource {} has no rdf:type. Skipping.", res);
+				skipSet.add(res);
 				return;
 			}
 			Set<Resource> superTypes = dm2eSuperClasses.get(origType);
 			if (null == superTypes || superTypes.isEmpty()) {
 				log.debug("No EDM type for DM2E type {}", origType);
+				skipSet.add(res);
 				return;
 			} else {
 				for (Resource thisSuperType : superTypes) {
@@ -401,7 +403,7 @@ public class Dm2e2Edm implements Runnable {
 	private synchronized void addToTarget(Resource targetSubject, Property targetProp, RDFNode targetObject) {
 //		log.debug("STMT");
 //		log.debug("  S: {}", targetSubject);
-		log.debug("  P: {}", targetProp);
+//		log.debug("  P: {}", targetProp);
 //		log.debug("  O: {}", targetObject);
 
 		
@@ -444,22 +446,30 @@ public class Dm2e2Edm implements Runnable {
 			String end = getLiteralString(res, res(NS.EDM.PROP_END));
 //			if ("true".equals(configProps.getProperty("shortenYear", "true"))) {
 			if (null != begin && null != end && begin.length() >= 10 && end.length() >= 10) {
+//				log.debug("TIMESTAMP");
 				final String beginYear = begin.substring(0,4);
 				final String endYear = end.substring(0,4);
 				final String beginDM = begin.substring(5,10);
 				final String endDM = end.substring(5,10);
 				if (beginYear.equals(endYear)) {
+					// one year timespan
 					if (beginDM.equals("01-01") && endDM.equals("12-31")) {
+//						log.debug("ONEYEAR TIMESTAMP");
 						outputModel.add(targetSubject, targetProp, outputModel.createLiteral(beginYear));
 						skipSet.add(res);
+						skipGeneric = true;
+					// one day timespan
 					} else if (beginDM.equals(endDM)) {
+//						log.debug("ONEDAY TIMESTAMP");
 						outputModel.add(targetSubject, targetProp, outputModel.createLiteral(end.substring(0,10)));
 						skipSet.add(res);
+						skipGeneric = true;
 					}
 				}
 			} else {
 				log.error("Bad Timespan!");
 			}
+			log.error("SKIPPING " + res);
 			skipGeneric = true;
 //			}
 		} else if (targetObject.isLiteral() 
@@ -537,7 +547,7 @@ public class Dm2e2Edm implements Runnable {
 			}
 		}
 		
-		log.debug("PROP: {}", targetProp.getURI());
+//		log.debug("PROP: {}", targetProp.getURI());
 
 		if (!skipGeneric) {
 		
@@ -584,11 +594,11 @@ public class Dm2e2Edm implements Runnable {
 		ArrayList<Resource> resList = new ArrayList<Resource>();
 		{
 			ResIterator iter = inputModel.listSubjectsWithProperty(inputModel.createProperty(NS.RDF.PROP_TYPE), inputModel.createResource(NS.ORE.CLASS_AGGREGATION));
-			if (iter.hasNext()) resList.add(iter.next());
+			while (iter.hasNext()) resList.add(iter.next());
 		}
 		{
 			ResIterator iter = inputModel.listSubjectsWithProperty(inputModel.createProperty(NS.RDF.PROP_TYPE), inputModel.createResource(NS.EDM.CLASS_PROVIDED_CHO));
-			if (iter.hasNext()) resList.add(iter.next());
+			while (iter.hasNext()) resList.add(iter.next());
 		}
 		{
 			ResIterator iter = inputModel.listSubjects();
@@ -598,8 +608,11 @@ public class Dm2e2Edm implements Runnable {
 		}
 		for (Resource res : resList) {
 			if (!skipSet.contains(res)) {
+				log.debug("CURRENT RESOURCE " + res);
 				convertResourceInInputModel(res);
 				skipSet.add(res);
+			} else  {
+//				log.debug("SKIP CURRENT RESOURCE " + res);
 			}
 		}
 //		log.debug("IN: {}", inputModel.size());
