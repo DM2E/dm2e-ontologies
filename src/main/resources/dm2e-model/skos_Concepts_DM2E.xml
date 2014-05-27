@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:dm2e="http://onto.dm2e.eu/schemas/dm2e/"
+    xmlns:edm="http://www.europeana.eu/schemas/edm/"
+    xmlns:vocabstatus="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:ore="http://www.openarchives.org/ore/terms/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <skos:Concept rdf:about="http://purl.org/ontology/bibo/Book">
+        <skos:prefLabel xml:lang="en">Book</skos:prefLabel>
+        <rdfs:label xml:lang="en">Book</rdfs:label>
+        <rdfs:comment xml:lang="en">A written or printed work of fiction or nonfiction, usually on sheets of paper fastened or bound together within covers.</rdfs:comment>
+        <rdfs:isDefinedBy>http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <vocabstatus:term_status>stable</vocabstatus:term_status>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://purl.org/ontology/bibo/Issue">
+        <skos:prefLabel xml:lang="en">Issue</skos:prefLabel>
+        <rdfs:label xml:lang="en">Issue</rdfs:label>
+        <rdfs:comment xml:lang="en">something that is printed or published and distributed, esp. a given number of a periodical</rdfs:comment>
+        <rdfs:isDefinedBy>http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <vocabstatus:term_status>stable</vocabstatus:term_status>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://purl.org/ontology/bibo/Journal">
+        <skos:prefLabel xml:lang="en">Journal</skos:prefLabel>
+        <rdfs:label xml:lang="en">Journal</rdfs:label>
+        <rdfs:comment xml:lang="en">A periodical of scholarly journal Articles.</rdfs:comment>
+        <rdfs:isDefinedBy>http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <vocabstatus:term_status>stable</vocabstatus:term_status>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://purl.org/ontology/bibo/Letter">
+        <skos:prefLabel xml:lang="en">Letter</skos:prefLabel>
+        <rdfs:label xml:lang="en">Letter</rdfs:label>
+        <rdfs:comment xml:lang="en">A written or printed communication addressed to a person or organization and usually transmitted by mail.</rdfs:comment>
+        <rdfs:isDefinedBy>http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <vocabstatus:term_status>stable</vocabstatus:term_status>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://purl.org/ontology/bibo/Series">
+        <skos:prefLabel xml:lang="en">Series</skos:prefLabel>
+        <rdfs:label xml:lang="en">Series</rdfs:label>
+        <rdfs:comment xml:lang="en">A loose, thematic, collection of Documents, often Books.</rdfs:comment>
+        <rdfs:isDefinedBy>http://purl.org/ontology/bibo/</rdfs:isDefinedBy>
+        <vocabstatus:term_status>stable</vocabstatus:term_status>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://onto.dm2e.eu/schemas/dm2e/Document">
+        <skos:prefLabel xml:lang="en">Document</skos:prefLabel>
+        <rdfs:label>Document</rdfs:label>
+        <rdfs:comment>ProvidedCHO of type document. Unlike foaf:Document, dm2e:Document refers to a physical document.</rdfs:comment>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://onto.dm2e.eu/schemas/dm2e/File">
+        <skos:prefLabel xml:lang="en">File</skos:prefLabel>
+        <rdfs:label>File</rdfs:label>
+        <rdfs:comment>Archival Item.</rdfs:comment>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://onto.dm2e.eu/schemas/dm2e/Manuscript">
+        <skos:prefLabel xml:lang="en">Manuscript</skos:prefLabel>
+        <rdfs:label>Manuscript</rdfs:label>
+        <rdfs:comment>ProvidedCHO of type manuscript, e.g. Wittgensteins brown book. Not equivalent to bibo:Manuscript. Not equivalent to bibo:Manuscript.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://onto.dm2e.eu/schemas/dm2e/Page">
+        <skos:prefLabel xml:lang="en">Page</skos:prefLabel>
+        <rdfs:label>Page</rdfs:label>
+        <rdfs:comment>A sheet of paper. Can be part of another CHO, e.g. dm2e:Manuscript.</rdfs:comment>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://onto.dm2e.eu/schemas/dm2e/Paragraph">
+        <skos:prefLabel xml:lang="en">Paragraph</skos:prefLabel>
+        <rdfs:label>Paragraph</rdfs:label>
+        <rdfs:comment>ProvidedCHO of type paragraph. Can be part of another (textual) CHO, e.g. dm2e:Manuscript.</rdfs:comment>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://onto.dm2e.eu/schemas/dm2e/Publication">
+        <skos:prefLabel xml:lang="en">Publication</skos:prefLabel>
+        <rdfs:label>Publication</rdfs:label>
+        <rdfs:comment>ProvidedCHO of type publication.</rdfs:comment>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://onto.dm2e.eu/schemas/dm2e/Work">
+        <skos:prefLabel xml:lang="en">Work</skos:prefLabel>
+        <rdfs:label>Work</rdfs:label>
+        <rdfs:comment>A non-physical piece of work of an agent, e.g. the theoretical concept of a manuscript.</rdfs:comment>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://purl.org/spar/fabio/Article">
+        <rdfs:label xml:lang="en">article</rdfs:label>
+        <skos:prefLabel xml:lang="en">Article</skos:prefLabel>
+        <rdfs:comment xml:lang="en">The realization of a piece of writing on a particular topic, usually published within a periodical publication (e.g. journal, magazine and newspaper).</rdfs:comment>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://purl.org/spar/fabio/Chapter">
+        <skos:prefLabel xml:lang="en">Chapter</skos:prefLabel>
+        <rdfs:label xml:lang="en">chapter</rdfs:label>
+        <rdfs:comment xml:lang="en">A defined document section, forming part of or intended for inclusion within a larger document, usually with its own title or chapter number.  Different chapters within a document such as a book or a report may each be independently authored, or may all be authored by a single individual or group of authors.</rdfs:comment>
+    </skos:Concept>
+    <skos:Concept rdf:about="http://purl.org/spar/fabio/Cover">
+        <skos:prefLabel xml:lang="en">Cover</skos:prefLabel>
+        <rdfs:label xml:lang="en">cover</rdfs:label>
+        <rdfs:comment xml:lang="en">A protective covering used to bind together the pages of a document or the first, informative, page of a digital document.</rdfs:comment>
+    </skos:Concept>
+</rdf:RDF>
