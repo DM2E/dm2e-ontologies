@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.impl.StaticLoggerBinder;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -120,10 +121,20 @@ public class Dm2e2EdmTest {
 		dm2e2Edm.run();
 
 		Model m = ModelFactory.createDefaultModel();
-		m.read(outFile.toFile().toURL().openStream(), null, "RDF/XML");
-		StringWriter sw = new StringWriter();
-		m.write(sw, "TURTLE");
-		log.debug(sw.toString());
+		m.read(outFile.toFile().toURI().toURL().openStream(), null, "RDF/XML");
+//		StringWriter sw = new StringWriter();
+//		m.write(sw, "TURTLE");
+//		log.debug(sw.toString());
+		assertThat(m.contains(null, prop(m, NS.DC.PROP_COVERAGE), "1833-08-29")).isTrue();
+		assertThat(m.contains(null, prop(m, NS.RDF.PROP_TYPE), res(m, NS.EDM.CLASS_TIMESPAN))).isFalse();
+	}
+
+	private Resource res(Model m, String res) {
+		return m.createResource(res);
+	}
+
+	private Property prop(Model m, String propUri) {
+		return m.createProperty(propUri);
 	}
 	
 	@Test
@@ -163,5 +174,7 @@ public class Dm2e2EdmTest {
 		assertThat(m.listStatements(null, skosAltLabel, (RDFNode)null).toList().size()).isEqualTo(0);
 		assertThat(out.listStatements(null, skosPrefLabel, (RDFNode)null).toList().size()).isEqualTo(1);
 		assertThat(out.listStatements(null, skosAltLabel, (RDFNode)null).toList().size()).isEqualTo(2);
+		
+		final StaticLoggerBinder binder = StaticLoggerBinder.getSingleton();
 	}
 }
