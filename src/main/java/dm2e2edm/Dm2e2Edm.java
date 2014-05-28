@@ -472,8 +472,8 @@ public class Dm2e2Edm implements Runnable {
 			} else {
 				log.error("Bad Timespan!");
 			}
-			log.error("SKIPPING " + res);
-			skipGeneric = true;
+//			log.error("SKIPPING " + res);
+//			skipGeneric = true;
 //			}
 		} else if (targetObject.isLiteral() 
 				&& (
