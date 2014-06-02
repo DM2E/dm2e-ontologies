@@ -172,7 +172,7 @@ action_cleanup_edm() {
     ensure_CLEAN_DIR
 
     cur=0
-    total=$(ls $OUT_DIR/*.xml|wc -l|cut -d' ' -f1)
+    total=$(ls $OUT_DIR/*.{xml,rdf}|wc -l|cut -d' ' -f1)
     for i in $OUT_DIR/*.xml;do
 
         out_filename="$CLEAN_DIR/$(basename $i)"
