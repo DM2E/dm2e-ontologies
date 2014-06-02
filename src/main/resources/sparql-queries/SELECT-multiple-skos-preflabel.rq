@@ -1,0 +1,14 @@
+SELECT 
+DISTINCT 
+?person
+WHERE { 
+    GRAPH <http://data.dm2e.eu/data/dataset/uber/dingler/20140407153034950>
+    {
+        ?person rdf:type foaf:Person .
+        ?person skos:prefLabel ?label1 .
+        ?person skos:prefLabel ?label2 .
+        FILTER( ?label1 != ?label2 )
+    }
+} 
+ORDER BY (?person)
+LIMIT 10
