@@ -557,6 +557,16 @@ public class Dm2e2Edm implements Runnable {
 						outputModel.add(targetSubject, targetProp, sameAsRes);
 						skipGeneric = true;
 						skipSet.add(targetObject.asResource());
+						//
+						// Also skip all the resources that were being linked to by the obsolete local agent
+						//
+//						StmtIterator resIter = inputModel.listStatements(targetObject.asResource(), null, (RDFNode)null);
+//						while (resIter.hasNext()) {
+//							RDFNode res = resIter.next().getObject();
+//							if (res.isResource()) {
+//								skipSet.add(res.asResource());
+//							}
+//						}
 						break SAME_AS_LOOP;
 					}
 				}
