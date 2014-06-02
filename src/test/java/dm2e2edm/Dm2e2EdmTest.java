@@ -9,6 +9,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,22 +40,39 @@ public class Dm2e2EdmTest {
 		log.debug("{}", Dm2e2Edm.dm2eSuperProperties.get(m.createProperty(NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY)));
 		log.debug("{}", Dm2e2Edm.dm2eSuperClasses.get(m.createResource(NS.FOAF.CLASS_PERSON)));
 		log.debug("{}", Dm2e2Edm.dm2eSuperProperties.get(m.createResource(NS.DC.PROP_DATE)));
+		log.debug("{}", Dm2e2Edm.dcTypesModel.size());
+		assertThat(Dm2e2Edm.dcTypesModel.contains(res(m, NS.DM2E_UNVERSIONED.CLASS_MANUSCRIPT), null, (RDFNode)null)).isTrue();
 //		log.debug("{}", Dm2e2Edm.SparqlQueries.SELECT_GET_LITERAL.getQuery());
 //		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.CRM.PROP_P80F_END_IS_QUALIFIED_BY));
 //		assertThat(Dm2e2Edm.edmProperties).contains(Dm2e2Edm.edmModel.createResource(NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY));
 	}
 	
-//	@Test
-//	public void testConvert() throws Exception {
-//		Model test = ModelFactory.createDefaultModel();
-//		Model ret = ModelFactory.createDefaultModel();
-//		test.read(Dm2e2Edm.class.getResourceAsStream("/dingler_example-new.ttl"), null, "TURTLE");
-//		Dm2e2Edm dm2e2edm = new Dm2e2Edm(test, ret);
-//		dm2e2edm.convertDm2eModelToEdmModel();
-//		StringWriter sw = new StringWriter();
-//		ret.write(sw, "TURTLE");
-//		log.debug("{}", sw.toString());
-//	}
+	@Test
+	public void testConvert() throws Exception {
+		Model test = ModelFactory.createDefaultModel();
+		Model ret = ModelFactory.createDefaultModel();
+		test.read(Dm2e2Edm.class.getResourceAsStream("/dingler_example-new.ttl"), null, "TURTLE");
+		Dm2e2Edm dm2e2edm = new Dm2e2Edm(test, ret);
+		dm2e2edm.run();
+		StringWriter sw = new StringWriter();
+		ret.write(sw, "TURTLE");
+		log.debug("{}", sw.toString());
+		assertThat(ret.contains(null, prop(ret, NS.EDM.PROP_HAS_VIEW))).isFalse();
+	}
+
+	@Test
+	@Ignore("WONTFIX because dm2e:hasAnnotatableVersion is a subproperty of edm:hasView")
+	public void testIssue105() throws Exception {
+		Model test = ModelFactory.createDefaultModel();
+		Model ret = ModelFactory.createDefaultModel();
+		test.read(Dm2e2Edm.class.getResourceAsStream("/uberdinglerarticle_pj001_ar001001.xml"), null, "RDF/XML");
+		Dm2e2Edm dm2e2edm = new Dm2e2Edm(test, ret);
+		dm2e2edm.run();
+		StringWriter sw = new StringWriter();
+		ret.write(sw, "TURTLE");
+		log.debug("{}", sw.toString());
+		assertThat(ret.contains(null, prop(ret, NS.EDM.PROP_HAS_VIEW))).isFalse();
+	}
 //	
 //	@Test
 //	public void testSuperClasses()

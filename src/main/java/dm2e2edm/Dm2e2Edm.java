@@ -18,7 +18,6 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.cache.Cache;
 import com.google.common.io.Resources;
 import com.hp.hpl.jena.query.ParameterizedSparqlString;
 import com.hp.hpl.jena.query.QueryExecution;
@@ -316,6 +315,9 @@ public class Dm2e2Edm implements Runnable {
 				outputModel.add(res, res(NS.DC.PROP_SOURCE), res);
 			}
 			
+			//
+			// Walk the statements
+			//
 			while (stmtIter.hasNext()) {
 				Statement stmt = stmtIter.next();
 				Property prop = stmt.getPredicate();
@@ -335,6 +337,7 @@ public class Dm2e2Edm implements Runnable {
 					boolean foundSuper = false;
 					for (Resource superProp : dm2eSuperProperties.get(prop))
 						if (edmProperties.contains(superProp)) {
+							log.debug("SUPER PROP {} --> {}", prop, superProp);
 							targetProp = outputModel.createProperty(superProp.getURI());
 							foundSuper = true;
 							break;
@@ -410,7 +413,9 @@ public class Dm2e2Edm implements Runnable {
 //		log.debug("  O: {}", targetObject);
 
 		
+		// If this flag is set, skip adding the statement using the generic solution 
 		boolean skipGeneric = false;
+
 		if (targetObject.isResource() && targetProp.getURI().equals(NS.EDM.PROP_PROVIDER)) {
 			//
 			// HACK
@@ -513,12 +518,17 @@ public class Dm2e2Edm implements Runnable {
 			skipGeneric = true;
 		} else if (targetProp.getURI().equals(NS.OWL.SAME_AS)
 					&& getRdfTypes(targetSubject.asResource()).contains(res(NS.SKOS.CLASS_CONCEPT))) {
+
 			//
 			// If prop is owl:sameAs and rdf:type of subject is skos:Concept, replace owl:sameAs with skos:exactMatch
 			//
 			outputModel.add(targetSubject, outputModel.createProperty(NS.SKOS.PROP_EXACT_MATCH), targetObject);
 			skipGeneric = true;
 		} else if (targetProp.getURI().equals(NS.SKOS.PROP_PREF_LABEL) && targetObject.isLiteral()) {
+
+			//
+			// Make sure that every thing in the output graph has at most 1 skos:prefLabel
+			//
 			String key = targetSubject.getURI() + targetObject.asLiteral().getLanguage();
 			if (skosPrefLabelCache.contains(key)) {
 				targetProp = outputModel.createProperty(NS.SKOS.PROP_ALT_LABEL);
@@ -527,6 +537,7 @@ public class Dm2e2Edm implements Runnable {
 			}
 		} else if (targetObject.isResource()
 				&& inputModel.contains(targetObject.asResource(), inputModel.createProperty(NS.OWL.SAME_AS))) {
+
 			//
 			// If object is owl:sameAs as something else and that something else is either a GND or VIAF link:
 			// don't link to the object but the the GND or VIAF URI.
@@ -552,8 +563,11 @@ public class Dm2e2Edm implements Runnable {
 			}
 		}
 		
-//		log.debug("PROP: {}", targetProp.getURI());
+		log.debug("PROP: {}", targetProp.getURI());
 
+		//
+		// Generic copying of statements from input to outpu
+		//
 		if (!skipGeneric) {
 		
 			// NOTE: Strip all rdf:datatypes, Europeana cannot handle them :(
@@ -599,12 +613,26 @@ public class Dm2e2Edm implements Runnable {
 		ArrayList<Resource> resList = new ArrayList<Resource>();
 		{
 			ResIterator iter = inputModel.listSubjectsWithProperty(inputModel.createProperty(NS.RDF.PROP_TYPE), inputModel.createResource(NS.ORE.CLASS_AGGREGATION));
-			while (iter.hasNext()) resList.add(iter.next());
+			while (iter.hasNext()) {
+				final Resource agg = iter.next();
+				StmtIterator choIter = agg.listProperties(inputModel.createProperty(NS.EDM.PROP_AGGREGATED_CHO));
+				if (choIter.hasNext()) {
+					Resource cho = choIter.next().getObject().asResource();
+					
+					// Skip Pages, #104
+					if (inputModel.contains(cho, inputModel.createProperty(NS.DC.PROP_TYPE), inputModel.createResource(NS.DM2E_UNVERSIONED.CLASS_PAGE))) {
+						continue;
+					}
+
+					resList.add(agg);
+					resList.add(cho);
+				}
+			}
 		}
-		{
-			ResIterator iter = inputModel.listSubjectsWithProperty(inputModel.createProperty(NS.RDF.PROP_TYPE), inputModel.createResource(NS.EDM.CLASS_PROVIDED_CHO));
-			while (iter.hasNext()) resList.add(iter.next());
-		}
+//		{
+//			ResIterator iter = inputModel.listSubjectsWithProperty(inputModel.createProperty(NS.RDF.PROP_TYPE), inputModel.createResource(NS.EDM.CLASS_PROVIDED_CHO));
+//			while (iter.hasNext()) resList.add(iter.next());
+//		}
 		{
 			ResIterator iter = inputModel.listSubjects();
 			while (iter.hasNext()) {
