@@ -4,6 +4,7 @@
     xmlns:ore="http://www.openarchives.org/ore/terms/"
     xmlns:edm="http://www.europeana.eu/schemas/edm/"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
     version="1.0">
 
     <xsl:output method="xml" indent="yes"/>
@@ -29,6 +30,21 @@
                     <xsl:apply-templates select="dc:rights"/>
                     <xsl:apply-templates select="edm:rights"/>
                     <xsl:apply-templates select="edm:ugc"/>
+                </xsl:when>
+                <xsl:when test="name() = 'skos:Concept'">
+                    <xsl:apply-templates select="skos:prefLabel"/>
+                    <xsl:apply-templates select="skos:altLabel"/>
+                    <xsl:apply-templates select="skos:broader"/>
+                    <xsl:apply-templates select="skos:narrower"/>
+                    <xsl:apply-templates select="skos:related"/>
+                    <xsl:apply-templates select="skos:broadMatch"/>  
+                    <xsl:apply-templates select="skos:narrowMatch"/>  
+                    <xsl:apply-templates select="skos:relatedMatch"/>
+                    <xsl:apply-templates select="skos:exactMatch"/>
+                    <xsl:apply-templates select="skos:closeMatch"/>
+                    <xsl:apply-templates select="skos:note"/>
+                    <xsl:apply-templates select="skos:notation"/>
+                    <xsl:apply-templates select="skos:inScheme"/>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:apply-templates select="*">
