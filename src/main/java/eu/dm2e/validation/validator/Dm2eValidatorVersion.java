@@ -16,6 +16,7 @@ public enum Dm2eValidatorVersion {
 	V_1_1_REV_1_5(Dm2eValidator_1_1_Rev_1_5.class),
 	V_1_1_REV_1_6(Dm2eValidator_1_1_Rev_1_6.class),
 	V_1_1_FINAL(Dm2eValidator_1_1_Rev_Final.class),
+	V_1_2_RC1(Dm2eValidator_1_2_RC1.class),
 	;
 	
 	public static Dm2eValidatorVersion forString(String versionStr) throws NoSuchFieldException 
@@ -79,10 +80,10 @@ public enum Dm2eValidatorVersion {
 			sb.append("}");
 		}
 		if (versions1_2.size() > 0) {
-			sb.append(" | 1.2_Rev{");
+			sb.append(" | 1.2_{");
 			int i = 0;
 			for (Dm2eValidatorVersion thisVersion : versions1_2) {
-				sb.append(thisVersion.getVersionString().substring(7));
+				sb.append(thisVersion.getVersionString().substring(4));
 				if (i++ < versions1_2.size() -1) sb.append("|");
 			}
 			sb.append("}");

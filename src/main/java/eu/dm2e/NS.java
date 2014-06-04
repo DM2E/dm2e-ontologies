@@ -725,6 +725,11 @@ public final class NS {
 		public static final String PROP_P79F_BEGINNING_IS_QUALIFIED_BY= BASE + "P79F.beginning_is_qualified_by";
 		public static final String PROP_P80F_END_IS_QUALIFIED_BY		= BASE + "P80F.end_is_qualified_by";
 	}
+	public static final class CRM_CORRECT {
+		public static final String BASE = "http://www.cidoc-crm.org/rdfs/";
+		public static final String PROP_P79F_BEGINNING_IS_QUALIFIED_BY= BASE + "P79F.beginning_is_qualified_by";
+		public static final String PROP_P80F_END_IS_QUALIFIED_BY		= BASE + "P80F.end_is_qualified_by";
+	}
 	public static final class OWL {
 		public static final String BASE = "http://www.w3.org/2002/07/owl#";
 		public static final String THING = BASE + "Thing";
