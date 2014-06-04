@@ -18,20 +18,20 @@ import eu.dm2e.validation.ValidationProblemCategory;
 import eu.dm2e.validation.ValidationTest;
 
 
-public class Dm2eValidator_1_2_RC1Test extends ValidationTest{
+public class Dm2eValidator_1_2_RC2Test extends ValidationTest{
 	
-	private static final Logger log = LoggerFactory.getLogger(Dm2eValidator_1_2_RC1Test.class);
+	private static final Logger log = LoggerFactory.getLogger(Dm2eValidator_1_2_RC2Test.class);
 
 	@Test
 	public void testCRM() throws Exception {
-		Dm2eValidator val = Dm2eValidatorVersion.V_1_2_RC1.getValidator();
-		log.info("OK WARNING: Old CRM Namespace not allowed");
+		Dm2eValidator val = Dm2eValidatorVersion.V_1_2_RC2.getValidator();
+		log.info("OK FATAL: Old CRM Namespace not allowed");
 		Model m = ModelFactory.createDefaultModel();
 		final Resource res = res(m, "http://foo");
 		m.add(res, prop(m, NS.CRM.PROP_P79F_BEGINNING_IS_QUALIFIED_BY), m.createLiteral("fuzzy"));
 		Dm2eValidationReport report = val.validateWithDm2e(m);
 		log.debug(report.toString());
 		containsCategory(report, ValidationProblemCategory.FORBIDDEN_PROPERTY);
-		assertThat(report.getHighestLevel()).isEqualTo(ValidationLevel.WARNING);
+		assertThat(report.getHighestLevel()).isEqualTo(ValidationLevel.FATAL);
 	}
 }
