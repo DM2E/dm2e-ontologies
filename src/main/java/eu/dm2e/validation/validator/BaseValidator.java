@@ -377,7 +377,8 @@ abstract public class BaseValidator implements Dm2eValidator {
 		ret.add("\r");
 		ret.add("\n");
 		ret.add("\t");
-		ret.add(":");
+// Allowed as of Fri Jun 13 10:43:31 CEST 2014
+//		ret.add(":");
 		ret.add("[");
 		ret.add("]");
 		ret.add("!");

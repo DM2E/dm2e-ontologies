@@ -465,7 +465,6 @@ http://www.dm2e.eu</foaf:homepage>
     <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/hasAnnotatableVersionAt">
         <scopeNote xml:lang="en">The property dm2e:hasAnnotatableVersionAt holds an URL which leads to an HTML representation or to an image of the content, i.e. of the CHO aggregated by the current Aggregation. The URL of the HTML content or image file must be stable. The type of the WebResource must be further specified as “text/html-named-content”, “text/plain”, &quot;text/html&quot;, “image/gif”, “image/jpeg” or “image/png”.</scopeNote>
         <rdfs:range rdf:resource="&edm;WebResource"/>
-        <rdfs:subPropertyOf rdf:resource="&edm;hasView"/>
         <rdfs:domain rdf:resource="&ore;Aggregation"/>
     </owl:ObjectProperty>
     
