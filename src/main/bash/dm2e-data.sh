@@ -25,6 +25,7 @@ usage() {
         cleanup-edm         Transform the EDM RDF/XML in \$OUT_DIR to prettier RDF/XML in \$CLEAN_DIR
         batch-dump          Combines 'list-datasets', 'list-aggregations' and 'dump-aggregations'
         batch-convert       Combines 'convert-to-edm' and 'cleanup-edm'
+        validate-edm        Validate the EDM RDF/XML in \$OUT_DIR to prettier RDF/XML in \$CLEAN_DIR
 "
     exit 1
 }
@@ -42,6 +43,7 @@ DEFAULT_DATASET_LIST="./dataset.lst"
 #---------
 SPARQL_DIR=$(realpath "../resources/sparql-queries")
 DM2E_EDM_JAR=$(realpath "../../../target/dm2e-edm-jar-with-dependencies.jar")
+EDM_VALIDATION_JAR=$(realpath "../../../../edm-validation/target/edm-validation-jar-with-dependencies.jar")
 IN_DIR="$DEFAULT_IN_DIR"
 OUT_DIR="$DEFAULT_OUT_DIR"
 CLEAN_DIR="$DEFAULT_CLEAN_DIR"
@@ -228,6 +230,22 @@ purge_if_necessary() {
     fi
 }
 
+action_validate_edm() {
+    ensure_OUT_DIR
+    echo "Validating the files in \$OUT_DIR"
+    java -jar $EDM_VALIDATION_JAR $OUT_DIR
+}
+
+
+
+
+
+
+
+
+
+
+
 ACTION=$1
 shift
 
@@ -307,6 +325,9 @@ case "$ACTION" in
         purge_if_necessary $OUT_DIR
         purge_if_necessary $CLEAN_DIR
         action_batch_convert
+        ;;
+    "validate-edm")
+        action_validate_edm
         ;;
     "help")
         usage
