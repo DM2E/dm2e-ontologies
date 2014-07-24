@@ -52,6 +52,16 @@ abstract public class BaseValidator implements Dm2eValidator {
 	// Store resources already validated so we don't validate twice
 	private Set<Resource>		alreadyValidated	= new HashSet<>();
 
+	// Whitelist of namespaces with generally allowed/unvalidated properties
+	private Set<String> namespaceWhiteList = new HashSet<String>();
+	
+	/**
+	 * @return the list of unvalidated namespaces, empty be default
+	 */
+	public Set<String> getNamespaceWhiteList() {
+		return namespaceWhiteList;
+	}
+
 	public BaseValidator() {
 
 		// Allowed properties
@@ -135,7 +145,7 @@ abstract public class BaseValidator implements Dm2eValidator {
 	public Set<String> getPropertyWhitelist() {
 		return propertyWhiteList;
 	}
-
+	
 	public Set<String> build_image_mimeType_List() {
 		return new HashSet<>();
 	}
@@ -333,7 +343,14 @@ abstract public class BaseValidator implements Dm2eValidator {
 		//
 		// Check for unknown properties
 		//
-		if (! propertyWhiteList.contains(prop.getURI())) {
+		boolean isWhitelisted = false;
+		for (String whiteListNS : namespaceWhiteList) {
+			if (prop.getURI().startsWith(whiteListNS)) {
+				isWhitelisted = true;
+				break;
+			}
+		}
+		if (! isWhitelisted && ! propertyWhiteList.contains(prop.getURI())) {
 			report.add(ValidationLevel.ERROR,
 					ValidationProblemCategory.UNKNOWN_PROPERTY,
 					res,
@@ -553,11 +570,20 @@ abstract public class BaseValidator implements Dm2eValidator {
 							cho,
 							stmt.getPredicate());
 				} else {
-					if (! build_edm_ProvidedcHO_AllowedDcTypes(m).contains(stmt.getObject().asResource())) {
+					final Resource asResource = stmt.getObject().asResource();
+					boolean isWhitelisted = false;
+					for (String whitelistNS : namespaceWhiteList) {
+						if (asResource.getURI().startsWith(whitelistNS)) {
+							isWhitelisted = true;
+						}
+					}
+					if (isWhitelisted)
+						break;
+					if (! build_edm_ProvidedcHO_AllowedDcTypes(m).contains(asResource)) {
 						report.add(ValidationLevel.FATAL,
 								ValidationProblemCategory.INVALID_DC_TYPE,
 								cho,
-								stmt.getObject().asResource());
+								asResource);
 					}
 				}
 			}
