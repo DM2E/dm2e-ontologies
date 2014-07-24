@@ -1,0 +1,2894 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY void "http://rdfs.org/ns/void#" >
+    <!ENTITY pro "http://purl.org/spar/pro/" >
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY adms "http://www.w3.org/ns/adms#" >
+    <!ENTITY vann "http://purl.org/vocab/vann/" >
+    <!ENTITY fabio "http://purl.org/spar/fabio/" >
+    <!ENTITY radion "http://www.w3.org/ns/radion#" >
+    <!ENTITY dcmitype "http://purl.org/dc/dcmitype/" >
+    <!ENTITY bibo "http://purl.org/ontology/bibo/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY voaf "http://purl.org/vocommons/voaf#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY rdaGr2 "http://rdvocab.info/ElementsGr2/" >
+    <!ENTITY vivo "http://vivoweb.org/ontology/core#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY korbo "http://purl.org/net7/korbo/vocab#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY edm "http://www.europeana.eu/schemas/edm/" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY ore "http://www.openarchives.org/ore/terms/" >
+    <!ENTITY wgs84_pos "http://www.w3.org/2003/01/geo/wgs84_pos#" >
+    <!ENTITY crm "http://www.cidoc-crm.org/rdfs/cidoc-crm#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY prism "http://prismstandard.org/namespaces/basic/3.0/" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY DOLCE-Lite "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+    <!ENTITY swrla "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#" >
+    <!ENTITY sqwrl "http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://onto.dm2e.eu/schemas/dm2e/"
+     xml:base="http://onto.dm2e.eu/schemas/dm2e/"
+     xmlns:radion="http://www.w3.org/ns/radion#"
+     xmlns:edm="http://www.europeana.eu/schemas/edm/"
+     xmlns:DOLCE-Lite="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#"
+     xmlns:rdaGr2="http://rdvocab.info/ElementsGr2/"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:ore="http://www.openarchives.org/ore/terms/"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:adms="http://www.w3.org/ns/adms#"
+     xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:crm="http://www.cidoc-crm.org/rdfs/cidoc-crm#"
+     xmlns:vivo="http://vivoweb.org/ontology/core#"
+     xmlns:prism="http://prismstandard.org/namespaces/basic/3.0/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:korbo="http://purl.org/net7/korbo/vocab#"
+     xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:dcmitype="http://purl.org/dc/dcmitype/"
+     xmlns:void="http://rdfs.org/ns/void#"
+     xmlns:fabio="http://purl.org/spar/fabio/"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
+     xmlns:bibo="http://purl.org/ontology/bibo/"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:pro="http://purl.org/spar/pro/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#">
+    <owl:Ontology rdf:about="http://onto.dm2e.eu/schemas/dm2e/">
+        <vann:changes xml:lang="en">
+***********************************
+Changes between ontology file DM2Ev1.1_Rev0.8.owl and DM2Ev1.1_Rev0.9.owl
+***********************************
+- Added dcterms:medium (domain edm:ProvidedCHO) 
+- Changed dm2e:scopeNote of edm:happenedAt (domain edm:Event) (o.k. owl)
+- Renamed property dm2e:writtenAreaDimensions into dm2e:
+writtenAreaDimension 
+- Changed constraint of dcterms:issued, dcterms:extent, dm2e:pageDimensions , dm2e:writtenAreaDimension (domain edm:ProvidedCHO) to repeatable 
+- Replaced dcterms:rightsHolder with the EDM property dc:rights (domain edm:WebResource) 
+- Updated dm2e:scopeNote for edm:rights o.k. owl
+</vann:changes>
+        <vann:changes xml:lang="en">
+***********************************
+Changes between ontology file DM2Ev1.1_Rev0.9.owl and DM2Ev1.1_Rev1.0.owl
+***********************************
+    - Added new properties to foaf:Person and to foaf:Organization: rdaGr2:otherDesignationAssociatedWithThePerson, bibo:suffixName
+- Added three new properties to dm2e:Work (fabio:hasSubtitle, fabio:hasSequenceIdentifier, fabio:hasCreator)
+- Made dc:subject an ObjectProperty with range unionOf(skos:Concept, edm:Agent, edm:TimeSpan, edm:Place)
+- Changed xsd:dateTime to xsd:date
+- Added dm2e:levelOfHierarchy property to edm:ProvidedCHO
+</vann:changes>
+        <vann:changes xml:lang="en">
+***********************************
+Changes between ontology file DM2Ev1.1_Rev1.0.owl and DM2Ev1.1_Rev1.1.owl
+***********************************
+
+- Added edm:Place, edm:Timespan and skos:Concept as ranges to edm:hasMet
+- Removed rdf:Literal and xsd:dateTime from the range restriction on dc:date with the domain edm:Agent
+- Removed bibo:suffixName from foaf:Person and foaf:Organization and added it as generic properties to edm:Agent
+- Removed properties from dm2e:Work (fabio:has*)
+- Added property dm2e:genre (domain edm:ProvidedCHO)
+- Added property bibo:number (domain edm:ProvidedCHO)
+- Added dm2e:displayLevel to edm:ProvidedCHO
+</vann:changes>
+        <vann:changes xml:lang="en">
+***********************************
+Changes between ontology file DM2Ev1.1_Rev1.1.owl and DM2Ev1.1_Rev1.2.owl
+***********************************
+
+- Changed range to dm2e:genre into skos:Concept
+- Added dc:type as super property to dm2e:genre
+</vann:changes>
+        <rdfs:comment xml:lang="en">
+***********************************
+Changes between ontology file DM2Ev1.1_Rev1.2.owl and DM2Ev1.1_Rev1.3.owl
+***********************************
+
+- Changed DM2E namespace to unversioned
+- Moved dm2e:displayLevel to Aggregation
+- Added prism:startingPage (rdfs:range edm:ProvidedCHO)
+</rdfs:comment>
+        <vann:changes xml:lang="en">
+***********************************
+Changes between ontology file DM2Ev1.1_Rev1.4.owl and DM2Ev1.1_Rev1.5.owl
+***********************************
+
+- Changed dm2e:scopeNote of dm2e:displayLevel
+- Removed equivalent property from bibo:numPages (DG)
+- Changed range of bibo:number, bibo:numPages and dm2e:levelOfHierarchy to xsd: unsignedInt (KB, DG)
+- Changed range and dm2e:scopeNote of crm:P79F.beginning_is_qualified_by and crm:P80F.end_is_qualified_by (DG).
+- Removed dc:description as superproperty of dm2e:genre
+- added superproperty edm:hasMet to dcterms:rightsHolder
+- added superproperty edm:hasMet to dc:creator (analogue to EDM)
+- added superproperty dc:description to dm2e:incipit and dm2e:explicit
+- removed superproperty dcterms:coverage from dcterms:spatial, dm2e:publishedAt and dcterms:temporal
+- removed superproperty bibo:identifier from bibo:isbn and bibo:issn
+- removed range rdf:Literal from edm:currentLocation
+- changed range of dm2e:shelfmarkLocation from rdf:Literal to edm:Place
+- removed superproperty edm:hasView from dcterms:tableOfContents 
+- changed superproperty of dm2e:honoree, dm2e:mentioned, dm2e:misattributed, dm2e:patron from edm:isRelatedTo to edm:hasMet
+- removed superclass fabio:Book from bibo:Book
+- removed superclasses foaf:document and bibo:document from dm2e:document
+- removed superclass bibo:Periodical from bibo:Journal and its equivalent class fabio:Journal
+- removed superclass bibo:PersonalCommunicationDocument from bibo:Letter
+- removed superclass fabio:Expression from dm2e:Page
+- moved dm2e:Photo from edm:PhysicalThing to foaf:Image (subclass of edm:NonInformationResource)
+- added superproperty skos:note to bibo:suffixName
+- changed superproperty of dm2e:influencedBy from dc:relation to edm:hasMet
+- added superclass edm:PhysicalThing in edm:PhysicalThing subclasses table
+- removed superclass fabio:Expression from fabio:Article and fabio:chapter
+- removed superclass bibo:Collection from bibo:Series
+- added mime-types to edm:object (KB)
+- changed range of bibo:numVolumes and bibo:volume to xsd:unsignedInt (recommended) (DG)
+- added bibo:Issue (subclass of dm2e:Document) (KB)
+- changed restriction of dm2e:incipit and dm2e:explicit to repeatable (DG)
+- changed restriction of bibo:number
+- added superproperty dc:description to bibo:number
+- added scopeNotes, definitions and comments
+- dm2e:hasAnnotatableVersionAt is now repeatable
+</vann:changes>
+        <vann:changes xml:lang="en">
+***********************************
+Changes between ontology file DM2Ev1.1_Rev1.5.owl and DM2Ev1.1_Rev1.6.owl
+***********************************
+
+- added dm2e:writtenAt (domain CHO) (KS)
+- Now repeatable: dm2e:publishedAt, dm2e:printedAt (DG)
+- new property dm2e:holdingInstitution (domain CHO) (KS)
+- changed scopeNote of edm:currentLocation (KS)
+- changed range from dm2e:shelfmarkLocation to literal (KS)
+- changed superproperty of dm2e:shelfmarkLocation (ED)
+- changed scopeNote of dcterms:spatial (ED)
+
+        </vann:changes>
+        <vann:changes xml:lang="en">***********************************
+Changes between ontology file DM2Ev1.1.owl and DM2Ev1.2_Rev1.owl
+***********************************
+
+- Corrected CIDOC-CRM Namespace
+- extended dm2e:scopeNote for edm:hasView 
+- changed dm2e:scopeNote for dc:creator
+- added dc:creator for edm:WebResource
+- removed edm:isDerivativeOf from edm:WebResource
+- removed edm:wasPresentAt from edm:WebResource
+- Removed skos:hiddenLabel from edm:Place
+- Changed superproperty of dm2e:copyist
+
+</vann:changes>
+        <vann:changes xml:lang="en">***********************************
+Changes between ontology file DM2Ev1.1_Rev1.1.owl and DM2Ev1.1_Rev1.2.owl
+***********************************
+
+- dc:subject repeatable
+- Deleted additional constraints for edm:isShownBy and edm:object (“mandatory if dm2e:displayLevel is true edm:isShownBy and/or edm:object must be provided”)
+- Deleted prism:startingPage</vann:changes>
+        <dc:modified xml:lang="en">2014-03-11</dc:modified>
+        <dc:title xml:lang="en">DM2E model</dc:title>
+        <dc:creator xml:lang="en">Evelyn Dröge</dc:creator>
+        <dc:creator xml:lang="en">Julia Iwanowa</dc:creator>
+        <dc:creator xml:lang="en">Kai Eckert</dc:creator>
+        <dc:creator xml:lang="en">Konstantin Baierer</dc:creator>
+        <dc:creator xml:lang="en">Steffen Hennicke</dc:creator>
+        <owl:versionInfo xml:lang="en">Version 1.2
+Revision 1</owl:versionInfo>
+        <vann:preferredNamespacePrefix xml:lang="en">dm2e</vann:preferredNamespacePrefix>
+        <foaf:homepage xml:lang="en">http://onto.dm2e.eu/schemas/dm2e/
+http://www.dm2e.eu</foaf:homepage>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/scopeNote -->
+
+    <owl:AnnotationProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/scopeNote">
+        <rdfs:comment xml:lang="en">This property describes the dm2e-specific usage of the resource.</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <rdf:Description rdf:about="&dc;creator">
+        <skos:definition xml:lang="en">An entity primarily responsible for making the resource.</skos:definition>
+        <scopeNote xml:lang="en">The property dcterms:creator holds the name or identifier of the agent (a person or organisation) who created the resource, e.g. the original metadata record or CHO (possibly its author).</scopeNote>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/modified -->
+
+    <owl:AnnotationProperty rdf:about="&dc;modified"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/subject -->
+
+    <owl:AnnotationProperty rdf:about="&dc;subject">
+        <scopeNote xml:lang="en">Subject of the CHO. Can be taken from another vocabulary. May also relate to a person, concept, place or timespan that is the subject of a CHO. The mapped metadata describes content-based information.</scopeNote>
+        <skos:definition xml:lang="en">The topic of the resource.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="&edm;isRelatedTo"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="&dc;title">
+        <skos:definition xml:lang="en">A name given to the resource.</skos:definition>
+        <scopeNote xml:lang="en">The property dc:titles gives the main title of the CHO. It is mandatory to provide either a dc:title or a dc:description for the CHO. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/alternative -->
+
+    <owl:AnnotationProperty rdf:about="&dcterms;alternative">
+        <skos:definition xml:lang="en">An alternative name for the resource.</skos:definition>
+        <scopeNote xml:lang="en">An alternative name for the resource. Should not be used for subtitles in DM2E. Can be used if title and subtitle are in one field. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:AnnotationProperty rdf:about="&dcterms;issued">
+        <skos:definition xml:lang="en">Date of formal issuance (e.g., publication) of the resource.</skos:definition>
+        <scopeNote xml:lang="en">Date of publication (of the described CHO, usually the original one).</scopeNote>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/suffixName -->
+
+    <owl:AnnotationProperty rdf:about="&bibo;suffixName">
+        <scopeNote xml:lang="en">Persons names or notations about organisations including counting, for example Johannes Paul, I.</scopeNote>
+        <rdfs:comment xml:lang="en">The suffix of the name.</rdfs:comment>
+        <rdfs:domain rdf:resource="&edm;Agent"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/vocab/vann/changes -->
+
+    <owl:AnnotationProperty rdf:about="&vann;changes"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/example -->
+
+    <owl:AnnotationProperty rdf:about="&vann;example"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="&vann;preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="&vann;preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/isRelatedTo -->
+
+    <owl:AnnotationProperty rdf:about="&edm;isRelatedTo">
+        <scopeNote xml:lang="en">Any other related resource.</scopeNote>
+        <skos:definition xml:lang="en">edm:isRelatedTo is the most general contextual property in EDM. Contextual properties have typically to do either with the things that have happened to or together with the object under consideration, or what the object refers to by its shape, form or features in a figural or encoded form. For sake of simplicity, we include in the contextual relationships also the scholarly classification, which may have either to do with the role and cultural connections of the object in the past, or its kind of structure, substance or contents as it can be verified at present.</skos:definition>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+    <owl:AnnotationProperty rdf:about="&skos;altLabel">
+        <skos:definition xml:lang="en">An alternative lexical label for a resource.</skos:definition>
+        <scopeNote xml:lang="en">An alternative name, e.g. a former name or the name in another form.</scopeNote>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="&skos;definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#hiddenLabel -->
+
+    <owl:AnnotationProperty rdf:about="&skos;hiddenLabel">
+        <skos:definition xml:lang="en">A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations.</skos:definition>
+        <scopeNote xml:lang="en">Non-standard forms of the name, e.g. misspellings.</scopeNote>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#note -->
+
+    <owl:AnnotationProperty rdf:about="&skos;note">
+        <skos:definition xml:lang="en">A general note, for any purpose.</skos:definition>
+        <scopeNote xml:lang="en">Information related to the resource that cannot be modelled with other properties of the class.</scopeNote>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="&skos;prefLabel">
+        <skos:definition xml:lang="en">The preferred lexical label for a resource, in a given language.</skos:definition>
+        <scopeNote xml:lang="en">The preferred name of the agent, preferably in a normalized form. Only one preferred label per language tag is allowed!</scopeNote>
+        <rdfs:domain rdf:resource="http://onto.dm2e.eu/schemas/dm2e/#genid85"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/adms#relatedWebPage -->
+
+    <owl:AnnotationProperty rdf:about="&adms;relatedWebPage"/>
+    
+
+
+    <!-- http://www.w3.org/ns/radion#versionNotes -->
+
+    <owl:AnnotationProperty rdf:about="&radion;versionNotes"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/homepage -->
+
+    <owl:AnnotationProperty rdf:about="&foaf;homepage"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/artist -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/artist">
+        <rdfs:label xml:lang="en">artist</rdfs:label>
+        <scopeNote xml:lang="en">An artist that has created (e.g. painted) the CHO.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/composer -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/composer">
+        <rdfs:label xml:lang="en">composer</rdfs:label>
+        <scopeNote xml:lang="en">The person that has composed a CHO (e.g. a letter). Can be the same as the person who wrote the letter, but can also be a different person, e.g. someone who has dictated but not wrote the letter.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/copyist -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/copyist">
+        <rdfs:label xml:lang="en">copyist</rdfs:label>
+        <scopeNote xml:lang="en">Someone who copied a CHO.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/genre -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/genre">
+        <rdfs:label xml:lang="en">genre</rdfs:label>
+        <scopeNote xml:lang="en">Genre of the CHO, in German “Formschlagworte”. Examples: schoolbook, letter collection.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;type"/>
+        <rdfs:domain rdf:resource="&skos;Concept"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/hasAnnotatableVersionAt -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/hasAnnotatableVersionAt">
+        <scopeNote xml:lang="en">The property dm2e:hasAnnotatableVersionAt holds an URL which leads to an HTML representation or to an image of the content, i.e. of the CHO aggregated by the current Aggregation. The URL of the HTML content or image file must be stable. The type of the WebResource must be further specified as “text/html-named-content”, “text/plain”, &quot;text/html&quot;, “image/gif”, “image/jpeg” or “image/png”.</scopeNote>
+        <rdfs:range rdf:resource="&edm;WebResource"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasView"/>
+        <rdfs:domain rdf:resource="&ore;Aggregation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/holdingInstitution -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/holdingInstitution">
+        <scopeNote xml:lang="en">The institution holding the physical CHO, e.g. a specific library.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+        <rdfs:range rdf:resource="&foaf;Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/honoree -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/honoree">
+        <rdfs:label xml:lang="en">honoree</rdfs:label>
+        <scopeNote xml:lang="en">An honoured person, for whom the CHO is published or created.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/influencedBy -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/influencedBy">
+        <rdfs:label xml:lang="en">influenced by</rdfs:label>
+        <scopeNote xml:lang="en">Another person by which the person was influenced.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/mentioned -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/mentioned">
+        <rdfs:label xml:lang="en">mentioned</rdfs:label>
+        <scopeNote xml:lang="en">A person or institution that is explicitly mentioned in the (textual) CHO.</scopeNote>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/misattributed -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/misattributed">
+        <rdfs:label xml:lang="en">misattributed</rdfs:label>
+        <scopeNote xml:lang="en">A person or institution that is mentioned as the creator of the CHO although he or it is not the creator.</scopeNote>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/owner -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/owner">
+        <rdfs:label xml:lang="en">owner</rdfs:label>
+        <scopeNote xml:lang="en">Indicates the ownership of a CHO.</scopeNote>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/painter -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/painter">
+        <rdfs:label xml:lang="en">painter</rdfs:label>
+        <scopeNote xml:lang="en">A painter. In the manuscript context especially used in works of the 16th and 17th century (rare books).</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/patron -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/patron">
+        <rdfs:label xml:lang="en">patron</rdfs:label>
+        <scopeNote xml:lang="en">A person who is honored within the text.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/portrayed -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/portrayed">
+        <rdfs:label xml:lang="en">portrayed</rdfs:label>
+        <scopeNote xml:lang="en">A person that is portrayed in the (textual or painted) CHO by its creator.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/mentioned"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/previousOwner -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/previousOwner">
+        <rdfs:label xml:lang="en">previous owner</rdfs:label>
+        <scopeNote xml:lang="en">A person or an institution that has owned the CHO before.</scopeNote>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/principal -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/principal">
+        <rdfs:label xml:lang="en">principal</rdfs:label>
+        <scopeNote xml:lang="en">A person or an institution that gave the order to create the CHO.</scopeNote>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/printedAt -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/printedAt">
+        <rdfs:label xml:lang="en">printed at</rdfs:label>
+        <scopeNote xml:lang="en">Indicates the place where the CHO was printed.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;spatial"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/publishedAt -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/publishedAt">
+        <rdfs:label xml:lang="en">published at</rdfs:label>
+        <scopeNote xml:lang="en">The place of a physical publication or the web resource of a web publication.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;spatial"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;Place"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/refersTo -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/refersTo">
+        <rdfs:label xml:lang="en">refers to</rdfs:label>
+        <scopeNote xml:lang="en">A person or CHO that is explicitly or implicitly menioned in the (textual) CHO.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;references"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&foaf;Person"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/sponsor -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/sponsor">
+        <rdfs:label xml:lang="en">sponsor</rdfs:label>
+        <scopeNote xml:lang="en">A person or an institution who has sponsored (parts) of the CHOs creation.</scopeNote>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/studentOf -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/studentOf">
+        <rdfs:label xml:lang="en">student of</rdfs:label>
+        <scopeNote xml:lang="en">A teacher of the person.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/wasStudiedBy -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/wasStudiedBy">
+        <rdfs:label xml:lang="en">was studied by</rdfs:label>
+        <scopeNote xml:lang="en">The CHO was studied by an Agent.</scopeNote>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/wasTaughtBy -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/wasTaughtBy">
+        <rdfs:label xml:lang="en">was taught by</rdfs:label>
+        <scopeNote xml:lang="en">The CHO was taught by an Agent.</scopeNote>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/writer -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/writer">
+        <rdfs:label xml:lang="en">writer</rdfs:label>
+        <scopeNote xml:lang="en">A person who has written a CHO, e.g. a letter.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/writtenAt -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/writtenAt">
+        <rdfs:label xml:lang="en">written at</rdfs:label>
+        <scopeNote xml:lang="en">Indicates the place where the CHO was written.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;spatial"/>
+        <rdfs:range rdf:resource="&edm;Place"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:ObjectProperty rdf:about="&dc;contributor">
+        <skos:definition xml:lang="en">An entity responsible for making contributions to the resource.</skos:definition>
+        <scopeNote xml:lang="en">The property dc:contributor holds the name or identifier of the agent (a person or organisation) who contributed to the creation of the aggregation, i.e. the original source metadata record.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&ore;Aggregation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/coverage -->
+
+    <owl:ObjectProperty rdf:about="&dc;coverage">
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:ObjectProperty rdf:about="&dc;creator">
+        <skos:definition xml:lang="en">An entity primarily responsible for making the resource.</skos:definition>
+        <scopeNote xml:lang="en">The property dcterms:creator holds the name or identifier of the agent (a person or organisation) who created the resource, e.g. the original metadata record or CHO (possibly its author).</scopeNote>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                    <rdf:Description rdf:about="&ore;Aggregation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:ObjectProperty rdf:about="&dc;date">
+        <skos:definition xml:lang="en">A point or period of time associated with an event in the lifecycle of the resource.</skos:definition>
+        <scopeNote xml:lang="en">A significant date associated with this resource. The date should be described with edm:Event.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;Agent"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/publisher -->
+
+    <owl:ObjectProperty rdf:about="&dc;publisher">
+        <skos:definition xml:lang="en">An entity responsible for making the resource available.</skos:definition>
+        <scopeNote xml:lang="en">Publisher of the CHO. Can be a person or an institution.</scopeNote>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/subject -->
+
+    <owl:ObjectProperty rdf:about="&dc;subject">
+        <scopeNote xml:lang="en">Subject of the CHO. Can be taken from another vocabulary. May also relate to a person, concept, place or timespan that is the subject of a CHO. The mapped metadata describes content-based information.</scopeNote>
+        <skos:definition xml:lang="en">The topic of the resource.</skos:definition>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;Agent"/>
+                    <rdf:Description rdf:about="&edm;Place"/>
+                    <rdf:Description rdf:about="&edm;TimeSpan"/>
+                    <rdf:Description rdf:about="&skos;Concept"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/type -->
+
+    <owl:ObjectProperty rdf:about="&dc;type">
+        <skos:definition xml:lang="en">The nature or genre of the resource.</skos:definition>
+        <scopeNote xml:lang="en">The property dc:type provides a specific type that applies to the CHO. By type, we mean either a physical form (e.g. book) or logical form (e.g. paragraph) as they are specified as subclasses of edm:PhysicalThing and skos:Concept respectively. At least one dc:type must be provided.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;PhysicalThing"/>
+                    <rdf:Description rdf:about="&skos;Concept"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;created">
+        <skos:definition xml:lang="en">Date of creation of the resource.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="&dc;date"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                    <rdf:Description rdf:about="&ore;Aggregation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/hasPart -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;hasPart">
+        <rdfs:comment xml:lang="en">This term is intended to be used with non-literal values as defined in the DCMI Abstract Model . As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration.</rdfs:comment>
+        <scopeNote xml:lang="en">dcterms:hasPart can be used to indicate that a class is part of the current class. It can only be used for the same type of objects, e.g. edm:ProvidedCHO dcterms:hasPart edm:ProvidedCHO.</scopeNote>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;Place"/>
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;TimeSpan"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;Place"/>
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;TimeSpan"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/hasVersion -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;hasVersion">
+        <skos:definition xml:lang="en">A related resource that is a version, edition, or adaptation of the described resource.</skos:definition>
+        <rdfs:range rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;isPartOf">
+        <rdfs:comment xml:lang="en">This term is intended to be used with non-literal values as defined in the DCMI Abstract Model. As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration.</rdfs:comment>
+        <scopeNote xml:lang="en">dcterms:isPartOf can be used to indicate that a class is part of the current class. It can only be used for the same type of objects, e.g. edm:ProvidedCHO dcterms:isPartOf edm:ProvidedCHO.</scopeNote>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;Place"/>
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;TimeSpan"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;Place"/>
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;TimeSpan"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/isVersionOf -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;isVersionOf">
+        <skos:definition xml:lang="en">A related resource of which the described resource is a version, edition, or adaptation.</skos:definition>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;isDerivativeOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;issued">
+        <skos:definition xml:lang="en">Date of formal issuance (e.g., publication) of the resource.</skos:definition>
+        <scopeNote xml:lang="en">Date of publication (of the described CHO, usually the original one).</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;date"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/medium -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;medium">
+        <skos:definition xml:lang="en">The material or physical carrier of the CHO. &lt;dcterms:medium&gt;metal&lt;/dcterms:medium&gt;</skos:definition>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;modified">
+        <skos:definition xml:lang="en">Date on which the resource was changed.</skos:definition>
+        <scopeNote xml:lang="en">The property dcterms:created holds the modification date and time of the aggregation, i.e. the original source metadata record.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;date"/>
+        <rdfs:domain rdf:resource="&ore;Aggregation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/references -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;references">
+        <skos:definition xml:lang="en">A related resource that is referenced, cited, or otherwise pointed to by the described resource.</skos:definition>
+        <scopeNote xml:lang="en">Another CHO referenced in the content of this CHO.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://onto.dm2e.eu/schemas/dm2e/Work"/>
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/rightsHolder -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;rightsHolder">
+        <skos:definition xml:lang="en">A person or organization owning or managing rights over the resource.</skos:definition>
+        <scopeNote xml:lang="en">The property dcterms:rightsHolder holds the name or identifier of the agent (a person or organisation) who owns or manages the rights of the physical object (the CHO) which is described in the source metadata record.</scopeNote>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                    <rdf:Description rdf:about="&ore;Aggregation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/spatial -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;spatial">
+        <skos:definition xml:lang="en">Spatial characteristics of the resource.</skos:definition>
+        <scopeNote xml:lang="en">This property can be used for not further specified places. If the place of publication, printing or writing should be indicated, use dm2e:publishedAt, dme2e:printedAt or dm2e:writtenAt instead. This property should be used for unspecified or not exactly defined spatial characteristics of the CHO itself.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;coverage"/>
+        <rdfs:range rdf:resource="&edm;Place"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/tableOfContents -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;tableOfContents">
+        <skos:definition xml:lang="en">A list of subunits of the resource.</skos:definition>
+        <scopeNote xml:lang="en">Any kind of table of contents for the CHO.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasView"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/temporal -->
+
+    <owl:ObjectProperty rdf:about="&dcterms;temporal">
+        <scopeNote xml:lang="en">Temporal characteristics of the CHO. This property should be used for unspecified or not exactly defined temporal characteristics of the CHO itself.</scopeNote>
+        <skos:definition xml:lang="en">Temporal characteristics of the resource.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="&dc;coverage"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&edm;TimeSpan"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/editor -->
+
+    <owl:ObjectProperty rdf:about="&bibo;editor">
+        <rdfs:comment xml:lang="en">A person having managerial and sometimes policy-making responsibility for the editorial part of a publishing firm or of a newspaper, magazine, or other publication.</rdfs:comment>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/recipient -->
+
+    <owl:ObjectProperty rdf:about="&bibo;recipient">
+        <rdfs:comment xml:lang="en">An agent that receives a communication document.</rdfs:comment>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/spar/pro/author -->
+
+    <owl:ObjectProperty rdf:about="&pro;author">
+        <scopeNote xml:lang="en">The author of the CHO.</scopeNote>
+        <rdfs:comment xml:lang="en">The role a person has of authorship of some material (for example a document).</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/spar/pro/illustrator -->
+
+    <owl:ObjectProperty rdf:about="&pro;illustrator">
+        <scopeNote xml:lang="en">Someone who has made the illustrations of a CHO.</scopeNote>
+        <rdfs:comment xml:lang="en">The role of an agent that illustrates a document.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&dc;creator"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/spar/pro/printer -->
+
+    <owl:ObjectProperty rdf:about="&pro;printer">
+        <scopeNote xml:lang="en">A person or institution who printed the CHO. In the manuscript context especially used in works of the 16th and 17th century (rare books).</scopeNote>
+        <rdfs:comment xml:lang="en">The role of an agent involved in printing documents, either a company providing printing services or an individual engaged in the process of printing documents.</rdfs:comment>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/spar/pro/translator -->
+
+    <owl:ObjectProperty rdf:about="&pro;translator">
+        <scopeNote xml:lang="en">A person or institution that translated the CHO.</scopeNote>
+        <rdfs:comment xml:lang="en">The role of an agent that translates a document into another language.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
+        <rdfs:range rdf:resource="&edm;Agent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rdfs.org/ns/void#inDataset -->
+
+    <owl:ObjectProperty rdf:about="&void;inDataset">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <scopeNote xml:lang="en">The dataset that contains the RDF statements provided via this data resource.</scopeNote>
+        <rdfs:domain rdf:resource="http://onto.dm2e.eu/schemas/dm2e/DataResource"/>
+        <rdfs:range rdf:resource="&void;Dataset"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rdvocab.info/ElementsGr2/dateOfEstablishment -->
+
+    <owl:ObjectProperty rdf:about="&rdaGr2;dateOfEstablishment">
+        <skos:definition xml:lang="en">The date on which a corporate body was established or founded.</skos:definition>
+        <scopeNote xml:lang="en">The date the institution was established.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;date"/>
+        <rdfs:domain rdf:resource="&foaf;Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rdvocab.info/ElementsGr2/dateOfTermination -->
+
+    <owl:ObjectProperty rdf:about="&rdaGr2;dateOfTermination">
+        <skos:definition xml:lang="en">The date on which a corporate body was terminated or dissolved.</skos:definition>
+        <scopeNote xml:lang="en">The date the institution was terminated.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;date"/>
+        <rdfs:domain rdf:resource="&foaf;Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/aggregatedCHO -->
+
+    <owl:ObjectProperty rdf:about="&edm;aggregatedCHO">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <scopeNote xml:lang="en">The property edm:aggregatedCHO connects the ore:Aggregation with exactly one edm:ProvidedCHO. The property expresses what the Aggregation is about.</scopeNote>
+        <skos:definition xml:lang="en">This property associates an ORE aggregation with the cultural heritage object(s) (CHO for short) it is about.</skos:definition>
+        <rdfs:range rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:domain rdf:resource="&ore;Aggregation"/>
+        <rdfs:subPropertyOf rdf:resource="&ore;aggregates"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/currentLocation -->
+
+    <owl:ObjectProperty rdf:about="&edm;currentLocation">
+        <scopeNote xml:lang="en">Current geographic location of the physical CHO.</scopeNote>
+        <skos:definition xml:lang="en">The geographic location and/or name of the repository, building, site, or other entity whose boundaries presently include the resource.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;spatial"/>
+        <rdfs:range rdf:resource="&edm;Place"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/dataProvider -->
+
+    <owl:ObjectProperty rdf:about="&edm;dataProvider">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <skos:definition xml:lang="en">The name or identifier of the organisation who contributes data indirectly to an aggregation service (e.g. Europeana).</skos:definition>
+        <scopeNote xml:lang="en">The property edm:dataProvider holds the name or identifier of the organisation (foaf:Organization, see below) that provided and owns the source metadata record for this aggregation. Note that this organisation does not necessarily own the physical object which is described in the metadata record.</scopeNote>
+        <rdfs:domain rdf:resource="&ore;Aggregation"/>
+        <rdfs:range rdf:resource="&foaf;Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/happenedAt -->
+
+    <owl:ObjectProperty rdf:about="&edm;happenedAt">
+        <scopeNote xml:lang="en">Connects an event to the place where this event happened at. </scopeNote>
+        <skos:definition xml:lang="en">This property associates an event with the place at which the event happened.</skos:definition>
+        <rdfs:domain rdf:resource="&edm;Event"/>
+        <rdfs:range rdf:resource="&edm;Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/hasMet -->
+
+    <owl:ObjectProperty rdf:about="&edm;hasMet">
+        <scopeNote xml:lang="en">Unites properties with the range edm:Agent like dc:creator or dc:contributor.</scopeNote>
+        <skos:definition xml:lang="en">edm:hasMet relates a resource with the objects or phenomena that have happened to or have happened together with the resource under consideration. We can abstractly think of history and the present as a series of “meetings” between people and other things in space-time. Therefore we name this relationship as the things the object “has met” in the course of its existence. These meetings are events in the proper sense, in which other people and things participate in any role.</skos:definition>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;Agent"/>
+                    <rdf:Description rdf:about="&edm;Event"/>
+                    <rdf:Description rdf:about="&edm;Place"/>
+                    <rdf:Description rdf:about="&edm;TimeSpan"/>
+                    <rdf:Description rdf:about="&skos;Concept"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/hasView -->
+
+    <owl:ObjectProperty rdf:about="&edm;hasView">
+        <scopeNote xml:lang="en">The property edm:hasView holds the URL of an edm:WebResource which shows, depicts or otherwise contains any kind of view of the edm:ProvidedCHO. The property should not be used twice for the same or similar view of an object.</scopeNote>
+        <skos:definition xml:lang="en">This property relates a ORE aggregation about a CHO with a web resource providing a view of that CHO. Examples of view are: a thumbnail, a textual abstract and a table of contents. The ORE aggregation may be a Europeana aggregation, in which case the view is an object owned by Europeana (i.e., an instance of edm:EuropeanaObject) or an aggregation contributed by a content provider. In order to capture both these cases, the domain of edm:hasView is ore:Aggregation and its range is edm:WebResource.</skos:definition>
+        <rdfs:range rdf:resource="&edm;WebResource"/>
+        <rdfs:domain rdf:resource="&ore;Aggregation"/>
+        <rdfs:subPropertyOf rdf:resource="&ore;aggregates"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/isDerivativeOf -->
+
+    <owl:ObjectProperty rdf:about="&edm;isDerivativeOf">
+        <scopeNote xml:lang="en">Original version (in case of CHOs) or a related resource (in case of WebResources) from which this object has been derived in whole or in part.</scopeNote>
+        <skos:definition xml:lang="en">This property captures a narrower notion of derivation than edm:isSimilarTo, in the sense that it relates a resource to another one, obtained by reworking, reducing, expanding, parts or the whole contents of the former, and possibly adding some minor parts. Versions have an even narrower meaning, in that it requires common identity between the related resources. Translations, summaries, abstractions etc. do not qualify as versions, but do qualify as derivatives.</skos:definition>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;isSimilarTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/isNextInSenquence -->
+
+    <owl:ObjectProperty rdf:about="&edm;isNextInSenquence">
+        <scopeNote xml:lang="en">Can be used if a CHO has several parts of CHOs or WebResources in a sequence. </scopeNote>
+        <skos:definition xml:lang="en">edm:isNextInSequence relates two resources S and R that are ordered parts of the same resource A, and such that S comes immediately after R in the order created by their being parts of A.</skos:definition>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/isShownAt -->
+
+    <owl:ObjectProperty rdf:about="&edm;isShownAt">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <skos:definition xml:lang="en">An unambiguous URL reference to the digital object on the provider’s website in its full information context. See also edm:isShownBy.</skos:definition>
+        <scopeNote xml:lang="en">The property edm:isShownAt holds the URL of a edm:WebResource which leads to a view of the digital object on the provider&apos;s web site in its full information context (e.g. in a viewer application). Either edm:isShownBy or edm:isShownAt must be provided.</scopeNote>
+        <rdfs:range rdf:resource="&edm;WebResource"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasView"/>
+        <rdfs:domain rdf:resource="&ore;Aggregation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/isShownBy -->
+
+    <owl:ObjectProperty rdf:about="&edm;isShownBy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <skos:definition xml:lang="en">An unambiguous URL reference to the digital object on the provider’s web site in the best available resolution/quality. See also edm:isShownAt.</skos:definition>
+        <scopeNote xml:lang="en">The property edm:isShownBy holds the URL of a edm:WebResource which leads to a &quot;plain&quot; image with any kind of view of the edm:ProvidedCHO. &quot;Plain&quot; image means that the image must be without any information context, for example, the URL points to a plain JPG-image. Either edm:isShownBy or edm:isShownAt must be provided.</scopeNote>
+        <rdfs:range rdf:resource="&edm;WebResource"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasView"/>
+        <rdfs:domain rdf:resource="&ore;Aggregation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/isSimilarTo -->
+
+    <owl:ObjectProperty rdf:about="&edm;isSimilarTo">
+        <skos:definition xml:lang="en">The most generic derivation property, covering also the case of questionable derivation. Is Similar To asserts that parts of the contents of one resource exhibit common features with respect to ideas, shapes, structures, colors, words, plots, topics with the contents of the related resource. Those common features may be attributed to a common origin or influence (in particular for derivation), but also to more generic cultural or psychological factors.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/object -->
+
+    <owl:ObjectProperty rdf:about="&edm;object">
+        <rdfs:comment>The URL of a suitable source image in the best resolution available on the web site of the data provider from which small images could be generated for use in a portal. This will often be the same URL as given in edm:isShownBy.</rdfs:comment>
+        <scopeNote xml:lang="en">The property edm:object holds the URL of an edm:WebResource which leads to a thumbnail representing the digital object or, if there is no such thumbnail, the URL of the digital object in the best resolution available on the website of the data provider from which a thumbnail could be generated. This will often be the same URL as given in edm:isShownBy.
+If you provide an edm:object it is mandatory to add one of the following MIME types with dc:format to the edm:WebResource:
+•	image/png
+•	image/jpeg
+•	image/gif
+•	image/tiff
+•	application/pdf
+</scopeNote>
+        <rdfs:range rdf:resource="&edm;WebResource"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasView"/>
+        <rdfs:domain rdf:resource="&ore;Aggregation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/occurredAt -->
+
+    <owl:ObjectProperty rdf:about="&edm;occurredAt">
+        <scopeNote xml:lang="en">Connects an event to a time span which overlaps with the occurrence of that event. The occurrence in time of an event may overlap with 0 to many disjoint time spans, and a time span may have 0 to many events whose occurrences overlap with it.</scopeNote>
+        <skos:definition xml:lang="en">This property associates an event to the smallest known time span that overlaps with the occurrence of that event.</skos:definition>
+        <rdfs:domain rdf:resource="&edm;Event"/>
+        <rdfs:range rdf:resource="&edm;TimeSpan"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/provider -->
+
+    <owl:ObjectProperty rdf:about="&edm;provider">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <skos:definition xml:lang="en">The name or identifier of the organisation who delivers data directly to an aggregation service (e.g. Europeana).</skos:definition>
+        <scopeNote xml:lang="en">The property edm:provider holds the name or identifier of the organisation  (foaf:Organization, see below) that provided the data, i.e. the aggregation, to Europeana. Note that this organisation is not necessarily owning the original or digitized object. Typically, edm:provider is an aggregator. The owner of the metadata record is recorded in edm:dataProvider. The values in edm:provider and edm:dataProvider can be the same. Note: In the context of DM2E the value for edm:provider is always &quot;DM2E&quot;.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
+        <rdfs:domain rdf:resource="&ore;Aggregation"/>
+        <rdfs:range rdf:resource="&foaf;Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/wasPresentAt -->
+
+    <owl:ObjectProperty rdf:about="&edm;wasPresentAt">
+        <scopeNote xml:lang="en">An event where the agent was present at.</scopeNote>
+        <skos:definition xml:lang="en">This property associates the people, things or information resources with an event at which they were present.</skos:definition>
+        <rdfs:domain rdf:resource="&edm;Agent"/>
+        <rdfs:range rdf:resource="&edm;Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.openarchives.org/ore/terms/aggregates -->
+
+    <owl:ObjectProperty rdf:about="&ore;aggregates">
+        <rdfs:comment xml:lang="en">Aggregations, by definition, aggregate resources. The ore:aggregates relationship expresses that the object resource is a member of the set of Aggregated Resources of the subject (the Aggregation). This relationship between the Aggregation and its Aggregated Resources is thus more specific than a simple part/whole relationship, as expressed by dcterms:hasPart for example.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;hasPart"/>
+        <rdfs:range rdf:resource="&ore;AggregatedResource"/>
+        <rdfs:domain rdf:resource="&ore;Aggregation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.openarchives.org/ore/terms/describes -->
+
+    <owl:ObjectProperty rdf:about="&ore;describes">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">This relationship asserts that the subject (a Resource Map) describes the object (an Aggregation).</rdfs:comment>
+        <rdfs:range rdf:resource="&ore;Aggregation"/>
+        <rdfs:domain rdf:resource="&ore;ResourceMap"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+    <owl:ObjectProperty rdf:about="&skos;inScheme">
+        <scopeNote xml:lang="en">The URI of a concept scheme.</scopeNote>
+        <rdfs:domain rdf:resource="&skos;Concept"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/callNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/callNumber">
+        <scopeNote xml:lang="en">The call number for some archival item.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;identifier"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/condition -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/condition">
+        <scopeNote xml:lang="en">Contains a description of the CHOs condition.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/cover -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/cover">
+        <scopeNote xml:lang="en">Description of the cover of the CHO, e.g. the cover’s type of material.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/displayLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/displayLevel">
+        <rdfs:label xml:lang="en">displayLevel</rdfs:label>
+        <scopeNote>The property with the value “true” should be added to the Level-CHO that should be displayed via the search engine. To all other Part-CHO the value is “false”.</scopeNote>
+        <rdfs:domain rdf:resource="&ore;Aggregation"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/explicit -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/explicit">
+        <rdfs:label xml:lang="en">explicit</rdfs:label>
+        <rdfs:comment xml:lang="en">Final words of a manuscript. A language tag in ISO 639-2 should be added to the Literal.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/illustration -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/illustration">
+        <rdfs:label xml:lang="en">illustration</rdfs:label>
+        <rdfs:comment xml:lang="en">Generic description of illustrations in the CHO.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/incipit -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/incipit">
+        <rdfs:label xml:lang="en">incipit</rdfs:label>
+        <rdfs:comment xml:lang="en">Opening words of a manuscript. A language tag in ISO 639-2 should be added to the Literal.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/levelOfGenesis -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/levelOfGenesis">
+        <scopeNote xml:lang="en">The property holds additional information about the genesis of the CHO. Sometimes there are unfinished works or there are only drafts. This could be described more detailed here.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/levelOfHierarchy -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/levelOfHierarchy">
+        <rdfs:label xml:lang="en">levelOfHierarchy</rdfs:label>
+        <scopeNote xml:lang="en">The Top-Level-CHO must contain the number “1” as value of the dm2e:levelOfHierarchy property. All bottom hierarchy levels must be mark by incremental adding +1. For example Second-Level-CHO “2” and so on.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/modeOfAcquisition -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/modeOfAcquisition">
+        <rdfs:label xml:lang="en">modeOfAcquisition</rdfs:label>
+        <scopeNote xml:lang="en">holds meta data about the acquisition of the CHO (analogue to MAB field 664ba1).</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;provenance"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/origin -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/origin">
+        <rdfs:label xml:lang="en">origin</rdfs:label>
+        <scopeNote xml:lang="en">Provenance information about the origin of the physical CHO (analogue MAB field 664aa1).</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;provenance"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/pageDimension -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/pageDimension">
+        <rdfs:label xml:lang="en">page dimension</rdfs:label>
+        <scopeNote xml:lang="en">Page size. Please do also note the unit that was used.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;extent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/restoration -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/restoration">
+        <scopeNote xml:lang="en">Contains information about the restoration status of the CHO.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/scopeNote -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/scopeNote">
+        <rdfs:comment xml:lang="en">This property describes the dm2e-specific usage of the resource.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation">
+        <scopeNote xml:lang="en">Shelfmark location from the CHO.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/subtitle -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/subtitle">
+        <scopeNote xml:lang="en">Any form of a subtitle.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;title"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/support -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/support">
+        <scopeNote xml:lang="en">Description of the type of material of the physical CHO.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/watermark -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/watermark">
+        <scopeNote xml:lang="en">Contains a description of a watermark which the CHO carries.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/writtenAreaDimension -->
+
+    <owl:DatatypeProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/writtenAreaDimension">
+        <rdfs:label xml:lang="en">written area dimension</rdfs:label>
+        <scopeNote xml:lang="en">Size of writing or the part of the page where something is actually written. Please do also note the unit that was used.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;extent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:DatatypeProperty rdf:about="&dc;date">
+        <skos:definition xml:lang="en">A point or period of time associated with an event in the lifecycle of the resource.</skos:definition>
+        <scopeNote xml:lang="en">A significant date associated with this resource. The date should be described with edm:Event.</scopeNote>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:DatatypeProperty rdf:about="&dc;description">
+        <skos:definition xml:lang="en">An account of the resource.</skos:definition>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/format -->
+
+    <owl:DatatypeProperty rdf:about="&dc;format">
+        <skos:definition xml:lang="en">The file format, physical medium, or dimensions of the resource.</skos:definition>
+        <scopeNote>With domain edm:WebResource: Format of the Web resource, e.g. PDF, HTML or JPG. If annotatable content is described, please use one of the following specifications: “text/html-named-content” for HTML content as specified by Pundit, “text/plain” for plain text content, “text/html” for websites with text and images, or “image/gif”, “image/jpeg” resp. “image/png” for Image files. If edm:object is described, please use one these MIME types: “image/png”, “image/jpeg”, “image/gif”, “image/tiff” for image files or “application/pdf” for pdf. See the technical specification “DM2E Annotatable Content” or the “Recommendations for the RDF representation of DM2E metadata” for further information.
+With domain edm:ProvidedCHO see skos:definition.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:domain rdf:resource="&edm;WebResource"/>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasType"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/identifier -->
+
+    <owl:DatatypeProperty rdf:about="&dc;identifier">
+        <skos:definition xml:lang="en">An unambiguous reference to the resource within a given context.</skos:definition>
+        <scopeNote xml:lang="en">Identifier of the resource.</scopeNote>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;Agent"/>
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/language -->
+
+    <owl:DatatypeProperty rdf:about="&dc;language">
+        <skos:definition xml:lang="en">A language of the resource.</skos:definition>
+        <scopeNote xml:lang="en">The property dc:language holds the most prominent language of the CHO. If an edm:type property with the value “TEXT” has been given, it is mandatory to provide at least one language of the CHO. If several languages are present in the CHO then repeat dc:language for each language. Regarding the RFC 3306 recommendations, the ISO 639-1 2-character code should be used for this property. When a language has no 2-character code, and there are two different ISO-2 3-character codes, the ISO 639-2/T (Terminology) code should be added.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&edm;hasType"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/relation -->
+
+    <owl:DatatypeProperty rdf:about="&dc;relation">
+        <rdfs:subPropertyOf rdf:resource="&edm;isRelatedTo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/rights -->
+
+    <owl:DatatypeProperty rdf:about="&dc;rights">
+        <skos:definition xml:lang="en">Information about rights held in and over the resource.</skos:definition>
+        <scopeNote xml:lang="en">URL of a resource describing licensing rights of the CHO.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:DatatypeProperty rdf:about="&dc;title">
+        <skos:definition xml:lang="en">A name given to the resource.</skos:definition>
+        <scopeNote xml:lang="en">The property dc:titles gives the main title of the CHO. It is mandatory to provide either a dc:title or a dc:description for the CHO. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/alternative -->
+
+    <owl:DatatypeProperty rdf:about="&dcterms;alternative">
+        <skos:definition xml:lang="en">An alternative name for the resource.</skos:definition>
+        <scopeNote xml:lang="en">An alternative name for the resource. Should not be used for subtitles in DM2E. Can be used if title and subtitle are in one field. A language tag in ISO 639-2 should be added to the Literal.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;title"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:DatatypeProperty rdf:about="&dcterms;created">
+        <skos:definition xml:lang="en">Date of creation of the resource.</skos:definition>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/extent -->
+
+    <owl:DatatypeProperty rdf:about="&dcterms;extent">
+        <scopeNote xml:lang="en">The size or duration of the resource.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;format"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:DatatypeProperty rdf:about="&dcterms;issued">
+        <skos:definition xml:lang="en">Date of formal issuance (e.g., publication) of the resource.</skos:definition>
+        <scopeNote xml:lang="en">Date of publication (of the described CHO, usually the original one).</scopeNote>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/medium -->
+
+    <owl:DatatypeProperty rdf:about="&dcterms;medium">
+        <skos:definition xml:lang="en">The material or physical carrier of the CHO. &lt;dcterms:medium&gt;metal&lt;/dcterms:medium&gt;</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="&dc;format"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:DatatypeProperty rdf:about="&dcterms;modified">
+        <skos:definition xml:lang="en">Date on which the resource was changed.</skos:definition>
+        <scopeNote xml:lang="en">The property dcterms:created holds the modification date and time of the aggregation, i.e. the original source metadata record.</scopeNote>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/provenance -->
+
+    <owl:DatatypeProperty rdf:about="&dcterms;provenance">
+        <skos:definition xml:lang="en">A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation.</skos:definition>
+        <scopeNote xml:lang="en">Is used for mixed provenance data that cannot be mapped to the properties dm2e:origin or dm2e:modeOfAcquisition.</scopeNote>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/tableOfContents -->
+
+    <owl:DatatypeProperty rdf:about="&dcterms;tableOfContents">
+        <skos:definition xml:lang="en">A list of subunits of the resource.</skos:definition>
+        <scopeNote xml:lang="en">Any kind of table of contents for the CHO.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/isbn -->
+
+    <owl:DatatypeProperty rdf:about="&bibo;isbn">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <scopeNote xml:lang="en">The ISBN number for the CHO of type book.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;identifier"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/issn -->
+
+    <owl:DatatypeProperty rdf:about="&bibo;issn">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <scopeNote xml:lang="en">The ISSN number for the CHO of type journal.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;identifier"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/numPages -->
+
+    <owl:DatatypeProperty rdf:about="&bibo;numPages">
+        <rdfs:comment>The number of pages contained in a document.</rdfs:comment>
+        <scopeNote xml:lang="en">A string of non-contiguous page spans that locate a Document within a Collection. Example: 23-25, 34, 54-56.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;extent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:range rdf:resource="&xsd;unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/numVolumes -->
+
+    <owl:DatatypeProperty rdf:about="&bibo;numVolumes">
+        <rdfs:comment>The number of volumes contained in a collection of documents (usually a series, periodical, etc.).</rdfs:comment>
+        <scopeNote xml:lang="en">The number of volumes contained in a collection of documents (usually a series, periodical, etc.).</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;extent"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:range rdf:resource="&xsd;unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/number -->
+
+    <owl:DatatypeProperty rdf:about="&bibo;number">
+        <rdfs:comment xml:lang="en">A generic item or document number. Not to be confused with issue number.</rdfs:comment>
+        <scopeNote xml:lang="en">The property bibo:number is used to store the page number of each CHO from type dm2e:Page. On the higher Level-CHOs can be added the normalized form of the number.  </scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/pages -->
+
+    <owl:DatatypeProperty rdf:about="&bibo;pages">
+        <rdfs:comment xml:lang="en">A string of non-contiguous page spans that locate a Document within a Collection. Example: 23-25, 34, 54-56. […]</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&dc;description"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/suffixName -->
+
+    <owl:DatatypeProperty rdf:about="&bibo;suffixName">
+        <scopeNote xml:lang="en">Persons names or notations about organisations including counting, for example Johannes Paul, I.</scopeNote>
+        <rdfs:comment xml:lang="en">The suffix of the name.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/volume -->
+
+    <owl:DatatypeProperty rdf:about="&bibo;volume">
+        <scopeNote xml:lang="en">A volume number.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;identifier"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:range rdf:resource="&xsd;unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rdvocab.info/ElementsGr2/biographicalInformation -->
+
+    <owl:DatatypeProperty rdf:about="&rdaGr2;biographicalInformation">
+        <skos:definition xml:lang="en">Information pertaining to the life or history of a person.</skos:definition>
+        <scopeNote xml:lang="en">Information related to the biography of the agent.</scopeNote>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rdvocab.info/ElementsGr2/dateOfBirth -->
+
+    <owl:DatatypeProperty rdf:about="&rdaGr2;dateOfBirth">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <scopeNote xml:lang="en">The date the person was born.</scopeNote>
+        <skos:definition xml:lang="en">The year a person was born. Date of birth may also include the month and day of the person’s birth.</skos:definition>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rdvocab.info/ElementsGr2/dateOfDeath -->
+
+    <owl:DatatypeProperty rdf:about="&rdaGr2;dateOfDeath">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <scopeNote xml:lang="en">The date the person died.</scopeNote>
+        <skos:definition xml:lang="en">The year a person died. Date of death may also include the month and day of the person’s death.</skos:definition>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rdvocab.info/ElementsGr2/dateOfEstablishment -->
+
+    <owl:DatatypeProperty rdf:about="&rdaGr2;dateOfEstablishment">
+        <skos:definition xml:lang="en">The date on which a corporate body was established or founded.</skos:definition>
+        <scopeNote xml:lang="en">The date the institution was established.</scopeNote>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rdvocab.info/ElementsGr2/dateOfTermination -->
+
+    <owl:DatatypeProperty rdf:about="&rdaGr2;dateOfTermination">
+        <skos:definition xml:lang="en">The date on which a corporate body was terminated or dissolved.</skos:definition>
+        <scopeNote xml:lang="en">The date the institution was terminated.</scopeNote>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rdvocab.info/ElementsGr2/gender -->
+
+    <owl:DatatypeProperty rdf:about="&rdaGr2;gender">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <scopeNote xml:lang="en">The gender of the person.</scopeNote>
+        <skos:definition xml:lang="en">The gender with which a person identifies.</skos:definition>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rdvocab.info/ElementsGr2/otherDesignationAssociatedWithTheCorporateBody -->
+
+    <owl:DatatypeProperty rdf:about="&rdaGr2;otherDesignationAssociatedWithTheCorporateBody">
+        <skos:definition xml:lang="en">A term other than a title that is associated with a person’s name.</skos:definition>
+        <scopeNote xml:lang="en">Additional names. </scopeNote>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rdvocab.info/ElementsGr2/otherDesignationAssociatedWithThePerson -->
+
+    <owl:DatatypeProperty rdf:about="&rdaGr2;otherDesignationAssociatedWithThePerson">
+        <skos:definition xml:lang="en">A term other than a title that is associated with a person’s name.</skos:definition>
+        <scopeNote xml:lang="en">Additional names.</scopeNote>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rdvocab.info/ElementsGr2/professionOrOccupation -->
+
+    <owl:DatatypeProperty rdf:about="&rdaGr2;professionOrOccupation">
+        <skos:definition xml:lang="en">A profession or occupation in which a person works or has worked.</skos:definition>
+        <scopeNote xml:lang="en">The profession or occupation in which the person works or has worked.</scopeNote>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cidoc-crm.org/cidoc-crm/P79F.beginning_is_qualified_by -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cidoc-crm.org/cidoc-crm/P79F.beginning_is_qualified_by">
+        <rdfs:comment xml:lang="en">Qualifying information about the end of the timespan – such as degree of certainty, precision, source etc.</rdfs:comment>
+        <scopeNote xml:lang="en">This property is used to indicate the certainty of a timespan, in this case its end. Use “uncertainty_data” or “uncertainty_granularity” to indicate the type of uncertainty. More information can be found in the “Recommendations for the RDF representation of DM2E metadata”.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;TimeSpan"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cidoc-crm.org/cidoc-crm/P80F.end_is_qualified_by -->
+
+    <owl:DatatypeProperty rdf:about="http://www.cidoc-crm.org/cidoc-crm/P80F.end_is_qualified_by">
+        <rdfs:comment xml:lang="en">Qualifying information about the start of the timespan – such as degree of certainty, precision, source etc.
+</rdfs:comment>
+        <scopeNote xml:lang="en">This property is used to indicate the certainty of a timespan, in this case its beginning. Use “uncertainty_data” or “uncertainty_granularity” to indicate the type of uncertainty. More information can be found in the “Recommendations for the RDF representation of DM2E metadata”</scopeNote>
+        <rdfs:domain rdf:resource="&edm;TimeSpan"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/begin -->
+
+    <owl:DatatypeProperty rdf:about="&edm;begin">
+        <scopeNote xml:lang="en">The beginning of a timespan.</scopeNote>
+        <skos:definition xml:lang="en">This property denotes the start date of a period of time.</skos:definition>
+        <rdfs:domain rdf:resource="&edm;TimeSpan"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/end -->
+
+    <owl:DatatypeProperty rdf:about="&edm;end">
+        <scopeNote xml:lang="en">The end of a timespan.</scopeNote>
+        <skos:definition xml:lang="en">This property denotes the end date of a period of time.</skos:definition>
+        <rdfs:domain rdf:resource="&edm;TimeSpan"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/hasType -->
+
+    <owl:DatatypeProperty rdf:about="&edm;hasType">
+        <skos:definition xml:lang="en">This property relates a resource with the concepts it belongs to in a suitable type system such as MIME or any thesaurus that captures categories of objects in a given field (e.g., the âObjectsâ facet in Gettyâs Art and Architecture Thesaurus). It does not capture aboutness.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="&edm;isRelatedTo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/isRelatedTo -->
+
+    <owl:DatatypeProperty rdf:about="&edm;isRelatedTo">
+        <scopeNote xml:lang="en">Any other related resource.</scopeNote>
+        <skos:definition xml:lang="en">edm:isRelatedTo is the most general contextual property in EDM. Contextual properties have typically to do either with the things that have happened to or together with the object under consideration, or what the object refers to by its shape, form or features in a figural or encoded form. For sake of simplicity, we include in the contextual relationships also the scholarly classification, which may have either to do with the role and cultural connections of the object in the past, or its kind of structure, substance or contents as it can be verified at present.</skos:definition>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/rights -->
+
+    <owl:DatatypeProperty rdf:about="&edm;rights">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <skos:definition xml:lang="en">Information about usage and access rights of the digital objects indicated in isShownBy and isShownAt.</skos:definition>
+        <scopeNote xml:lang="en">The property edm:rights holds copyright information pertaining to all digital objects (edm:WebResource) given by edm:hasView or one of its subproperties. If a digital object (edm:WebResource) holds an additional copyright information given by dc:rights then this more specific copyright information has priority. Otherwise the value given in edm:rights at the Aggregation is the default value for digital object attached to this Aggregation. The four main types of rights statements in Europeana are: Public Domain Mark, CCO 1.0, Rights Reserved Statements and Unknown. The list of the all available licensing rights supported by Europeana can be found here: http://pro.europeana.eu/available-rights-statements.</scopeNote>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                    <rdf:Description rdf:about="&ore;Aggregation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/type -->
+
+    <owl:DatatypeProperty rdf:about="&edm;type">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <skos:definition xml:lang="en">The Europeana material type of the resource.</skos:definition>
+        <scopeNote xml:lang="en">The Europeana material type of the resource. Must be one of the following Europeana types (in upper case): TEXT, VIDEO, SOUND, IMAGE, 3D.</scopeNote>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">3D</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">IMAGE</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">SOUND</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">TEXT</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">VIDEO</rdf:first>
+                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#alt -->
+
+    <owl:DatatypeProperty rdf:about="&wgs84_pos;alt">
+        <skos:definition xml:lang="en">The WGS84 altitude of a SpatialThing (decimal meters above the local reference ellipsoid).</skos:definition>
+        <scopeNote xml:lang="en">The altitude of a place (decimal metres above the reference).</scopeNote>
+        <rdfs:domain rdf:resource="&edm;Place"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#lat -->
+
+    <owl:DatatypeProperty rdf:about="&wgs84_pos;lat">
+        <skos:definition xml:lang="en">The WGS84 latitude of a SpatialThing (decimal degrees).”
+Definition: “The WGS84 longitude of a SpatialThing (decimal degrees).
+</skos:definition>
+        <scopeNote xml:lang="en">The latitude of a place (decimal degree).</scopeNote>
+        <rdfs:domain rdf:resource="&edm;Place"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#long -->
+
+    <owl:DatatypeProperty rdf:about="&wgs84_pos;long">
+        <skos:definition xml:lang="en">The WGS84 longitude of a SpatialThing (decimal degrees).</skos:definition>
+        <scopeNote xml:lang="en">The longitude of a place (decimal degree).</scopeNote>
+        <rdfs:domain rdf:resource="&edm;Place"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+    <owl:DatatypeProperty rdf:about="&skos;altLabel">
+        <skos:definition xml:lang="en">An alternative lexical label for a resource.</skos:definition>
+        <scopeNote xml:lang="en">An alternative name, e.g. a former name or the name in another form.</scopeNote>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broader -->
+
+    <owl:DatatypeProperty rdf:about="&skos;broader">
+        <skos:definition xml:lang="en">Relates a concept to a concept that is more general in meaning.</skos:definition>
+        <scopeNote xml:lang="en">URI of the broader concept.</scopeNote>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&skos;Concept"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#hiddenLabel -->
+
+    <owl:DatatypeProperty rdf:about="&skos;hiddenLabel">
+        <skos:definition xml:lang="en">A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations.</skos:definition>
+        <scopeNote xml:lang="en">Non-standard forms of the name, e.g. misspellings.</scopeNote>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#narrower -->
+
+    <owl:DatatypeProperty rdf:about="&skos;narrower">
+        <skos:definition xml:lang="en">Relates a concept to a concept that is more specific in meaning.</skos:definition>
+        <scopeNote xml:lang="en">URI of the narrower concept.</scopeNote>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&skos;Concept"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#notation -->
+
+    <owl:DatatypeProperty rdf:about="&skos;notation">
+        <skos:definition xml:lang="en">A notation, also known as classification code, is a string of characters such as “T58.5” or “303.4833” used to uniquely identify a concept within the scope of a given concept scheme.</skos:definition>
+        <scopeNote xml:lang="en">If available: A notation of the concept.</scopeNote>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&skos;Concept"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#note -->
+
+    <owl:DatatypeProperty rdf:about="&skos;note">
+        <skos:definition xml:lang="en">A general note, for any purpose.</skos:definition>
+        <scopeNote xml:lang="en">Information related to the resource that cannot be modelled with other properties of the class.</scopeNote>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:DatatypeProperty rdf:about="&skos;prefLabel">
+        <skos:definition xml:lang="en">The preferred lexical label for a resource, in a given language.</skos:definition>
+        <scopeNote xml:lang="en">The preferred name of the agent, preferably in a normalized form. Only one preferred label per language tag is allowed!</scopeNote>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Archive -->
+
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Archive">
+        <rdfs:label xml:lang="en">Archive</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+        <rdfs:comment xml:lang="en">Archives are places where public records and other historical documents are preserved.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Collection -->
+
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Collection">
+        <rdfs:subClassOf rdf:resource="&edm;NonInformationResource"/>
+        <rdfs:comment xml:lang="en">The collection of CHOs as provided by a data provider.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/DataResource -->
+
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/DataResource">
+        <rdfs:subClassOf rdf:resource="&foaf;Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&void;inDataset"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The dataset that contains the RDF statements provided in via this data resource.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Document -->
+
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Document">
+        <rdfs:label xml:lang="en">Document</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
+        <rdfs:comment xml:lang="en">ProvidedCHO of type document. Unlike foaf:Document, dm2e:Document refers to a physical document.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/File -->
+
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/File">
+        <rdfs:label xml:lang="en">File</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
+        <rdfs:comment xml:lang="en">Archival Item.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Manuscript -->
+
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Manuscript">
+        <rdfs:label xml:lang="en">Manuscript</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
+        <rdfs:comment xml:lang="en">ProvidedCHO of type manuscript, e.g. Wittgensteins brown book. Not equivalent to bibo:Manuscript. Not equivalent to bibo:Manuscript.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Page -->
+
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Page">
+        <rdfs:label xml:lang="en">Page</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
+        <rdfs:comment xml:lang="en">A sheet of paper. Can be part of another CHO, e.g. dm2e:Manuscript.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Paragraph -->
+
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Paragraph">
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+        <rdfs:comment xml:lang="en">ProvidedCHO of type paragraph. Can be part of another (textual) CHO, e.g. dm2e:Manuscript.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Photo -->
+
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Photo">
+        <rdfs:label xml:lang="en">Photo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Image"/>
+        <rdfs:comment xml:lang="en">ProvidedCHO of type photo.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Publication -->
+
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Publication">
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+        <rdfs:comment xml:lang="en">ProvidedCHO of type publication.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/Work -->
+
+    <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Work">
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+        <rdfs:comment xml:lang="en">A non-physical piece of work of an agent, e.g. the theoretical concept of a manuscript.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Book -->
+
+    <owl:Class rdf:about="&bibo;Book">
+        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
+        <rdfs:comment xml:lang="en">A written or printed work of fiction or nonfiction, usually on sheets of paper fastened or bound together within covers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Issue -->
+
+    <owl:Class rdf:about="&bibo;Issue">
+        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
+        <scopeNote>An issue of a journal.</scopeNote>
+        <rdfs:comment>Something that is printed or published and distributed, esp. a given number of a periodical.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Journal -->
+
+    <owl:Class rdf:about="&bibo;Journal">
+        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
+        <rdfs:comment xml:lang="en">A periodical of scholarly journal Articles.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Letter -->
+
+    <owl:Class rdf:about="&bibo;Letter">
+        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
+        <rdfs:comment xml:lang="en">A written or printed communication addressed to a person or organization and usually transmitted by mail.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Series -->
+
+    <owl:Class rdf:about="&bibo;Series">
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+        <scopeNote xml:lang="en">A collection of documents, based on some shared aspects, like a topic or provenance etc.</scopeNote>
+        <rdfs:comment xml:lang="en">A loose, thematic, collection of Documents, often Books.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/fabio/Article -->
+
+    <owl:Class rdf:about="&fabio;Article">
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+        <rdfs:comment xml:lang="en">The realization of a piece of writing on a particular topic.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/fabio/Chapter -->
+
+    <owl:Class rdf:about="&fabio;Chapter">
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+        <rdfs:comment xml:lang="en">A defined document section, forming part of or intended for inclusion within a larger document, usually with its own title or chapter number. Different chapters within a document such as a book or a report may each be independently authored, or may all be authored by a single individual or group of authors.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/fabio/Cover -->
+
+    <owl:Class rdf:about="&fabio;Cover">
+        <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
+        <rdfs:comment xml:lang="en">A protective covering used to bind together the pages of a document or the first, informative, page of a digital document.</rdfs:comment>
+        <scopeNote xml:lang="en">ProvidedCHO of type cover. Can be part of another CHO, e.g. a book.</scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- http://rdfs.org/ns/void#Dataset -->
+
+    <owl:Class rdf:about="&void;Dataset">
+        <scopeNote xml:lang="en">A void:Dataset represents a stable version of an RDF graph that contains descriptions of ore:Aggregations and edm:providedCHOs of one data provider.</scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- http://vivoweb.org/ontology/core#Library -->
+
+    <owl:Class rdf:about="&vivo;Library">
+        <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+        <rdfs:comment xml:lang="en">A collection of any materials, for study and enjoyment, which has been systematically arranged.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vivoweb.org/ontology/core#Museum -->
+
+    <owl:Class rdf:about="&vivo;Museum">
+        <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+        <rdfs:comment xml:lang="en">A building or place where works of art, scientific specimens, or other objects of permanent value are kept and displayed.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vivoweb.org/ontology/core#University -->
+
+    <owl:Class rdf:about="&vivo;University">
+        <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+        <rdfs:comment xml:lang="en">An institution of higher education and research, which grants academic degrees in a variety of subjects, and provides both undergraduate education and postgraduate education.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/Agent -->
+
+    <owl:Class rdf:about="&edm;Agent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&edm;NonInformationResource"/>
+        <owl:disjointWith rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">This class comprises people, either individually or in groups, who have the potential to perform intentional actions for which they can be held responsible.</skos:definition>
+        <scopeNote xml:lang="en">cf. original scope note</scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/Event -->
+
+    <owl:Class rdf:about="&edm;Event">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&edm;NonInformationResource"/>
+        <scopeNote xml:lang="en">“An event is a change ‘of states in cultural, social or physical systems, regardless of scale, brought about by a series or group of coherent physical, cultural, technological or legal phenomena’ (E5 Event in CIDOC CRM) or a ‘set of coherent phenomena or cultural manifestations bounded in time and space’ (E4 Period in CIDOC CRM).” (Definition of the Europeana Data Model elements, 2013:11).</scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/InformationResource -->
+
+    <owl:Class rdf:about="&edm;InformationResource">
+        <skos:definition xml:lang="en">An information resource is a resource whose essential characteristics can be conveyed in a single message. It can be associated with a URI, it can have a representation, for example: a text is an InformationResource.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/NonInformationResource -->
+
+    <owl:Class rdf:about="&edm;NonInformationResource">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:complementOf rdf:resource="&edm;InformationResource"/>
+            </owl:Class>
+        </owl:equivalentClass>
+        <skos:definition xml:lang="en">All resources that are not information resources.</skos:definition>
+        <scopeNote xml:lang="en">“This class comprises people, either individually or in groups, who have the potential to perform intentional actions for which they can be held responsible.” (Definition of the Europeana Data Model elements, 2013:9).</scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/PhysicalThing -->
+
+    <owl:Class rdf:about="&edm;PhysicalThing">
+        <rdfs:subClassOf rdf:resource="&edm;NonInformationResource"/>
+        <skos:definition xml:lang="en">A persistent physical item such as a painting, a building, a book or a stone. Persons are not items. This class represents Cultural Heritage Objects known to Europeana to be physical things (such as Mona Lisa) as well as all physical things Europeana refers to in the descriptions of Cultural Heritage Objects (such as the Rosetta Stone).</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/Place -->
+
+    <owl:Class rdf:about="&edm;Place">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&dcterms;hasPart"/>
+                        <owl:allValuesFrom rdf:resource="&edm;Place"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&dcterms;isPartOf"/>
+                        <owl:allValuesFrom rdf:resource="&edm;Place"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&wgs84_pos;alt"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&wgs84_pos;lat"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&wgs84_pos;long"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&edm;NonInformationResource"/>
+        <skos:definition xml:lang="en">An “extent in space, in particular on the surface of the earth, in the pure sense of physics: independent from temporal phenomena and matter” (CIDOC CRM).</skos:definition>
+        <rdfs:comment xml:lang="en">Places are identified by the content provider and named according to some vocabulary or local convention, and possibly normalized by Europeana at enrichment or at ingestion time. This class is the range of property edm:happenedAt.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/ProvidedCHO -->
+
+    <owl:Class rdf:about="&edm;ProvidedCHO">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&dc;description"/>
+                                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&dc;title"/>
+                                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&dcterms;hasPart"/>
+                        <owl:allValuesFrom rdf:resource="&edm;ProvidedCHO"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&dcterms;isPartOf"/>
+                        <owl:allValuesFrom rdf:resource="&edm;ProvidedCHO"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;isDerivativeOf"/>
+                        <owl:allValuesFrom rdf:resource="&edm;ProvidedCHO"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&dc;type"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/holdingInstitution"/>
+                        <owl:onClass rdf:resource="&foaf;Organization"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&dcterms;spatial"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;currentLocation"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&dc;language"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/callNumber"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/condition"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/levelOfGenesis"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/shelfmarkLocation"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/watermark"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&bibo;isbn"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&bibo;issn"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&bibo;numPages"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&bibo;numVolumes"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&bibo;number"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&bibo;pages"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <scopeNote xml:lang="en">The EDM Definitions 5.2.4 describes the edm:ProvidedCHO as follows: “This class comprises the Cultural Heritage objects that Europeana collects descriptions about.” (Definition of the Europeana Data Model elements, 2013:13).
+</scopeNote>
+        <skos:definition xml:lang="en">This class comprises the Cultural Heritage objects that Europeana collects descriptions about.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/TimeSpan -->
+
+    <owl:Class rdf:about="&edm;TimeSpan">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&dcterms;hasPart"/>
+                        <owl:allValuesFrom rdf:resource="&edm;TimeSpan"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&dcterms;isPartOf"/>
+                        <owl:allValuesFrom rdf:resource="&edm;TimeSpan"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;begin"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;end"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&edm;NonInformationResource"/>
+        <skos:definition xml:lang="en">The class of “abstract temporal extents, in the sense of Galilean physics, having a beginning, an end and a duration” (CIDOC CRM).</skos:definition>
+        <rdfs:comment xml:lang="en">This class is the range of edm:occurredAt. Time spans are identified by the content provider or by Europeana at enrichment time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/WebResource -->
+
+    <owl:Class rdf:about="&edm;WebResource">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&dcterms;hasPart"/>
+                        <owl:allValuesFrom rdf:resource="&edm;WebResource"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&dcterms;isPartOf"/>
+                        <owl:allValuesFrom rdf:resource="&edm;WebResource"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;isDerivativeOf"/>
+                        <owl:allValuesFrom rdf:resource="&edm;WebResource"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;isNextInSenquence"/>
+                        <owl:allValuesFrom rdf:resource="&edm;WebResource"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;rights"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&edm;InformationResource"/>
+        <scopeNote xml:lang="en">According to the EDM Definitions 5.2.4, edm:WebResources are “Information Resources that have at least one Web Representation and at least a URI.” (Definition of the Europeana Data Model elements, 2013:14). The resource, which resembles any kind of view of the described CHO, is an instance of the class edm:WebResource. There must be at least one edm:WebResource for each CHO. This mandatory edm:WebResource is connected to ore:Aggregation via edm:isShownBy or edm:isShownAt.
+</scopeNote>
+        <skos:definition xml:lang="en">Information Resources that have at least one Web Representation and at least a URI.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.openarchives.org/ore/terms/AggregatedResource -->
+
+    <owl:Class rdf:about="&ore;AggregatedResource">
+        <rdfs:comment xml:lang="en">A resource which is included in an Aggregation. Note that asserting that a resource is a member of the class of Aggregated Resources does not imply anything other than that it is aggregated by at least one Aggregation. As such, this class is mostly informative and there is no need to assert that aggregated resources are instances of the ore:AggregatedResource class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.openarchives.org/ore/terms/Aggregation -->
+
+    <owl:Class rdf:about="&ore;Aggregation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&edm;isShownAt"/>
+                                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&edm;isShownBy"/>
+                                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;aggregatedCHO"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;dataProvider"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;provider"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;isShownAt"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;isShownBy"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;object"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://onto.dm2e.eu/schemas/dm2e/displayLevel"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;boolean"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&edm;rights"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">A set of related resources (Aggregated Resources), grouped together such that the set can be treated as a single resource. This is the entity described within the ORE interoperability framework by a Resource Map.</rdfs:comment>
+        <scopeNote xml:lang="en">The class ore:Aggregation aggregates Web resources (edm:WebResource) as well as CHOs (edm:ProvidedCHO). Additionally, it can provide information about the data provider, metadata rights etc. As ore:Aggregation is an abstract resource, there will be a 303 redirect to an ore:ResourceMap that contains the RDF description of the aggregation and the CHO. The definition of ore:Aggregation within the EDM specification (Version 5.2.4) includes the following description: “A set of related resources (Aggregated Resources), grouped together such that the set can be treated as a single resource. This is the entity described within the ORE interoperability framework by a Resource Map.” and “This class plays a central role in EDM, as it serves to group together all important elements of cultural heritage objects contributed by the content providers. Aggregations are used in Europeana to represent the complex constructs that are provided by contributors. An aggregation is associated to the object that it is about, by the property edm:aggregatedCHO ” (Definition of the Europeana Data Model 2013:7-8).</scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- http://www.openarchives.org/ore/terms/ResourceMap -->
+
+    <owl:Class rdf:about="&ore;ResourceMap">
+        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/DataResource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ore;describes"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="&skos;Concept">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&edm;NonInformationResource"/>
+        <skos:definition xml:lang="en">A SKOS concept can be viewed as an idea or notion; a unit of thought. However, what constitutes a unit of thought is subjective, and this definition is meant to be suggestive, rather than restrictive. The notion of a SKOS concept is used to refer to specific ideas or meanings established within a knowledge organization system and describe their conceptual structure.</skos:definition>
+        <rdfs:comment xml:lang="en">Concepts are used for the contextualization of resources.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Document -->
+
+    <owl:Class rdf:about="&foaf;Document"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Image -->
+
+    <owl:Class rdf:about="&foaf;Image">
+        <rdfs:subClassOf rdf:resource="&edm;NonInformationResource"/>
+        <rdfs:comment xml:lang="en">The class Image is a subclass of Document corresponding to those documents which are images. Digital images (such as JPEG, PNG, GIF bitmaps, SVG diagrams etc.) are examples of Image.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <owl:Class rdf:about="&foaf;Organization">
+        <rdfs:subClassOf rdf:resource="&edm;Agent"/>
+        <scopeNote xml:lang="en">Subclass of edm:Agent within the DM2E ontology.</scopeNote>
+        <rdfs:comment xml:lang="en">The Organization class represents a kind of Agent corresponding to social institutions such as companies, societies etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="&foaf;Person">
+        <rdfs:subClassOf rdf:resource="&edm;Agent"/>
+        <rdfs:comment xml:lang="en">The Person class represents people. Something is a Person if it is a person. We don&apos;t nitpic about whether they&apos;re alive, dead, real, or imaginary. The Person class is a subclass of the Agent class, since all people are considered &apos;agents&apos; in FOAF.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/ -->
+
+    <owl:NamedIndividual rdf:about="http://onto.dm2e.eu/schemas/dm2e/">
+        <dc:description xml:lang="en">This is the DM2E Model v1.1. It is built on the first operational version DM2E v1.0 and is the current specialization of the Europeana Data Model (EDM) for the domain of handwritten manuscripts made by the Digitised Manuscripts to Europeana project. The DM2E Model reuses as many existing properties and classes from other ontologies as possible.
+
+Authors: 
+ Julia Iwanowa, Evelyn Dröge, Steffen Hennicke, Kai Eckert.
+
+With contributions from others working in the DM2E project and at Europeana.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/testAgent -->
+
+    <owl:NamedIndividual rdf:about="http://onto.dm2e.eu/schemas/dm2e/testAgent">
+        <rdf:type rdf:resource="&edm;Agent"/>
+        <rdfs:label xml:lang="en">testAgent</rdfs:label>
+        <edm:hasMet rdf:resource="http://onto.dm2e.eu/schemas/dm2e/testConcept"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/testConcept -->
+
+    <owl:NamedIndividual rdf:about="http://onto.dm2e.eu/schemas/dm2e/testConcept">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">testConcept</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/ProvidedCHO -->
+
+    <owl:NamedIndividual rdf:about="&edm;ProvidedCHO"/>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/type -->
+
+    <owl:NamedIndividual rdf:about="&edm;type">
+        <skos:definition xml:lang="en">The Europeana material type of the resource.</skos:definition>
+        <scopeNote xml:lang="en">The Europeana material type of the resource. Must be one of the following Europeana types (in upper case): TEXT, VIDEO, SOUND, IMAGE, 3D.</scopeNote>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
