@@ -66,7 +66,7 @@ The only required option is `-version`.
 
 When `-terse` is given, a more dense error report is generated, containing only
 the type of error (corresponding to the Enum names in
-(ValidationProblemCategory)[/src/main/java/eu/dm2e/validation/ValidationProblemCategory.java]
+[ValidationProblemCategory](/src/main/java/eu/dm2e/validation/ValidationProblemCategory.java)
 and the problematic resource/string instead of the full textual description.
 
 dm2e-data.sh -- Interacting with DM2E data
