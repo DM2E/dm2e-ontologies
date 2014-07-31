@@ -1,5 +1,5 @@
-How to convert DM2E data to EDM
-===============================
+User Guide to the DM2E Command Line Tools
+=========================================
 
 Setting up the environment
 --------------------------
@@ -69,10 +69,85 @@ the type of error (corresponding to the Enum names in
 [ValidationProblemCategory](/src/main/java/eu/dm2e/validation/ValidationProblemCategory.java)
 and the problematic resource/string instead of the full textual description.
 
+You can safely ignore problems of level `NOTICE` and `WARNING`, but all data that contains `ERROR` or `FATAL` problems *should not be transformed to EDM* since the conversion is likely to fail and it is even more likely that EDM validation will fail, i.e. that the data will not be ingestible by Europeana.
+
 dm2e-data.sh -- Interacting with DM2E data
 ------------------------------------------
 
-dm2e-data.sh is a Bash script that makes interacting with the data in DM2E convenient on the command line.
+[dm2e-data.sh](/src/main/bash/dm2e-data.sh) is a Bash script that makes it convenient to interact with the data in DM2E convenient.
+
+It is important to note that the script *must be executed in the directory it resides*, because it uses relative paths to the various JARs. This means:
+
+```
+cd $HOME/repo/dm2e-ontologies
+cd src/main/bash
+bash dm2e-data.sh [...]
+```
+
+### Variables
+
+The script uses a few global variables that can be either set when invoking the tool (see [Options](#options)) or using a profile shell script that contains only variable assignments see [Profile File](#profile_file).
+
+The following variables can sensibly be changed:
+
+* `IN_DIR`: The directory of the DM2E RDF/XML files
+* `OUT_DIR`: The directory where the EDM converted raw RDF/XML files should be written to
+* `CLEAN_DIR`: The directory where the sorted, re-serialized and Europeana-Ingestion-ready EDM RDF/XML files should be written to
+
+The following variables can be changed but under most circumstances should not:
+
+* `DATASET_LIST`: The path to a file containing the IRI of datasets to be extracted in the extraction step
+* `SPARQL_DIR`: The directory containing
+  * the [SPARQL queries](/src/main/resources/sparql-queries)
+  * the [list of prefixes](/src/main/resources/sparql-queries/prefixes.rq)
+  * the [sparql query bash script](/src/main/resources/sparql-queries/sparql-query.sh)
+
+
+### Profile file
+
+The profile script must be named `dm2e-data.sh` and is searched in
+
+* the current working directory
+* the $HOME directory
+
+For example, if I have my DM2E input data in `$HOME/dm2e-in`, want the EDM output data in `/tmp/edm` and the ingestion-ready EDM files in `/data/edm-ingestion-ready`:
+
+```
+$> cat $HOME/dm2e-data.profile.sh
+IN_DIR=$HOME/dm2e-in
+OUT_DIR=/tmp/edm
+CLEAN_DIR=/data/edm-ingestion-ready
+```
+
+### Options
+
+As of Thu Jul 31 11:57:01 CEST 2014, the command line parameters for dm2e-data.sh are
+
+```
+    bash dm2e-data.sh <action> [options]
+
+    Global options:
+        --purge             Empty directories and list files before writing to them
+        --in-dir            Set $IN_DIR
+        --out-dir           Set $IN_DIR
+        --clean-dir         Set $CLEAN_DIR
+
+    Actions / options:
+        list-datasets       List the latest versions of all datasets
+            --dataset-list              File to write the dataset URIs to [OPTIONAL]
+        list-aggregations   List the latest versions of all datasets
+            --dataset/ds <URI>          URI of the dataset [REQUIRED]
+        dump-aggregations   Dump the transitive closure of the list of aggregations to $IN_DIR
+            --dataset/ds <URI>          URI of the dataset [REQUIRED]
+        convert-to-edm      Convert the data in $IN_DIR to EDM RDF/XML in $OUT_DIR
+        cleanup-edm         Transform the EDM RDF/XML in $OUT_DIR to prettier RDF/XML in $CLEAN_DIR
+        batch-dump          Combines 'list-datasets', 'list-aggregations' and 'dump-aggregations'
+        batch-convert       Combines 'convert-to-edm' and 'cleanup-edm'
+        validate-edm        Validate the EDM RDF/XML in $OUT_DIR to prettier RDF/XML in $CLEAN_DIR
+
+```
+
+
 
 For the conversion to EDM, we have two assumptions:
 
