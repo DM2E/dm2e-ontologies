@@ -1,0 +1,84 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ov: <http://open.vocab.org/terms/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lingvo: <http://www.lingvoj.org/ontology#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+@prefix dm2e-onto: <http://onto.dm2e.eu/schemas/dm2e/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix pro: <http://purl.org/spar/pro/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dm2edata: <http://data.dm2e.eu/data/> .
+@prefix skos: <http://www.w3.org/2008/05/skos#> .
+@prefix csm: <http://www.mozajka.co/LOD/MM/> .
+
+## New Concepts pertaining for the description of Codex Suprasliensis
+
+csm:Fragment a skos:Concept ;
+      rdfs:comment  "Physical part of a medieval manuscript."@en  ;
+	  rdfs:label  "fragment"@en  .
+ 
+csm:Folio a skos:Concept ;
+      rdfs:comment  "A sheet of a medieval manuscript. Usually, filled with writing on both sides (recto and verso).@en ;
+	  rdfs:label   "folio"@en  ;
+      rdfs:subClassOf bibo:Page	.
+	  
+csm:Line a skos:Concept ;
+      rdfs:comment "A line of a written text."@en   ;
+	  rdfs:label  "line"@en   .
+
+## New object properties for the description of Codex Suprasliensis
+
+csm:startsAtLine a owl:ObjectProperty ;
+     rdfs:comment "This property shows the line of the beginning of a work in a medieval manuscript."@en ;
+	 rdfs:label "starts at line"@en ;
+     rdfs:domain dm2e-onto:Work ;
+     rdfs:range csm:Folio .
+
+csm:endsAtLine a owl:ObjectProperty ;
+     rdfs:comment "This property shows the line of the end of a work in a medieval manuscript."@en ;
+	 rdfs:label "ends at line"@en ;
+     rdfs:domain dm2e-onto:Work ;
+     rdfs:range csm:Folio .
+
+csm:readingFor a owl:ObjectProperty ;
+	rdfs:comment "This property links a medieval work from a manuscript to the day from the church calendar in which the work is read during the church service."@en
+	rdfs:label reading for"@en ;
+	rdfs:domain dm2e-onto:Work ;
+	rdfs:ranewge edm:TimeSpan .
+
+## New datatype properties for the description of Codex Suprasliensis
+
+csm:locus a owl:DatatypeProperty ;
+     rdfs:comment "This property links a medieval work/chapter to the range of folia it covers."@en  ;
+	 rdfs:label "locus"@en ;
+     rdfs:domain dm2e-onto:Work .
+	 
+csm:head a owl:DatatypeProperty ;
+     rdfs:comment "This property denotes the first line (the title) of a work from a medieval manuscript."@en  ;
+	 rdfs:label "head"@en ;
+     rdfs:domain dm2e-onto:Work .
+	 
+csm:folia a  owl:DatatypeProperty ;
+     rdfs:comment "This property shows the number of folia of a medieval work/chapter."@en  ;
+	 rdfs:label "folia"@en ;
+     rdfs:domain dm2e-onto:Work .
+
+csm:script a owl:DatatypeProperty ;
+     rdfs:comment "This property indicates style of the script of a folio from a medieval manuscript."@en  ;
+	 rdfs:label "script"@en ;
+     rdfs:domain dm2e-onto:Folio .
+	 
+csm:inkColour a owl:DatatypeProperty ;
+     rdfs:comment "This property indicates colour of the ink on a folio from a medieval manuscript."@en  ;
+	 rdfs:label "ink colour"@en ;
+     rdfs:domain dm2e-onto:Folio .
+
+
+
+
+
