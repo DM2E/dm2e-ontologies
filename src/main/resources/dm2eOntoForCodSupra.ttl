@@ -20,16 +20,11 @@
 
 csm:Fragment a skos:Concept ;
       rdfs:comment  "Physical part of a medieval manuscript."@en  ;
-	  rdfs:label  "fragment"@en  .
- 
-csm:Folio a skos:Concept ;
-      rdfs:comment  "A sheet of a medieval manuscript. Usually, filled with writing on both sides (recto and verso).@en ;
-	  rdfs:label   "folio"@en  ;
-      rdfs:subClassOf bibo:Page	.
+	  rdfs:label  "fragment"@en .
 	  
 csm:Line a skos:Concept ;
       rdfs:comment "A line of a written text."@en   ;
-	  rdfs:label  "line"@en   .
+	  rdfs:label  "line"@en .
 
 ## New object properties for the description of Codex Suprasliensis
 
@@ -37,13 +32,13 @@ csm:startsAtLine a owl:ObjectProperty ;
      rdfs:comment "This property shows the line of the beginning of a work in a medieval manuscript."@en ;
 	 rdfs:label "starts at line"@en ;
      rdfs:domain dm2e-onto:Work ;
-     rdfs:range csm:Folio .
+     rdfs:range dm2e-onto:Page .
 
 csm:endsAtLine a owl:ObjectProperty ;
      rdfs:comment "This property shows the line of the end of a work in a medieval manuscript."@en ;
 	 rdfs:label "ends at line"@en ;
      rdfs:domain dm2e-onto:Work ;
-     rdfs:range csm:Folio .
+     rdfs:range dm2e-onto:Page .
 
 csm:readingFor a owl:ObjectProperty ;
 	rdfs:comment "This property links a medieval work from a manuscript to the day from the church calendar in which the work is read during the church service."@en
@@ -53,30 +48,17 @@ csm:readingFor a owl:ObjectProperty ;
 
 ## New datatype properties for the description of Codex Suprasliensis
 
-csm:locus a owl:DatatypeProperty ;
-     rdfs:comment "This property links a medieval work/chapter to the range of folia it covers."@en  ;
-	 rdfs:label "locus"@en ;
-     rdfs:domain dm2e-onto:Work .
-	 
-csm:head a owl:DatatypeProperty ;
-     rdfs:comment "This property denotes the first line (the title) of a work from a medieval manuscript."@en  ;
-	 rdfs:label "head"@en ;
-     rdfs:domain dm2e-onto:Work .
-	 
-csm:folia a  owl:DatatypeProperty ;
-     rdfs:comment "This property shows the number of folia of a medieval work/chapter."@en  ;
-	 rdfs:label "folia"@en ;
-     rdfs:domain dm2e-onto:Work .
-
 csm:script a owl:DatatypeProperty ;
      rdfs:comment "This property indicates style of the script of a folio from a medieval manuscript."@en  ;
 	 rdfs:label "script"@en ;
-     rdfs:domain dm2e-onto:Folio .
+     rdfs:domain dm2e-onto:Page ;
+	 rdfs:subPropertyOf dc:description .
 	 
 csm:inkColour a owl:DatatypeProperty ;
      rdfs:comment "This property indicates colour of the ink on a folio from a medieval manuscript."@en  ;
 	 rdfs:label "ink colour"@en ;
-     rdfs:domain dm2e-onto:Folio .
+     rdfs:domain dm2e-onto:Page ;
+	 rdfs:subPropertyOf dc:description .
 
 
 
