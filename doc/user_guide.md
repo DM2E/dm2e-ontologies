@@ -37,6 +37,68 @@ sudo apt-get install xsltproc   # Debian, Ubuntu
 sudo pacman -S libxslt          # Arch Linux
 ```
 
+Install curl to URL-encode SPARQL queries:
+
+```
+sudo apt-get install curl  # Debian, Ubuntu
+sudo pacman -S curl        # Arch Linux
+```
+
+Executing SPARQL queries
+------------------------
+
+To execute queries against a SPARQL endpoint and in particular the DM2E endpoint, the `sparql-query.sh` script can be used. In addition to query execution, the script makes namespace management easier and allows for variable interpolation in queries.
+
+```
+cd $HOME/repo/dm2e-ontologies/src/main/resources/sparql-queries/
+bash sparql-query.sh
+```
+
+Without any paramaters, the script will print its usage, which is as of Fri Aug  1 13:54:21 CEST 2014:
+
+```
+Arguments:
+
+  <queryFile>                 File containing the SPARQL query, REQUIRED
+
+Options:
+
+  --endpoint <endpoint>       SPARQL endpoint to query [Default: 'http://localhost:9997/dm2e-direct/sparql']
+  --prefixes <prefixfile>     Load SPARQL Prefixes from prefixfile [Default: 'prefixes.rq']
+  --format <tsv|xml|json|ntriples>     Format for displaying the result bindings [Default: 'tsv']
+  --bind <var> <val>          Replace all occurences of ?val by the value
+                              (to parameterize the query) REPEATABLE
+```
+
+* `--endpoint` gives the SPARQL endpoint to query. Note that the script has only been tested with Fuseki but should work with every SPARQL1.1-compliant endpoint.
+* `--prefixes` contains the name of the namespace prefixes file. This file should only contain prefix definitions in the SPARQL syntax. A reasonable set of defaults is [bundled](/src/main/resources/sparql-queries/prefixes.rq).
+* `--format` specifies the format that results of queries should be serialized as. The default format is applicable for SELECT queries. For CONSTRUCT queries, this must be changed to either `xml` for RDF/XML or `ntriples` for N-TRIPLE serialization of RDF data.
+* `--bind` define key-value pairs for variable interpolation
+
+The `queryFile` parameter is the path of a file that contains SPARQL clauses sans the namespaces.
+
+### Variable interpolation
+
+Suppose you have a query that returns all statements within a Named Graph but you want to apply that query to a lot of different Named Graphs named `/tmp/SELECT-all-in-graph.rq`:
+
+```sql
+SELECT * WHERE {
+  GRAPH ?graph {
+    ?s ?p ?o
+  }
+```
+
+Now you can interpolate `?graph` to a concrete value:
+
+```
+bash sparql-query.sh --bind '?graph' '<http://foo.bar/quux>' /tmp/SELECT-all-in-graph.rq
+```
+
+What this does is replacing all occurences of `?graph` with `<http://foo.bar/quux>`.
+
+
+Now, in another file `graphs.lst` you have the URIs of the graphs, one per line. Now you can ...
+
 
 DM2E validation
 ---------------
