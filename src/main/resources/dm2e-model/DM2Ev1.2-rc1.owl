@@ -1958,9 +1958,9 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
     </owl:DatatypeProperty>
     
 
-    <!-- http://www.cidoc-crm.org/rdfs/P79F.beginning_is_qualified_by -->
+    <!-- http://www.cidoc-crm.org/rdfs#P79_beginning_is_qualified_by -->
 
-    <owl:DatatypeProperty rdf:about="&crm;P79F.beginning_is_qualified_by">
+    <owl:DatatypeProperty rdf:about="&crm;P79_beginning_is_qualified_by">
         <rdfs:comment xml:lang="en">Qualifying information about the end of the timespan – such as degree of certainty, precision, source etc.</rdfs:comment>
         <scopeNote xml:lang="en">This property is used to indicate the certainty of a timespan, in this case its end. Use “uncertainty_data” or “uncertainty_granularity” to indicate the type of uncertainty. More information can be found in the “Recommendations for the RDF representation of DM2E metadata”.</scopeNote>
         <rdfs:domain rdf:resource="&edm;TimeSpan"/>
@@ -1979,9 +1979,9 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
     </owl:DatatypeProperty>
     
 
-    <!-- http://www.cidoc-crm.org/rdfs/P80F.end_is_qualified_by -->
+    <!-- http://www.cidoc-crm.org/rdfs#P80_end_is_qualified_by -->
 
-    <owl:DatatypeProperty rdf:about="&crm;P80F.end_is_qualified_by">
+    <owl:DatatypeProperty rdf:about="&crm;P80_end_is_qualified_by">
         <rdfs:comment xml:lang="en">Qualifying information about the start of the timespan – such as degree of certainty, precision, source etc.
 </rdfs:comment>
         <scopeNote xml:lang="en">This property is used to indicate the certainty of a timespan, in this case its beginning. Use “uncertainty_data” or “uncertainty_granularity” to indicate the type of uncertainty. More information can be found in the “Recommendations for the RDF representation of DM2E metadata”</scopeNote>
