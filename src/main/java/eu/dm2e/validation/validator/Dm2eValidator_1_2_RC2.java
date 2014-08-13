@@ -331,6 +331,7 @@ public class Dm2eValidator_1_2_RC2 extends BaseValidator {
 		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_MANUSCRIPT));
 		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_PAGE));
 		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_PHOTO));
+		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_FRAGMENT));
 		// skos:Concept
 		ret.add(res(m, NS.DM2E_UNVERSIONED.CLASS_WORK));
 		ret.add(res(m, NS.FABIO.CLASS_ARTICLE));

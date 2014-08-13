@@ -642,6 +642,7 @@ public final class NS {
 		public static final String PROP_HAS_VERSION    = BASE + "hasVersion";
         public static final String PROP_CONTAINS_CHO = BASE + "containsCHO";
 		public static final String	PROP_HOLDING_INSTITUTION	= BASE + "holdingInstitution";
+		public static final String	CLASS_FRAGMENT	= BASE + "Fragment";
 	}
 
 	public static final class FABIO {
