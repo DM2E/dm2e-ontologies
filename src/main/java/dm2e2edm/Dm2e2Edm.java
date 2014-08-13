@@ -530,7 +530,8 @@ public class Dm2e2Edm implements Runnable {
 			// If prop is dcterms:isPartOf, add the inverse dcterms:hasPart
 			//
 			outputModel.add(targetObject.asResource(), outputModel.createProperty(NS.DCTERMS.PROP_HAS_PART), targetSubject);
-		} else if (targetProp.getURI().equals(NS.SKOS.PROP_PREF_LABEL) && targetObject.isLiteral()) {
+		} else if (targetProp.getURI().equals(NS.SKOS.PROP_PREF_LABEL) && targetObject.isLiteral()
+				&& getRdfTypes(targetObject.asResource()).contains(res(NS.EDM.CLASS_PROVIDED_CHO))) {
 
 			//
 			// Make sure that every thing in the output graph has at most 1 skos:prefLabel
