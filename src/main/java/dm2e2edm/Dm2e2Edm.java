@@ -525,7 +525,7 @@ public class Dm2e2Edm implements Runnable {
 			outputModel.add(targetSubject, outputModel.createProperty(NS.SKOS.PROP_EXACT_MATCH), targetObject);
 			skipGeneric = true;
 		} else if (targetProp.getURI().equals(NS.DCTERMS.PROP_IS_PART_OF) && targetObject.isResource()
-				&& getRdfTypes(targetObject.asResource()).contains(res(NS.EDM.CLASS_PROVIDED_CHO))) {
+				&& getRdfTypes(targetSubject.asResource()).contains(res(NS.EDM.CLASS_PROVIDED_CHO))) {
 
 			//
 			// If prop is dcterms:isPartOf, add the inverse dcterms:hasPart
