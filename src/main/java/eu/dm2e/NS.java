@@ -6,11 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 //CHECKSTYLE.OFF: JavadocVariable
 
-
-
-
-import com.hp.hpl.jena.rdf.model.AnonId;
-
 /**
  * Central list of RDF entities.
  *
@@ -759,4 +754,9 @@ public final class NS {
 		public static final String BASE = "http://prismstandard.org/namespaces/basic/3.0/";
 		public static final String PROP_STARTING_PAGE = BASE + "startingPage";
 	}
+	
+	public static final class DAMOVA {
+		public static final String BASE = "http://www.mozajka.co/LOD/MM/";
+	}
+
 }

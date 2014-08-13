@@ -34,4 +34,17 @@ public class Dm2eValidator_1_2_RC2Test extends ValidationTest{
 		containsCategory(report, ValidationProblemCategory.FORBIDDEN_PROPERTY);
 		assertThat(report.getHighestLevel()).isEqualTo(ValidationLevel.FATAL);
 	}
+
+	@Test
+	public void testWhitespace() throws Exception {
+		Dm2eValidator val = Dm2eValidatorVersion.V_1_2_RC2.getValidator();
+		Model m = ModelFactory.createDefaultModel();
+		log.info("OK Pass: Mariana Damova's namespace is allowed");
+		final Resource res = res(m, "http://foo");
+		m.add(res, prop(m, NS.DAMOVA.BASE + "propFoo"), m.createLiteral("fuzzy"));
+		Dm2eValidationReport report = val.validateWithDm2e(m);
+		log.debug(report.toString());
+		assertThat(report.getHighestLevel()).isEqualTo(ValidationLevel.WARNING);
+	}
+
 }

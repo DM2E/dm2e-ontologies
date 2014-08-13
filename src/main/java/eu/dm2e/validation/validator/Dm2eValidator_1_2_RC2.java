@@ -47,6 +47,10 @@ public class Dm2eValidator_1_2_RC2 extends BaseValidator {
 		imageMimeTypes.add("application/pdf");
 	}
 
+	public Dm2eValidator_1_2_RC2() {
+		getNamespaceWhiteList().add(NS.DAMOVA.BASE);
+	}
+
 	@Override
 	public InputStream getOwlInputStream() {
 		return getClass().getResourceAsStream("/dm2e-model/DM2Ev1.2-rc2.owl");
