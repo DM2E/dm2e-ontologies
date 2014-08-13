@@ -176,6 +176,25 @@ public class Dm2e2EdmTest {
 	}
 	
 	@Test
+	public void testIssue106() throws Exception {
+		Model m = ModelFactory.createDefaultModel();
+		Model out = ModelFactory.createDefaultModel();
+
+		m.read(Dm2e2EdmTest.class.getResourceAsStream("/onbcodices2BZ9671240X.xml"), "", "RDF/XML");
+
+		Dm2e2Edm dm2e2Edm = new Dm2e2Edm(m, out);
+		dm2e2Edm.run();
+		
+		StringWriter sw = new StringWriter();
+		out.write(sw, "TURTLE");
+		log.debug(sw.toString());
+
+		assertThat(out.containsResource(res(out, "http://data.dm2e.eu/data/timespan/onb/codices/1727-01-01T000000UG_1727-12-31T235959UG"))).isFalse();
+		assertThat(out.containsResource(res(out, "http://d-nb.info/gnd/118692925"))).isTrue();
+		assertThat(out.containsResource(res(out, "http://data.dm2e.eu/data/agent/onb/authority_gnd/118692925"))).isFalse();
+	}
+	
+	@Test
 	public void testMultipleSkosPrefLabel() throws Exception {
 		
 		Model m = ModelFactory.createDefaultModel();
@@ -186,6 +205,10 @@ public class Dm2e2EdmTest {
 		Dm2e2Edm dm2e2Edm = new Dm2e2Edm(m, out);
 		dm2e2Edm.run();
 
+		StringWriter sw = new StringWriter();
+		out.write(sw, "TURTLE");
+		log.debug(sw.toString());
+
 		final Property skosPrefLabel = m.createProperty(NS.SKOS.PROP_PREF_LABEL);
 		final Property skosAltLabel = m.createProperty(NS.SKOS.PROP_ALT_LABEL);
 		assertThat(m.listStatements(null, skosPrefLabel, (RDFNode)null).toList().size()).isEqualTo(3);
@@ -193,5 +216,29 @@ public class Dm2e2EdmTest {
 		assertThat(out.listStatements(null, skosPrefLabel, (RDFNode)null).toList().size()).isEqualTo(1);
 		assertThat(out.listStatements(null, skosAltLabel, (RDFNode)null).toList().size()).isEqualTo(2);
 		
+	}
+
+	@Test
+	public void testInversePartOf() throws Exception {
+		Model m = ModelFactory.createDefaultModel();
+		Model out = ModelFactory.createDefaultModel();
+
+		final Property dctermsHasPart = m.createProperty(NS.DCTERMS.PROP_HAS_PART);
+		final Property dctermsIsPartOf = m.createProperty(NS.DCTERMS.PROP_IS_PART_OF);
+
+		m.read(Dm2e2EdmTest.class.getResourceAsStream("/inversePartOf.ttl"), "", "TURTLE");
+
+		assertThat(m.listStatements(null, dctermsIsPartOf, (RDFNode)null).toList().size()).isEqualTo(1);
+		assertThat(m.listStatements(null, dctermsHasPart, (RDFNode)null).toList().size()).isEqualTo(0);
+
+		Dm2e2Edm dm2e2Edm = new Dm2e2Edm(m, out);
+		dm2e2Edm.run();
+
+		StringWriter sw = new StringWriter();
+		out.write(sw, "TURTLE");
+		log.debug(sw.toString());
+
+		assertThat(out.listStatements(null, dctermsIsPartOf, (RDFNode)null).toList().size()).isEqualTo(1);
+		assertThat(out.listStatements(null, dctermsHasPart, (RDFNode)null).toList().size()).isEqualTo(1);
 	}
 }

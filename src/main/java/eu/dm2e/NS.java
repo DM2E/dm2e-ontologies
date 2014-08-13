@@ -522,6 +522,7 @@ public final class NS {
 		public static final String PROP_TEMPORAL	= BASE + "temporal";
 		public static final String	PROP_ALTERNATIVE	= BASE + "alternative";
 		public static final String	PROP_SPATIAL	= BASE + "spatial";
+		public static final String	PROP_HAS_PART	= BASE + "hasPart";
 
 	}
 

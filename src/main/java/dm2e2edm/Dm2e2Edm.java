@@ -524,6 +524,12 @@ public class Dm2e2Edm implements Runnable {
 			//
 			outputModel.add(targetSubject, outputModel.createProperty(NS.SKOS.PROP_EXACT_MATCH), targetObject);
 			skipGeneric = true;
+		} else if (targetProp.getURI().equals(NS.DCTERMS.PROP_IS_PART_OF) && targetObject.isResource()) {
+
+			//
+			// If prop is dcterms:isPartOf, add the inverse dcterms:hasPart
+			//
+			outputModel.add(targetObject.asResource(), outputModel.createProperty(NS.DCTERMS.PROP_HAS_PART), targetSubject);
 		} else if (targetProp.getURI().equals(NS.SKOS.PROP_PREF_LABEL) && targetObject.isLiteral()) {
 
 			//
