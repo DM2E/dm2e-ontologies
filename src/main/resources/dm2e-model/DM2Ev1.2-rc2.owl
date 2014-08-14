@@ -198,7 +198,8 @@ Changes between ontology file DM2Ev1.2-rc1.owl and DM2Ev1.2-rc2.owl
 ***********************************
 
 - CRM namespace change: Old properties deleted
-- TODO
+- Added class dm2e:Fragment
+
 </vann:changes>
         <dc:modified xml:lang="en">2014-03-11</dc:modified>
         <dc:title xml:lang="en">DM2E model</dc:title>
@@ -2262,7 +2263,12 @@ Definition: “The WGS84 longitude of a SpatialThing (decimal degrees).
         <rdfs:comment xml:lang="en">Archival Item.</rdfs:comment>
     </owl:Class>
     
-
+	<!-- http://onto.dm2e.eu/schemas/dm2e/Fragment -->
+	<owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Fragment">
+		<rdfs:label xml:lang="en">Fragment</rdfs:label>
+		<rdfs:subClassOf rdf:resource="http://www.europeana.eu/schemas/edm/PhysicalThing"/>
+		<rdfs:comment xml:lang="en">A physical fragment of a document, e.g. a collection of pages of a manuscript.</rdfs:comment>
+	</owl:Class>
 
     <!-- http://onto.dm2e.eu/schemas/dm2e/Manuscript -->
 
