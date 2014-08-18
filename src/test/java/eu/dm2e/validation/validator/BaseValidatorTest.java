@@ -18,6 +18,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 
 import eu.dm2e.NS;
 import eu.dm2e.validation.Dm2eValidationReport;
+import eu.dm2e.validation.ValidationLevel;
 import eu.dm2e.validation.ValidationProblemCategory;
 import eu.dm2e.validation.ValidationTest;
 
@@ -58,6 +59,17 @@ public class BaseValidatorTest extends ValidationTest {
 				Dm2eValidationReport report = new Dm2eValidationReport(v1_1_rev1_2.getVersion());
 				v1_1_rev1_2.validate_edm_TimeSpan(m, m.createResource("foo"), report);
 				log.debug(report.toString());
+			}
+			{
+				log.info("Okay non-typed dcterms:issued");
+				Model m = ModelFactory.createDefaultModel();
+				Resource tsRes = res(m, "http://ts1");
+				m.add(tsRes, prop(m, NS.DCTERMS.PROP_ISSUED), m.createLiteral("1523-01-01T00:00:00"));
+				Dm2eValidationReport report = new Dm2eValidationReport("");
+				v1_1_rev1_2.validate_DateLike(m, tsRes, report);
+				log.debug(report.exportToString(true));
+				containsCategory(report, ValidationProblemCategory.UNTYPED_LITERAL);
+				assertThat(report.getHighestLevel().ordinal()).isLessThan(ValidationLevel.FATAL.ordinal());
 			}
 			{
 				log.info("Bad xsd:Datetime (Pattern bad)");
