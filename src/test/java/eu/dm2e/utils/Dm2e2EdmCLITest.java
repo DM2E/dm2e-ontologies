@@ -9,7 +9,7 @@ public class Dm2e2EdmCLITest {
 	public void test() throws Exception {
 		
 //		{
-//			String[] args = "--file src/test/resources/dingler_example-new.ttl --inFormat TURTLE".split(" ");
+//			String[] args = "--input_file src/test/resources/dingler_example-new.ttl --input_format TURTLE".split(" ");
 //			Dm2e2EdmCLI.main(args);
 //		}
 //		{

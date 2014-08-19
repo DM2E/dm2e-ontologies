@@ -27,7 +27,8 @@ import dm2e2edm.Dm2e2Edm;
  * @author Konstantin Baierer
  * 
  * Options:
- * 		--input_dir 		Directory with the input RDF/XML files
+ * 		--input_file 		Input RDF files
+ * 		--input_dir 		Directory with the input RDF files
  * 		--output_dir		Directory to write output RDF/XML files to
  * 		--max-threads		Maximum of parallel threads
  *
@@ -72,7 +73,6 @@ public class Dm2e2EdmCLI {
 					break;
 			}
 		}
-		Path inputDir = Paths.get(line.getOptionValue("input_dir"));
 		String outputDirStr = line.getOptionValue("output_dir");
 		if (null == outputDirStr) outputDirStr = DEFAULT_OUTPUT_DIR;
 		Path outputDir = Paths.get(outputDirStr);
@@ -82,27 +82,36 @@ public class Dm2e2EdmCLI {
 //		ExecutorService threadPool = Executors.newCachedThreadPool();
 		
 		// Run !
-		Iterator<Path> inputFileIterator = null;
-		long total = 0;
-		try {
-			inputFileIterator = Files.newDirectoryStream(inputDir).iterator();
-			total = inputDir.toFile().listFiles().length;
-		} catch (IOException e) {
-			dieHelpfully("Couldn't list the input files");
-		}
-		int cur = 0;
-		while (inputFileIterator.hasNext()) {
-			Path curIn = inputFileIterator.next();
-			if (! Files.isRegularFile(curIn)) {
-				continue;
+		if (line.hasOption("input_dir")) {
+			Path inputDir = Paths.get(line.getOptionValue("input_dir"));
+			Iterator<Path> inputFileIterator = null;
+			long total = 0;
+			try {
+				inputFileIterator = Files.newDirectoryStream(inputDir).iterator();
+				total = inputDir.toFile().listFiles().length;
+			} catch (IOException e) {
+				dieHelpfully("Couldn't list the input files");
 			}
+			int cur = 0;
+			while (inputFileIterator.hasNext()) {
+				Path curIn = inputFileIterator.next();
+				if (! Files.isRegularFile(curIn)) {
+					continue;
+				}
+				Path curOut = Paths.get(outputDir.toString(), curIn.getFileName() + suffix );
+				System.out.print(String.format("[%d/%d] Converting %s -> %s.\r", ++cur, total, curIn, curOut));
+				Dm2e2Edm worker = new Dm2e2Edm(curIn, inFormat, curOut, outFormat);
+				//			threadPool.execute(worker);
+				worker.run();
+			}
+			System.out.println();
+		} else {
+			Path curIn = Paths.get(line.getOptionValue("input_file"));
 			Path curOut = Paths.get(outputDir.toString(), curIn.getFileName() + suffix );
-			System.out.print(String.format("[%d/%d] Converting %s -> %s.\r", ++cur, total, curIn, curOut));
+			System.out.print(String.format("Converting %s -> %s.\r", curIn, curOut));
 			Dm2e2Edm worker = new Dm2e2Edm(curIn, inFormat, curOut, outFormat);
-//			threadPool.execute(worker);
 			worker.run();
 		}
-		System.out.println();
 //		System.out.println("Shutting down thread pool.");
 //		threadPool.shutdown();
 //		System.out.println("Shut down thread pool.");
@@ -113,7 +122,7 @@ public class Dm2e2EdmCLI {
 //		} catch (InterruptedException e) {
 //			e.printStackTrace();
 //		}
-		System.exit(0);
+//		System.exit(0);
 	}
 
 	private static CommandLine parseOptions(String[] args)
@@ -145,12 +154,24 @@ public class Dm2e2EdmCLI {
 				}
 			}
 			
-			// --input_dir
-			Path inputDir = Paths.get(line.getOptionValue("input_dir"));
-			if (! Files.exists(inputDir)) {
-				dieHelpfully("Input dir " + inputDir.toString() + " does not exist", null);
-			} else if (! Files.isDirectory(inputDir)) {
-				dieHelpfully("Input dir " + inputDir.toString() + " is not a directory", null);
+			if (! line.hasOption("input_dir") && ! line.hasOption("input_file")) {
+				dieHelpfully("Must set either 'input_dir' or 'input_file'");
+			} else if (line.hasOption("input_dir")) {
+				// --input_dir
+				Path inputDir = Paths.get(line.getOptionValue("input_dir"));
+				if (! Files.exists(inputDir)) {
+					dieHelpfully("Input dir " + inputDir.toString() + " does not exist", null);
+				} else if (! Files.isDirectory(inputDir)) {
+					dieHelpfully("Input dir " + inputDir.toString() + " is not a directory", null);
+				}
+			} else {
+				// --input_file
+				Path inputFile = Paths.get(line.getOptionValue("input_file"));
+				if (! Files.exists(inputFile)) {
+					dieHelpfully("Input File " + inputFile.toString() + " does not exist", null);
+				} else if (! Files.isRegularFile(inputFile)) {
+					dieHelpfully("Input File " + inputFile.toString() + " is not a regular file", null);
+				}
 			}
 
 			// --output_dir
@@ -181,7 +202,10 @@ public class Dm2e2EdmCLI {
 		
 		options.addOption(OptionBuilder
 			.hasArgs(1)
-			.isRequired()
+			.withDescription("Input RDF file")
+			.create("input_file"));
+		options.addOption(OptionBuilder
+			.hasArgs(1)
 			.withDescription("Input directory of RDF files")
 			.create("input_dir"));
 		options.addOption(OptionBuilder
