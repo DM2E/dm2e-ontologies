@@ -106,11 +106,13 @@ public class Dm2e2EdmCLI {
 			}
 			System.out.println();
 		} else {
-			Path curIn = Paths.get(line.getOptionValue("input_file"));
-			Path curOut = Paths.get(outputDir.toString(), curIn.getFileName() + suffix );
-			System.out.print(String.format("Converting %s -> %s.\r", curIn, curOut));
-			Dm2e2Edm worker = new Dm2e2Edm(curIn, inFormat, curOut, outFormat);
-			worker.run();
+			for (String filename : line.getOptionValues("input_file")) {
+				Path curIn = Paths.get(filename);
+				Path curOut = Paths.get(outputDir.toString(), curIn.getFileName() + suffix );
+				System.out.print(String.format("Converting %s -> %s.\r", curIn, curOut));
+				Dm2e2Edm worker = new Dm2e2Edm(curIn, inFormat, curOut, outFormat);
+				worker.run();
+			}
 		}
 //		System.out.println("Shutting down thread pool.");
 //		threadPool.shutdown();
@@ -166,11 +168,13 @@ public class Dm2e2EdmCLI {
 				}
 			} else {
 				// --input_file
-				Path inputFile = Paths.get(line.getOptionValue("input_file"));
-				if (! Files.exists(inputFile)) {
-					dieHelpfully("Input File " + inputFile.toString() + " does not exist", null);
-				} else if (! Files.isRegularFile(inputFile)) {
-					dieHelpfully("Input File " + inputFile.toString() + " is not a regular file", null);
+				for (String file : line.getOptionValues("input_file")) {
+					Path inputFile = Paths.get(file);
+					if (! Files.exists(inputFile)) {
+						dieHelpfully("Input File " + inputFile.toString() + " does not exist", null);
+					} else if (! Files.isRegularFile(inputFile)) {
+						dieHelpfully("Input File " + inputFile.toString() + " is not a regular file", null);
+					}
 				}
 			}
 
@@ -201,7 +205,7 @@ public class Dm2e2EdmCLI {
 		Options options = new Options();
 		
 		options.addOption(OptionBuilder
-			.hasArgs(1)
+			.hasArgs()
 			.withDescription("Input RDF file")
 			.create("input_file"));
 		options.addOption(OptionBuilder
