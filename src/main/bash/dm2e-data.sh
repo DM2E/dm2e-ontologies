@@ -16,7 +16,7 @@ usage() {
 
     Actions / options:
         list-datasets       List the latest versions of all datasets
-            --dataset-list              File to write the dataset URIs to [OPTIONAL]
+            --dataset-list              File to write the dataset URIs to [OPTIONAL, Default: '$DEFAULT_DATASET_LIST']
         list-aggregations   List the latest versions of all datasets
             --dataset/ds <URI>          URI of the dataset [REQUIRED]
         dump-aggregations   Dump the transitive closure of the list of aggregations to \$IN_DIR
@@ -24,6 +24,7 @@ usage() {
         convert-to-edm      Convert the data in \$IN_DIR to EDM RDF/XML in \$OUT_DIR
         cleanup-edm         Transform the EDM RDF/XML in \$OUT_DIR to prettier RDF/XML in \$CLEAN_DIR
         batch-dump          Combines 'list-datasets', 'list-aggregations' and 'dump-aggregations'
+            --dataset-list              File to write/read the dataset URIs to/from [OPTIONAL, Default: '$DEFAULT_DATASET_LIST']
         batch-convert       Combines 'convert-to-edm' and 'cleanup-edm'
         validate-edm        Validate the EDM RDF/XML in \$OUT_DIR to prettier RDF/XML in \$CLEAN_DIR
 "
@@ -41,13 +42,16 @@ DEFAULT_DATASET_LIST="./dataset.lst"
 # CONFIG
 # can be overriden with $HOME/dm2e-data.profile.sh or ./dm2e-data.profile.sh
 #---------
-SPARQL_DIR=$(realpath "../resources/sparql-queries")
-DM2E_EDM_JAR=$(realpath "../../../target/dm2e-edm-jar-with-dependencies.jar")
-EDM_VALIDATION_JAR=$(realpath "../../../../edm-validation/target/edm-validation-jar-with-dependencies.jar")
-IN_DIR="$DEFAULT_IN_DIR"
-OUT_DIR="$DEFAULT_OUT_DIR"
-CLEAN_DIR="$DEFAULT_CLEAN_DIR"
-DATASET_LIST="$DEFAULT_DATASET_LIST"
+export DATASET
+export AGGREGATIONS_LIST
+export SPARQL_DIR=$(realpath "../resources/sparql-queries")
+export DM2E_EDM_JAR=$(realpath "../../../target/dm2e-edm-jar-with-dependencies.jar")
+export EDM_VALIDATION_JAR=$(realpath "../../../../edm-validation/target/edm-validation-jar-with-dependencies.jar")
+export IN_DIR="$DEFAULT_IN_DIR"
+export OUT_DIR="$DEFAULT_OUT_DIR"
+export CLEAN_DIR="$DEFAULT_CLEAN_DIR"
+export DATASET_LIST="$DEFAULT_DATASET_LIST"
+export NUMBER_OF_JOBS=4
 
 if [[ -e  $HOME_PROFILE ]];then
     source $HOME_PROFILE
@@ -59,12 +63,12 @@ fi
 #------------
 # PARAMETERS
 #-----------
-PREFIXES="$SPARQL_DIR/prefixes.rq"
-SPARQL_SCRIPT="$SPARQL_DIR/sparql-query.sh"
-XSLT_SORT="$SPARQL_DIR/sort.xsl"
-DATASET=""
-IN_FORMAT="RDF/XML"
-PURGE=""
+export PREFIXES="$SPARQL_DIR/prefixes.rq"
+export SPARQL_SCRIPT="$SPARQL_DIR/sparql-query.sh"
+export XSLT_SORT="$SPARQL_DIR/sort.xsl"
+export DATASET=""
+export IN_FORMAT="RDF/XML"
+export PURGE=""
 
 clean_uri() {
     local str=$1
@@ -149,53 +153,79 @@ action_dump_aggregations() {
     ensure_DATASET
     ensure_AGGREGATIONS_LIST
     ensure_IN_DIR
+    echo "DATASET $DATASET"
+    echo "IN_DIR $IN_DIR"
+    echo "AGGREGATIONS_LIST $AGGREGATIONS_LIST"
     if [[ ! -s $AGGREGATIONS_LIST ]];then
         usage "$AGGREGATIONS_LIST exists but is empty."
     fi
-    local total=$(wc -l "$AGGREGATIONS_LIST"|cut -d' ' -f1 )
-    local cur=0
-    for i in $(cat $AGGREGATIONS_LIST);do
-        out_filename="$IN_DIR/$(clean_uri $i).xml"
-        execute_sparql "CONSTRUCT-transitivie-closure" --bind 'agg' "<$i>" --bind 'g' "<$DATASET>" --format "xml" 2>/dev/null > $out_filename
-        cur=$(( $cur + 1 ))
-        echo -ne "[$cur / $total] Dumped <$i> to $out_filename\r"
-    done
-    echo
+    # arr=($(cat $AGGREGATIONS_LIST))
+    cat $AGGREGATIONS_LIST | \
+        SHELL=/bin/bash \
+        parallel --gnu  --progress --eta \
+            execute_sparql "CONSTRUCT-transitivie-closure" "--bind" "agg" "'\\<{}\\>'" "--bind" "g" "'\\<$DATASET\\>'" --format "xml" \
+            '2>/dev/null' \
+            ">" "$IN_DIR/\$(clean_uri '{}').xml"
 }
 
 action_convert_to_edm() {
     ensure_IN_DIR
     ensure_OUT_DIR
     echo "Converting data in $IN_DIR to EDM -> $OUT_DIR"
-    java -jar $DM2E_EDM_JAR --input_format "RDF/XML" --input_dir $IN_DIR --output_dir $OUT_DIR 2>/dev/null
+    find $IN_DIR | \
+        SHELL=/bin/bash \
+            parallel --gnu  --progress --eta -s 15000 -m \
+            java -jar "$DM2E_EDM_JAR" "--input_format" "RDF/XML" "--output_dir" "$OUT_DIR" "--input_file" "{}" \
+            "2>/dev/null" \
+            "2>/dev/null"
+    echo "DONE"
+}
+
+_paralelized_cleanup_edm() {
+    i=$1
+    out_filename="$CLEAN_DIR/$(basename $i)"
+
+    # cur=$(( $cur + 1 ))
+    # echo -ne "[$cur / $total] Cleaning up $i -> $out_filename\r"
+
+    # create tempfiles
+    tmpfile=$(mktemp)
+
+    # produce the right kind of RDF/XML-ABBREV for Europeana's ingestion needs
+    rapper -q -i rdfxml -o rdfxml-abbrev $i > $tmpfile 2>/dev/null
+
+    # sort the thing with a simple XSLT script
+    xsltproc $XSLT_SORT $tmpfile > $out_filename 2>/dev/null
+
+    # remove temp files
+    rm $tmpfile
 }
 
 action_cleanup_edm() {
     ensure_CLEAN_DIR
 
-    cur=0
-    total=$(ls $OUT_DIR/*.{xml,rdf}|wc -l|cut -d' ' -f1)
-    for i in $OUT_DIR/*.xml;do
-
-        out_filename="$CLEAN_DIR/$(basename $i)"
-
-        cur=$(( $cur + 1 ))
-        echo -ne "[$cur / $total] Cleaning up $i -> $out_filename\r"
-
-        # create tempfiles
-        tmpfile=$(mktemp)
-
-        # produce the right kind of RDF/XML-ABBREV for Europeana's ingestion needs
-        rapper -q -i rdfxml -o rdfxml-abbrev $i > $tmpfile
-
-        # sort the thing with a simple XSLT script
-        xsltproc $XSLT_SORT $tmpfile > $out_filename
-
-        # remove temp files
-        rm $tmpfile
-    done
+    find $OUT_DIR -type f | \
+        SHELL=/bin/bash parallel --gnu --progress --eta --ungroup _paralelized_cleanup_edm
     echo
 }
+
+_parallelized_dump() {
+    DATASET=$1
+    ensure_AGGREGATIONS_LIST
+    action_list_aggregations
+    action_dump_aggregations
+}
+export -f ensure_IN_DIR
+export -f ensure_OUT_DIR
+export -f ensure_CLEAN_DIR
+export -f ensure_DATASET
+export -f ensure_AGGREGATIONS_LIST
+export -f action_list_aggregations
+export -f action_dump_aggregations
+export -f _parallelized_dump
+export -f _paralelized_cleanup_edm
+export -f clean_uri
+export -f execute_sparql
 
 action_batch_dump() {
     if [[ ! -z "$DATASET" ]];then
@@ -203,15 +233,21 @@ action_batch_dump() {
         action_list_aggregations
         action_dump_aggregations
     else
-        action_list_datasets
-        for ds in $(cat $DATASET_LIST);do
-            DATASET=$ds
-            ensure_AGGREGATIONS_LIST
-            action_list_aggregations
-            action_dump_aggregations
-        done
+        if [[ ! -e "$DATASET_LIST"  && -z "$PURGE" ]];then
+            action_list_datasets
+        else
+            echo "Dataset list '$DATASET_LIST' exists, skip re-generation. --purge to force it."
+        fi
+        arr=()
+        while read ds; do
+            echo $ds | grep -q '^\s*[#;]' && continue
+            arr+=($ds)
+        done < $DATASET_LIST
+        SHELL=/bin/bash parallel --gnu --progress --eta --ungroup --jobs $NUMBER_OF_JOBS _parallelized_dump ::: "${arr[@]}"
     fi
 }
+
+
 action_batch_convert() {
     action_convert_to_edm
     action_cleanup_edm
