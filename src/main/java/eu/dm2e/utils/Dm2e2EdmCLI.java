@@ -122,7 +122,7 @@ public class Dm2e2EdmCLI {
 //		} catch (InterruptedException e) {
 //			e.printStackTrace();
 //		}
-//		System.exit(0);
+		System.exit(0);
 	}
 
 	private static CommandLine parseOptions(String[] args)
