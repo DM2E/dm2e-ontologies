@@ -1,0 +1,6 @@
+SELECT DISTINCT ?g
+WHERE {
+    GRAPH ?g {
+        ?uri ?s ?o .
+    }
+}

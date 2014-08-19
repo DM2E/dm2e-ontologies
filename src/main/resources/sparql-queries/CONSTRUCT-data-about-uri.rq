@@ -1,0 +1,9 @@
+CONSTRUCT {
+    ?uri ?p ?o.
+    ?o_s ?o_p ?uri .
+} WHERE {
+    GRAPH ?g {
+        ?uri ?p ?o .
+        ?o_s ?o_p ?uri .
+    }
+}
