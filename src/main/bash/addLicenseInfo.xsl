@@ -16,7 +16,7 @@
         </xsl:copy>
     </xsl:template>
     
-    <!-- When matching unitid replace spaces etc. -->
+    <!-- When matching ore:Aggregation having edm rights europeana ooc-nc with appendix, append license info. -->
     <xsl:template match="ore:Aggregation">
 		<xsl:copy-of select="."/>
 	<!-- Attach license info -->
