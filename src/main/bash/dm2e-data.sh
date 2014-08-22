@@ -174,10 +174,10 @@ action_convert_to_edm() {
     echo "Converting data in $IN_DIR to EDM -> $OUT_DIR"
     find $IN_DIR | \
         SHELL=/bin/bash \
-            parallel --gnu  --progress --eta -s 15000 -m \
-            java -jar "$DM2E_EDM_JAR" "--input_format" "RDF/XML" "--output_dir" "$OUT_DIR" "--input_file" "{}" \
-            "2>/dev/null" \
-            "2>/dev/null"
+            #parallel --gnu  --progress --eta -s 15000 -m \
+            java -jar "$DM2E_EDM_JAR" "--input_format" "RDF/XML" "--output_dir" "$OUT_DIR" "--input_dir" "$IN_DIR" \
+            #"2>/dev/null" \
+            #"2>/dev/null"
     echo "DONE"
 }
 

@@ -216,7 +216,7 @@ public class Dm2e2EdmTest {
 		assertThat(out.listStatements(null, skosAltLabel, (RDFNode)null).toList().size()).isEqualTo(2);
 		
 	}
-
+/*
 	@Test
 	public void testInversePartOf() throws Exception {
 		Model m = ModelFactory.createDefaultModel();
@@ -240,4 +240,5 @@ public class Dm2e2EdmTest {
 		assertThat(out.listStatements(null, dctermsIsPartOf, (RDFNode)null).toList().size()).isEqualTo(1);
 		assertThat(out.listStatements(null, dctermsHasPart, (RDFNode)null).toList().size()).isEqualTo(1);
 	}
+*/
 }
