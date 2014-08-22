@@ -176,7 +176,7 @@ action_convert_to_edm() {
         SHELL=/bin/bash \
             parallel --gnu  --progress --eta -s 15000 -m \
             java -jar "$DM2E_EDM_JAR" "--input_format" "RDF/XML" "--output_dir" "$OUT_DIR" "--input_file" "{}"
-            # "2>/dev/null"
+            # java -jar "$DM2E_EDM_JAR" "--input_format" "RDF/XML" "--output_dir" "$OUT_DIR" "--input_dir" "$IN_DIR"
     echo "DONE"
 }
 
