@@ -13,7 +13,7 @@ CONSTRUCT {
         }
         OPTIONAL {
             ?cho_o ?cho_o_p ?cho_o_o . 
-	    FILTER ( NOT EXISTS { ?cho_o a edm:ProvidedCHO } ) 
+            FILTER ( NOT EXISTS { ?cho_o a edm:ProvidedCHO } ) 
         }
     }
 }

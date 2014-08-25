@@ -103,6 +103,10 @@ case $outputFormat in
         url="${endpointSelect}?query=${queryFormatted}"
         curl -H "Accept: application/n-triples" $url
         ;;
+    "turtle")
+        url="${endpointSelect}?query=${queryFormatted}"
+        curl -H "Accept: text/turtle" $url
+        ;;
     *)
         echo "Unhandled format '$outputFormat'"
 esac

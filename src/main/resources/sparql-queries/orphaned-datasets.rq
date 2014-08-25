@@ -1,6 +1,6 @@
-SELECT DISTINCT ?g WHERE {
+SELECT ?g WHERE {
   GRAPH ?g {
-    ?s ?p ?o.
+    ?g ?p ?o.
     FILTER NOT EXISTS {
       ?g <http://www.w3.org/ns/prov#specializationOf> ?x }
     }

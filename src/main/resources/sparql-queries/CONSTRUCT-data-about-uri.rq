@@ -2,8 +2,18 @@ CONSTRUCT {
     ?uri ?p ?o.
     ?o_s ?o_p ?uri .
 } WHERE {
-    GRAPH ?g {
+    GRAPH ?lvds {
         ?uri ?p ?o .
         ?o_s ?o_p ?uri .
+    }
+    {
+        select (MAX(?vds) AS ?lvds) where {
+            graph ?vds {
+                ?vds rdf:type void:Dataset .
+                    FILTER (CONTAINS(STR(?vds), "dataset"))
+                    FILTER (!(CONTAINS(STR(?vds), "sample")))
+                    ?vds <http://www.w3.org/ns/prov#specializationOf> ?ads.
+            } .
+        } GROUP BY ?ads
     }
 }
