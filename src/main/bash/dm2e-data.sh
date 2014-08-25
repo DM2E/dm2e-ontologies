@@ -172,12 +172,11 @@ action_convert_to_edm() {
     ensure_IN_DIR
     ensure_OUT_DIR
     echo "Converting data in $IN_DIR to EDM -> $OUT_DIR"
-    find $IN_DIR | \
+    find $IN_DIR -type f | \
         SHELL=/bin/bash \
             parallel --gnu  --progress --eta -s 15000 -m \
-            java -jar "$DM2E_EDM_JAR" "--input_format" "RDF/XML" "--output_dir" "$OUT_DIR" "--input_file" "{}" \
-            "2>/dev/null" \
-            "2>/dev/null"
+            java -jar "$DM2E_EDM_JAR" "--input_format" "RDF/XML" "--output_dir" "$OUT_DIR" "--input_file" "{}"
+            # "2>/dev/null"
     echo "DONE"
 }
 
@@ -215,17 +214,6 @@ _parallelized_dump() {
     action_list_aggregations
     action_dump_aggregations
 }
-export -f ensure_IN_DIR
-export -f ensure_OUT_DIR
-export -f ensure_CLEAN_DIR
-export -f ensure_DATASET
-export -f ensure_AGGREGATIONS_LIST
-export -f action_list_aggregations
-export -f action_dump_aggregations
-export -f _parallelized_dump
-export -f _paralelized_cleanup_edm
-export -f clean_uri
-export -f execute_sparql
 
 action_batch_dump() {
     if [[ ! -z "$DATASET" ]];then
@@ -268,11 +256,25 @@ purge_if_necessary() {
 
 action_validate_edm() {
     ensure_CLEAN_DIR
-    echo "Validating the files in \$CLEAN_DIR"
+    echo "Validating the files in \$CLEAN_DIR [$CLEAN_DIR]"
     java -jar $EDM_VALIDATION_JAR $CLEAN_DIR
 }
 
 
+#-------------------
+# Exported Functions
+#-------------------
+export -f ensure_IN_DIR
+export -f ensure_OUT_DIR
+export -f ensure_CLEAN_DIR
+export -f ensure_DATASET
+export -f ensure_AGGREGATIONS_LIST
+export -f action_list_aggregations
+export -f action_dump_aggregations
+export -f _parallelized_dump
+export -f _paralelized_cleanup_edm
+export -f clean_uri
+export -f execute_sparql
 
 
 
