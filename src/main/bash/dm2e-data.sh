@@ -26,7 +26,7 @@ usage() {
         batch-dump          Combines 'list-datasets', 'list-aggregations' and 'dump-aggregations'
             --dataset-list              File to write/read the dataset URIs to/from [OPTIONAL, Default: '$DEFAULT_DATASET_LIST']
         batch-convert       Combines 'convert-to-edm' and 'cleanup-edm'
-        validate-edm        Validate the EDM RDF/XML in \$OUT_DIR to prettier RDF/XML in \$CLEAN_DIR
+        validate-edm        Validate the EDM RDF/XML in \$CLEAN_DIR
 "
     exit 1
 }
@@ -267,9 +267,9 @@ purge_if_necessary() {
 }
 
 action_validate_edm() {
-    ensure_OUT_DIR
-    echo "Validating the files in \$OUT_DIR"
-    java -jar $EDM_VALIDATION_JAR $OUT_DIR
+    ensure_CLEAN_DIR
+    echo "Validating the files in \$CLEAN_DIR"
+    java -jar $EDM_VALIDATION_JAR $CLEAN_DIR
 }
 
 
