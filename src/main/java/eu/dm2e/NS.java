@@ -744,6 +744,18 @@ public final class NS {
 		
 	}
 
+	public static final class VOCAB_STATUS {
+		public static final String BASE = "http://www.w3.org/2003/06/sw-vocab-status/ns#";
+	}
+
+	public static final class RDA_GR2 {
+		public static final String BASE = "http://rdvocab.info/ElementsGr2/";
+		public static final String PROP_DATE_OF_BIRTH = BASE + "dateOfBirth";
+		public static final String PROP_DATE_OF_DEATH = BASE + "dateOfDeath";
+		public static final String PROP_DATE_OF_ESTABLISHMENT = BASE + "dateOfEstablishment";
+		public static final String PROP_DATE_OF_TERMINATION = BASE + "dateOfTermination";
+	}
+
 	public static final class VIVO {
 		
 		public static final String BASE = "http://vivoweb.org/ontology/core#";

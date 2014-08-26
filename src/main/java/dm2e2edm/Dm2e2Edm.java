@@ -111,7 +111,8 @@ public class Dm2e2Edm implements Runnable {
 		nsPrefixes.put("dcterms", NS.DCTERMS.BASE);
 		nsPrefixes.put("dc", NS.DC.BASE);
 		nsPrefixes.put("dm2e", NS.DM2E_UNVERSIONED.BASE);
-		nsPrefixes.put("vocab-status", "http://www.w3.org/2003/06/sw-vocab-status/ns#");
+		nsPrefixes.put("rdaGr2", NS.RDA_GR2.BASE);
+		nsPrefixes.put("vocab-status", NS.VOCAB_STATUS.BASE);
 
 		System.setProperty("http.maxConnections", String.valueOf(100));
 		
@@ -449,6 +450,7 @@ public class Dm2e2Edm implements Runnable {
 			//
 			// Turn one-year timespans into xsd:gYear literals 
 			//
+			log.debug("{} is a timestamp", targetObject);
 			Resource res = targetObject.asResource();
 			String begin = getLiteralString(res, res(NS.EDM.PROP_BEGIN));
 			String end = getLiteralString(res, res(NS.EDM.PROP_END));
