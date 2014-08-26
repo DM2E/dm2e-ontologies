@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dm2edata="http://data.dm2e.eu/data/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dm2e="http://onto.dm2e.eu/schemas/dm2e/"
+         xmlns:edm="http://www.europeana.eu/schemas/edm/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:ore="http://www.openarchives.org/ore/terms/"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:mets="http://www.loc.gov/METS/"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:ddb="http://www.ddb.de/professionell/mabxml/mabxml-1.xsd"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:bibo="http://purl.org/ontology/bibo/"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:korbo="http://purl.org/net7/korbo/vocab#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:pro="http://purl.org/spar/pro/"
+         xmlns:rdaGr2="http://rdvocab.info/ElementsGr2/"
+         xmlns:void="http://rdfs.org/ns/void#"
+         xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+         xmlns:xalan="http://xml.apache.org/xalan"
+         xmlns:crm="http://www.cidoc-crm.org/rdfs/cidoc-crm#"
+         xmlns:fabio="http://purl.org/spar/fabio/"
+         xmlns:functx="http://www.functx.com"
+         xmlns:cc="http://creativecommons.org/ns#"
+         xmlns:odrl="http://www.w3.org/ns/odrl/2/">
+   <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/onb/authority_gnd/4019589-2">
+      <owl:sameAs rdf:resource="http://d-nb.info/gnd/4019589-2"/>
+      <skos:prefLabel xml:lang="de">Geburt</skos:prefLabel>
+   </skos:Concept>
+   <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/onb/abo/1841-01-01T000000UG_1841-12-31T235959UG">
+      <skos:prefLabel>1841</skos:prefLabel>
+      <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1841-01-01T00:00:00</edm:begin>
+      <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1841-12-31T23:59:59</edm:end>
+      <crm:P79_beginning_is_qualified_by>uncertainty_granularity</crm:P79_beginning_is_qualified_by>
+      <crm:P80_end_is_qualified_by>uncertainty_granularity</crm:P80_end_is_qualified_by>
+   </edm:TimeSpan>
+   <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/onb/abo/Geschichte_1841">
+      <skos:prefLabel xml:lang="de">Geschichte 1841</skos:prefLabel>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://data.dm2e.eu/data/concept/onb/abo/Quelle">
+      <skos:prefLabel xml:lang="de">Quelle</skos:prefLabel>
+   </skos:Concept>
+   <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/onb/abo/Joseph_Ferdinand_Fischer">
+      <skos:prefLabel>Joseph Ferdinand Fischer</skos:prefLabel>
+   </foaf:Person>
+   <foaf:Person rdf:about="http://data.dm2e.eu/data/agent/onb/abo/Johann_Reislin">
+      <skos:prefLabel>Johann Reislin</skos:prefLabel>
+      <rdaGr2:dateOfBirth rdf:resource="http://data.dm2e.eu/data/timespan/onb/abo/1784-01-01T000000UG_1784-12-31T235959UG"/>
+      <rdaGr2:dateOfDeath rdf:resource="http://data.dm2e.eu/data/timespan/onb/abo/1861-01-01T000000UG_1861-12-31T235959UG"/>
+      <rdaGr2:biographicalInformation>1784-1861</rdaGr2:biographicalInformation>
+   </foaf:Person>
+   <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/onb/abo/1784-01-01T000000UG_1784-12-31T235959UG">
+      <skos:prefLabel>1784</skos:prefLabel>
+      <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1784-01-01T00:00:00</edm:begin>
+      <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1784-12-31T23:59:59</edm:end>
+      <crm:P79_beginning_is_qualified_by>uncertainty_granularity</crm:P79_beginning_is_qualified_by>
+      <crm:P80_end_is_qualified_by>uncertainty_granularity</crm:P80_end_is_qualified_by>
+   </edm:TimeSpan>
+   <edm:TimeSpan rdf:about="http://data.dm2e.eu/data/timespan/onb/abo/1861-01-01T000000UG_1861-12-31T235959UG">
+      <skos:prefLabel>1861</skos:prefLabel>
+      <edm:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1861-01-01T00:00:00</edm:begin>
+      <edm:end rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1861-12-31T23:59:59</edm:end>
+      <crm:P79_beginning_is_qualified_by>uncertainty_granularity</crm:P79_beginning_is_qualified_by>
+      <crm:P80_end_is_qualified_by>uncertainty_granularity</crm:P80_end_is_qualified_by>
+   </edm:TimeSpan>
+   <edm:Agent rdf:about="http://data.dm2e.eu/data/agent/onb/abo/Carl_%C3%9Cberreuter">
+      <skos:prefLabel>Carl Überreuter</skos:prefLabel>
+      <skos:altLabel>Typis Caroli Ueberreuter</skos:altLabel>
+   </edm:Agent>
+   <edm:Place rdf:about="http://data.dm2e.eu/data/place/onb/abo/Wien">
+      <skos:prefLabel xml:lang="de">Wien</skos:prefLabel>
+      <skos:altLabel>Vindobonae</skos:altLabel>
+   </edm:Place>
+   <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/onb/abo/%2BZ103525701">
+      <dc:type rdf:resource="http://purl.org/ontology/bibo/Book"/>
+      <dc:identifier>+Z103525701</dc:identifier>
+      <dc:creator rdf:resource="http://data.dm2e.eu/data/agent/onb/abo/Joseph_Ferdinand_Fischer"/>
+      <dm2e:mentioned rdf:resource="http://data.dm2e.eu/data/agent/onb/abo/Johann_Reislin"/>
+      <dc:language>la</dc:language>
+      <dcterms:alternative>De Partu Normali</dcterms:alternative>
+      <dc:title>Dissertatio Inauguralis Medica De Partu Normali</dc:title>
+      <dm2e:subtitle>Quam ... pro Doctoris Medicinae Laurea ... in ... Universitate Vindobonensi publicae disquisitioni submittit Josephus Ferdinand. Fischer, Moravus Gewičensis ; In Theses adnexas disputabitur in aedibus Universitatis die [...] mensis Julii 1841</dm2e:subtitle>
+      <dm2e:printedAt rdf:resource="http://data.dm2e.eu/data/place/onb/abo/Wien"/>
+      <pro:printer rdf:resource="http://data.dm2e.eu/data/agent/onb/abo/Carl_%C3%9Cberreuter"/>
+      <dcterms:issued rdf:resource="http://data.dm2e.eu/data/timespan/onb/abo/1841-01-01T000000UG_1841-12-31T235959UG"/>
+      <bibo:numPages>34 S., [1] Bl.</bibo:numPages>
+      <dm2e:shelfmarkLocation>308366-B.Adl.2 ALT MAG</dm2e:shelfmarkLocation>
+      <edm:type>TEXT</edm:type>
+      <dc:subject rdf:resource="http://data.dm2e.eu/data/concept/onb/authority_gnd/4019589-2"/>
+      <dc:subject rdf:resource="http://data.dm2e.eu/data/timespan/onb/abo/1841-01-01T000000UG_1841-12-31T235959UG"/>
+      <dc:subject rdf:resource="http://data.dm2e.eu/data/concept/onb/abo/Geschichte_1841"/>
+      <dm2e:genre rdf:resource="http://data.dm2e.eu/data/concept/onb/abo/Quelle"/>
+   </edm:ProvidedCHO>
+   <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/onb/abo/Austrian_National_Library">
+      <skos:prefLabel xml:lang="en">Austrian National Library</skos:prefLabel>
+   </foaf:Organization>
+   <foaf:Organization rdf:about="http://data.dm2e.eu/data/agent/onb/abo/DM2E">
+      <skos:prefLabel xml:lang="en">DM2E</skos:prefLabel>
+   </foaf:Organization>
+   <edm:WebResource rdf:about="http://data.onb.ac.at/ABO/%2BZ103525701">
+      <edm:rights rdf:resource="http://www.europeana.eu/rights/out-of-copyright-non-commercial/"/>
+      <dc:format>text/html</dc:format>
+   </edm:WebResource>
+   <edm:WebResource rdf:about="http://digital.onb.ac.at/cds/ABO_%2BZ103525701/thumbnail/thumbnail.jpg?w=600&amp;q=80">
+      <edm:rights rdf:resource="http://www.europeana.eu/rights/out-of-copyright-non-commercial/"/>
+      <dc:format>image/jpeg</dc:format>
+   </edm:WebResource>
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/onb/abo/%2BZ103525701">
+      <edm:aggregatedCHO rdf:resource="http://data.dm2e.eu/data/item/onb/abo/%2BZ103525701"/>
+      <edm:dataProvider rdf:resource="http://data.dm2e.eu/data/agent/onb/abo/Austrian_National_Library"/>
+      <edm:isShownAt rdf:resource="http://data.onb.ac.at/ABO/%2BZ103525701"/>
+      <edm:object rdf:resource="http://digital.onb.ac.at/cds/ABO_%2BZ103525701/thumbnail/thumbnail.jpg?w=600&amp;q=80"/>
+      <edm:provider rdf:resource="http://data.dm2e.eu/data/agent/onb/abo/DM2E"/>
+      <dc:rights>The restrictions placed on the commercial re-use of this digital object expire as of 2028-12-16.</dc:rights>
+      <edm:rights rdf:resource="http://www.europeana.eu/rights/out-of-copyright-non-commercial/2028-12-16"/>
+      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</dm2e:displayLevel>
+      <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2008-02-05T00:00:00</dcterms:created>
+      <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-09-05T00:00:00</dcterms:modified>
+   </ore:Aggregation>
+   <cc:License rdf:about="http://www.europeana.eu/rights/out-of-copyright-non-commercial/2028-12-16">
+      <odrl:inheritFrom rdf:resource="http://www.europeana.eu/rights/out-of-copyright-non-commercial/"/>
+      <cc:deprecatedOn rdf:datatype="http://www.w3.org/2001/XMLSchema-datatypes#date">2028-12-16</cc:deprecatedOn>
+   </cc:License>
+</rdf:RDF>

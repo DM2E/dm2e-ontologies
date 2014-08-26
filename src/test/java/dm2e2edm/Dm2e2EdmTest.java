@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
@@ -153,6 +154,10 @@ public class Dm2e2EdmTest {
 	private Property prop(Model m, String propUri) {
 		return m.createProperty(propUri);
 	}
+
+	private Literal lit(Model m, String lit) {
+		return m.createLiteral(lit);
+	}
 	
 	@Test
 	public void testOneYearTimespan() throws Exception {
@@ -214,7 +219,33 @@ public class Dm2e2EdmTest {
 		assertThat(m.listStatements(null, skosAltLabel, (RDFNode)null).toList().size()).isEqualTo(0);
 		assertThat(out.listStatements(null, skosPrefLabel, (RDFNode)null).toList().size()).isEqualTo(1);
 		assertThat(out.listStatements(null, skosAltLabel, (RDFNode)null).toList().size()).isEqualTo(2);
+	}
+	
+	@Test
+	public void testDateOfBirth() throws Exception {
 		
+		Model m = ModelFactory.createDefaultModel();
+		Model out = ModelFactory.createDefaultModel();
+
+		m.read(Dm2e2EdmTest.class.getResourceAsStream("/dateOfBirthExample.xml"), "", "RDF/XML");
+
+		Dm2e2Edm dm2e2Edm = new Dm2e2Edm(m, out);
+		dm2e2Edm.run();
+
+		StringWriter sw = new StringWriter();
+		out.write(sw, "TURTLE");
+		log.debug(sw.toString());
+		
+		// DOB was translated to simple literal
+		assertThat(out.contains(
+				res(m, "http://data.dm2e.eu/data/agent/onb/abo/Johann_Reislin"),
+				prop(m, NS.RDA_GR2.PROP_DATE_OF_BIRTH),
+				lit(m, "1784")
+				)).isTrue();
+		// timestamp is not contained
+		assertThat(out.containsResource(
+				res(m, "http://data.dm2e.eu/data/timespan/onb/abo/1784-01-01T000000UG_1784-12-31T235959UG")
+				)).isFalse();
 	}
 /*
 	@Test

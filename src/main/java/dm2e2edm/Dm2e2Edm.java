@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -630,7 +631,7 @@ public class Dm2e2Edm implements Runnable {
 
 		// NOTE: We start with Aggregation and CHO and then the rest
 		// so as to not add anything that is explicitly skipped (such as unconnected agents or timespans)
-		ArrayList<Resource> resList = new ArrayList<Resource>();
+		List<Resource> resList = new ArrayList<Resource>();
 		{
 			ResIterator iter = inputModel.listSubjectsWithProperty(inputModel.createProperty(NS.RDF.PROP_TYPE), inputModel.createResource(NS.ORE.CLASS_AGGREGATION));
 			while (iter.hasNext()) {
@@ -653,12 +654,18 @@ public class Dm2e2Edm implements Runnable {
 //			ResIterator iter = inputModel.listSubjectsWithProperty(inputModel.createProperty(NS.RDF.PROP_TYPE), inputModel.createResource(NS.EDM.CLASS_PROVIDED_CHO));
 //			while (iter.hasNext()) resList.add(iter.next());
 //		}
+		List<Resource> addLastResList = new ArrayList<>();
 		{
 			ResIterator iter = inputModel.listSubjects();
 			while (iter.hasNext()) {
-				resList.add(iter.next());
+				Resource res = iter.next();
+				if (! getRdfTypes(res).contains(res(NS.EDM.CLASS_TIMESPAN)))
+					resList.add(res);
+				else
+					addLastResList.add(res);
 			}
 		}
+		resList.addAll(addLastResList);
 		for (Resource res : resList) {
 			if (!skipSet.contains(res)) {
 				log.debug("CURRENT RESOURCE " + res);
