@@ -1,8 +1,10 @@
 CONSTRUCT {
+    ?agg edm:FOOMANCHU ?g. 
     ?agg ?agg_p ?agg_o .
     ?cho ?cho_p ?cho_o .
     ?agg_o ?agg_o_p ?agg_o_o .
     ?cho_o ?cho_o_p ?cho_o_o .
+    ?cho_o_o ?cho_o_o_p ?cho_o_o_o
 } WHERE {
     GRAPH ?g {
         ?agg ?agg_p ?agg_o .
@@ -14,6 +16,9 @@ CONSTRUCT {
         OPTIONAL {
             ?cho_o ?cho_o_p ?cho_o_o . 
             FILTER ( NOT EXISTS { ?cho_o a edm:ProvidedCHO } ) 
+            OPTIONAL {
+                ?cho_o_o ?cho_o_o_p ?cho_o_o_o
+            }
         }
     }
 }
