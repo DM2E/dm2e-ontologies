@@ -15,6 +15,7 @@ usage() {
         --clean-dir         Set \$CLEAN_DIR
 
     Actions / options:
+        debug               Dump the current environment and exit
         list-datasets       List the latest versions of all datasets
             --dataset-list              File to write the dataset URIs to [OPTIONAL, Default: '$DEFAULT_DATASET_LIST']
         list-aggregations   List the latest versions of all datasets
@@ -52,6 +53,7 @@ export OUT_DIR="$DEFAULT_OUT_DIR"
 export CLEAN_DIR="$DEFAULT_CLEAN_DIR"
 export DATASET_LIST="$DEFAULT_DATASET_LIST"
 export NUMBER_OF_JOBS=4
+export PARALLELIZE="true"
 
 if [[ -e  $HOME_PROFILE ]];then
     source $HOME_PROFILE
@@ -79,36 +81,48 @@ clean_uri() {
     echo $str
 }
 
+## strip_brackets()
+## remove '<' and '>' from script
 strip_brackets() {
     local str=$1
     str=$(echo "$str"|sed 's/[<>]//g')
     echo $str
 }
 
+# ensure_DATASET()
+# Make sure $DATASET is set
 ensure_DATASET() {
     if [[ -z "$DATASET" ]];then
         usage "Must set dataset '--dataset'/'--ds'"
     fi
 }
 
+# ensure_AGGREGATIONS_LIST()
+# Make sure $AGGREGATIONS_LIST is set
 ensure_AGGREGATIONS_LIST() {
     ensure_DATASET
     AGGREGATIONS_LIST="$(clean_uri $DATASET)-aggregations.lst"
     touch $AGGREGATIONS_LIST
 }
 
+# ensure_IN_DIR()
+# Make sure $IN_DIR is set
 ensure_IN_DIR() {
     if [[ ! -e "$IN_DIR" ]];then
         mkdir -p "$IN_DIR"
     fi
 }
 
+# ensure_OUT_DIR()
+# Make sure $OUT_DIR is set
 ensure_OUT_DIR() {
     if [[ ! -e "$OUT_DIR" ]];then
         mkdir -p "$OUT_DIR"
     fi
 }
 
+# ensure_CLEAN_DIR()
+# Make sure $CLEAN_DIR is set
 ensure_CLEAN_DIR() {
     ensure_OUT_DIR
     if [[ ! -e "$CLEAN_DIR" ]];then
@@ -116,10 +130,20 @@ ensure_CLEAN_DIR() {
     fi
 }
 
+# execute_sparql()
+# Execute a SPARQL query
 execute_sparql() {
     local query=$1
     shift
     bash "$SPARQL_SCRIPT" "$SPARQL_DIR/${query}.rq" --prefixes "$PREFIXES" $@
+}
+
+debug() {
+    echo "PWD: '$PWD'"
+    echo "IN_DIR: '$IN_DIR'"
+    echo "OUT_DIR: '$OUT_DIR'"
+    echo "CLEAN_DIR: '$CLEAN_DIR'"
+    echo "BASE_DIR: '$BASE_DIR'"
 }
 
 action_list_datasets() {
@@ -160,6 +184,7 @@ action_dump_aggregations() {
         usage "$AGGREGATIONS_LIST exists but is empty."
     fi
     # arr=($(cat $AGGREGATIONS_LIST))
+    # if [[ "$PARALLELIZE" == "true" ]];then
     cat $AGGREGATIONS_LIST | \
         SHELL=/bin/bash \
         parallel --gnu  --progress --eta \
@@ -261,7 +286,7 @@ action_validate_edm() {
 }
 
 
-#-------------------
+#-------------------{{{
 # Exported Functions
 #-------------------
 export -f ensure_IN_DIR
@@ -275,6 +300,7 @@ export -f _parallelized_dump
 export -f _paralelized_cleanup_edm
 export -f clean_uri
 export -f execute_sparql
+#}}}
 
 
 
@@ -369,6 +395,9 @@ case "$ACTION" in
         ;;
     "help")
         usage
+        ;;
+    "debug")
+        debug
         ;;
     *)
         usage "Unknown action '$ACTION'!"
