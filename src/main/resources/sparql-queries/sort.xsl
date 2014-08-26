@@ -33,9 +33,9 @@
         <xsl:param name="oaiIdentifier" select="''" />
         <xsl:choose>
             <xsl:when test="not(contains($text, $separator))">
-                <xsl:comment>
+                <dc:identifier type="dm2e">
                     <xsl:value-of select="concat($oaiIdentifier, concat(':', $text))"/>
-                </xsl:comment>
+                </dc:identifier>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:call-template name="dm2e_identify">
