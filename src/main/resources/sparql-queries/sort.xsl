@@ -33,7 +33,7 @@
         <xsl:param name="oaiIdentifier" select="''" />
         <xsl:choose>
             <xsl:when test="not(contains($text, $separator))">
-                <dc:identifier type="dm2e">
+                <dc:identifier>
                     <xsl:value-of select="concat($oaiIdentifier, concat(':', $text))"/>
                 </dc:identifier>
             </xsl:when>
