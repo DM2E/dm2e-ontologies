@@ -33,9 +33,9 @@
         <xsl:param name="oaiIdentifier" select="''" />
         <xsl:choose>
             <xsl:when test="not(contains($text, $separator))">
-                <dc:identifier>
+                <xsl:attribute name="oaiIdentifier">
                     <xsl:value-of select="concat($oaiIdentifier, concat(':', $text))"/>
-                </dc:identifier>
+                </xsl:attribute>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:call-template name="dm2e_identify">
@@ -46,7 +46,7 @@
                                 <xsl:value-of select="substring-before($text, $separator)"/>
                             </xsl:when>
                             <xsl:when test="$level > 7">
-                                <xsl:value-of select=" concat($oaiIdentifier, concat(':',substring-before($text, $separator)))"/>
+                                <xsl:value-of select="concat($oaiIdentifier, concat(':',substring-before($text, $separator)))"/>
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:value-of select="$oaiIdentifier"/>

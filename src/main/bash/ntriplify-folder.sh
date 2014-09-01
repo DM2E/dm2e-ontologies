@@ -2,7 +2,7 @@
 # vim: set foldmethod=marker foldmarker={,}:
 
 
-export now=$(date -u '+%Y-%m-%d__%h_%M_%S')
+export now=$(date -u '+%Y-%m-%d__%H_%M_%S')
 export IN_FOLDER
 export IN_FORMAT="rdfxml"
 export OUT_FILE="./ntriplified-dump.$now.zip"
@@ -12,6 +12,7 @@ if [[ -z "$tmp" ]];then
     echo "!! Couldn't create temp dir !!"
     exit
 else
+    echo
     trap "cleanup" 0
 fi
 
@@ -34,7 +35,7 @@ usage() {
     echo ""
     echo "Options"
     echo "    --in/-i IN_FOLDER             Folder to read RDF data from [REQUIRED]"
-    echo "    --out/-o OUT_File             Filename of the result [Default: '$OUT_FILE']"
+    echo "    --out/-o OUT_FILE             Filename of the result [Default: '$OUT_FILE']"
     echo "    --number-of-lines/-n NUMBER   Number of lines [Default '$NUMBER_OF_LINES']"
     echo "    --in-format/-f (RDF/XML|N-TRIPLE|TURTLE)     Input format [DEFAULT: '$IN_FORMAT']"
 }
@@ -42,22 +43,34 @@ usage() {
 dump_as_ntriples() {
     local joinedfile="$tmp/000_join_000.nt"
     local sortedfile="$tmp/000_sort_000.nt"
+    local outdir="$tmp/000_out_000"
     local splitdir="$tmp/split"
     echo "Temp Dir: $tmp"
     echo "---------------------------"
     echo "Step 1: Convert to N-TRIPLE"
     echo "---------------------------"
-    touch "$joinedfile"
+    echo mkdir -p $outdir
+    echo
+    mkdir -p $outdir
     find $IN_FOLDER -maxdepth 1 -type f | \
         parallel --gnu  --progress --eta --jobs +30 \
-            rapper -i "$IN_FORMAT" -o ntriples "{}" ">>" "$joinedfile" "2>/dev/null"
+            rapper -i "$IN_FORMAT" -o "ntriples" "{}" \
+            ">" "$outdir/\$(basename '{}')" \
+            "2>/dev/null"
+            # sort \
     echo "---------------------------"
-    echo "Step 2: Sort               "
+    echo "Step 2: Join               "
+    echo "---------------------------"
+    touch $joinedfile
+    echo find "$outdir" -type f '|' xargs -L 100 cat '>>' "$joinedfile" "'<'"
+    time find "$outdir" -type f | xargs -L 100 cat >> "$joinedfile"
+    echo "---------------------------"
+    echo "Step 3: Sort Uniq          "
     echo "---------------------------"
     echo sort -u "$joinedfile" '>' $sortedfile
     time sort -u "$joinedfile" > $sortedfile
     echo "---------------------------"
-    echo "Step 3: Split              "
+    echo "Step 4: Split              "
     echo "---------------------------"
     mkdir "$splitdir"
     echo split -l $NUMBER_OF_LINES -d $sortedfile -a5 "$splitdir/"
@@ -66,7 +79,7 @@ dump_as_ntriples() {
         mv "$splitdir/$i" "$splitdir/$i.nt"
     done
     echo "---------------------------"
-    echo "Step 4: Zip it             "
+    echo "Step 5: Zip it             "
     echo "---------------------------"
     echo zip -r -j --quiet "$splitdir" $OUT_FILE
     time zip -r -j --quiet "$OUT_FILE" "$splitdir"
