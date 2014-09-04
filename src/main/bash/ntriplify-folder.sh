@@ -75,9 +75,7 @@ dump_as_ntriples() {
     mkdir "$splitdir"
     echo split -l $NUMBER_OF_LINES -d $sortedfile -a5 "$splitdir/"
     time split -l $NUMBER_OF_LINES -d $sortedfile -a5 "$splitdir/"
-    for i in $splitdir/*;do
-        mv "$splitdir/$i" "$splitdir/$i.nt"
-    done
+    find $splitdir -type f -exec mv "{}" "{}.nt" \;
     echo "---------------------------"
     echo "Step 5: Zip it             "
     echo "---------------------------"
