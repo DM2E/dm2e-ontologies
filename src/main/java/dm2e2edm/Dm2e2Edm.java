@@ -498,8 +498,6 @@ public class Dm2e2Edm implements Runnable {
 			outputModel.add(targetSubject, targetProp, targetObject);
 			skipGeneric = true;
 		} else if (targetObject.isResource() && targetProp.getURI().equals(NS.DC.PROP_TYPE)) {
-			// dc:type -> lastUriSegment -> edm:hasType
-			outputModel.add(targetSubject, outputModel.createProperty(NS.EDM.PROP_HAS_TYPE), lastUriSegment(targetObject.toString()));
 			
 			// Now add the data about the dc:type class here
 			StmtIterator iter = dcTypesModel.listStatements(targetObject.asResource(), null, (RDFNode)null);
