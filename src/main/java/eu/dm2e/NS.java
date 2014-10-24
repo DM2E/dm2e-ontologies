@@ -594,6 +594,7 @@ public final class NS {
 		public static final String	PROP_DISPLAY_LEVEL				= BASE + "displayLevel";
 		public static final String	PROP_EXPLICIT					= BASE + "explicit";
 		public static final String	PROP_HAS_ANNOTABLE_VERSION_AT	= BASE + "hasAnnotatableVersionAt";
+		public static final String	PROP_HOLDING_INSTITUTION		= BASE + "holdingInstitution";
 		public static final String	PROP_INCIPIT					= BASE + "incipit";
 		public static final String	PROP_LEVEL_OF_GENESIS			= BASE + "levelOfGenesis";
 		public static final String	PROP_LEVEL_OF_HIERARCHY			= BASE + "levelOfHierarchy";

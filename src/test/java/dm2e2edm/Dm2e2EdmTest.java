@@ -247,6 +247,28 @@ public class Dm2e2EdmTest {
 				res(m, "http://data.dm2e.eu/data/timespan/onb/abo/1784-01-01T000000UG_1784-12-31T235959UG")
 				)).isFalse();
 	}
+	
+	@Test
+	public void testHoldingInst() throws Exception {
+		Model m = ModelFactory.createDefaultModel();
+		Model out = ModelFactory.createDefaultModel();
+
+		final Resource stadtarchivHalle = m.createResource("http://data.dm2e.eu/data/agent/sbb/kpe_DE-Ha179_37172/Stadtarchiv%20Halle");
+		final Property dm2eHI = m.createProperty(NS.DM2E_UNVERSIONED.PROP_HOLDING_INSTITUTION);
+		final Property dctermsProvenance = m.createProperty(NS.DCTERMS.PROP_PROVENANCE);
+
+		m.read(Dm2e2EdmTest.class.getResourceAsStream("/holdinginstitution-provenance.ttl"), "", "TURTLE");
+
+		assertThat(m.listStatements(null, dctermsProvenance, (RDFNode)null).toList().size()).isEqualTo(0);
+		assertThat(m.listStatements(null, dm2eHI, (RDFNode)null).toList().size()).isEqualTo(1);
+
+		Dm2e2Edm dm2e2Edm = new Dm2e2Edm(m, out);
+		dm2e2Edm.run();
+
+		assertThat(out.listStatements(null, dm2eHI, (RDFNode)null).toList().size()).isEqualTo(0);
+		assertThat(out.listStatements(null, dctermsProvenance, (RDFNode)null).toList().size()).isEqualTo(1);
+		assertThat(out.containsResource(stadtarchivHalle)).isFalse();;
+	}
 /*
 	@Test
 	public void testInversePartOf() throws Exception {

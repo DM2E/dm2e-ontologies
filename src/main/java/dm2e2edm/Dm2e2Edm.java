@@ -349,7 +349,7 @@ public class Dm2e2Edm implements Runnable {
 						continue;
 					}
 				}
-				addToTarget(targetSubject, targetProp, targetObject);
+				addToTarget(targetSubject, targetProp, targetObject, prop);
 			}
 		}
 	}
@@ -408,11 +408,12 @@ public class Dm2e2Edm implements Runnable {
 		return types;
 	}
 
-	private synchronized void addToTarget(Resource targetSubject, Property targetProp, RDFNode targetObject) {
+	private synchronized void addToTarget(Resource targetSubject, Property targetProp, RDFNode targetObject, Property origProp) {
 //		log.debug("STMT");
 //		log.debug("  S: {}", targetSubject);
 //		log.debug("  P: {}", targetProp);
 //		log.debug("  O: {}", targetObject);
+		log.debug("ORIGINAL PROPERTY {} ", origProp);
 
 		
 		// If this flag is set, skip adding the statement using the generic solution 
@@ -425,6 +426,15 @@ public class Dm2e2Edm implements Runnable {
 			//
 			outputModel.add(targetSubject, targetProp, "DM2E");
 			skipSet.add(targetObject.asResource());
+			skipGeneric = true;
+		} else if (origProp.getURI().equals(NS.DM2E_UNVERSIONED.PROP_HOLDING_INSTITUTION)) {
+			//
+			// https://github.com/DM2E/dm2e-mappings/issues/111#issuecomment-60372863
+			//
+			Resource res = targetObject.asResource();
+			String label = getLiteralString(res, res(NS.SKOS.PROP_PREF_LABEL));
+			outputModel.add(targetSubject, outputModel.createProperty(NS.DCTERMS.PROP_PROVENANCE), "Current holding institution: " + label);
+			skipSet.add(res);
 			skipGeneric = true;
 		} else if (targetProp.getURI().equals(NS.EDM.PROP_TYPE)) {
 			//
