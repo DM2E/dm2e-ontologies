@@ -247,6 +247,25 @@ public class Dm2e2EdmTest {
 				res(m, "http://data.dm2e.eu/data/timespan/onb/abo/1784-01-01T000000UG_1784-12-31T235959UG")
 				)).isFalse();
 	}
+
+	@Test
+	public void testDctermsProvenanceIsKept() throws Exception {
+		Model m = ModelFactory.createDefaultModel();
+		Model out = ModelFactory.createDefaultModel();
+
+		final Resource someCHO = m.createResource("http://example.org/someCHO");
+		final Property dctermsProvenance = m.createProperty(NS.DCTERMS.PROP_PROVENANCE);
+		
+		m.add(someCHO, m.createProperty(NS.RDF.PROP_TYPE), m.createResource(NS.EDM.CLASS_PROVIDED_CHO));
+		m.add(someCHO, dctermsProvenance, "Some provenance");
+
+		assertThat(m.listStatements(null, dctermsProvenance, (RDFNode)null).toList().size()).isEqualTo(1);
+
+		Dm2e2Edm dm2e2Edm = new Dm2e2Edm(m, out);
+		dm2e2Edm.run();
+
+		assertThat(out.listStatements(null, dctermsProvenance, (RDFNode)null).toList().size()).isEqualTo(1);
+	}
 	
 	@Test
 	public void testHoldingInst() throws Exception {
@@ -259,6 +278,7 @@ public class Dm2e2EdmTest {
 
 		m.read(Dm2e2EdmTest.class.getResourceAsStream("/holdinginstitution-provenance.ttl"), "", "TURTLE");
 
+
 		assertThat(m.listStatements(null, dctermsProvenance, (RDFNode)null).toList().size()).isEqualTo(0);
 		assertThat(m.listStatements(null, dm2eHI, (RDFNode)null).toList().size()).isEqualTo(1);
 
@@ -268,6 +288,10 @@ public class Dm2e2EdmTest {
 		assertThat(out.listStatements(null, dm2eHI, (RDFNode)null).toList().size()).isEqualTo(0);
 		assertThat(out.listStatements(null, dctermsProvenance, (RDFNode)null).toList().size()).isEqualTo(1);
 		assertThat(out.containsResource(stadtarchivHalle)).isFalse();;
+
+		StringWriter sw = new StringWriter();
+		out.write(sw, "TURTLE");
+		log.debug(sw.toString());
 	}
 /*
 	@Test
