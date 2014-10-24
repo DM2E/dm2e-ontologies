@@ -1278,7 +1278,15 @@ born digital object.</skos:definition>
 <rdf:Description rdf:about="&dcterms;tableOfContents">
     <rdfs:subPropertyOf rdf:resource="&dcterms;tableOfContents"/>
 </rdf:Description>
-
+<rdf:Description rdf:about="&dcterms;spatial">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;spatial"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;temporal">
+    <rdfs:subPropertyOf rdf:resource="&dcterms;temporal"/>
+</rdf:Description>
+<rdf:Description rdf:about="&dcterms;provenance">
+   <rdfs:subPropertyOf rdf:resource="&dcterms;provenance"/>
+</rdf:Description>
     <!--****************************************************************************************************************************** -->
     <!-- Class declarations added for compatibility with some OWL-DL reasoners -->
     <!--****************************************************************************************************************************** -->

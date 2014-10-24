@@ -507,6 +507,7 @@ public final class NS {
 
 	/**
 	 * Dublin Core Terms.
+	 * JI: added PROP_PROVENANCE
 	 */
 	public static final class DCTERMS {
 
@@ -520,6 +521,7 @@ public final class NS {
 		public static final String PROP_TITLE = BASE + "title";
 		public static final String PROP_ISSUED = BASE + "issued";
 		public static final String PROP_TEMPORAL	= BASE + "temporal";
+		public static final String PROP_PROVENANCE = BASE + "provenance";
 		public static final String	PROP_ALTERNATIVE	= BASE + "alternative";
 		public static final String	PROP_SPATIAL	= BASE + "spatial";
 		public static final String	PROP_HAS_PART	= BASE + "hasPart";
