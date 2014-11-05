@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -134,17 +135,18 @@ public class Dm2e2EdmTest {
 	@Test
 	public void testUntypedDateTime() throws Exception {
 		Path inFile = Paths.get(Dm2e2Edm.class.getResource("/sbb-kpe-DE-611-HS-1778887.ttl").toURI());
-		Path outFile = Paths.get(inFile.toString() + ".out.xml");
+		Path outFile = Files.createTempFile("dm2e-ontologies", ".rdf.xml");
 		Dm2e2Edm dm2e2Edm = new Dm2e2Edm(inFile, "TURTLE", outFile, "RDF/XML");
 		dm2e2Edm.run();
 
 		Model m = ModelFactory.createDefaultModel();
 		m.read(outFile.toFile().toURI().toURL().openStream(), null, "RDF/XML");
-//		StringWriter sw = new StringWriter();
-//		m.write(sw, "TURTLE");
-//		log.debug(sw.toString());
-		assertThat(m.contains(null, prop(m, NS.DC.PROP_COVERAGE), "1833-08-29")).isTrue();
+		StringWriter sw = new StringWriter();
+		m.write(sw, "TURTLE");
+		log.debug(sw.toString());
+		log.debug("Out file {}", outFile);
 		assertThat(m.contains(null, prop(m, NS.RDF.PROP_TYPE), res(m, NS.EDM.CLASS_TIMESPAN))).isFalse();
+		assertThat(m.contains(null, prop(m, NS.DCTERMS.PROP_ISSUED), "1833-08-29")).isTrue();
 	}
 
 	private Resource res(Model m, String res) {
