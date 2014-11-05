@@ -1,0 +1,99 @@
+@prefix edm:   <http://www.europeana.eu/schemas/edm/> .
+@prefix dm2e:  <http://onto.dm2e.eu/schemas/dm2e/> .
+@prefix omnom_types: <http://onto.dm2e.eu/omnom-types/> .
+@prefix rdaGr2: <http://rdvocab.info/ElementsGr2/> .
+@prefix ore:   <http://www.openarchives.org/ore/terms/> .
+@prefix geonames: <http://www.geonames.org/ontology#> .
+@prefix meta:  <http://example.org/metadata#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prvTypes: <http://purl.org/net/provenance/types#> .
+@prefix tei2edm: <http://sbb.spk-berlin.de/dm2e/tei2edm> .
+@prefix dbpedia: <http://localhost:8080/resource/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix crm:   <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dm2e11: <http://onto.dm2e.eu/schemas/dm2e/1.1/> .
+@prefix prv:   <http://purl.org/net/provenance/ns#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ir:    <http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix geo:   <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix yago:  <http://localhost:8080/class/yago/> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix units: <http://dbpedia.org/units/> .
+@prefix omnom: <http://onto.dm2e.eu/omnom/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix p:     <http://localhost:8080/property/> .
+@prefix bibo:  <http://purl.org/ontology/bibo/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix pro:   <http://purl.org/spar/pro/> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix xalan: <http://xml.apache.org/xalan> .
+@prefix dm2e_unofficial: <http://onto.dm2e.eu/UNOFFICIAL/> .
+
+<http://data.dm2e.eu/data/item/sbb/kpe_DE-Ha179_37172/DE-611-HS-2296611>
+        a                        edm:ProvidedCHO ;
+        dm2e:holdingInstitution  <http://data.dm2e.eu/data/agent/sbb/kpe_DE-Ha179_37172/Stadtarchiv%20Halle> ;
+        dm2e:levelOfHierarchy    1 ;
+        dm2e:writtenAt           <http://data.dm2e.eu/data/place/sbb/kpe_DE-Ha179_37172/Eilenburg> ;
+        dc:contributor           <http://data.dm2e.eu/data/agent/sbb/kpe_DE-Ha179_37172/C%20A%20Beyer> , <http://data.dm2e.eu/data/agent/sbb/authority_gnd/116473169> ;
+        dc:identifier            "A 6.2.6 Nr. 27552 (Kartonnr. 88)" ;
+        dc:language              "de" ;
+        dc:title                 "Schreiben von C. A. Beyer aus Eilenburg [Beyer: Catechetischer Unterricht zum Feldbaue ]"@de ;
+        dc:type                  bibo:Letter ;
+        dct:extent               "1 Blatt/ 1 beschriebene Seite"@de ;
+        dct:issued               <http://data.dm2e.eu/data/timespan/sbb/kpe_DE-Ha179_37172/1792-05-10T000000> ;
+        void:inDataset           <http://data.dm2e.eu/data/dataset/sbb/kpe_DE-Ha179_37172/20140908183432110> ;
+        edm:type                 "TEXT" .
+
+<http://data.dm2e.eu/data/aggregation/sbb/kpe_DE-Ha179_37172/DE-611-HS-2296611>
+        a                  ore:Aggregation ;
+        dm2e:displayLevel  true ;
+        void:inDataset     <http://data.dm2e.eu/data/dataset/sbb/kpe_DE-Ha179_37172/20140908183432110> ;
+        edm:aggregatedCHO  <http://data.dm2e.eu/data/item/sbb/kpe_DE-Ha179_37172/DE-611-HS-2296611> ;
+        edm:dataProvider   <http://data.dm2e.eu/data/agent/sbb/kpe_DE-Ha179_37172/Kalliope> ;
+        edm:isShownBy      <https://secure3.halle.de/dfgportal/abfrage_bild.fau?prj=dfg_abfrage&ab_dm=1&ab_zeig=27825&ab_bildnr=2> ;
+        edm:object         <https://secure3.halle.de/dfgportal/abfrage_bild.fau?prj=dfg_abfrage&ab_dm=1&ab_zeig=27825&ab_bildnr=2> ;
+        edm:provider       <http://data.dm2e.eu/data/agent/DM2E> ;
+        edm:rights         <http://creativecommons.org/licenses/by-nc/3.0/> .
+
+<http://data.dm2e.eu/data/item/sbb/kpe_DE-Ha179_37172/DE-611-HS-2296611_1>
+        a             edm:ProvidedCHO ;
+        dct:isPartOf  <http://data.dm2e.eu/data/item/sbb/kpe_DE-Ha179_37172/DE-611-HS-2296611> .
+
+<http://data.dm2e.eu/data/agent/sbb/kpe_DE-Ha179_37172/C%20A%20Beyer>
+        a               foaf:Person ;
+        skos:prefLabel  "C. A. Beyer" .
+
+<http://data.dm2e.eu/data/place/sbb/kpe_DE-Ha179_37172/Eilenburg>
+        a               edm:Place ;
+        skos:prefLabel  "Eilenburg" .
+
+<http://data.dm2e.eu/data/timespan/sbb/kpe_DE-Ha179_37172/1792-05-10T000000>
+        a               edm:TimeSpan ;
+        edm:begin       "1792-05-10T00:00:00"^^xsd:dateTime ;
+        edm:end         "1792-05-10T23:59:59"^^xsd:dateTime ;
+        skos:prefLabel  "10.05.1792" .
+
+<https://secure3.halle.de/dfgportal/abfrage_bild.fau?prj=dfg_abfrage&ab_dm=1&ab_zeig=27825&ab_bildnr=2>
+        a           edm:WebResource ;
+        dc:format   "image/jpeg" ;
+        edm:rights  <http://creativecommons.org/licenses/by-nc/3.0/> .
+
+<http://data.dm2e.eu/data/agent/sbb/authority_gnd/116473169>
+        a               foaf:Person ;
+        owl:sameAs      <http://d-nb.info/gnd/116473169> ;
+        skos:prefLabel  "Johann Jakob Gebauer" .
+
+<http://data.dm2e.eu/data/item/sbb/kpe_DE-Ha179_37172/DE-611-HS-2296611_2>
+        a             edm:ProvidedCHO ;
+        dct:isPartOf  <http://data.dm2e.eu/data/item/sbb/kpe_DE-Ha179_37172/DE-611-HS-2296611> .
+
+<http://data.dm2e.eu/data/agent/sbb/kpe_DE-Ha179_37172/Stadtarchiv%20Halle>
+        a               foaf:Organization ;
+        skos:prefLabel  "Stadtarchiv Halle" .
