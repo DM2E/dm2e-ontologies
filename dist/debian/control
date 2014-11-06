@@ -1,0 +1,16 @@
+Source: dm2edata
+Section: utils
+Priority: extra
+Maintainer: Konstantin Baierer <konstantin.baierer@gmail.com>
+Build-Depends: debhelper (>= 5), cdbs (>= 0.2)
+Standards-Version: 3.8.0
+
+Package: dm2edata
+Maintainer: Konstantin Baierer <konstantin.baierer@gmail.com>
+Version: 1.0-1
+Section: devel
+Priority: optional
+Architecture: all
+Depends:  ${shlibs:Depends}, ${misc:Depends}, openjdk-7-jre, raptor-utils (>= 1.4.21), parallel (>= 20121122), xsltproc, coreutils, bash (>= 4), curl
+Description: DM2E Data management tool
+ Run this to validate and convert DM2E and EDM
