@@ -7,6 +7,7 @@ echo $SCRIPT_DIR
 #{ CONFIG
 # can be overriden with $HOME/dm2e-data.profile.sh or ./dm2e-data.profile.sh
 # See commented default dm2e-data.profile.sh
+ETC_PROFILE="/etc/dm2e-data.profile.sh"
 HOME_PROFILE="$HOME/dm2e-data.profile.sh"
 LOCAL_PROFILE="$PWD/dm2e-data.profile.sh"
 DEFAULT_BASE_DIR="./dm2e2edm"
@@ -22,12 +23,18 @@ export AGGREGATIONS_LIST
 export SPARQL_DIR=$(realpath "$SCRIPT_DIR/../resources/sparql-queries")
 export DM2E_EDM_JAR=$(realpath "$SCRIPT_DIR/../../../target/dm2e-edm-jar-with-dependencies.jar")
 export EDM_VALIDATION_JAR=$(realpath "$SCRIPT_DIR/../../../../edm-validation/target/edm-validation-jar-with-dependencies.jar")
+export PREFIXES="$SPARQL_DIR/prefixes.rq"
+export SPARQL_SCRIPT="$SPARQL_DIR/sparql-query.sh"
+export XSLT_SORT="$SPARQL_DIR/sort.xsl"
 
 # TODO
 export NUMBER_OF_JOBS=4
 # TODO
 export PARALLELIZE="true"
 
+if [[ -e  $ETC_PROFILE ]];then
+    source $ETC_PROFILE
+fi
 if [[ -e  $HOME_PROFILE ]];then
     source $HOME_PROFILE
 fi
@@ -43,9 +50,6 @@ export OUT_DIR="${OUT_DIR:-$BASE_DIR/$DEFAULT_OUT_DIR}"
 export CLEAN_DIR="${CLEAN_DIR:-$BASE_DIR/$DEFAULT_CLEAN_DIR}"
 export EDM_VALIDATION_DIR="${EDM_VALIDATION_DIR:-$BASE_DIR/$DEFAULT_EDM_VALIDATION_DIR}"
 export DATASET_LIST="${DATASET_LIST:-$BASE_DIR/$DEFAULT_DATASET_LIST}"
-export PREFIXES="$SPARQL_DIR/prefixes.rq"
-export SPARQL_SCRIPT="$SPARQL_DIR/sparql-query.sh"
-export XSLT_SORT="$SPARQL_DIR/sort.xsl"
 export DATASET=""
 export IN_FORMAT="RDF/XML"
 export PURGE=""
