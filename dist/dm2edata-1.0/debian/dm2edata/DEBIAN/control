@@ -1,0 +1,10 @@
+Package: dm2edata
+Version: 1.0-1
+Architecture: all
+Maintainer: Konstantin Baierer <konstantin.baierer@gmail.com>
+Installed-Size: 33
+Depends: openjdk-7-jre, raptor-utils (>= 1.4.21), parallel (>= 20121122), xsltproc, coreutils, bash (>= 4), curl
+Section: devel
+Priority: optional
+Description: DM2E Data management tool
+ Run this to validate and convert DM2E and EDM
