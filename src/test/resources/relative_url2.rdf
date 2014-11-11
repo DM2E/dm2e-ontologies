@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dm2edata="http://data.dm2e.eu/data/"
+         xmlns:marc="http://www.loc.gov/MARC21/slim"
+         xmlns:oai="http://www.openarchives.org/OAI/2.0/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dm2e="http://onto.dm2e.eu/schemas/dm2e/"
+         xmlns:edm="http://www.europeana.eu/schemas/edm/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:ore="http://www.openarchives.org/ore/terms/"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:mets="http://www.loc.gov/METS/"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:ddb="http://www.ddb.de/professionell/mabxml/mabxml-1.xsd"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:bibo="http://purl.org/ontology/bibo/"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:korbo="http://purl.org/net7/korbo/vocab#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:pro="http://purl.org/spar/pro/"
+         xmlns:rdaGr2="http://rdvocab.info/ElementsGr2/"
+         xmlns:void="http://rdfs.org/ns/void#"
+         xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+         xmlns:xalan="http://xml.apache.org/xalan"
+         xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+         xmlns:fabio="http://purl.org/spar/fabio/"
+         xmlns:functx="http://www.functx.com">
+   <skos:Concept rdf:about="http://data.dm2e.eu/data/timespan/cjh/lbi/1933-1945">
+      <skos:prefLabel xml:lang="en">1933-1945</skos:prefLabel>
+      <skos:inScheme rdf:resource=""/>
+   </skos:Concept>
+</rdf:RDF>

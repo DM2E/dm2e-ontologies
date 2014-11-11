@@ -302,72 +302,86 @@ abstract public class BaseValidator implements Dm2eValidator {
 	 * @param report
 	 */
 	protected void checkStatement(final Statement stmt, Dm2eValidationReport report) {
-		final Resource res = stmt.getSubject();
+		final Resource subj = stmt.getSubject();
 		final Property prop = stmt.getPredicate();
 		final RDFNode obj = stmt.getObject();
-		final String resPath = res.getURI().substring("http://".length());
 		
-		//
-		// Check for illegal relative URLs
-		//
-		if (res.getURI().startsWith(RELATIVE_URL_BASE)) {
-			report.add(ValidationLevel.FATAL,
-					ValidationProblemCategory.RELATIVE_URL,
-					res,
-					prop);
-		}
+		List<Resource> urisToCheck = new ArrayList<>();
+		urisToCheck.add(subj);
+		for (Resource res : urisToCheck) {
 
-		//
-		// Check for invalid URI strings
-		//
-		for (String illegalUriString : build_illegal_Uri_Strings()) {
-			if (resPath.contains(illegalUriString)) {
+			String resPath = res.getURI().substring("http://".length());
+
+			//
+			// Check for illegal relative URLs
+			//
+			// as subject
+			if (res.getURI().startsWith(RELATIVE_URL_BASE)) {
 				report.add(ValidationLevel.FATAL,
-						ValidationProblemCategory.ILLEGAL_URI_CHARACTER,
+						ValidationProblemCategory.RELATIVE_URL,
 						res,
-						illegalUriString);
+						prop);
 			}
-		}
-		//
-		// Check for unwise URI strings
-		//
-		for (String unwiseUriString : build_unwise_Uri_Strings()) {
-			if (resPath.contains(unwiseUriString)) {
-				report.add(ValidationLevel.WARNING,
-						ValidationProblemCategory.UNWISE_URI_CHARACTER,
+			// as object
+			if (obj.isResource() &&  obj.asResource().getURI().startsWith(RELATIVE_URL_BASE)) {
+				report.add(ValidationLevel.FATAL,
+						ValidationProblemCategory.RELATIVE_URL,
 						res,
-						unwiseUriString);
+						prop);
 			}
-		}
 
-		//
-		// Check for unknown properties
-		//
-		boolean isWhitelisted = false;
-		for (String whiteListNS : namespaceWhiteList) {
-			if (prop.getURI().startsWith(whiteListNS)) {
-				isWhitelisted = true;
-				break;
+			//
+			// Check for invalid URI strings
+			//
+			for (String illegalUriString : build_illegal_Uri_Strings()) {
+				if (resPath.contains(illegalUriString)) {
+					report.add(ValidationLevel.FATAL,
+							ValidationProblemCategory.ILLEGAL_URI_CHARACTER,
+							res,
+							illegalUriString);
+				}
 			}
-		}
-		if (! isWhitelisted && ! propertyWhiteList.contains(prop.getURI())) {
-			report.add(ValidationLevel.ERROR,
-					ValidationProblemCategory.UNKNOWN_PROPERTY,
-					res,
-					prop);
-		}
-		
-		//
-		// Check for non NFC-normalized UTF-8 strings
-		//
-		if(obj.isLiteral() && ! Normalizer.isNormalized(obj.asLiteral().getLexicalForm(), Form.NFC)) {
-			report.add(ValidationLevel.WARNING,
-					ValidationProblemCategory.LITERAL_NOT_IN_NFC,
-					res,
-					prop,
-					obj.asLiteral().getLexicalForm()
-					);
-			
+			//
+			// Check for unwise URI strings
+			//
+			for (String unwiseUriString : build_unwise_Uri_Strings()) {
+				if (resPath.contains(unwiseUriString)) {
+					report.add(ValidationLevel.WARNING,
+							ValidationProblemCategory.UNWISE_URI_CHARACTER,
+							res,
+							unwiseUriString);
+				}
+			}
+
+			//
+			// Check for unknown properties
+			//
+			boolean isWhitelisted = false;
+			for (String whiteListNS : namespaceWhiteList) {
+				if (prop.getURI().startsWith(whiteListNS)) {
+					isWhitelisted = true;
+					break;
+				}
+			}
+			if (! isWhitelisted && ! propertyWhiteList.contains(prop.getURI())) {
+				report.add(ValidationLevel.ERROR,
+						ValidationProblemCategory.UNKNOWN_PROPERTY,
+						res,
+						prop);
+			}
+
+			//
+			// Check for non NFC-normalized UTF-8 strings
+			//
+			if(obj.isLiteral() && ! Normalizer.isNormalized(obj.asLiteral().getLexicalForm(), Form.NFC)) {
+				report.add(ValidationLevel.WARNING,
+						ValidationProblemCategory.LITERAL_NOT_IN_NFC,
+						res,
+						prop,
+						obj.asLiteral().getLexicalForm()
+						);
+
+			}
 		}
 		
 	}
