@@ -6,6 +6,7 @@
     <!ENTITY pro "http://purl.org/spar/pro/" >
     <!ENTITY dcterms "http://purl.org/dc/terms/" >
     <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY bf "http://bibframe.org/vocab/" >
     <!ENTITY adms "http://www.w3.org/ns/adms#" >
     <!ENTITY vann "http://purl.org/vocab/vann/" >
     <!ENTITY fabio "http://purl.org/spar/fabio/" >
@@ -51,6 +52,7 @@
      xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:bf="http://bibframe.org/vocab/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:crm="http://www.cidoc-crm.org/rdfs/cidoc-crm#"
      xmlns:vivo="http://vivoweb.org/ontology/core#"
@@ -67,9 +69,9 @@
      xmlns:voaf="http://purl.org/vocommons/voaf#"
      xmlns:crm-wrong="http://www.cidoc-crm.org/cidoc-crm/"
      xmlns:bibo="http://purl.org/ontology/bibo/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:pro="http://purl.org/spar/pro/"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#">
@@ -200,9 +202,15 @@ Changes between ontology file DM2Ev1.2-rc1.owl and DM2Ev1.2-rc2.owl
 - CRM namespace change: Old properties deleted
 - Added class dm2e:Fragment
 - Corrected and added metadata about DM2E model
+- Changed superproperty of dm2e:copyist
+- Added class dm2e:Fragment
+- Added letter properties (domain edm:ProvidedCHO): dm2e:sentOn, dm2e:receivedOn, dm2e:sentFrom, dm2e:receivedIn
+- Extended scopeNote of dcterms:spatial
+- Added bf:Cartography and bf:NotatedMusic as subclasses of edm:PhysicalThing
+- Changed superclass of bibo:Book, bibo:Issue, bibo:Journal, bibo:Letter and dm2e:Manuscript from dm2e:Document to edm:PhysicalThing
 
 </vann:changes>
-        <dc:modified xml:lang="en">2014-08-25</dc:modified>
+        <dc:modified xml:lang="en">2014-11-12</dc:modified>
         <dc:title xml:lang="en">DM2E model</dc:title>
         <dc:creator xml:lang="en">Evelyn Dröge</dc:creator>
         <dc:creator xml:lang="en">Julia Iwanowa</dc:creator>
@@ -458,8 +466,8 @@ Second Release Candidate</owl:versionInfo>
     <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/copyist">
         <rdfs:label xml:lang="en">copyist</rdfs:label>
         <scopeNote xml:lang="en">Someone who copied a CHO.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;contributor"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
-        <rdfs:subPropertyOf rdf:resource="&edm;hasMet"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
     
@@ -658,6 +666,30 @@ Second Release Candidate</owl:versionInfo>
     
 
 
+    <!-- http://onto.dm2e.eu/schemas/dm2e/receivedIn -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/receivedIn">
+        <rdfs:label xml:lang="en">received in</rdfs:label>
+        <scopeNote xml:lang="en">The place in which a letter was received.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;spatial"/>
+        <rdfs:range rdf:resource="&edm;Place"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/receivedOn -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/receivedOn">
+        <rdfs:label xml:lang="en">received on</rdfs:label>
+        <scopeNote xml:lang="en">The date on which a letter was received.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;date"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&edm;TimeSpan"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://onto.dm2e.eu/schemas/dm2e/refersTo -->
 
     <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/refersTo">
@@ -673,6 +705,30 @@ Second Release Candidate</owl:versionInfo>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/sentFrom -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/sentFrom">
+        <rdfs:label xml:lang="en">sent from</rdfs:label>
+        <scopeNote xml:lang="en">The place from which a letter was sent.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dcterms;spatial"/>
+        <rdfs:range rdf:resource="&edm;Place"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://onto.dm2e.eu/schemas/dm2e/sentOn -->
+
+    <owl:ObjectProperty rdf:about="http://onto.dm2e.eu/schemas/dm2e/sentOn">
+        <rdfs:label xml:lang="en">sent on</rdfs:label>
+        <scopeNote xml:lang="en">The date on which a letter was sent.</scopeNote>
+        <rdfs:subPropertyOf rdf:resource="&dc;date"/>
+        <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
+        <rdfs:range rdf:resource="&edm;TimeSpan"/>
     </owl:ObjectProperty>
     
 
@@ -922,16 +978,6 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
     <owl:ObjectProperty rdf:about="&dcterms;hasPart">
         <rdfs:comment xml:lang="en">This term is intended to be used with non-literal values as defined in the DCMI Abstract Model . As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration.</rdfs:comment>
         <scopeNote xml:lang="en">dcterms:hasPart can be used to indicate that a class is part of the current class. It can only be used for the same type of objects, e.g. edm:ProvidedCHO dcterms:hasPart edm:ProvidedCHO.</scopeNote>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&edm;Place"/>
-                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
-                    <rdf:Description rdf:about="&edm;TimeSpan"/>
-                    <rdf:Description rdf:about="&edm;WebResource"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -942,6 +988,16 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;Place"/>
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;TimeSpan"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -1070,7 +1126,7 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
 
     <owl:ObjectProperty rdf:about="&dcterms;spatial">
         <skos:definition xml:lang="en">Spatial characteristics of the resource.</skos:definition>
-        <scopeNote xml:lang="en">This property can be used for not further specified places. If the place of publication, printing or writing should be indicated, use dm2e:publishedAt, dme2e:printedAt or dm2e:writtenAt instead. This property should be used for unspecified or not exactly defined spatial characteristics of the CHO itself.</scopeNote>
+        <scopeNote xml:lang="en">This property can be used for not further specified places. If the place of publication, printing writing, sending or receiving should be indicated, use dm2e:publishedAt, dme2e:printedAt, dm2e:writtenAt, dm2e:sentFrom or dm2e:receivedOn instead. This property should be used for unspecified or not exactly defined spatial characteristics of the CHO itself. </scopeNote>
         <rdfs:subPropertyOf rdf:resource="&dc;coverage"/>
         <rdfs:range rdf:resource="&edm;Place"/>
         <rdfs:domain rdf:resource="&edm;ProvidedCHO"/>
@@ -1320,14 +1376,6 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
         <scopeNote xml:lang="en">Original version (in case of CHOs) or a related resource (in case of WebResources) from which this object has been derived in whole or in part.</scopeNote>
         <skos:definition xml:lang="en">This property captures a narrower notion of derivation than edm:isSimilarTo, in the sense that it relates a resource to another one, obtained by reworking, reducing, expanding, parts or the whole contents of the former, and possibly adding some minor parts. Versions have an even narrower meaning, in that it requires common identity between the related resources. Translations, summaries, abstractions etc. do not qualify as versions, but do qualify as derivatives.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="&edm;isSimilarTo"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
-                    <rdf:Description rdf:about="&edm;WebResource"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1336,6 +1384,14 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -1351,14 +1407,6 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
     <owl:ObjectProperty rdf:about="&edm;isNextInSequence">
         <scopeNote xml:lang="en">Can be used if a CHO has several parts of CHOs or WebResources in a sequence. </scopeNote>
         <skos:definition xml:lang="en">edm:isNextInSequence relates two resources S and R that are ordered parts of the same resource A, and such that S comes immediately after R in the order created by their being parts of A.</skos:definition>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
-                    <rdf:Description rdf:about="&edm;WebResource"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1367,6 +1415,14 @@ With domain edm:ProvidedCHO see skos:definition.</scopeNote>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&edm;ProvidedCHO"/>
+                    <rdf:Description rdf:about="&edm;WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -2300,6 +2356,26 @@ Definition: “The WGS84 longitude of a SpatialThing (decimal degrees).
     
 
 
+    <!-- http://bibframe.org/vocab/Cartography -->
+
+    <owl:Class rdf:about="&bf;Cartography">
+        <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
+        <scopeNote xml:lang="en">Cartography includes e.g. maps. The MARC field that can be mapped to bf:Cartography is Cartographic Material.</scopeNote>
+        <rdfs:comment xml:lang="en">Resource that show spatial information, including maps, atlases, globes,digital maps, and other cartographic items.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://bibframe.org/vocab/NotatedMusic -->
+
+    <owl:Class rdf:about="&bf;NotatedMusic">
+        <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
+        <rdfs:comment xml:lang="en">Graphic, non-realized representations of musical works intended to be perceived visually.</rdfs:comment>
+        <scopeNote xml:lang="en">Notated music of musical notations in physical form.</scopeNote>
+    </owl:Class>
+    
+
+
     <!-- http://onto.dm2e.eu/schemas/dm2e/Archive -->
 
     <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Archive">
@@ -2368,7 +2444,7 @@ Definition: “The WGS84 longitude of a SpatialThing (decimal degrees).
 
     <owl:Class rdf:about="http://onto.dm2e.eu/schemas/dm2e/Manuscript">
         <rdfs:label xml:lang="en">Manuscript</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
+        <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
         <rdfs:comment xml:lang="en">ProvidedCHO of type manuscript, e.g. Wittgensteins brown book. Not equivalent to bibo:Manuscript. Not equivalent to bibo:Manuscript.</rdfs:comment>
     </owl:Class>
     
@@ -2424,7 +2500,7 @@ Definition: “The WGS84 longitude of a SpatialThing (decimal degrees).
     <!-- http://purl.org/ontology/bibo/Book -->
 
     <owl:Class rdf:about="&bibo;Book">
-        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
+        <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
         <rdfs:comment xml:lang="en">A written or printed work of fiction or nonfiction, usually on sheets of paper fastened or bound together within covers.</rdfs:comment>
     </owl:Class>
     
@@ -2433,7 +2509,7 @@ Definition: “The WGS84 longitude of a SpatialThing (decimal degrees).
     <!-- http://purl.org/ontology/bibo/Issue -->
 
     <owl:Class rdf:about="&bibo;Issue">
-        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
+        <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
         <scopeNote>An issue of a journal.</scopeNote>
         <rdfs:comment>Something that is printed or published and distributed, esp. a given number of a periodical.</rdfs:comment>
     </owl:Class>
@@ -2443,7 +2519,7 @@ Definition: “The WGS84 longitude of a SpatialThing (decimal degrees).
     <!-- http://purl.org/ontology/bibo/Journal -->
 
     <owl:Class rdf:about="&bibo;Journal">
-        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
+        <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
         <rdfs:comment xml:lang="en">A periodical of scholarly journal Articles.</rdfs:comment>
     </owl:Class>
     
@@ -2452,7 +2528,7 @@ Definition: “The WGS84 longitude of a SpatialThing (decimal degrees).
     <!-- http://purl.org/ontology/bibo/Letter -->
 
     <owl:Class rdf:about="&bibo;Letter">
-        <rdfs:subClassOf rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Document"/>
+        <rdfs:subClassOf rdf:resource="&edm;PhysicalThing"/>
         <rdfs:comment xml:lang="en">A written or printed communication addressed to a person or organization and usually transmitted by mail.</rdfs:comment>
     </owl:Class>
     
