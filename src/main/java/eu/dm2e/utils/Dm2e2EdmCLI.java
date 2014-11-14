@@ -1,15 +1,11 @@
 package eu.dm2e.utils;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
@@ -18,8 +14,7 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.joda.time.DateTime;
 
 import dm2e2edm.Dm2e2Edm;
 
@@ -81,6 +76,8 @@ public class Dm2e2EdmCLI {
 //		ExecutorService threadPool = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 //		ExecutorService threadPool = Executors.newCachedThreadPool();
 		
+		String cutoffDateVal = line.getOptionValue("public_domain_date");
+		
 		// Run !
 		if (line.hasOption("input_dir")) {
 			Path inputDir = Paths.get(line.getOptionValue("input_dir"));
@@ -100,7 +97,10 @@ public class Dm2e2EdmCLI {
 				}
 				Path curOut = Paths.get(outputDir.toString(), curIn.getFileName() + suffix );
 				System.out.print(String.format("[%d/%d] Converting %s -> %s.\r", ++cur, total, curIn, curOut));
-				Dm2e2Edm worker = new Dm2e2Edm(curIn, inFormat, curOut, outFormat);
+				Dm2e2Edm worker = 
+						null == cutoffDateVal
+						? new Dm2e2Edm(curIn, inFormat, curOut, outFormat)
+						: new Dm2e2Edm(curIn, inFormat, curOut, outFormat, DateTime.parse(cutoffDateVal));
 				//			threadPool.execute(worker);
 				worker.run();
 			}
@@ -110,7 +110,10 @@ public class Dm2e2EdmCLI {
 				Path curIn = Paths.get(filename);
 				Path curOut = Paths.get(outputDir.toString(), curIn.getFileName() + suffix );
 				System.out.print(String.format("Converting %s -> %s.\r", curIn, curOut));
-				Dm2e2Edm worker = new Dm2e2Edm(curIn, inFormat, curOut, outFormat);
+				Dm2e2Edm worker = 
+						null == cutoffDateVal
+						? new Dm2e2Edm(curIn, inFormat, curOut, outFormat)
+						: new Dm2e2Edm(curIn, inFormat, curOut, outFormat, DateTime.parse(cutoffDateVal));
 				worker.run();
 			}
 		}
@@ -156,7 +159,16 @@ public class Dm2e2EdmCLI {
 				}
 			}
 			
-			if (! line.hasOption("input_dir") && ! line.hasOption("input_file")) {
+			if (line.hasOption("help")) {
+				HelpFormatter formatter = new HelpFormatter();
+				formatter.setWidth(100);
+				formatter.printHelp("java -jar dm2e2edm.jar --input_file <input_file> | --input_dir <input_dir> [options]",
+						"Convert DM2E to EDM",
+						getOptions(),
+						""
+						);
+				System.exit(0);
+			} else if (! line.hasOption("input_dir") && ! line.hasOption("input_file")) {
 				dieHelpfully("Must set either 'input_dir' or 'input_file'");
 			} else if (line.hasOption("input_dir")) {
 				// --input_dir
@@ -194,6 +206,16 @@ public class Dm2e2EdmCLI {
 					dieHelpfully("Error creating output directory: " + DEFAULT_OUTPUT_DIR, e, true);
 				}
 			}
+			// --cutoff-date
+			final String cutoffDateVal = line.getOptionValue("public_domain_date");
+			if (null != cutoffDateVal) {
+				try {
+					DateTime.parse(cutoffDateVal);
+				} catch (Exception e) {
+					dieHelpfully("Error parsing date value for 'public_domain_date'");
+				}
+			}
+
 		} catch (ParseException e) {
 			dieHelpfully("Error parsing command line options: ", e, true);
 		}
@@ -205,6 +227,9 @@ public class Dm2e2EdmCLI {
 		Options options = new Options();
 		
 		options.addOption(OptionBuilder
+			.withDescription("Show help")
+			.create("help"));
+		options.addOption(OptionBuilder
 			.hasArgs()
 			.withDescription("Input RDF file")
 			.create("input_file"));
@@ -212,6 +237,11 @@ public class Dm2e2EdmCLI {
 			.hasArgs(1)
 			.withDescription("Input directory of RDF files")
 			.create("input_dir"));
+		options.addOption(OptionBuilder
+			.hasArgs(1)
+			.withArgName("YYYY-MM-DD")
+			.withDescription("Cutoff Date for works in the public domain [Default: 0000-01-01]")
+			.create("public_domain_date"));
 		options.addOption(OptionBuilder
 			.hasArgs(1)
 			.withArgName("directory")

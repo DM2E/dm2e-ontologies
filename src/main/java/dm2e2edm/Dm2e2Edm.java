@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -94,6 +95,9 @@ public class Dm2e2Edm implements Runnable {
 	public static final Map<Resource,LinkedHashSet<Resource>> dm2eSuperClasses = new HashMap<Resource, LinkedHashSet<Resource>>();
 
 	private final static Resource OWL_THING = edmModel.createResource(NS.OWL.THING);
+	private final static DateTime EARLIEST_DATE = new DateTime(0, 1, 1, 0, 0);
+	private static final Resource	PUBLIC_DOMAIN_MARK	= edmModel.createResource(NS.LICENSE.PUBLIC_DOMAIN_MARK);
+
 	private static final Resource[] prettyTypes = {
 		edmModel.createResource(NS.ORE.CLASS_AGGREGATION),
 		edmModel.createResource(NS.EDM.CLASS_AGENT),
@@ -247,7 +251,22 @@ public class Dm2e2Edm implements Runnable {
 	private final Properties configProps;
 	private final Set<Resource> skipSet = new HashSet<>();
 	private final Set<String> skosPrefLabelCache = new HashSet<>();
-	
+	private final DateTime publicDomainCutoffDate;
+
+	public Dm2e2Edm(Model inputModel, Model outputModel, DateTime publicDomainCutoffDate) {
+		this.inputModel = inputModel;
+		this.outputModel  = outputModel;
+		inputModel.setNsPrefixes(nsPrefixes);
+		outputModel.setNsPrefixes(nsPrefixes);
+		this.outputFile = null;
+		this.outputSerialization = null;
+		this.inputFile = null;
+		this.inputSerialization = null;
+		this.configProps = new Properties();
+		this.publicDomainCutoffDate = publicDomainCutoffDate;
+	}
+
+
 	public Dm2e2Edm(Model inputModel, Model outputModel) {
 		this.inputModel = inputModel;
 		this.outputModel  = outputModel;
@@ -258,10 +277,10 @@ public class Dm2e2Edm implements Runnable {
 		this.inputFile = null;
 		this.inputSerialization = null;
 		this.configProps = new Properties();
+		this.publicDomainCutoffDate = EARLIEST_DATE;
 	}
 
-	public Dm2e2Edm(Path inputFile, String inputSerialization,
-			Path outputFile, String outputSerialization, Properties configProps) {
+	public Dm2e2Edm(Path inputFile, String inputSerialization, Path outputFile, String outputSerialization, Properties configProps, DateTime publicDomainCutoffDate) {
 		super();
 		this.inputModel = ModelFactory.createDefaultModel();
 		this.outputModel = ModelFactory.createDefaultModel();
@@ -272,11 +291,15 @@ public class Dm2e2Edm implements Runnable {
 		this.outputFile = outputFile;
 		this.outputSerialization = outputSerialization;
 		this.configProps = configProps;
+		this.publicDomainCutoffDate = publicDomainCutoffDate;
 	}
 
-	public Dm2e2Edm(Path inputFile, String inputSerialization,
-			Path outputFile, String outputSerialization) {
-		this(inputFile, inputSerialization, outputFile, outputSerialization, new Properties());
+	public Dm2e2Edm(Path inputFile, String inputSerialization, Path outputFile, String outputSerialization, DateTime publicDomainCutoffDate) {
+		this(inputFile, inputSerialization, outputFile, outputSerialization, new Properties(), publicDomainCutoffDate);
+	}
+
+	public Dm2e2Edm(Path inputFile, String inputSerialization, Path outputFile, String outputSerialization) {
+		this(inputFile, inputSerialization, outputFile, outputSerialization, new Properties(), EARLIEST_DATE);
 	}
 
 	private synchronized void convertResourceInInputModel(Resource res) {
@@ -355,7 +378,7 @@ public class Dm2e2Edm implements Runnable {
 	}
 
 	private final synchronized Property res(String uri) {
-		return inputModel.createProperty(uri);
+		return prop(uri);
 	}
 	
 	private final synchronized String getLiteralString(RDFNode res, Property prop) {
@@ -413,7 +436,7 @@ public class Dm2e2Edm implements Runnable {
 //		log.debug("  S: {}", targetSubject);
 //		log.debug("  P: {}", targetProp);
 //		log.debug("  O: {}", targetObject);
-		log.debug("ORIGINAL PROPERTY {} ", origProp);
+//		log.debug("ORIGINAL PROPERTY {} ", origProp);
 
 		
 		// If this flag is set, skip adding the statement using the generic solution 
@@ -590,6 +613,48 @@ public class Dm2e2Edm implements Runnable {
 					}
 				}
 			}
+
+
+		//
+        // Public Domain cutoff date
+		//
+		} else if (targetProp.equals(inputModel.createProperty(NS.EDM.PROP_RIGHTS))
+				&& this.publicDomainCutoffDate.isAfter(EARLIEST_DATE)) {
+			
+			boolean workIsInPublicDomain = false;
+			
+			// get dct:issued
+			DateTime dctIssued = null;
+			StmtIterator iterDctIssued = targetSubject.asResource().listProperties(prop(NS.DCTERMS.PROP_ISSUED));
+			while (iterDctIssued.hasNext()) {
+				dctIssued = DateTime.parse(iterDctIssued.next().getObject().toString());
+				break;
+			}
+
+			// get dm2e:sentOn
+			DateTime dm2eSentOn = null;
+			StmtIterator iterDm2eSentOn = targetSubject.asResource().listProperties(prop(NS.DM2E.PROP_SENT_ON));
+			while (iterDm2eSentOn.hasNext()) {
+				dm2eSentOn = DateTime.parse(iterDm2eSentOn.next().getObject().toString());
+				break;
+			}
+			
+			if (dctIssued != null && dctIssued.isBefore(this.publicDomainCutoffDate)) {
+				log.debug("PD because dct:issued {} < {}", dctIssued, this.publicDomainCutoffDate);
+				workIsInPublicDomain = true;
+			}
+			if (dm2eSentOn != null && dm2eSentOn.isBefore(this.publicDomainCutoffDate)) {
+				log.debug("PD because dm2e:sentOn {} < {}", dm2eSentOn, this.publicDomainCutoffDate);
+				workIsInPublicDomain = true;
+			}
+			
+			if (workIsInPublicDomain) {
+				log.info("Changing rights statement to Public Domain.");
+				outputModel.add(targetSubject, targetProp, PUBLIC_DOMAIN_MARK);
+				skipGeneric = true;
+			}
+
+			
 		}
 		
 		log.debug("PROP: {}", targetProp.getURI());
@@ -613,6 +678,10 @@ public class Dm2e2Edm implements Runnable {
 			}
 		}
 		
+	}
+
+	private Property prop(String theProp) {
+		return inputModel.createProperty(theProp);
 	}
 //	private void addToTarget(Resource targetSubject, Property targetProp, String targetObject) {
 //		outputModel.add(targetSubject, targetProp, targetObject);

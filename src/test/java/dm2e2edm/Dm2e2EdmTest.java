@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.joda.time.DateTime;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -117,6 +118,7 @@ public class Dm2e2EdmTest {
 		assertThat(outputModel.contains(agg, outputModel.createProperty(NS.DC.PROP_DATE))).isFalse();
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testHasMetInAggregation2() throws URISyntaxException, MalformedURLException, IOException {
 		Path inFile = Paths.get(Dm2e2Edm.class.getResource("/onbcodices2BZ9671240X.xml").toURI());
@@ -294,6 +296,32 @@ public class Dm2e2EdmTest {
 		StringWriter sw = new StringWriter();
 		out.write(sw, "TURTLE");
 		log.debug(sw.toString());
+	}
+	
+	@Test
+	public void testPublicDomain() throws Exception {
+		Model m = ModelFactory.createDefaultModel();
+		Model out1934 = ModelFactory.createDefaultModel();
+		Model outNone = ModelFactory.createDefaultModel();
+
+		final Property dctIssued = prop(m, NS.DCTERMS.PROP_ISSUED);
+		final Property edmRights = prop(m, NS.EDM.PROP_RIGHTS);
+		final Resource restrictiveLicense = res(m, "http://example.org/more-restrictive-license");
+		final Resource pdLicense = res(m, NS.LICENSE.PUBLIC_DOMAIN_MARK);
+
+		final Resource someCHO = m.createResource("http://example.org/someCHO");
+		m.add(someCHO, prop(m, NS.RDF.PROP_TYPE), res(m, NS.EDM.CLASS_PROVIDED_CHO));
+		m.add(someCHO, dctIssued, "1933-01-01");
+		m.add(someCHO, edmRights, restrictiveLicense);
+		
+		new Dm2e2Edm(m, out1934, DateTime.parse("1934-01-01")).run();;
+		new Dm2e2Edm(m, outNone).run();
+		
+		assertThat(out1934.contains(someCHO, edmRights, pdLicense)).isTrue();
+		assertThat(out1934.contains(someCHO, edmRights, restrictiveLicense)).isFalse();
+		assertThat(outNone.contains(someCHO, edmRights, pdLicense)).isFalse();
+		assertThat(outNone.contains(someCHO, edmRights, restrictiveLicense)).isTrue();
+		
 	}
 /*
 	@Test

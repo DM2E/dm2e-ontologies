@@ -605,6 +605,7 @@ public final class NS {
 		public static final String	PROP_SUBTITLE					= BASE + "subtitle";
 		public static final String	PROP_WATERMARK					= BASE + "watermark";
 		public static final String	PROP_WRITER						= BASE + "writer";
+		public static final String	PROP_SENT_ON					= BASE + "sentOn";
 		public static final String	CLASS_WORK						= BASE + "Work";
 		public static final String	CLASS_PARAGRAPH						= BASE + "Paragraph";
 		public static final String	CLASS_PUBLICATION						= BASE + "Publication";
@@ -776,4 +777,7 @@ public final class NS {
 		public static final String BASE = "http://www.mozajka.co/LOD/MM/";
 	}
 
+	public static final class LICENSE {
+		public static final String PUBLIC_DOMAIN_MARK = "http://creativecommons.org/publicdomain/mark/1.0/";
+	}
 }
