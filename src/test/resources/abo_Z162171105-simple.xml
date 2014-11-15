@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dm2e="http://onto.dm2e.eu/schemas/dm2e/1.1/"
+         xmlns:dm2edata="http://data.dm2e.eu/data/"
+         xmlns:edm="http://www.europeana.eu/schemas/edm/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:ore="http://www.openarchives.org/ore/terms/"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:mets="http://www.loc.gov/METS/"
+         xmlns:slim="http://www.loc.gov/MARC21/slim"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:bibo="http://purl.org/ontology/bibo/"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:korbo="http://purl.org/net7/korbo/vocab#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:pro="http://purl.org/spar/pro/"
+         xmlns:rdaGr2="http://rdvocab.info/ElementsGr2/"
+         xmlns:void="http://rdfs.org/ns/void#"
+         xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+         xmlns:xalan="http://xml.apache.org/xalan">
+   <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/onb/abo/%2BZ162171105_31525197396594013-5">
+      <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Page"/>
+      <dcterms:isPartOf rdf:resource="http://data.dm2e.eu/data/item/onb/abo/%2BZ162171105"/>
+      <dc:language>ger</dc:language>
+      <dc:description>[Page 00000001] of: Gemeinnütziger Unterricht über die schädlichen und nützlichen Schwämme.</dc:description>
+      <dc:title>[00000001]</dc:title>
+      <bibo:number rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</bibo:number>
+      <edm:type>TEXT</edm:type>
+   </edm:ProvidedCHO>
+   <edm:WebResource rdf:about="http://digital.onb.ac.at/content/v1/abo/jpg/+Z162171105/31525197396594013-5">
+      <dc:format>image/jpeg</dc:format>
+      <edm:rights>http://www.europeana.eu/rights/out-of-copyright-non-commercial.html</edm:rights>
+   </edm:WebResource>
+   <edm:WebResource rdf:about="http://digital.onb.ac.at/content/v1/abo/html/+Z162171105/31525197396594013-5">
+      <dc:format>text/html</dc:format>
+      <edm:rights>http://www.europeana.eu/rights/out-of-copyright-non-commercial.html</edm:rights>
+   </edm:WebResource>
+   <edm:WebResource rdf:about="http://digital.onb.ac.at/content/v1/abo/txt/+Z162171105/31525197396594013-5">
+      <dc:format>text/plain</dc:format>
+      <edm:rights>http://www.europeana.eu/rights/out-of-copyright-non-commercial.html</edm:rights>
+   </edm:WebResource>
+   <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/onb/abo/%2BZ162171105_31525197396594013-5">
+      <edm:aggregatedCHO rdf:resource="http://data.dm2e.eu/data/item/onb/abo/%2BZ162171105_31525197396594013-5"/>
+      <edm:dataProvider rdf:resource="http://data.dm2e.eu/data/agent/onb/abo/Austrian_National_Library"/>
+      <edm:isShownBy rdf:resource="http://digital.onb.ac.at/content/v1/abo/jpg/+Z162171105/31525197396594013-5"/>
+      <dm2e:hasAnnotatableVersionAt rdf:resource="http://digital.onb.ac.at/content/v1/abo/jpg/+Z162171105/31525197396594013-5"/>
+      <dm2e:hasAnnotatableVersionAt rdf:resource="http://digital.onb.ac.at/content/v1/abo/html/+Z162171105/31525197396594013-5"/>
+      <dm2e:hasAnnotatableVersionAt rdf:resource="http://digital.onb.ac.at/content/v1/abo/txt/+Z162171105/31525197396594013-5"/>
+      <edm:provider rdf:resource="http://data.dm2e.eu/data/agent/onb/abo/DM2E"/>
+      <edm:rights>http://www.europeana.eu/rights/out-of-copyright-non-commercial.html</edm:rights>
+      <dcterms:created>2012-02-01T02:31:40</dcterms:created>
+      <dm2e:displayLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dm2e:displayLevel>
+   </ore:Aggregation>
+</rdf:RDF>

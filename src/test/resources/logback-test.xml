@@ -9,12 +9,14 @@
 		 -->
 	
       <encoder>
-          <pattern>%d %-5level [%thread] %logger{0}: %msg%n</pattern>
+          <pattern>%d %-5level [%thread] %logger: %msg%n</pattern>
         </encoder>
 	</appender>
 	
     <root level="DEBUG">
 		<appender-ref ref="STDOUT" />
 	</root>
+    <logger name="com.hp.hpl.jena.shared.LockMRSW" level="ERROR"/>
+    <logger name="com.hp.hpl.jena.sparql.mgt.ARQMgt" level="ERROR"/>
 
 </configuration>

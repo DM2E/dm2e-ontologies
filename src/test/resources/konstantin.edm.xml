@@ -1,0 +1,57 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:edm="http://www.europeana.eu/schemas/edm/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:ore="http://www.openarchives.org/ore/terms/"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:dm2e="http://onto.dm2e.eu/schemas/dm2e/">
+  <ore:Aggregation rdf:about="http://data.dm2e.eu/data/aggregation/ub-ffm/sammlungen/246065419">
+    <edm:provider rdf:resource="http://data.dm2e.eu/data/agent/ub-ffm/sammlungen/Judaica_Europeana"/>
+    <edm:object>
+      <edm:WebResource rdf:about="http://sammlungen.ub.uni-frankfurt.de/mshebr/download/webcache/304/1846125">
+        <dc:format>image/jpeg</dc:format>
+      </edm:WebResource>
+    </edm:object>
+    <edm:rights rdf:resource="http://creativecommons.org/publicdomain/mark/1.0/"/>
+    <edm:dataProvider rdf:resource="http://data.dm2e.eu/data/agent/ub-ffm/sammlungen/Universit%C3%A4tsbibliothek_JCS_Frankfurt_am_Main"/>
+    <edm:isShownAt rdf:resource="http://sammlungen.ub.uni-frankfurt.de/mshebr/id/1846121"/>
+    <edm:aggregatedCHO>
+      <edm:ProvidedCHO rdf:about="http://data.dm2e.eu/data/item/ub-ffm/sammlungen/246065419">
+        <dc:creator>
+          <edm:Agent rdf:about="http://data.dm2e.eu/data/agent/ub-ffm/sammlungen/246065419/028A:01">
+            <skos:altLabel xml:lang="und-Hebr">פסיפיכו, יצחק בן אשר</skos:altLabel>
+            <skos:prefLabel xml:lang="und-Latn">Pacifico, Jiṣḥāq ben Ašēr</skos:prefLabel>
+          </edm:Agent>
+        </dc:creator>
+        <dc:identifier>246065419</dc:identifier>
+        <dc:title xml:lang="he-Latn">Ms. hebr. oct. 107,2 - Mishpaṭ shalom</dc:title>
+        <dc:coverage>
+          <edm:Place rdf:about="http://data.dm2e.eu/data/place/ub-ffm/sammlungen/246065419/d1e90_Venedig">
+            <skos:prefLabel xml:lang="de">Venedig</skos:prefLabel>
+          </edm:Place>
+        </dc:coverage>
+        <dc:language>he</dc:language>
+        <edm:type>TEXT</edm:type>
+        <dc:source rdf:resource="http://data.dm2e.eu/data/item/ub-ffm/sammlungen/246065419"/>
+        <dc:description xml:lang="de">Venedig : 1741 502 [1741]</dc:description>
+        <dc:title>Mišpaṭ šālōm</dc:title>
+        <dc:coverage>
+          <edm:Place rdf:about="http://data.dm2e.eu/data/place/ub-ffm/sammlungen/246065419/d1e265_Venedig">
+            <skos:prefLabel xml:lang="de">Venedig</skos:prefLabel>
+          </edm:Place>
+        </dc:coverage>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+        >1741</dc:date>
+        <dc:description xml:lang="de">In: Ms. hebr. oct. 107 - Mishpaṭ shalom</dc:description>
+        <dc:description xml:lang="de">Band 2</dc:description>
+        <dc:title xml:lang="he-Hebr">משפט שלום, שו"ת</dc:title>
+        <dc:type rdf:resource="http://onto.dm2e.eu/schemas/dm2e/Manuscript"/>
+        <dc:format xml:lang="de">291 Bl. ; Beschreibstoff: Papier ; 16 x 21,5 cm</dc:format>
+        <edm:isNextInSequence rdf:resource="http://data.dm2e.eu/data/item/ub-ffm/sammlungen/246064676"/>
+        <edm:hasMet rdf:resource="http://data.dm2e.eu/data/agent/ub-ffm/sammlungen/246065419/028C:01"/>
+      </edm:ProvidedCHO>
+    </edm:aggregatedCHO>
+  </ore:Aggregation>
+</rdf:RDF>

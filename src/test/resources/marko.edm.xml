@@ -1,0 +1,38 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:edm="http://www.europeana.eu/schemas/edm/" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <ore:Aggregation rdf:about="#ub-ffm:aggregation:sammlungen:urn:nbn:de:hebis:30:2-8936">
+        <edm:aggregatedCHO rdf:resource="#ub-ffm:item:sammlungen:urn:nbn:de:hebis:30:2-8936"/>
+        <edm:dataProvider>Universitätsbibliothek JCS Frankfurt am Main</edm:dataProvider>
+        <edm:isShownAt rdf:resource="http://nbn-resolving.de/urn:nbn:de:hebis:30:2-8936"/>
+        <edm:object rdf:resource="http://sammlungen.ub.uni-frankfurt.de/mshebr/download/webcache/304/1846125"/>
+        <edm:provider>Judaica Europeana</edm:provider>
+        <edm:rights rdf:resource="http://creativecommons.org/publicdomain/mark/1.0/"/>
+    </ore:Aggregation>
+    <edm:ProvidedCHO rdf:about="#ub-ffm:item:sammlungen:urn:nbn:de:hebis:30:2-8936">
+        <dc:contributor>Pacifico, Menāḥēm</dc:contributor>
+        <dc:contributor>פאציפיקו, מנחם</dc:contributor>
+        <dc:creator>Pacifico, Jiṣḥāq ben Ašēr</dc:creator>
+        <dc:creator>פסיפיכו, יצחק בן אשר</dc:creator>
+        <dc:description>Venedig : 1741 502 [1741]</dc:description>
+        <dc:description>In: Ms. hebr. oct. 107 - Mishpaṭ shalom</dc:description>
+        <dc:description>Band 2</dc:description>
+        <dc:format>291 Bl. ; Beschreibstoff: Papier ; 16 x 21,5 cm</dc:format>
+        <dc:identifier>urn:nbn:de:hebis:30:2-8936</dc:identifier>
+        <dc:language>he</dc:language>
+        <dc:title>Ms. hebr. oct. 107,2 - Mishpaṭ shalom</dc:title>
+        <dc:type>Text</dc:type>
+        <dcterms:alternative>Mišpaṭ šālōm</dcterms:alternative>
+        <dcterms:alternative>משפט שלום, שו"ת</dcterms:alternative>
+        <dcterms:isPartOf rdf:resource="#ub-ffm:item:sammlungen:urn:nbn:de:hebis:30:2-13041"/>
+        <dcterms:issued>1741</dcterms:issued>
+        <dcterms:spatial>Venedig</dcterms:spatial>
+        <edm:isNextInSequence rdf:resource="#ub-ffm:item:sammlungen:urn:nbn:de:hebis:30:2-8361"/>
+        <edm:type>TEXT</edm:type>
+    </edm:ProvidedCHO>
+    <edm:WebResource rdf:about="http://nbn-resolving.de/urn:nbn:de:hebis:30:2-8936">
+        <dc:format>text/html</dc:format>
+        <dcterms:created>2011</dcterms:created>
+    </edm:WebResource>
+    <edm:WebResource rdf:about="http://sammlungen.ub.uni-frankfurt.de/mshebr/download/webcache/304/1846125">
+        <dc:format>image/jpeg</dc:format>
+    </edm:WebResource>
+</rdf:RDF>

@@ -1,0 +1,771 @@
+
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#altLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 repeats non-repeatable property <http://www.europeana.eu/schemas/edm/isShownAt>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has data property with invalid datatype <http://purl.org/ontology/bibo/numPages>. Allowed rdf:datatype: [null, http://www.w3.org/2001/XMLSchema#unsignedInt]
+	[ERROR]	 is missing required property <http://purl.org/dc/elements/1.1/type>
+	[ERROR]	 has unknown property <http://onto.dm2e.eu/schemas/dm2e/orthography>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 repeats non-repeatable property <http://www.europeana.eu/schemas/edm/isShownAt>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://www.europeana.eu/schemas/edm/isShownAt>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 is missing required property <http://www.europeana.eu/schemas/edm/type>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 is missing required property <http://www.w3.org/2004/02/skos/core#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#prefLabel>
+	[ERROR]	 has unknown property <http://www.w3.org/2008/05/skos#note>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)
+	[ERROR]	 has unknown property <http://www.lingvoj.org/ontology#originalLanguage>
+	[ERROR]	 repeats non-repeatable property <http://purl.org/ontology/bibo/pages>
+	[FATAL]	 is missing required property <http://purl.org/dc/elements/1.1/format> (Condition: Annotatable WebResource)

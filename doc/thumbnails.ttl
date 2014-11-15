@@ -1,0 +1,40 @@
+#
+# Common Data
+#
+
+<cho1> rdf:type edm:ProvidedCHO ;
+    dc:type dm2e:Manuscript .
+
+<cho2> rdf:type edm:ProvidedCHO ;
+    dc:type dm2e:Page .
+
+<http://foo/thumb.jpeg> rdf:type edm:WebResource ;
+    dc:format "image/jpeg" .
+
+#
+# Alternative 1
+# dm2e:parsProToto (Part-Of Aggregation that represents the whole)
+#
+# This way, when I come across <agg1> and search for a representative thumbnail,
+# I can do 
+# SELECT ?thumbnail {
+#   <agg1> edm:aggregatedCHO ?topCho .
+#   ?thumbCho dm2e:parsProToto "true"^^xsd:boolean .
+#   ?thumbCho dcterms:hasPart/* ?topCho .
+#   ?thumbAgg edm:aggregatedCHO ?thumbCho .
+#   { ?thumbAgg edm:object ?thumbnail }
+#   UNION
+#   { ?thumbAgg edm:isShownBy ?thumbnail }
+#   ?thumbnail dc:format ?imageFormat .
+#   FILTER(REGEX(?imageFormat, "^image")).
+# } LIMIT 1
+#
+
+<agg1> rdf:type ore:Aggregation ;
+    edm:aggregatedCHO <cho1> ;
+    dm2e:displayLevel "true"^^xsd:boolean .
+
+<agg2> rdf:type ore:Aggregation ;
+    edm:aggregatedCHO <cho2> ;
+    dm2e:parsProToto "true"^^xsd:boolean ;
+    edm:object <http://foo/thumb.jpeg> .
