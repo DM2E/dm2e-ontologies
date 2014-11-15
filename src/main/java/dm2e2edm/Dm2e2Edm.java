@@ -95,7 +95,7 @@ public class Dm2e2Edm implements Runnable {
 	public static final Map<Resource,LinkedHashSet<Resource>> dm2eSuperClasses = new HashMap<Resource, LinkedHashSet<Resource>>();
 
 	private final static Resource OWL_THING = edmModel.createResource(NS.OWL.THING);
-	private final static DateTime EARLIEST_DATE = new DateTime(0, 1, 1, 0, 0);
+//	private final static DateTime EARLIEST_DATE = new DateTime(0, 1, 1, 0, 0);
 	private static final Resource	PUBLIC_DOMAIN_MARK	= edmModel.createResource(NS.LICENSE.PUBLIC_DOMAIN_MARK);
 
 	private static final Resource[] prettyTypes = {
@@ -277,7 +277,7 @@ public class Dm2e2Edm implements Runnable {
 		this.inputFile = null;
 		this.inputSerialization = null;
 		this.configProps = new Properties();
-		this.publicDomainCutoffDate = EARLIEST_DATE;
+		this.publicDomainCutoffDate = null;
 	}
 
 	public Dm2e2Edm(Path inputFile, String inputSerialization, Path outputFile, String outputSerialization, Properties configProps, DateTime publicDomainCutoffDate) {
@@ -299,7 +299,7 @@ public class Dm2e2Edm implements Runnable {
 	}
 
 	public Dm2e2Edm(Path inputFile, String inputSerialization, Path outputFile, String outputSerialization) {
-		this(inputFile, inputSerialization, outputFile, outputSerialization, new Properties(), EARLIEST_DATE);
+		this(inputFile, inputSerialization, outputFile, outputSerialization, new Properties(), null);
 	}
 
 	private synchronized void convertResourceInInputModel(Resource res) {
@@ -618,43 +618,67 @@ public class Dm2e2Edm implements Runnable {
 		//
         // Public Domain cutoff date
 		//
-		} else if (targetProp.equals(inputModel.createProperty(NS.EDM.PROP_RIGHTS))
-				&& this.publicDomainCutoffDate.isAfter(EARLIEST_DATE)) {
+		} else if (this.publicDomainCutoffDate != null && targetProp.equals(prop(NS.EDM.PROP_RIGHTS))) {
 			
-			boolean workIsInPublicDomain = false;
-			
-			// get dct:issued
-			DateTime dctIssued = null;
-			StmtIterator iterDctIssued = targetSubject.asResource().listProperties(prop(NS.DCTERMS.PROP_ISSUED));
-			while (iterDctIssued.hasNext()) {
-				dctIssued = DateTime.parse(iterDctIssued.next().getObject().toString());
-				break;
-			}
+			boolean subjectIsAggregation = getRdfTypes(targetSubject).contains(res(NS.ORE.CLASS_AGGREGATION));
+			boolean subjectIsWebResource = getRdfTypes(targetSubject).contains(res(NS.EDM.CLASS_WEBRESOURCE));
 
-			// get dm2e:sentOn
-			DateTime dm2eSentOn = null;
-			StmtIterator iterDm2eSentOn = targetSubject.asResource().listProperties(prop(NS.DM2E.PROP_SENT_ON));
-			while (iterDm2eSentOn.hasNext()) {
-				dm2eSentOn = DateTime.parse(iterDm2eSentOn.next().getObject().toString());
-				break;
-			}
-			
-			if (dctIssued != null && dctIssued.isBefore(this.publicDomainCutoffDate)) {
-				log.debug("PD because dct:issued {} < {}", dctIssued, this.publicDomainCutoffDate);
-				workIsInPublicDomain = true;
-			}
-			if (dm2eSentOn != null && dm2eSentOn.isBefore(this.publicDomainCutoffDate)) {
-				log.debug("PD because dm2e:sentOn {} < {}", dm2eSentOn, this.publicDomainCutoffDate);
-				workIsInPublicDomain = true;
-			}
-			
-			if (workIsInPublicDomain) {
-				log.info("Changing rights statement to Public Domain.");
-				outputModel.add(targetSubject, targetProp, PUBLIC_DOMAIN_MARK);
-				skipGeneric = true;
-			}
+			Resource agg = null;
+			Resource cho = null;
 
+			if (! subjectIsWebResource && ! subjectIsAggregation) {
+				log.error("<{}> has edm:rights but is neither aggregation nor webresource", targetSubject);
+				throw new RuntimeException();
+			} else if (subjectIsAggregation) {
+				log.debug("it's an aggregation.");
+				agg = targetSubject;
+			} else if (subjectIsWebResource) {
+				StmtIterator iterAgg = inputModel.listStatements(null, null, targetSubject);
+				while (iterAgg.hasNext()) {
+					Resource possibleAgg = iterAgg.next().getSubject();
+					log.debug("possibleAgg: {}", possibleAgg);
+					if (getRdfTypes(possibleAgg).contains(res(NS.ORE.CLASS_AGGREGATION))) {
+						agg = possibleAgg;
+						// TODO find the right aggregation. this is complicated and must probably
+						// be handled with global state. We need to know the right aggregation and
+						// mustn't produce contradicting right statements
+						break;
+					}
+				}
+			} 
+			StmtIterator iterCHO = agg.asResource().listProperties(prop(NS.EDM.PROP_AGGREGATED_CHO));
+			if (iterCHO.hasNext()) {
+				cho = iterCHO.next().getObject().asResource();
+			}
+			if (null == agg || null == cho) {
+				log.error("Couldnt find CHO  or Agg for <{}> (CHO: <{}>)", targetSubject, cho);
+				throw new RuntimeException();
+			}
 			
+			
+			// Check properties
+			List<Property> publicDomainProperties = new ArrayList<>();
+			publicDomainProperties.add(prop(NS.DM2E.PROP_SENT_ON));
+			publicDomainProperties.add(prop(NS.DCTERMS.PROP_ISSUED));
+			for (Property pdProp : publicDomainProperties) {
+				StmtIterator iter = cho.listProperties(pdProp);
+				DateTime dateToCheck = null;
+				while (iter.hasNext()) {
+					dateToCheck = DateTime.parse(iter.next().getObject().toString());
+					break;
+				}
+				if (dateToCheck != null && dateToCheck.isBefore(this.publicDomainCutoffDate)) {
+					log.debug(String.format("Public Domain because '%s' on <%s> was before '%s'", dateToCheck, pdProp, this.publicDomainCutoffDate));
+					log.info("Changing rights statement of <{}> to Public Domain.", targetSubject);
+					skipGeneric = true;
+					outputModel.add(targetSubject, targetProp, PUBLIC_DOMAIN_MARK);
+					// TODO
+//					if (subjectIsWebResource) {
+//						log.info("Skipping edm:rights for this Public Domain WebResource <{}>", targetSubject);
+//						outputModel.add(targetSubject, targetProp, PUBLIC_DOMAIN_MARK);
+//					}
+				}
+			}
 		}
 		
 		log.debug("PROP: {}", targetProp.getURI());

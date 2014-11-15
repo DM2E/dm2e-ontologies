@@ -306,21 +306,32 @@ public class Dm2e2EdmTest {
 
 		final Property dctIssued = prop(m, NS.DCTERMS.PROP_ISSUED);
 		final Property edmRights = prop(m, NS.EDM.PROP_RIGHTS);
+		final Property edmAggregatedCHO = prop(m, NS.EDM.PROP_AGGREGATED_CHO);
 		final Resource restrictiveLicense = res(m, "http://example.org/more-restrictive-license");
 		final Resource pdLicense = res(m, NS.LICENSE.PUBLIC_DOMAIN_MARK);
 
+		final Resource someAgg = m.createResource("http://example.org/someAgg");
 		final Resource someCHO = m.createResource("http://example.org/someCHO");
+		final Resource someWR = m.createResource("http://example.org/someWebResource");
 		m.add(someCHO, prop(m, NS.RDF.PROP_TYPE), res(m, NS.EDM.CLASS_PROVIDED_CHO));
+		m.add(someAgg, prop(m, NS.RDF.PROP_TYPE), res(m, NS.ORE.CLASS_AGGREGATION));
+		m.add(someWR, prop(m, NS.RDF.PROP_TYPE), res(m, NS.EDM.CLASS_WEBRESOURCE));
+		m.add(someAgg, prop(m, NS.EDM.PROP_AGGREGATED_CHO), someCHO);
+		m.add(someAgg, prop(m, NS.EDM.PROP_IS_SHOWN_AT), someWR);
 		m.add(someCHO, dctIssued, "1933-01-01");
-		m.add(someCHO, edmRights, restrictiveLicense);
+		m.add(someAgg, edmRights, restrictiveLicense);
+		m.add(someWR, edmRights, restrictiveLicense);
 		
 		new Dm2e2Edm(m, out1934, DateTime.parse("1934-01-01")).run();;
 		new Dm2e2Edm(m, outNone).run();
 		
-		assertThat(out1934.contains(someCHO, edmRights, pdLicense)).isTrue();
-		assertThat(out1934.contains(someCHO, edmRights, restrictiveLicense)).isFalse();
-		assertThat(outNone.contains(someCHO, edmRights, pdLicense)).isFalse();
-		assertThat(outNone.contains(someCHO, edmRights, restrictiveLicense)).isTrue();
+		assertThat(out1934.contains(someAgg, edmRights, pdLicense)).isTrue();
+		assertThat(out1934.contains(someWR, edmRights, pdLicense)).isTrue();
+		assertThat(out1934.contains(someAgg, edmRights, restrictiveLicense)).isFalse();
+
+		assertThat(outNone.contains(someAgg, edmRights, pdLicense)).isFalse();
+		assertThat(outNone.contains(someAgg, edmRights, restrictiveLicense)).isTrue();
+		assertThat(outNone.contains(someWR, edmRights, restrictiveLicense)).isTrue();
 		
 	}
 /*

@@ -19,17 +19,6 @@ import eu.dm2e.validation.Dm2eValidator;
 import eu.dm2e.validation.ValidationLevel;
 import eu.dm2e.validation.validator.Dm2eValidatorVersion;
 
-/**
- * @author Konstantin Baierer
- * 
- * Algorithm:
- * 		Get data out of triplestore
- * 		Translate properties and classes
- * 		Fit additional requirements
- * 			Translate datetime to lower granularity (strip the day part)
- * 			Add dc:source to CHO, Feed.The.Pundit ...
- *
- */
 public class Dm2eValidationCLI {
 	
 
@@ -72,7 +61,7 @@ public class Dm2eValidationCLI {
 				: line.getOptionValue("format");
 		
 		// Minimum level
-		final ValidationLevel minLevel = (null == line.getOptionValue("level"))
+		final ValidationLevel level = (null == line.getOptionValue("level"))
 				? DEFAULT_LEVEL
 				: ValidationLevel.valueOf(line.getOptionValue("level"));
 
@@ -87,9 +76,6 @@ public class Dm2eValidationCLI {
 		// Whether to write to stdout
 		final boolean writeToStdout = line.hasOption("stdout");
 		
-		// Skip okay results
-		boolean skipOk = line.hasOption("skipOk");
-
 		// Input files
 		final List fileList = line.getArgList();
 
@@ -112,11 +98,16 @@ public class Dm2eValidationCLI {
 			}
 
 			if (writeToStdout) {
-				if (report.getHighestLevel().ordinal() >= minLevel.ordinal()) {
-					System.out.println(report.exportToString(minLevel, true, terse));
-				}
+				System.out.println(report.exportToString(level, true, terse));
 				System.err.println("DONE validating " + fileName);
 			} else {
+				final String outputFileName = fileName + outputFileSuffix;
+				File outfile = new File(outputFileName);
+				try {
+					FileUtils.writeStringToFile(outfile, report.exportToString(level, true, terse));
+				} catch (IOException e) {
+					dieHelpfully("Error writing file to output file", e);
+				}
 				StringBuilder sb = new StringBuilder();
 				sb.append("DONE [");
 				sb.append(++currentFile);
@@ -125,19 +116,9 @@ public class Dm2eValidationCLI {
 				sb.append("]");
 				sb.append("[");
 				sb.append(report.getHighestLevel().name());
-				sb.append("]");
-				if (! skipOk || report.getHighestLevel().ordinal() >= minLevel.ordinal()) {
-					final String outputFileName = fileName + outputFileSuffix;
-					File outfile = new File(outputFileName);
-					try {
-						FileUtils.writeStringToFile(outfile, report.exportToString(minLevel, true, terse));
-					} catch (IOException e) {
-						dieHelpfully("Error writing file to output file", e);
-					}
-					sb.append(" See '");
-					sb.append(outputFileName);
-					sb.append("'.");
-				}
+				sb.append("] See '");
+				sb.append(outputFileName);
+				sb.append("'.");
 				System.err.println(sb.toString());
 			}
 		}
@@ -213,16 +194,21 @@ public class Dm2eValidationCLI {
 	private static Options getOptions() {
 		Options options = new Options();
 		
+		StringBuilder versionSB = new StringBuilder();
+		for (Dm2eValidatorVersion validatorVersion : Dm2eValidatorVersion.values()) {
+			versionSB.append(validatorVersion.getVersionString());
+			if (validatorVersion.ordinal() < Dm2eValidatorVersion.values().length -1)
+				versionSB.append(" | ");
+		}
 		StringBuilder levelSB = new StringBuilder();
 		for (ValidationLevel thisLevel : ValidationLevel.values()) {
 			levelSB.append(thisLevel.name());
 			if (thisLevel.ordinal() < ValidationLevel.values().length -1)
 				levelSB.append(" | ");
 		}
-		options.addOption("skipOk", false, "Skip writing results for valid results");
 		options.addOption(OptionBuilder
 			.hasArgs(1)
-			.withArgName(Dm2eValidatorVersion.valuesAsTerseString())
+			.withArgName(versionSB.toString())
 			.withDescription("DM2E Data Model version [REQUIRED]")
 			.isRequired()
 			.create("version"));
