@@ -2,6 +2,9 @@ package eu.dm2e.validation;
 
 public enum ValidationProblemCategory {
 	
+	MISMATCH_OF_DATASET_ID("Dataset ID of CHO '%s' doesn't match Ingestion Dataset '%s'."),
+	IRRETRIEVABLE_DATASET_ID("Couldn't determine the dataset by parsing URLS for input '%s'."),
+	
 	MISSING_REQUIRED_PROPERTY(" is missing required property <%s>"),
 	MISSING_RECOMMENDED_PROPERTY(" is missing strongly recommended property <%s>"),
 	MISSING_CONDITIONALLY_REQUIRED_PROPERTY(" is missing required property <%s> (Condition: %s)"),
