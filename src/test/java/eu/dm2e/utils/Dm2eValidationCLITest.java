@@ -13,7 +13,7 @@ public class Dm2eValidationCLITest {
 //		final String optString = "--stdout --format TURTLE --version 1.1_Rev1.2 src/test/resources/dingler_example.ttl";
 		final String optString = "--stdout --terse --format TURTLE --version 1.1_Rev1.3 src/test/resources/dingler_example.ttl";
 //		final String optString = "--format TURTLE --version 1.1_Rev1.3 src/test/resources/dingler_example.ttl";
-		Dm2eValidationCLI.main(optString.split(" "));
+//		Dm2eValidationCLI.main(optString.split(" "));
 	}
 
 }

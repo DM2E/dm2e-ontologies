@@ -488,6 +488,7 @@ public class Dm2e2Edm implements Runnable {
 			Resource res = targetObject.asResource();
 			String begin = getLiteralString(res, res(NS.EDM.PROP_BEGIN));
 			String end = getLiteralString(res, res(NS.EDM.PROP_END));
+			String timeSpanPrefLabel = getLiteralString(res, res(NS.SKOS.PROP_PREF_LABEL));
 //			if ("true".equals(configProps.getProperty("shortenYear", "true"))) {
 			if (null != begin && null != end && begin.length() >= 10 && end.length() >= 10) {
 //				log.debug("TIMESTAMP");
@@ -510,6 +511,8 @@ public class Dm2e2Edm implements Runnable {
 						skipGeneric = true;
 					}
 				}
+			} else if (null != timeSpanPrefLabel){
+				outputModel.add(targetSubject, targetProp, outputModel.createLiteral(timeSpanPrefLabel));
 			} else {
 				log.error("Bad Timespan!");
 			}
