@@ -578,6 +578,7 @@ public final class NS {
 		public static final String BASE         = "http://xmlns.com/foaf/0.1/";
 		public static final String	CLASS_ORGANIZATION	= BASE + "Organization";
 		public static final String	CLASS_PERSON		= BASE + "Person";
+		public static final String	CLASS_IMAGE		= BASE + "Image";
 		public static final String	PROP_NAME			= BASE + "name";
 	}
 
@@ -773,6 +774,13 @@ public final class NS {
 		public static final String PROP_STARTING_PAGE = BASE + "startingPage";
 	}
 	
+	public static final class BIBFRAME {
+		public static final String BASE = "http://bibframe.org/vocab/NotatedMusic";
+		public static final String CLASS_NOTATED_MUSIC = BASE + "NotatedMusic";
+		public static final String CLASS_CARTOGRAPHY = BASE + "Cartography";
+
+	}
+
 	public static final class DAMOVA {
 		public static final String BASE = "http://www.mozajka.co/LOD/MM/";
 	}
