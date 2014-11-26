@@ -511,11 +511,7 @@ public class Dm2e2Edm implements Runnable {
 						skipGeneric = true;
 					}
 				}
-			} else if (null != timeSpanPrefLabel){
-				outputModel.add(targetSubject, targetProp, outputModel.createLiteral(timeSpanPrefLabel));
-				skipSet.add(res);
-				skipGeneric = true;
-			} else {
+			} else if (null == timeSpanPrefLabel){
 				log.error("Bad Timespan: " + res);
 			}
 //			log.error("SKIPPING " + res);
